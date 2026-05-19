@@ -1,0 +1,20 @@
+build/
+sysroot/
+
+# CMake/build outputs
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# Local editor/tool state
+.codex
+.agents/
+.vscode/
+
+# Compiled artifacts and logs
+*.o
+*.so
+*.a
+*.log
