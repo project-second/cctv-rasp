@@ -37,6 +37,7 @@ private:
     static gboolean switch_profile_on_main(gpointer user_data);
     static GstRTSPFilterResult close_rtsp_client(GstRTSPServer* server, GstRTSPClient* client, gpointer user_data);
 
+    void configure_auth(const Config& config);
     GstRTSPMediaFactory* create_factory(const Config& config) const;
     void install_factory(const Config& config);
     std::pair<bool, std::string> switch_profile_now(const std::string& profile);

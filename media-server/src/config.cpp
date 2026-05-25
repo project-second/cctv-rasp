@@ -20,6 +20,9 @@ void print_usage(const char* program) {
         << "  --control-port <p>   HTTP control port. Default: 8081\n"
         << "  --mount <path>       RTSP mount path. Default: /live\n"
         << "  --encoder <name>     h264 encoder: v4l2 or x264. Default: v4l2\n"
+        << "  --rtsp-user <user>   Enable RTSP Digest auth with this user\n"
+        << "  --rtsp-password <p>  RTSP Digest auth password\n"
+        << "  --rtsp-realm <name>  RTSP Digest auth realm. Default: rail-media\n"
         << "  --width <pixels>     Frame width. Default: 1280\n"
         << "  --height <pixels>    Frame height. Default: 720\n"
         << "  --fps <fps>          Frame rate. Default: 30\n"
@@ -46,6 +49,8 @@ Config parse_args(int argc, char* argv[]) {
     std::optional<int> height;
     std::optional<int> fps;
     std::optional<int> bitrate_kbps;
+    std::optional<std::string> rtsp_user;
+    std::optional<std::string> rtsp_password;
 
     for (int i = 1; i < argc; ++i) {
         const std::string arg = argv[i];
@@ -69,6 +74,12 @@ Config parse_args(int argc, char* argv[]) {
             config.mount = require_value(arg);
         } else if (arg == "--encoder") {
             encoder = require_value(arg);
+        } else if (arg == "--rtsp-user") {
+            rtsp_user = require_value(arg);
+        } else if (arg == "--rtsp-password") {
+            rtsp_password = require_value(arg);
+        } else if (arg == "--rtsp-realm") {
+            config.rtsp_realm = require_value(arg);
         } else if (arg == "--width") {
             width = parse_int(require_value(arg), arg);
         } else if (arg == "--height") {
@@ -103,12 +114,27 @@ Config parse_args(int argc, char* argv[]) {
     if (bitrate_kbps.has_value()) {
         config.bitrate_kbps = *bitrate_kbps;
     }
+    if (rtsp_user.has_value()) {
+        config.rtsp_user = *rtsp_user;
+    }
+    if (rtsp_password.has_value()) {
+        config.rtsp_password = *rtsp_password;
+    }
 
     if (config.mount.empty() || config.mount.front() != '/') {
         throw std::runtime_error("--mount must start with /");
     }
     if (config.encoder != "v4l2" && config.encoder != "x264") {
         throw std::runtime_error("--encoder must be v4l2 or x264");
+    }
+    if (config.rtsp_realm.empty()) {
+        throw std::runtime_error("--rtsp-realm must not be empty");
+    }
+    if (rtsp_user.has_value() != rtsp_password.has_value()) {
+        throw std::runtime_error("--rtsp-user and --rtsp-password must be provided together");
+    }
+    if (rtsp_user.has_value() && (config.rtsp_user.empty() || config.rtsp_password.empty())) {
+        throw std::runtime_error("--rtsp-user and --rtsp-password must not be empty");
     }
 
     return config;

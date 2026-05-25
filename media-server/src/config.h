@@ -10,6 +10,9 @@ struct Config {
     std::string control_port = "8081";
     std::string mount = "/live";
     std::string encoder = "v4l2";
+    std::string rtsp_user;
+    std::string rtsp_password;
+    std::string rtsp_realm = "rail-media";
     int width = 1280;
     int height = 720;
     int fps = 30;

@@ -9,11 +9,22 @@
 
 namespace rail_media {
 
+namespace {
+
+constexpr const char* kRtspViewerRole = "viewer";
+
+bool rtsp_auth_enabled(const Config& config) {
+    return !config.rtsp_user.empty() && !config.rtsp_password.empty();
+}
+
+}  // namespace
+
 MediaServer::MediaServer(const Config& config)
     : mount_(config.mount),
       current_(config) {
     server_ = gst_rtsp_server_new();
     gst_rtsp_server_set_service(server_, config.port.c_str());
+    configure_auth(config);
     install_factory(config);
 
     source_id_ = gst_rtsp_server_attach(server_, nullptr);
@@ -68,11 +79,44 @@ GstRTSPFilterResult MediaServer::close_rtsp_client(GstRTSPServer*, GstRTSPClient
     return GST_RTSP_FILTER_REMOVE;
 }
 
+void MediaServer::configure_auth(const Config& config) {
+    if (!rtsp_auth_enabled(config)) {
+        return;
+    }
+
+    GstRTSPAuth* auth = gst_rtsp_auth_new();
+    gst_rtsp_auth_set_realm(auth, config.rtsp_realm.c_str());
+    gst_rtsp_auth_set_supported_methods(auth, GST_RTSP_AUTH_DIGEST);
+
+    GstRTSPToken* token = gst_rtsp_token_new(
+        GST_RTSP_TOKEN_MEDIA_FACTORY_ROLE,
+        G_TYPE_STRING,
+        kRtspViewerRole,
+        nullptr);
+    gst_rtsp_auth_add_digest(auth, config.rtsp_user.c_str(), config.rtsp_password.c_str(), token);
+    gst_rtsp_token_unref(token);
+
+    gst_rtsp_server_set_auth(server_, auth);
+    g_object_unref(auth);
+}
+
 GstRTSPMediaFactory* MediaServer::create_factory(const Config& config) const {
     GstRTSPMediaFactory* factory = gst_rtsp_media_factory_new();
     const std::string launch = build_launch_pipeline(config);
     gst_rtsp_media_factory_set_launch(factory, launch.c_str());
     gst_rtsp_media_factory_set_shared(factory, TRUE);
+    if (rtsp_auth_enabled(config)) {
+        gst_rtsp_media_factory_add_role(
+            factory,
+            kRtspViewerRole,
+            GST_RTSP_PERM_MEDIA_FACTORY_ACCESS,
+            G_TYPE_BOOLEAN,
+            TRUE,
+            GST_RTSP_PERM_MEDIA_FACTORY_CONSTRUCT,
+            G_TYPE_BOOLEAN,
+            TRUE,
+            nullptr);
+    }
     return factory;
 }
 
