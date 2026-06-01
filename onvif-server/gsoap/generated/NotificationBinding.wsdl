@@ -546,7 +546,7 @@
 </binding>
 
 <service name="NotificationBinding">
-  <documentation>gSOAP 2.8.132 generated service definition</documentation>
+  <documentation>gSOAP 2.8.135 generated service definition</documentation>
   <port name="NotificationBinding" binding="tns:NotificationBinding">
     <SOAP:address location="http://localhost:80"/>
   </port>

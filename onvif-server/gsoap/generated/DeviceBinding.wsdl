@@ -756,7 +756,7 @@
 </binding>
 
 <service name="DeviceBinding">
-  <documentation>gSOAP 2.8.132 generated service definition</documentation>
+  <documentation>gSOAP 2.8.135 generated service definition</documentation>
   <port name="DeviceBinding" binding="tns:DeviceBinding">
     <SOAP:address location="http://localhost:80"/>
   </port>

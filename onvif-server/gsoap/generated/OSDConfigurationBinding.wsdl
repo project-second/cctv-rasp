@@ -606,7 +606,7 @@
 </binding>
 
 <service name="OSDConfigurationBinding">
-  <documentation>gSOAP 2.8.132 generated service definition</documentation>
+  <documentation>gSOAP 2.8.135 generated service definition</documentation>
   <port name="OSDConfigurationBinding" binding="tns:OSDConfigurationBinding">
     <SOAP:address location="http://localhost:80"/>
   </port>

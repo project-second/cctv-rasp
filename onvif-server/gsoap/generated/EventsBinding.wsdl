@@ -576,7 +576,7 @@
 </binding>
 
 <service name="EventsBinding">
-  <documentation>gSOAP 2.8.132 generated service definition</documentation>
+  <documentation>gSOAP 2.8.135 generated service definition</documentation>
   <port name="EventsBinding" binding="tns:EventsBinding">
     <SOAP:address location="http://localhost:80"/>
   </port>
