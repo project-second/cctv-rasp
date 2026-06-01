@@ -4,6 +4,8 @@
 
 The process does not encode video. It answers ONVIF discovery and SOAP requests, then returns the RTSP stream URI served by `rail-media`.
 
+This module is moving toward ONVIF Profile T device behavior, but it is not a certified Profile T conformant implementation yet. Treat the current implementation as Profile T work in progress until it passes the official ONVIF Device Test Tool.
+
 ## Build
 
 ```bash
@@ -35,10 +37,13 @@ Useful options:
 ## Supported ONVIF surface
 
 - WS-Discovery Probe and Resolve responses
-- Device: `GetCapabilities`, `GetDeviceInformation`, `GetServices`, `GetSystemDateAndTime`
+- Device: `GetCapabilities`, `GetDeviceInformation`, `GetServices`, `GetSystemDateAndTime`, `GetScopes`, `GetHostname`, `GetNetworkInterfaces`, `GetUsers`, `GetServiceCapabilities`
 - Media: `GetProfiles`, `GetStreamUri`, `GetVideoEncoderConfiguration`, `SetVideoEncoderConfiguration`
-- PTZ: `ContinuousMove`, `RelativeMove`, `Stop`, `GetStatus`, `GotoHomePosition`, `SetHomePosition`
+- Media2: basic H.264 `GetProfiles`, `GetStreamUri`, `GetServiceCapabilities`
+- PTZ: `GetNodes`, `GetConfigurations`, `GetPresets`, `SetPreset`, `GotoPreset`, `ContinuousMove`, `RelativeMove`, `Stop`, `GetStatus`, `GotoHomePosition`, `SetHomePosition`
 - Imaging: basic `GetOptions`, `GetImagingSettings`, `SetImagingSettings` compatibility responses
-- Events: basic `GetEventProperties` compatibility response
+- Events: basic `GetEventProperties`, `CreatePullPointSubscription`, `PullMessages`, `Renew`, `Unsubscribe` compatibility responses
+- OSD: basic text OSD query/update compatibility responses
+- WS-Security: UsernameToken `PasswordText` and `PasswordDigest` checks when `--username` and `--password` are provided
 
 PTZ maps ONVIF pan/tilt commands to the existing `hardware-control` CLI. Zoom requests return a SOAP fault because no zoom hardware is currently configured.

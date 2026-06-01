@@ -2,11 +2,12 @@
 
 #include "utils.h"
 
+#include "soapH.h"
+#include "wsddapi.h"
+
 #include <arpa/inet.h>
 #include <netinet/in.h>
-#include <sys/select.h>
 #include <sys/socket.h>
-#include <unistd.h>
 
 #include <stdexcept>
 #include <string>
@@ -17,85 +18,69 @@ namespace {
 constexpr const char* kDiscoveryAddress = "239.255.255.250";
 constexpr int kDiscoveryPort = 3702;
 
-std::string discovery_response(const Config& config, const std::string& message_id) {
-    const std::string endpoint = "urn:uuid:" + uuid_from_serial(config.serial);
-    return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-        "<e:Envelope xmlns:e=\"http://www.w3.org/2003/05/soap-envelope\" "
-        "xmlns:w=\"http://schemas.xmlsoap.org/ws/2004/08/addressing\" "
-        "xmlns:d=\"http://schemas.xmlsoap.org/ws/2005/04/discovery\" "
-        "xmlns:dn=\"http://www.onvif.org/ver10/network/wsdl\">"
-        "<e:Header>"
-        "<w:MessageID>urn:uuid:" + uuid_from_serial(config.serial + "-response") + "</w:MessageID>"
-        "<w:RelatesTo>" + xml_escape(message_id) + "</w:RelatesTo>"
-        "<w:To>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</w:To>"
-        "<w:Action>http://schemas.xmlsoap.org/ws/2005/04/discovery/ProbeMatches</w:Action>"
-        "</e:Header>"
-        "<e:Body><d:ProbeMatches><d:ProbeMatch>"
-        "<w:EndpointReference><w:Address>" + endpoint + "</w:Address></w:EndpointReference>"
-        "<d:Types>dn:NetworkVideoTransmitter</d:Types>"
-        "<d:Scopes>onvif://www.onvif.org/name/" + xml_escape(config.device_name) + " onvif://www.onvif.org/hardware/" + xml_escape(config.hardware_id) + "</d:Scopes>"
-        "<d:XAddrs>" + xml_escape(xaddr_base(config) + "/device_service") + "</d:XAddrs>"
-        "<d:MetadataVersion>1</d:MetadataVersion>"
-        "</d:ProbeMatch></d:ProbeMatches></e:Body></e:Envelope>";
-}
-
 }  // namespace
 
 void discovery_server(Config config, std::atomic<bool>& running) {
-    const int fd = socket(AF_INET, SOCK_DGRAM, 0);
-    if (fd < 0) {
-        throw std::runtime_error("failed to open WS-Discovery socket");
+    soap* ctx = soap_new1(SOAP_IO_UDP);
+    if (!ctx) {
+        throw std::runtime_error("failed to allocate WS-Discovery gSOAP context");
     }
+    ctx->user = &config;
+    ctx->bind_flags = SO_REUSEADDR;
 
-    int reuse = 1;
-    setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &reuse, sizeof(reuse));
-
-    sockaddr_in address{};
-    address.sin_family = AF_INET;
-    address.sin_addr.s_addr = INADDR_ANY;
-    address.sin_port = htons(kDiscoveryPort);
-    if (bind(fd, reinterpret_cast<sockaddr*>(&address), sizeof(address)) < 0) {
-        close(fd);
-        throw std::runtime_error("failed to bind WS-Discovery UDP port 3702");
+    const SOAP_SOCKET master = soap_bind(ctx, nullptr, kDiscoveryPort, 100);
+    if (!soap_valid_socket(master)) {
+        const int err = ctx->errnum;
+        soap_free(ctx);
+        throw std::runtime_error("failed to bind WS-Discovery UDP port 3702: " + std::to_string(err));
     }
 
     ip_mreq membership{};
     membership.imr_multiaddr.s_addr = inet_addr(kDiscoveryAddress);
     membership.imr_interface.s_addr = INADDR_ANY;
-    setsockopt(fd, IPPROTO_IP, IP_ADD_MEMBERSHIP, &membership, sizeof(membership));
+    setsockopt(master, IPPROTO_IP, IP_ADD_MEMBERSHIP, &membership, sizeof(membership));
 
     while (running) {
-        fd_set set;
-        FD_ZERO(&set);
-        FD_SET(fd, &set);
-        timeval timeout{};
-        timeout.tv_sec = 1;
-        const int ready = select(fd + 1, &set, nullptr, nullptr, &timeout);
-        if (ready <= 0) {
-            continue;
-        }
-
-        sockaddr_in client{};
-        socklen_t client_len = sizeof(client);
-        char buffer[8192];
-        const ssize_t n = recvfrom(fd, buffer, sizeof(buffer) - 1, 0, reinterpret_cast<sockaddr*>(&client), &client_len);
-        if (n <= 0) {
-            continue;
-        }
-        buffer[n] = '\0';
-        const std::string request(buffer);
-        if (!contains(request, "Probe") && !contains(request, "Resolve")) {
-            continue;
-        }
-        const std::string message_id = first_nonempty({
-            extract_between(request, "<a:MessageID>", "</a:MessageID>"),
-            extract_between(request, "<w:MessageID>", "</w:MessageID>"),
-        });
-        const std::string response = discovery_response(config, message_id);
-        sendto(fd, response.data(), response.size(), 0, reinterpret_cast<sockaddr*>(&client), client_len);
+        soap_wsdd_listen(ctx, -1000000);
+        soap_destroy(ctx);
+        soap_end(ctx);
     }
 
-    close(fd);
+    soap_done(ctx);
+    soap_free(ctx);
 }
 
 }  // namespace afterveda_onvif
+
+soap_wsdd_mode wsdd_event_Probe(soap* ctx, const char*, const char*, const char*, const char*, const char*, wsdd__ProbeMatchesType* matches) {
+    const auto& config = *static_cast<afterveda_onvif::Config*>(ctx->user);
+    const std::string endpoint = "urn:uuid:" + afterveda_onvif::uuid_from_serial(config.serial);
+    const std::string xaddrs = afterveda_onvif::xaddr_base(config) + "/device_service";
+    const std::string scopes = "onvif://www.onvif.org/name/" + config.device_name +
+        " onvif://www.onvif.org/hardware/" + config.hardware_id +
+        " onvif://www.onvif.org/Profile/T";
+    soap_wsdd_add_ProbeMatch(ctx, matches, endpoint.c_str(), "dn:NetworkVideoTransmitter", scopes.c_str(), nullptr, xaddrs.c_str(), 1);
+    return SOAP_WSDD_MANAGED;
+}
+
+soap_wsdd_mode wsdd_event_Resolve(soap* ctx, const char*, const char*, const char*, wsdd__ResolveMatchType* match) {
+    const auto& config = *static_cast<afterveda_onvif::Config*>(ctx->user);
+    const std::string endpoint = "urn:uuid:" + afterveda_onvif::uuid_from_serial(config.serial);
+    const std::string xaddrs = afterveda_onvif::xaddr_base(config) + "/device_service";
+    const std::string scopes = "onvif://www.onvif.org/name/" + config.device_name +
+        " onvif://www.onvif.org/hardware/" + config.hardware_id +
+        " onvif://www.onvif.org/Profile/T";
+    soap_default_wsdd__ResolveMatchType(ctx, match);
+    match->wsa__EndpointReference.Address = soap_strdup(ctx, endpoint.c_str());
+    match->Types = soap_strdup(ctx, "dn:NetworkVideoTransmitter");
+    match->Scopes = soap_new_wsdd__ScopesType(ctx);
+    match->Scopes->__item = soap_strdup(ctx, scopes.c_str());
+    match->XAddrs = soap_strdup(ctx, xaddrs.c_str());
+    match->MetadataVersion = 1;
+    return SOAP_WSDD_MANAGED;
+}
+
+void wsdd_event_Hello(soap*, unsigned int, const char*, unsigned int, const char*, const char*, const char*, const char*, const char*, const char*, const char*, unsigned int) {}
+void wsdd_event_Bye(soap*, unsigned int, const char*, unsigned int, const char*, const char*, const char*, const char*, const char*, const char*, const char*, unsigned int*) {}
+void wsdd_event_ProbeMatches(soap*, unsigned int, const char*, unsigned int, const char*, const char*, wsdd__ProbeMatchesType*) {}
+void wsdd_event_ResolveMatches(soap*, unsigned int, const char*, unsigned int, const char*, const char*, wsdd__ResolveMatchType*) {}

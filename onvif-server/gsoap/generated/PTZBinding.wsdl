@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="PTZBinding"
+  targetNamespace="http://www.onvif.org/ver20/ptz/wsdl"
+  xmlns:tns="http://www.onvif.org/ver20/ptz/wsdl"
+  xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+  xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+  xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+  xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
+  xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+  xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+  xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+  xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+  xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+  xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+  xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+  xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
+  xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+  xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+  xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+  xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+  xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
+  xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap12/"
+  xmlns:HTTP="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
+  xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+  xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"
+  xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+<types>
+
+  <schema targetNamespace="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
+    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified">
+    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
+    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
+    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
+    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
+    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
+    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
+    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
+    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
+
+    <element name="GetServices" type="xsd:anyType"/>
+    <element name="GetServiceCapabilities" type="xsd:anyType"/>
+    <element name="GetDeviceInformation" type="xsd:anyType"/>
+    <element name="GetSystemDateAndTime" type="xsd:anyType"/>
+    <element name="GetScopes" type="xsd:anyType"/>
+    <element name="GetHostname" type="xsd:anyType"/>
+    <element name="GetNetworkInterfaces" type="xsd:anyType"/>
+    <element name="GetUsers" type="xsd:anyType"/>
+    <element name="GetCapabilities" type="xsd:anyType"/>
+  </schema>
+
+  <schema targetNamespace="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
+    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified">
+    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
+    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
+    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
+    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
+    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
+    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
+    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
+    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
+
+    <element name="GetProfiles" type="xsd:anyType"/>
+    <element name="GetServiceCapabilities" type="xsd:anyType"/>
+    <element name="GetVideoSources" type="xsd:anyType"/>
+    <element name="GetVideoSourceConfigurations" type="xsd:anyType"/>
+    <element name="GetVideoSourceConfiguration" type="xsd:anyType"/>
+    <element name="GetVideoEncoderConfigurations" type="xsd:anyType"/>
+    <element name="GetStreamUri" type="xsd:anyType"/>
+    <element name="GetVideoEncoderConfiguration" type="xsd:anyType"/>
+    <element name="GetVideoSourceConfigurationOptions" type="xsd:anyType"/>
+    <element name="GetVideoEncoderConfigurationOptions" type="xsd:anyType"/>
+    <element name="SetVideoEncoderConfiguration" type="xsd:anyType"/>
+  </schema>
+
+  <schema targetNamespace="http://www.onvif.org/ver20/media/wsdl"
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
+    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified">
+    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
+    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
+    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
+    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
+    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
+    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
+    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
+    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
+
+    <element name="GetProfiles" type="xsd:anyType"/>
+    <element name="GetStreamUri" type="xsd:anyType"/>
+    <element name="GetServiceCapabilities" type="xsd:anyType"/>
+  </schema>
+
+  <schema targetNamespace="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
+    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified">
+    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
+    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
+    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
+    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
+    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
+    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
+    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
+    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
+
+    <!-- operation response element -->
+    <element name="GetNodesResponse">
+      <complexType>
+          <sequence>
+            <element ref="tptz:GetNodesResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GetNodes::tptz__GetNodesResponse -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="GetConfigurationsResponse">
+      <complexType>
+          <sequence>
+            <element ref="tptz:GetConfigurationsResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GetConfigurations::tptz__GetConfigurationsResponse -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="GetPresetsResponse">
+      <complexType>
+          <sequence>
+            <element ref="tptz:GetPresetsResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GetPresets::tptz__GetPresetsResponse -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="SetPresetResponse">
+      <complexType>
+          <sequence>
+            <element ref="tptz:SetPresetResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__SetPreset::tptz__SetPresetResponse -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="GotoPresetResponse">
+      <complexType>
+          <sequence>
+            <element ref="tptz:GotoPresetResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GotoPreset::tptz__GotoPresetResponse -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="GetStatusResponse">
+      <complexType>
+          <sequence>
+            <element ref="tptz:GetStatusResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GetStatus::tptz__GetStatusResponse -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="GotoHomePositionResponse">
+      <complexType>
+          <sequence>
+            <element ref="tptz:GotoHomePositionResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GotoHomePosition::tptz__GotoHomePositionResponse -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="SetHomePositionResponse">
+      <complexType>
+          <sequence>
+            <element ref="tptz:SetHomePositionResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__SetHomePosition::tptz__SetHomePositionResponse -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="ContinuousMoveResponse">
+      <complexType>
+          <sequence>
+            <element ref="tptz:ContinuousMoveResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__ContinuousMove::tptz__ContinuousMoveResponse -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="RelativeMoveResponse">
+      <complexType>
+          <sequence>
+            <element ref="tptz:RelativeMoveResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__RelativeMove::tptz__RelativeMoveResponse -->
+          </sequence>
+      </complexType>
+    </element>
+    <!-- operation response element -->
+    <element name="StopResponse">
+      <complexType>
+          <sequence>
+            <element ref="tptz:StopResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__Stop::tptz__StopResponse -->
+          </sequence>
+      </complexType>
+    </element>
+    <element name="GetNodes" type="xsd:anyType"/>
+    <element name="GetConfigurations" type="xsd:anyType"/>
+    <element name="GetPresets" type="xsd:anyType"/>
+    <element name="SetPreset" type="xsd:anyType"/>
+    <element name="GotoPreset" type="xsd:anyType"/>
+    <element name="GetStatus" type="xsd:anyType"/>
+    <element name="GotoHomePosition" type="xsd:anyType"/>
+    <element name="SetHomePosition" type="xsd:anyType"/>
+    <element name="ContinuousMove" type="xsd:anyType"/>
+    <element name="RelativeMove" type="xsd:anyType"/>
+    <element name="Stop" type="xsd:anyType"/>
+  </schema>
+
+  <schema targetNamespace="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
+    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified">
+    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
+    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
+    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
+    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
+    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
+    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
+    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
+    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
+
+    <element name="GetServiceCapabilities" type="xsd:anyType"/>
+    <element name="GetImagingSettings" type="xsd:anyType"/>
+    <element name="SetImagingSettings" type="xsd:anyType"/>
+    <element name="GetOptions" type="xsd:anyType"/>
+  </schema>
+
+  <schema targetNamespace="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
+    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified">
+    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
+    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
+    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
+    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
+    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
+    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
+    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
+    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
+
+    <element name="GetEventProperties" type="xsd:anyType"/>
+    <element name="CreatePullPointSubscription" type="xsd:anyType"/>
+    <element name="PullMessages" type="xsd:anyType"/>
+  </schema>
+
+  <schema targetNamespace="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
+    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified">
+    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
+    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
+    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
+    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
+    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
+    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
+
+    <element name="Renew" type="xsd:anyType"/>
+    <element name="Unsubscribe" type="xsd:anyType"/>
+  </schema>
+
+  <schema targetNamespace="http://www.onvif.org/ver10/osd/wsdl"
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
+    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified">
+    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
+    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
+    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
+    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
+    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
+    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
+    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
+
+    <element name="GetServiceCapabilities" type="xsd:anyType"/>
+    <element name="GetOSDs" type="xsd:anyType"/>
+    <element name="GetOSD" type="xsd:anyType"/>
+    <element name="SetOSD" type="xsd:anyType"/>
+  </schema>
+
+</types>
+
+<message name="GetNodes">
+  <part name="Body" element="tptz:GetNodes"/><!-- __tptz__GetNodes::tptz__GetNodes -->
+</message>
+
+<message name="GetNodesResponse">
+  <part name="Body" element="-tptz:GetNodesResponse"/>
+</message>
+
+<message name="GetConfigurations">
+  <part name="Body" element="tptz:GetConfigurations"/><!-- __tptz__GetConfigurations::tptz__GetConfigurations -->
+</message>
+
+<message name="GetConfigurationsResponse">
+  <part name="Body" element="-tptz:GetConfigurationsResponse"/>
+</message>
+
+<message name="GetPresets">
+  <part name="Body" element="tptz:GetPresets"/><!-- __tptz__GetPresets::tptz__GetPresets -->
+</message>
+
+<message name="GetPresetsResponse">
+  <part name="Body" element="-tptz:GetPresetsResponse"/>
+</message>
+
+<message name="SetPreset">
+  <part name="Body" element="tptz:SetPreset"/><!-- __tptz__SetPreset::tptz__SetPreset -->
+</message>
+
+<message name="SetPresetResponse">
+  <part name="Body" element="-tptz:SetPresetResponse"/>
+</message>
+
+<message name="GotoPreset">
+  <part name="Body" element="tptz:GotoPreset"/><!-- __tptz__GotoPreset::tptz__GotoPreset -->
+</message>
+
+<message name="GotoPresetResponse">
+  <part name="Body" element="-tptz:GotoPresetResponse"/>
+</message>
+
+<message name="GetStatus">
+  <part name="Body" element="tptz:GetStatus"/><!-- __tptz__GetStatus::tptz__GetStatus -->
+</message>
+
+<message name="GetStatusResponse">
+  <part name="Body" element="-tptz:GetStatusResponse"/>
+</message>
+
+<message name="GotoHomePosition">
+  <part name="Body" element="tptz:GotoHomePosition"/><!-- __tptz__GotoHomePosition::tptz__GotoHomePosition -->
+</message>
+
+<message name="GotoHomePositionResponse">
+  <part name="Body" element="-tptz:GotoHomePositionResponse"/>
+</message>
+
+<message name="SetHomePosition">
+  <part name="Body" element="tptz:SetHomePosition"/><!-- __tptz__SetHomePosition::tptz__SetHomePosition -->
+</message>
+
+<message name="SetHomePositionResponse">
+  <part name="Body" element="-tptz:SetHomePositionResponse"/>
+</message>
+
+<message name="ContinuousMove">
+  <part name="Body" element="tptz:ContinuousMove"/><!-- __tptz__ContinuousMove::tptz__ContinuousMove -->
+</message>
+
+<message name="ContinuousMoveResponse">
+  <part name="Body" element="-tptz:ContinuousMoveResponse"/>
+</message>
+
+<message name="RelativeMove">
+  <part name="Body" element="tptz:RelativeMove"/><!-- __tptz__RelativeMove::tptz__RelativeMove -->
+</message>
+
+<message name="RelativeMoveResponse">
+  <part name="Body" element="-tptz:RelativeMoveResponse"/>
+</message>
+
+<message name="Stop">
+  <part name="Body" element="tptz:Stop"/><!-- __tptz__Stop::tptz__Stop -->
+</message>
+
+<message name="StopResponse">
+  <part name="Body" element="-tptz:StopResponse"/>
+</message>
+
+<message name="PTZBindingHeader">
+  <part name="Security" element="wsse:Security"/>
+  <part name="MessageID" element="wsa:MessageID"/>
+  <part name="RelatesTo" element="wsa:RelatesTo"/>
+  <part name="From" element="wsa:From"/>
+  <part name="ReplyTo" element="wsa:ReplyTo"/>
+  <part name="FaultTo" element="wsa:FaultTo"/>
+  <part name="To" element="wsa:To"/>
+  <part name="Action" element="wsa:Action"/>
+  <part name="AppSequence" element="wsdd:AppSequence"/>
+</message>
+
+<portType name="PTZBindingPortType">
+  <operation name="GetNodes">
+    <documentation>Service definition of function __tptz__GetNodes</documentation>
+    <input message="tns:GetNodes"/>
+    <output message="tns:GetNodesResponse"/>
+  </operation>
+  <operation name="GetConfigurations">
+    <documentation>Service definition of function __tptz__GetConfigurations</documentation>
+    <input message="tns:GetConfigurations"/>
+    <output message="tns:GetConfigurationsResponse"/>
+  </operation>
+  <operation name="GetPresets">
+    <documentation>Service definition of function __tptz__GetPresets</documentation>
+    <input message="tns:GetPresets"/>
+    <output message="tns:GetPresetsResponse"/>
+  </operation>
+  <operation name="SetPreset">
+    <documentation>Service definition of function __tptz__SetPreset</documentation>
+    <input message="tns:SetPreset"/>
+    <output message="tns:SetPresetResponse"/>
+  </operation>
+  <operation name="GotoPreset">
+    <documentation>Service definition of function __tptz__GotoPreset</documentation>
+    <input message="tns:GotoPreset"/>
+    <output message="tns:GotoPresetResponse"/>
+  </operation>
+  <operation name="GetStatus">
+    <documentation>Service definition of function __tptz__GetStatus</documentation>
+    <input message="tns:GetStatus"/>
+    <output message="tns:GetStatusResponse"/>
+  </operation>
+  <operation name="GotoHomePosition">
+    <documentation>Service definition of function __tptz__GotoHomePosition</documentation>
+    <input message="tns:GotoHomePosition"/>
+    <output message="tns:GotoHomePositionResponse"/>
+  </operation>
+  <operation name="SetHomePosition">
+    <documentation>Service definition of function __tptz__SetHomePosition</documentation>
+    <input message="tns:SetHomePosition"/>
+    <output message="tns:SetHomePositionResponse"/>
+  </operation>
+  <operation name="ContinuousMove">
+    <documentation>Service definition of function __tptz__ContinuousMove</documentation>
+    <input message="tns:ContinuousMove"/>
+    <output message="tns:ContinuousMoveResponse"/>
+  </operation>
+  <operation name="RelativeMove">
+    <documentation>Service definition of function __tptz__RelativeMove</documentation>
+    <input message="tns:RelativeMove"/>
+    <output message="tns:RelativeMoveResponse"/>
+  </operation>
+  <operation name="Stop">
+    <documentation>Service definition of function __tptz__Stop</documentation>
+    <input message="tns:Stop"/>
+    <output message="tns:StopResponse"/>
+  </operation>
+</portType>
+
+<binding name="PTZBinding" type="tns:PTZBindingPortType">
+  <SOAP:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="GetNodes">
+    <SOAP:operation soapAction="http://www.onvif.org/ver20/ptz/wsdl/GetNodes"/>
+    <input>
+          <SOAP:body use="literal" parts="Body"/>
+    </input>
+    <output>
+          <SOAP:body use="literal" parts="Body"/>
+    </output>
+  </operation>
+  <operation name="GetConfigurations">
+    <SOAP:operation soapAction="http://www.onvif.org/ver20/ptz/wsdl/GetConfigurations"/>
+    <input>
+          <SOAP:body use="literal" parts="Body"/>
+    </input>
+    <output>
+          <SOAP:body use="literal" parts="Body"/>
+    </output>
+  </operation>
+  <operation name="GetPresets">
+    <SOAP:operation soapAction="http://www.onvif.org/ver20/ptz/wsdl/GetPresets"/>
+    <input>
+          <SOAP:body use="literal" parts="Body"/>
+    </input>
+    <output>
+          <SOAP:body use="literal" parts="Body"/>
+    </output>
+  </operation>
+  <operation name="SetPreset">
+    <SOAP:operation soapAction="http://www.onvif.org/ver20/ptz/wsdl/SetPreset"/>
+    <input>
+          <SOAP:body use="literal" parts="Body"/>
+    </input>
+    <output>
+          <SOAP:body use="literal" parts="Body"/>
+    </output>
+  </operation>
+  <operation name="GotoPreset">
+    <SOAP:operation soapAction="http://www.onvif.org/ver20/ptz/wsdl/GotoPreset"/>
+    <input>
+          <SOAP:body use="literal" parts="Body"/>
+    </input>
+    <output>
+          <SOAP:body use="literal" parts="Body"/>
+    </output>
+  </operation>
+  <operation name="GetStatus">
+    <SOAP:operation soapAction="http://www.onvif.org/ver20/ptz/wsdl/GetStatus"/>
+    <input>
+          <SOAP:body use="literal" parts="Body"/>
+    </input>
+    <output>
+          <SOAP:body use="literal" parts="Body"/>
+    </output>
+  </operation>
+  <operation name="GotoHomePosition">
+    <SOAP:operation soapAction="http://www.onvif.org/ver20/ptz/wsdl/GotoHomePosition"/>
+    <input>
+          <SOAP:body use="literal" parts="Body"/>
+    </input>
+    <output>
+          <SOAP:body use="literal" parts="Body"/>
+    </output>
+  </operation>
+  <operation name="SetHomePosition">
+    <SOAP:operation soapAction="http://www.onvif.org/ver20/ptz/wsdl/SetHomePosition"/>
+    <input>
+          <SOAP:body use="literal" parts="Body"/>
+    </input>
+    <output>
+          <SOAP:body use="literal" parts="Body"/>
+    </output>
+  </operation>
+  <operation name="ContinuousMove">
+    <SOAP:operation soapAction="http://www.onvif.org/ver20/ptz/wsdl/ContinuousMove"/>
+    <input>
+          <SOAP:body use="literal" parts="Body"/>
+    </input>
+    <output>
+          <SOAP:body use="literal" parts="Body"/>
+    </output>
+  </operation>
+  <operation name="RelativeMove">
+    <SOAP:operation soapAction="http://www.onvif.org/ver20/ptz/wsdl/RelativeMove"/>
+    <input>
+          <SOAP:body use="literal" parts="Body"/>
+    </input>
+    <output>
+          <SOAP:body use="literal" parts="Body"/>
+    </output>
+  </operation>
+  <operation name="Stop">
+    <SOAP:operation soapAction="http://www.onvif.org/ver20/ptz/wsdl/Stop"/>
+    <input>
+          <SOAP:body use="literal" parts="Body"/>
+    </input>
+    <output>
+          <SOAP:body use="literal" parts="Body"/>
+    </output>
+  </operation>
+</binding>
+
+<service name="PTZBinding">
+  <documentation>gSOAP 2.8.132 generated service definition</documentation>
+  <port name="PTZBinding" binding="tns:PTZBinding">
+    <SOAP:address location="http://localhost:80"/>
+  </port>
+</service>
+
+</definitions>

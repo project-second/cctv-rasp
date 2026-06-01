@@ -2,6 +2,8 @@
 
 Afterveda uses a separate `afterveda-onvif` process to expose the existing RTSP stream as an ONVIF camera.
 
+The ONVIF server is a Profile T implementation in progress. It advertises and implements several Profile T-oriented services, but it must not be described as Profile T conformant until it passes the official ONVIF Device Test Tool.
+
 ## Runtime shape
 
 ```txt
@@ -12,7 +14,8 @@ rail-media
 
 afterveda-onvif
   - WS-Discovery UDP response
-  - ONVIF Device/Media/PTZ SOAP endpoints
+- ONVIF Device/Media/PTZ SOAP endpoints
+- ONVIF Media2/OSD/Profile T-oriented compatibility endpoints
   - GetStreamUri returns the rail-media RTSP URI
   - PTZ requests call hardware-control
 ```
@@ -42,11 +45,14 @@ For hardware-free PTZ testing, add `--ptz-dry-run`.
 ## Implemented scope
 
 - WS-Discovery `Probe` and `Resolve` responses
-- Device service: `GetCapabilities`, `GetDeviceInformation`, `GetServices`, `GetSystemDateAndTime`
+- Device service: `GetCapabilities`, `GetDeviceInformation`, `GetServices`, `GetSystemDateAndTime`, `GetScopes`, `GetHostname`, `GetNetworkInterfaces`, `GetUsers`, `GetServiceCapabilities`
 - Media service: `GetProfiles`, `GetStreamUri`, `GetVideoEncoderConfiguration`, `SetVideoEncoderConfiguration`
-- PTZ service: `ContinuousMove`, `RelativeMove`, `Stop`, `GetStatus`, `GotoHomePosition`, `SetHomePosition`
+- Media2 service: basic H.264 `GetProfiles`, `GetStreamUri`, `GetServiceCapabilities`
+- PTZ service: `GetNodes`, `GetConfigurations`, `GetPresets`, `SetPreset`, `GotoPreset`, `ContinuousMove`, `RelativeMove`, `Stop`, `GetStatus`, `GotoHomePosition`, `SetHomePosition`
 - Imaging service: basic option/settings compatibility responses
-- Events service: basic event properties compatibility response
-- Optional UsernameToken gate using `--username` and `--password`
+- Events service: basic event properties and PullPoint compatibility responses
+- OSD service: basic text OSD compatibility responses
+- Optional UsernameToken `PasswordText` and `PasswordDigest` gate using `--username` and `--password`
 
 Imaging settings are compatibility responses for now; they do not change real sensor controls until camera control plumbing is added.
+Metadata streaming and real OSD overlay are not complete yet; those require `rail-media` pipeline work.

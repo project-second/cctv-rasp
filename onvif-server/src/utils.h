@@ -5,6 +5,7 @@
 
 #include <initializer_list>
 #include <string>
+#include <vector>
 
 namespace afterveda_onvif {
 
@@ -20,5 +21,14 @@ std::string extract_between(const std::string& value, const std::string& start, 
 std::string first_nonempty(std::initializer_list<std::string> values);
 std::string extract_profile_token(const std::string& request);
 std::string shell_quote(const std::string& value);
+std::string local_xml_name(const std::string& name);
+std::string soap_body(const std::string& request);
+std::string soap_action(const std::string& request);
+std::string xml_text_for_local_name(const std::string& xml, const std::string& local_name);
+std::string xml_attribute_for_local_name(const std::string& xml, const std::string& local_name, const std::string& attribute);
+std::vector<unsigned char> base64_decode(const std::string& value);
+std::string base64_encode(const std::vector<unsigned char>& bytes);
+std::vector<unsigned char> sha1(const std::vector<unsigned char>& bytes);
+bool utc_timestamp_within(const std::string& value, int tolerance_seconds);
 
 }  // namespace afterveda_onvif
