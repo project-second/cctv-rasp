@@ -80,6 +80,8 @@ add_executable(afterveda-onvif
     src/main.cpp
     src/media_model.cpp
     src/media_xml.cpp
+    src/ptz_device.cpp
+    src/ptz_service.cpp
     src/rail_client.cpp
     src/soap_services.cpp
     src/utils.cpp

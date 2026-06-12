@@ -1,6 +1,6 @@
-# Rail CCTV Hardware & Media
+# Afterveda 미디어 애플리케이션
 
-이 프로젝트의 범위는 CCTV 하드웨어 제어와 미디어 서버 구성이다.
+이 프로젝트의 범위는 CCTV RTSP 송출과 ONVIF 애플리케이션 구성이다. Raspberry Pi GPIO/PWM 같은 보드 의존 제어는 형제 폴더 `afterveda-bsp/`에서 관리한다.
 
 ## 목표
 
@@ -8,20 +8,21 @@
 - RTSP 기반 영상 송출 구성
 - ONVIF 기반 장비 검색과 RTSP 스트림 연동
 - 필요 시 HLS 변환 또는 외부 미디어 서버 연동 구조 정리
-- Pan/Tilt 같은 CCTV 하드웨어 제어 방식 정리
-- 모터, GPIO/PWM, 릴레이 등 제어 신호 테스트
+- 외부 BSP 커널 모듈과 ONVIF PTZ 연동
 - systemd 기반 자동 실행 및 로그 확인 방식 정리
 
 ## 프로젝트 구조
 
 ```txt
-rail-cctv/
-├── hardware-control/  # CCTV 하드웨어 제어 문서와 테스트 절차
-├── media-server/      # 카메라 입력, RTSP 송출, 미디어 서버 구성
-├── onvif-server/      # ONVIF discovery, device/media/PTZ service
-├── deploy/            # systemd, 실행 스크립트, 배포 문서
-├── docs/              # 계획과 아키텍처 문서
-└── README.md
+workspace/
+├── afterveda/         # RTSP/ONVIF 애플리케이션
+│   ├── media-server/  # 카메라 입력, RTSP 송출, 미디어 서버 구성
+│   ├── onvif-server/  # ONVIF 검색, 장치/미디어/PTZ 서비스
+│   ├── deploy/        # systemd, 실행 스크립트, 배포 문서
+│   ├── docs/          # 계획과 아키텍처 문서
+│   └── README.md
+└── afterveda-bsp/
+    └── ptz-kmod/      # Raspberry Pi GPIO18/19 PWM PTZ 커널 모듈
 ```
 
 ## 우선순위
@@ -40,11 +41,11 @@ rail-cctv/
 ## 1차 목표
 
 ```txt
-CCTV Camera
-→ Raspberry Pi / Edge Device
-→ Media Server
-→ RTSP Stream
-→ ONVIF Device/Media discovery
+CCTV 카메라
+→ Raspberry Pi / 엣지 장비
+→ 미디어 서버
+→ RTSP 스트림
+→ ONVIF 장치/미디어 검색
 → VLC 또는 외부 클라이언트에서 확인
 ```
 
@@ -57,10 +58,10 @@ onvif-server/build/afterveda-onvif \
   --xaddr-host <pi-ip> \
   --rtsp-uri rtsp://<pi-ip>:8554/live \
   --rail-control-url http://127.0.0.1:8081 \
-  --hardware-control hardware-control/build/hardware-control
+  --ptz-device /dev/afterveda_ptz
 ```
 
-ONVIF 서버는 검색/제어를 담당하고, 실제 영상은 기존 `rail-media` RTSP 스트림을 그대로 사용한다.
+ONVIF 서버는 검색/제어를 담당하고, 실제 영상은 기존 `rail-media` RTSP 스트림을 그대로 사용한다. PTZ 요청은 `--ptz-device`로 지정한 커널 모듈 문자 장치에 직접 기록한다.
 
 ## 다음 작업
 

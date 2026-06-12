@@ -27,12 +27,15 @@
 ## 3. 프로젝트 구조
 
 ```txt
-rail-cctv/
-├── hardware-control/  # CCTV 하드웨어 제어
-├── media-server/      # 카메라 입력과 RTSP 송출
-├── deploy/            # systemd, 실행 스크립트, 운영 문서
-├── docs/              # 설계 문서
-└── README.md
+workspace/
+├── afterveda/          # RTSP/ONVIF 애플리케이션
+│   ├── media-server/   # 카메라 입력과 RTSP 송출
+│   ├── onvif-server/   # ONVIF discovery, media, PTZ 연동
+│   ├── deploy/         # systemd, 실행 스크립트, 운영 문서
+│   ├── docs/           # 설계 문서
+│   └── README.md
+└── afterveda-bsp/
+    └── ptz-kmod/       # Raspberry Pi GPIO18/19 PTZ 커널 모듈
 ```
 
 ## 4. 작업 단계

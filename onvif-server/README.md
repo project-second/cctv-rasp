@@ -1,49 +1,52 @@
-# Afterveda ONVIF Server
+# Afterveda ONVIF 서버
 
-`afterveda-onvif` exposes the existing `rail-media` RTSP stream as an ONVIF-like IP camera.
+`afterveda-onvif`는 기존 `rail-media` RTSP 스트림을 ONVIF 카메라처럼 노출한다.
 
-The process does not encode video. It answers ONVIF discovery and SOAP requests, then returns the RTSP stream URI served by `rail-media`.
+이 프로세스는 영상을 인코딩하지 않는다. ONVIF discovery와 SOAP 요청에 응답하고, 영상 URI 요청에는 `rail-media`가 제공하는 RTSP 주소를 반환한다.
 
-This module is moving toward ONVIF Profile T device behavior, but it is not a certified Profile T conformant implementation yet. Treat the current implementation as Profile T work in progress until it passes the official ONVIF Device Test Tool.
+현재 구현은 ONVIF Profile T 지향 구현이지만 공식 Profile T 인증 구현은 아니다. 공식 ONVIF Device Test Tool을 통과하기 전까지는 Profile T 작업 중인 구현으로 본다.
 
-## Build
+## 빌드
 
 ```bash
 cmake -S onvif-server -B onvif-server/build
 cmake --build onvif-server/build
 ```
 
-## Run
+## 실행
 
 ```bash
 onvif-server/build/afterveda-onvif \
   --device-name afterveda-camera \
   --xaddr-host 192.168.0.32 \
-  --rtsp-uri rtsp://192.168.0.32:8554/live
+  --rtsp-uri rtsp://192.168.0.32:8554/live \
+  --ptz-device /dev/afterveda_ptz
 ```
 
-Useful options:
+## 주요 옵션
 
 ```txt
---onvif-port <port>          HTTP SOAP port. Default: 8000
---xaddr-host <ip-or-host>    Host advertised in ONVIF service URLs
---rtsp-uri <uri>             Stream URI returned by GetStreamUri
---rail-control-url <url>     rail-media control base URL. Default: http://127.0.0.1:8081
---hardware-control <path>    hardware-control binary for PTZ commands
---username <user>            Require ONVIF UsernameToken username
---password <password>        Require ONVIF UsernameToken password text to be present
+--onvif-port <port>          ONVIF HTTP/SOAP 포트. 기본값: 8000
+--xaddr-host <ip-or-host>    ONVIF 서비스 URL에 노출할 호스트
+--rtsp-uri <uri>             GetStreamUri에서 반환할 RTSP URI
+--rail-control-url <url>     rail-media 제어 API 주소. 기본값: http://127.0.0.1:8081
+--ptz-device <path>          PTZ 문자 장치. 기본값: /dev/afterveda_ptz
+--ptz-step <deg>             PTZ 이동 step. 기본값: 5
+--ptz-dry-run                PTZ 장치에 쓰지 않고 로그만 출력
+--username <user>            ONVIF UsernameToken 사용자명 요구
+--password <password>        ONVIF UsernameToken 비밀번호 요구
 ```
 
-## Supported ONVIF surface
+## 지원 범위
 
-- WS-Discovery Probe and Resolve responses
+- WS-Discovery: `Probe`, `Resolve` 응답
 - Device: `GetCapabilities`, `GetDeviceInformation`, `GetServices`, `GetSystemDateAndTime`, `GetScopes`, `GetHostname`, `GetNetworkInterfaces`, `GetUsers`, `GetServiceCapabilities`
-- Media: `GetProfiles`, `GetStreamUri`, `GetVideoEncoderConfiguration`, `SetVideoEncoderConfiguration`
-- Media2: basic H.264 `GetProfiles`, `GetStreamUri`, `GetServiceCapabilities`
-- PTZ: `GetNodes`, `GetConfigurations`, `GetPresets`, `SetPreset`, `GotoPreset`, `ContinuousMove`, `RelativeMove`, `Stop`, `GetStatus`, `GotoHomePosition`, `SetHomePosition`
-- Imaging: basic `GetOptions`, `GetImagingSettings`, `SetImagingSettings` compatibility responses
-- Events: basic `GetEventProperties`, `CreatePullPointSubscription`, `PullMessages`, `Renew`, `Unsubscribe` compatibility responses
-- OSD: basic text OSD query/update compatibility responses
-- WS-Security: UsernameToken `PasswordText` and `PasswordDigest` checks when `--username` and `--password` are provided
+- Media 서비스: `GetProfiles`, `GetStreamUri`, `GetVideoEncoderConfiguration`, `SetVideoEncoderConfiguration`
+- Media2 서비스: 기본 H.264 profile, `GetProfiles`, `GetStreamUri`, `GetServiceCapabilities`
+- PTZ 서비스: `GetNodes`, `GetConfigurations`, `GetPresets`, `SetPreset`, `GotoPreset`, `ContinuousMove`, `RelativeMove`, `Stop`, `GetStatus`, `GotoHomePosition`, `SetHomePosition`
+- Imaging 서비스: 기본 `GetOptions`, `GetImagingSettings`, `SetImagingSettings` 호환 응답
+- Events 서비스: 기본 `GetEventProperties`, `CreatePullPointSubscription`, `PullMessages`, `Renew`, `Unsubscribe` 호환 응답
+- OSD 서비스: 기본 텍스트 OSD 조회/수정 호환 응답
+- WS-Security: `--username`, `--password` 지정 시 UsernameToken `PasswordText`, `PasswordDigest` 확인
 
-PTZ maps ONVIF pan/tilt commands to the existing `hardware-control` CLI. Zoom requests return a SOAP fault because no zoom hardware is currently configured.
+PTZ 요청은 Afterveda PTZ 커널 모듈이 제공하는 `/dev/afterveda_ptz`로 전달한다. Zoom 하드웨어는 아직 없으므로 zoom 요청은 SOAP fault로 응답한다.

@@ -1,4 +1,4 @@
-# Media Server
+# 미디어 서버
 
 카메라 입력과 RTSP 영상 송출을 정리하는 영역이다.
 
@@ -20,7 +20,7 @@
 ## 관련 문서
 
 - [RTSP 미디어 서버 설계](../docs/media-server-design.md)
-- [Profile Manager 계획](../docs/profile-manager-plan.md)
+- [프로필 관리자 계획](../docs/profile-manager-plan.md)
 - [PiCam 크로스 컴파일 작업 순서](../docs/picam-cross-compile-flow.md)
 
 ## 크로스 컴파일

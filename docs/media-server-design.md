@@ -71,13 +71,13 @@ libcamerasrc
 
 기본 프로필:
 
-| Profile | Quality | Resolution | FPS | Encoder | Target Bitrate |
+| 프로필 | 품질 | 해상도 | FPS | 인코더 | 목표 bitrate |
 |---|---|---:|---:|---|---:|
 | `low` | 360p | 640x360 | 30 | `v4l2` | 800 kbps |
 | `main` | 720p | 1280x720 | 30 | `v4l2` | 2500 kbps |
 | `high` | 1080p | 1920x1080 | 30 | `v4l2` | 5000 kbps |
 
-Target Bitrate는 현재 운영 기준값이다.
+목표 bitrate는 현재 운영 기준값이다.
 현재 코드에는 bitrate 설정 필드가 없으므로 실제 인코더 bitrate 적용은 이후 `Config`와 `Profile`에 `bitrate_kbps`를 추가한 뒤 GStreamer encoder 옵션에 연결한다.
 
 ## 미디어 서버 후보 비교

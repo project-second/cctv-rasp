@@ -247,7 +247,7 @@ ldd /opt/rail-cctv/bin/<binary-name>
 
 ```ini
 [Unit]
-Description=Rail CCTV Media Server
+Description=Rail CCTV 미디어 서버
 After=network-online.target
 Wants=network-online.target
 

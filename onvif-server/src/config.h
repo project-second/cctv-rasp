@@ -14,7 +14,7 @@ struct Config {
     std::string xaddr_host = "127.0.0.1";
     std::string rtsp_uri = "rtsp://127.0.0.1:8554/live";
     std::string rail_control_url = "http://127.0.0.1:8081";
-    std::string hardware_control = "hardware-control/build/hardware-control";
+    std::string ptz_device = "/dev/afterveda_ptz";
     std::string username;
     std::string password;
     int onvif_port = 8000;

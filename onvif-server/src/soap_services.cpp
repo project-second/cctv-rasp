@@ -1,13 +1,13 @@
 #include "config.h"
 #include "media_model.h"
 #include "media_xml.h"
+#include "ptz_device.h"
 #include "rail_client.h"
 #include "utils.h"
 
 #include "soapH.h"
 #include "DeviceBinding.nsmap"
 
-#include <cstdlib>
 #include <ctime>
 #include <string>
 #include <vector>
@@ -59,13 +59,7 @@ int require_auth(soap* ctx) {
 }
 
 std::string ptz_command(const Config& config, const std::string& command) {
-    std::string wire = shell_quote(config.hardware_control);
-    if (config.ptz_dry_run) {
-        wire += " --dry-run";
-    }
-    wire += " --step " + std::to_string(config.ptz_step);
-    wire += " " + command;
-    return std::system(wire.c_str()) == 0 ? std::string{} : "PTZ command failed: " + command;
+    return write_ptz_command(config, command);
 }
 
 std::string service_entry(const std::string& ns, const std::string& xaddr, int major, int minor) {

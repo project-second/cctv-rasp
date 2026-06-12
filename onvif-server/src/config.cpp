@@ -30,9 +30,9 @@ void print_usage(const char* program) {
         << "  --onvif-port <port>        ONVIF HTTP port. Default: 8000\n"
         << "  --rtsp-uri <uri>           RTSP URI returned by GetStreamUri\n"
         << "  --rail-control-url <url>   rail-media HTTP control URL. Default: http://127.0.0.1:8081\n"
-        << "  --hardware-control <path>  hardware-control binary path\n"
-        << "  --ptz-step <deg>           Hardware control step for PTZ. Default: 5\n"
-        << "  --ptz-dry-run              Add --dry-run to hardware-control calls\n"
+        << "  --ptz-device <path>        PTZ character device. Default: /dev/afterveda_ptz\n"
+        << "  --ptz-step <deg>           PTZ step in degrees. Default: 5\n"
+        << "  --ptz-dry-run              Log PTZ commands without writing to the device\n"
         << "  --username <user>          Require ONVIF UsernameToken username\n"
         << "  --password <password>      Require password text in UsernameToken\n"
         << "  --help                     Show this help\n";
@@ -74,8 +74,8 @@ Config parse_args(int argc, char* argv[]) {
             config.rtsp_uri = require_value(arg);
         } else if (arg == "--rail-control-url") {
             config.rail_control_url = require_value(arg);
-        } else if (arg == "--hardware-control") {
-            config.hardware_control = require_value(arg);
+        } else if (arg == "--ptz-device") {
+            config.ptz_device = require_value(arg);
         } else if (arg == "--ptz-step") {
             config.ptz_step = parse_int(require_value(arg), arg);
         } else if (arg == "--ptz-dry-run") {
@@ -89,8 +89,8 @@ Config parse_args(int argc, char* argv[]) {
         }
     }
 
-    if (config.xaddr_host.empty() || config.rtsp_uri.empty()) {
-        throw std::runtime_error("--xaddr-host and --rtsp-uri must not be empty");
+    if (config.xaddr_host.empty() || config.rtsp_uri.empty() || config.ptz_device.empty()) {
+        throw std::runtime_error("--xaddr-host, --rtsp-uri, and --ptz-device must not be empty");
     }
     if (config.username.empty() != config.password.empty()) {
         throw std::runtime_error("--username and --password must be provided together");

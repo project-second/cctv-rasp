@@ -1,17 +1,17 @@
-# Profile Manager
+# 프로필 관리자
 
-이 문서는 `rail-media` Profile Manager 동작을 정리한다.
+이 문서는 `rail-media` 프로필 관리자 동작을 정리한다.
 
 ## 목표
 
-Profile Manager는 Qt앱이나 웹 인터페이스에서 요청한 영상 프로필로 `rail-media`의 RTSP 스트림 설정을 변경하는 기능이다.
+프로필 관리자는 Qt 앱이나 웹 인터페이스에서 요청한 영상 프로필로 `rail-media`의 RTSP 스트림 설정을 변경하는 기능이다.
 
 v1 목표는 다음 흐름을 지원하는 것이다.
 
 ```txt
 Qt앱 또는 웹 인터페이스
 → HTTP API 요청
-→ rail-media Profile Manager
+→ rail-media 프로필 관리자
 → RTSP 파이프라인 재생성
 → 같은 RTSP 주소로 재접속
 ```
@@ -24,7 +24,7 @@ rtsp://<pi-ip>:8554/live
 
 ## v1 범위
 
-- `rail-media` 프로세스 안에 Profile Manager를 둔다.
+- `rail-media` 프로세스 안에 프로필 관리자를 둔다.
 - HTTP API로 프로필 조회와 변경 요청을 받는다.
 - 프로필 변경 시 기존 RTSP 스트림은 잠깐 끊겨도 된다.
 - 변경 후 클라이언트는 같은 RTSP 주소로 다시 접속한다.

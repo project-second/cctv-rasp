@@ -6,7 +6,7 @@
 
 - [x] 프로젝트 범위를 하드웨어 제어와 미디어 서버로 정리한다
 - [x] 기존 기본 서버 파일을 제거한다
-- [x] `hardware-control/` 디렉터리를 만든다
+- [x] PTZ 제어를 `afterveda-bsp/ptz-kmod/` 커널 모듈로 분리한다
 - [x] `media-server/` 디렉터리를 만든다
 - [x] `docs/architecture.md`를 하드웨어/미디어 범위로 다시 작성한다
 - [x] 사용할 카메라 종류를 PiCam으로 정한다
@@ -47,8 +47,8 @@
 
 ## 3. 2차 목표: 미디어 서버 안정화
 
-- [x] Profile Manager 계획 문서 작성
-- [x] Profile Manager 구현
+- [x] 프로필 관리자 계획 문서 작성
+- [x] 프로필 관리자 구현
 - [x] HTTP API 기반 프로필 조회/변경 구현
 - [x] 미디어 서버 후보 비교
 - [x] RTSP 포트와 스트림 경로 결정
@@ -84,7 +84,7 @@
 - [x] RTSP 스트림이 외부 클라이언트에서 확인된다
 - [x] 별도 ONVIF 서버 모듈을 추가한다
 - [x] ONVIF Device/Media SOAP 응답에서 RTSP 주소를 반환한다
-- [x] ONVIF PTZ 요청을 hardware-control 명령으로 연결한다
+- [x] ONVIF PTZ 요청을 `/dev/afterveda_ptz` 커널 모듈 문자 장치로 연결한다
 - [ ] 하드웨어 제어 대상이 실제로 동작한다
 - [ ] 정지 명령 또는 안전 중단 방법이 확인된다
 - [ ] 재부팅 후 필요한 서비스가 자동 실행된다

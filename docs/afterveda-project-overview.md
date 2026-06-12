@@ -2,42 +2,44 @@
 
 ## 개요
 
-Afterveda는 Raspberry Pi 기반 CCTV 장비를 만들기 위한 C++ 프로젝트다. 현재 저장소는 카메라 영상을 RTSP로 송출하고, ONVIF 클라이언트가 장비를 검색하고 스트림 주소와 PTZ 제어를 사용할 수 있게 하는 데 초점을 둔다. 실제 영상 캡처와 송출은 `rail-media`, ONVIF 호환 인터페이스는 `afterveda-onvif`, Pan/Tilt 서보 제어는 `hardware-control`이 담당한다.
+Afterveda는 Raspberry Pi 기반 CCTV 장비를 만들기 위한 C++ 애플리케이션 프로젝트다. 현재 저장소는 카메라 영상을 RTSP로 송출하고, ONVIF 클라이언트가 장비를 검색하고 스트림 주소와 PTZ 제어를 사용할 수 있게 하는 데 초점을 둔다. 실제 영상 캡처와 송출은 `rail-media`, ONVIF 호환 인터페이스는 `afterveda-onvif`, Pan/Tilt 서보 제어는 형제 폴더 `afterveda-bsp/ptz-kmod`의 커널 모듈이 담당한다.
 
 최종 런타임 형태는 다음과 같다.
 
 ```txt
-Pi Camera
+Pi 카메라
   -> rail-media
-     -> GStreamer RTSP stream: rtsp://<pi-ip>:8554/live
-     -> HTTP profile control: http://<pi-ip>:8081
+     -> GStreamer RTSP 스트림: rtsp://<pi-ip>:8554/live
+     -> HTTP 프로필 제어: http://<pi-ip>:8081
 
-ONVIF Client / VMS
+ONVIF 클라이언트 / VMS
   -> afterveda-onvif
      -> WS-Discovery UDP 3702
      -> ONVIF SOAP HTTP 8000
-     -> GetStreamUri returns rail-media RTSP URI
-     -> PTZ requests execute hardware-control
+     -> GetStreamUri에서 rail-media RTSP URI 반환
+     -> PTZ 요청을 /dev/afterveda_ptz에 기록
 
-hardware-control
-  -> PCA9685 I2C PWM driver
-  -> Pan servo / Tilt servo
+afterveda-bsp/ptz-kmod/afterveda_ptz.ko
+  -> GPIO18/GPIO19 Linux PWM framework
+  -> Pan 서보 / Tilt 서보
 ```
 
 ## 저장소 구조
 
 ```txt
-afterveda/
-├── CMakeLists.txt                 # 전체 프로젝트 통합 빌드 진입점
-├── README.md                      # 프로젝트 목표와 기본 실행 예시
-├── cmake/toolchains/              # Raspberry Pi 크로스 컴파일 toolchain
-├── docs/                          # 설계, 체크리스트, 빌드/배포 관련 문서
-├── hardware-control/              # PCA9685 기반 Pan/Tilt 서보 제어 CLI
-├── media-server/                  # PiCam 캡처 및 RTSP 송출 서버
-└── onvif-server/                  # ONVIF Discovery, Device, Media, PTZ 서비스
+workspace/
+├── afterveda/
+│   ├── CMakeLists.txt             # 앱 프로젝트 빌드 진입점
+│   ├── README.md                  # 프로젝트 목표와 기본 실행 예시
+│   ├── cmake/toolchains/          # Raspberry Pi 크로스 컴파일 toolchain
+│   ├── docs/                      # 설계, 체크리스트, 빌드/배포 관련 문서
+│   ├── media-server/              # PiCam 캡처 및 RTSP 송출 서버
+│   └── onvif-server/              # ONVIF Discovery, Device, Media, PTZ 서비스
+└── afterveda-bsp/
+    └── ptz-kmod/                  # GPIO18/19 PWM 기반 Pan/Tilt 커널 모듈
 ```
 
-루트 `CMakeLists.txt`는 세 하위 프로젝트를 `add_subdirectory()`로 묶는다. 각 하위 디렉터리는 독립 실행 파일을 만들며, 설치 대상은 모두 `bin` 아래로 잡혀 있다.
+`afterveda` 루트 `CMakeLists.txt`는 애플리케이션 하위 프로젝트만 묶는다. 보드 의존 제어 코드는 `afterveda-bsp`에서 별도로 빌드하고, `afterveda-onvif` 실행 시 `--ptz-device`로 문자 장치 경로를 넘긴다.
 
 ## 핵심 구성 요소
 
@@ -62,7 +64,7 @@ rtsp://<pi-ip>:8554/live
 
 기본 프로필은 `main`이며 현재 정의된 프로필은 다음과 같다.
 
-| 프로필 | 품질 | 해상도 | FPS | Bitrate | Encoder |
+| 프로필 | 품질 | 해상도 | FPS | Bitrate | 인코더 |
 |---|---:|---:|---:|---:|---|
 | `low` | 360p | 640x360 | 30 | 800 kbps | `v4l2` |
 | `main` | 720p | 1280x720 | 30 | 2500 kbps | `v4l2` |
@@ -109,7 +111,7 @@ SOAP HTTP server는 기본 `8000` 포트에서 요청을 받는다. `/health` �
 
 - WS-Discovery `Probe`, `Resolve`
 - Device: `GetCapabilities`, `GetDeviceInformation`, `GetServices`, `GetSystemDateAndTime`, `GetScopes`, `GetHostname`, `GetNetworkInterfaces`, `GetUsers`, `GetServiceCapabilities`
-- Media1: `GetProfiles`, `GetStreamUri`, `GetVideoEncoderConfiguration`, `SetVideoEncoderConfiguration`, video source/configuration 관련 조회
+- Media1: `GetProfiles`, `GetStreamUri`, `GetVideoEncoderConfiguration`, `SetVideoEncoderConfiguration`, 비디오 소스/설정 관련 조회
 - Media2: 기본 H.264 profile, stream URI, service capabilities
 - PTZ: node/configuration/preset/status 조회, preset/home 이동, continuous/relative move, stop
 - Imaging/Events/OSD: 클라이언트 호환성을 위한 기본 응답
@@ -117,38 +119,33 @@ SOAP HTTP server는 기본 `8000` 포트에서 요청을 받는다. `/health` �
 
 `GetStreamUri`는 자체 스트림을 만들지 않고 `--rtsp-uri`로 받은 값을 응답한다. UDP multicast 요청은 현재 지원하지 않고 RTP/RTSP/TCP unicast 중심으로 동작한다.
 
-PTZ 요청은 `hardware-control` 바이너리를 shell command로 실행한다. `ContinuousMove` 또는 `RelativeMove`의 X/Y 값 방향을 읽어 `left`, `right`, `up`, `down`, `stop` 중 하나로 변환한다. `GotoPreset`, `SetHomePosition`, `GotoHomePosition`은 `center` 명령으로 처리한다.
+PTZ 요청은 `/dev/afterveda_ptz` 문자 장치에 텍스트 명령을 기록한다. `ContinuousMove` 또는 `RelativeMove`의 X/Y 값 방향을 읽어 `left`, `right`, `up`, `down`, `stop` 중 하나로 변환한다. `GotoPreset`, `SetHomePosition`, `GotoHomePosition`은 `center` 명령으로 처리한다.
 
-### 3. hardware-control: Pan/Tilt 서보 제어
+### 3. afterveda-bsp/ptz-kmod: Pan/Tilt 서보 제어
 
-`hardware-control`은 Raspberry Pi에서 PCA9685 I2C PWM 드라이버를 통해 Pan/Tilt 서보를 제어하는 CLI 도구다.
+`afterveda-bsp/ptz-kmod`는 Raspberry Pi GPIO18/19에 연결된 Pan/Tilt 서보 신호선을 Linux PWM framework로 제어하는 커널 모듈이다. 사용자 공간에는 `/dev/afterveda_ptz` 문자 장치를 노출한다.
 
 주요 파일:
 
-- `hardware-control/src/main.cpp`: 설정 파싱, 현재 위치 로드, 명령 적용, 서보 출력, 상태 저장
-- `hardware-control/src/config.cpp`: CLI 옵션과 범위 검증
-- `hardware-control/src/pan_tilt.cpp`: `left/right/up/down/center/stop` 명령을 각도 변화로 변환
-- `hardware-control/src/servo_controller.cpp`: 각도를 PCA9685 PWM count로 변환
-- `hardware-control/src/pca9685.cpp`: Linux I2C device 접근, PCA9685 초기화, PWM register write
-- `hardware-control/src/state_store.cpp`: 마지막 Pan/Tilt 각도를 파일에 저장
+- `afterveda-bsp/ptz-kmod/afterveda_ptz.c`: platform driver, PWM framework 제어, `/dev/afterveda_ptz` 문자 장치 구현
+- `afterveda-bsp/ptz-kmod/afterveda_ptz.h`: 기본 각도, 범위, PWM 주기/펄스 상수
+- `afterveda-bsp/ptz-kmod/overlays/afterveda-ptz-overlay.dts`: Raspberry Pi GPIO18/GPIO19 PWM 오버레이
 
 기본 하드웨어 매핑은 다음과 같다.
 
 | 항목 | 기본값 |
 |---|---|
-| I2C device | `/dev/i2c-1` |
-| PCA9685 address | `0x40` |
-| Pan channel | `0` |
-| Tilt channel | `1` |
+| PTZ device | `/dev/afterveda_ptz` |
+| Pan PWM | channel 0 / BCM GPIO18 |
+| Tilt PWM | channel 1 / BCM GPIO19 |
 | Pan range | `30..150` degrees |
 | Tilt range | `45..135` degrees |
 | Center | `90` degrees |
 | Step | `5` degrees |
-| State file | `/tmp/rail-hardware-control.state` |
 
-명령은 매번 한 번 실행되고 종료된다. 마지막 각도는 state file에 저장되므로 다음 명령은 이전 위치를 기준으로 움직인다. `stop`은 모터 전원 차단이 아니라 현재 위치를 다시 적용하는 동작이다.
+명령은 `/dev/afterveda_ptz`에 한 줄 text로 기록한다. 커널 모듈이 현재 각도를 유지하므로 다음 명령은 이전 위치를 기준으로 움직인다. `stop`은 모터 전원 차단이 아니라 현재 위치를 다시 적용하는 동작이다.
 
-`--dry-run`을 쓰면 I2C 장치에 접근하지 않고 계산된 각도와 PWM count만 출력한다. ONVIF PTZ 연동 테스트에서도 `afterveda-onvif --ptz-dry-run`을 사용하면 실제 하드웨어 없이 흐름을 확인할 수 있다.
+`afterveda-onvif --ptz-dry-run`을 사용하면 실제 `/dev/afterveda_ptz`에 쓰지 않고 ONVIF PTZ 흐름을 확인할 수 있다.
 
 ## 프로세스 실행 순서
 
@@ -164,7 +161,7 @@ onvif-server/build/afterveda-onvif \
   --xaddr-host <pi-ip> \
   --rtsp-uri rtsp://<pi-ip>:8554/live \
   --rail-control-url http://127.0.0.1:8081 \
-  --hardware-control hardware-control/build/hardware-control
+  --ptz-device /dev/afterveda_ptz
 ```
 
 하드웨어 없이 PTZ만 검증하려면 다음 옵션을 추가한다.
@@ -206,9 +203,12 @@ cmake --build media-server/build
 
 cmake -S onvif-server -B onvif-server/build
 cmake --build onvif-server/build
+```
 
-cmake -S hardware-control -B hardware-control/build
-cmake --build hardware-control/build
+형제 BSP 커널 모듈 빌드:
+
+```bash
+make -C ../afterveda-bsp/ptz-kmod
 ```
 
 Raspberry Pi 4/5 64-bit 대상 크로스 컴파일은 `cmake/toolchains/raspi-aarch64.cmake`를 사용한다.
@@ -240,12 +240,13 @@ cmake --build media-server/build/pi-release
 - pthread / CMake Threads
 - 생성된 ONVIF binding 파일: `onvif-server/gsoap/generated/*`
 
-### hardware-control
+### 외부 BSP ptz-kmod
 
-- C++17
-- Linux I2C device: `/dev/i2c-1`
-- PCA9685 PWM driver
-- Pan/Tilt 서보와 외부 5V 서보 전원
+- Raspberry Pi kernel headers
+- Linux PWM framework
+- Pan servo signal: BCM GPIO18 / `pwm0`
+- Tilt servo signal: BCM GPIO19 / `pwm1`
+- Pan/Tilt 서보와 외부 5V 서보 전원, Raspberry Pi와 공통 GND
 
 ## 주요 데이터 흐름
 
@@ -264,47 +265,46 @@ PiCam
 ### ONVIF 검색 흐름
 
 ```txt
-ONVIF Client
+ONVIF 클라이언트
   -> WS-Discovery Probe multicast 239.255.255.250:3702
   -> afterveda-onvif ProbeMatch
-  -> Client calls http://<xaddr-host>:8000/device_service
+  -> 클라이언트가 http://<xaddr-host>:8000/device_service 호출
   -> GetServices / GetProfiles / GetStreamUri
-  -> Client opens RTSP URI from rail-media
+  -> 클라이언트가 rail-media RTSP URI 접속
 ```
 
 ### PTZ 제어 흐름
 
 ```txt
-ONVIF Client PTZ command
+ONVIF 클라이언트 PTZ 명령
   -> afterveda-onvif SOAP PTZ handler
-  -> hardware-control CLI command
-  -> load previous pan/tilt state
-  -> clamp angle to configured range
-  -> convert angle to PCA9685 PWM count
-  -> write I2C PWM registers
-  -> save new state
+  -> /dev/afterveda_ptz에 텍스트 명령 기록
+  -> afterveda_ptz 커널 모듈이 pan/tilt 상태 갱신
+  -> 설정 범위로 각도 제한
+  -> 각도를 PWM duty cycle로 변환
+  -> Linux PWM framework로 PWM 상태 적용
 ```
 
 ### 프로필 변경 흐름
 
 ```txt
-ONVIF SetVideoEncoderConfiguration or HTTP POST /profile/<name>
+ONVIF SetVideoEncoderConfiguration 또는 HTTP POST /profile/<name>
   -> rail-media control API
-  -> apply low/main/high profile
-  -> rebuild RTSP media factory
-  -> close existing RTSP clients
-  -> new clients receive updated stream
+  -> low/main/high 프로필 적용
+  -> RTSP media factory 재생성
+  -> 기존 RTSP client 연결 종료
+  -> 새 클라이언트가 변경된 스트림 수신
 ```
 
 ## 현재 구현상 주의점
 
 - ONVIF는 Profile T 지향 구현이지만 공식 인증 완료 상태는 아니다.
 - Imaging 설정은 호환 응답 중심이며 실제 센서 제어로 연결되어 있지 않다.
-- OSD 응답은 기본 호환 응답이며 실제 영상 overlay pipeline은 아직 구현되지 않았다.
+- OSD 응답은 기본 호환 응답이며 실제 영상 오버레이 pipeline은 아직 구현되지 않았다.
 - Metadata streaming은 아직 완성되지 않았다.
 - PTZ는 continuous velocity를 실제 속도 제어로 처리하지 않고 방향별 step 명령으로 변환한다.
-- PTZ 명령은 `std::system()`으로 `hardware-control`을 실행하므로 경로와 인자 escaping, 실행 권한, 배포 위치를 신경 써야 한다.
-- `hardware-control stop`은 즉시 정지나 전원 차단이 아니라 현재 각도를 유지하도록 PWM을 다시 쓰는 동작이다.
+- PTZ 명령은 `/dev/afterveda_ptz` write 권한이 필요하다.
+- `stop`은 즉시 정지나 전원 차단이 아니라 현재 각도를 유지하도록 PWM을 다시 쓰는 동작이다.
 - `rail-media`의 HTTP control server는 단순 HTTP parser이므로 reverse proxy 수준의 복잡한 HTTP 기능을 기대하면 안 된다.
 - RTSP UDP multicast는 현재 ONVIF 응답에서 지원하지 않는 것으로 처리된다.
 
@@ -314,8 +314,8 @@ ONVIF SetVideoEncoderConfiguration or HTTP POST /profile/<name>
 2. `rail-media`를 실행하고 VLC에서 `rtsp://<pi-ip>:8554/live`를 확인한다.
 3. `curl http://<pi-ip>:8081/health`, `/profiles`, `/profile`로 control API를 확인한다.
 4. `POST /profile/low`, `main`, `high`로 프로필 전환을 확인한다.
-5. `hardware-control --dry-run center/left/right/up/down`으로 각도와 PWM count를 확인한다.
-6. 실제 PCA9685 연결 후 `i2cdetect -y 1`로 `0x40` 주소를 확인한다.
+5. `../afterveda-bsp/ptz-kmod`에서 커널 모듈과 오버레이를 빌드한다.
+6. Raspberry Pi에서 `afterveda-ptz` 오버레이와 `afterveda_ptz.ko`를 로드하고 `/dev/afterveda_ptz`를 확인한다.
 7. 실제 서보 연결 전 `--pan-min`, `--pan-max`, `--tilt-min`, `--tilt-max`를 안전 범위로 잡는다.
 8. `afterveda-onvif --ptz-dry-run`으로 ONVIF discovery, media, PTZ 흐름을 먼저 확인한다.
 9. ONVIF 클라이언트 또는 VMS에서 장비 검색, `GetStreamUri`, RTSP 재생, PTZ 버튼 동작을 확인한다.
@@ -323,4 +323,4 @@ ONVIF SetVideoEncoderConfiguration or HTTP POST /profile/<name>
 
 ## 한 줄 요약
 
-Afterveda는 `rail-media`가 카메라 영상을 RTSP로 송출하고, `afterveda-onvif`가 그 RTSP 스트림을 ONVIF 카메라로 노출하며, `hardware-control`이 ONVIF PTZ 요청을 Raspberry Pi I2C/PCA9685 기반 Pan/Tilt 서보 제어로 연결하는 구조다.
+Afterveda는 `rail-media`가 카메라 영상을 RTSP로 송출하고, `afterveda-onvif`가 그 RTSP 스트림을 ONVIF 카메라로 노출하며, 형제 BSP 프로젝트의 `afterveda_ptz` 커널 모듈이 ONVIF PTZ 요청을 Raspberry Pi GPIO18/19 PWM 기반 Pan/Tilt 서보 제어로 연결하는 구조다.
