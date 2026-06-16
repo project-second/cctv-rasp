@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <schema targetNamespace="http://www.onvif.org/ver20/imaging/wsdl"
+  <schema targetNamespace="http://www.onvif.org/ver10/schema"
     xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
     xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -39,26 +39,44 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
-    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
     <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
-    <!-- operation response element -->
-    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
-    <!-- operation response element -->
-    <element name="GetImagingSettingsResponse" type="afterveda:AnyResponse"/>
-    <!-- operation response element -->
-    <element name="SetImagingSettingsResponse" type="afterveda:AnyResponse"/>
-    <!-- operation response element -->
-    <element name="GetOptionsResponse" type="afterveda:AnyResponse"/>
-    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
-    <element name="GetImagingSettings" type="afterveda:EmptyRequest"/>
-    <element name="SetImagingSettings" type="afterveda:EmptyRequest"/>
-    <element name="GetOptions" type="afterveda:EmptyRequest"/>
+    <complexType name="Vector2D"><!-- tt__Vector2D -->
+          <sequence>
+            <element name="x" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector2D::x -->
+            <element name="y" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector2D::y -->
+          </sequence>
+    </complexType>
+    <complexType name="Vector1D"><!-- tt__Vector1D -->
+          <sequence>
+            <element name="x" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector1D::x -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZVector"><!-- tt__PTZVector -->
+          <sequence>
+            <element name="PanTilt" type="tt:Vector2D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZVector::PanTilt -->
+            <element name="Zoom" type="tt:Vector1D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZVector::Zoom -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZMoveStatus"><!-- tt__PTZMoveStatus -->
+          <sequence>
+            <element name="PanTilt" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZMoveStatus::PanTilt -->
+            <element name="Zoom" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZMoveStatus::Zoom -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZStatus"><!-- tt__PTZStatus -->
+          <sequence>
+            <element name="Position" type="tt:PTZVector" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::Position -->
+            <element name="MoveStatus" type="tt:PTZMoveStatus" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::MoveStatus -->
+            <element name="UtcTime" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::UtcTime -->
+          </sequence>
+    </complexType>
   </schema>
 

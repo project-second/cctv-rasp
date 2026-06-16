@@ -14,6 +14,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -37,6 +39,7 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
@@ -45,104 +48,48 @@
     <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
-    <!-- operation response element -->
-    <element name="GetNodesResponse">
-      <complexType>
+    <complexType name="GetStatus"><!-- _tptz__GetStatus -->
           <sequence>
-            <element ref="tptz:GetNodesResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GetNodes::tptz__GetNodesResponse -->
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetStatus::ProfileToken -->
           </sequence>
-      </complexType>
-    </element>
-    <!-- operation response element -->
-    <element name="GetConfigurationsResponse">
-      <complexType>
+    </complexType>
+    <complexType name="GetStatusResponse"><!-- _tptz__GetStatusResponse -->
           <sequence>
-            <element ref="tptz:GetConfigurationsResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GetConfigurations::tptz__GetConfigurationsResponse -->
+            <element name="PTZStatus" type="tt:PTZStatus" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetStatusResponse::PTZStatus -->
           </sequence>
-      </complexType>
-    </element>
+    </complexType>
     <!-- operation response element -->
-    <element name="GetPresetsResponse">
-      <complexType>
-          <sequence>
-            <element ref="tptz:GetPresetsResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GetPresets::tptz__GetPresetsResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetNodesResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="SetPresetResponse">
-      <complexType>
-          <sequence>
-            <element ref="tptz:SetPresetResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__SetPreset::tptz__SetPresetResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetConfigurationsResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GotoPresetResponse">
-      <complexType>
-          <sequence>
-            <element ref="tptz:GotoPresetResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GotoPreset::tptz__GotoPresetResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetPresetsResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetStatusResponse">
-      <complexType>
-          <sequence>
-            <element ref="tptz:GetStatusResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GetStatus::tptz__GetStatusResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="SetPresetResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GotoHomePositionResponse">
-      <complexType>
-          <sequence>
-            <element ref="tptz:GotoHomePositionResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__GotoHomePosition::tptz__GotoHomePositionResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GotoPresetResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="SetHomePositionResponse">
-      <complexType>
-          <sequence>
-            <element ref="tptz:SetHomePositionResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__SetHomePosition::tptz__SetHomePositionResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetStatusResponse" type="tptz:GetStatusResponse"/>
     <!-- operation response element -->
-    <element name="ContinuousMoveResponse">
-      <complexType>
-          <sequence>
-            <element ref="tptz:ContinuousMoveResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__ContinuousMove::tptz__ContinuousMoveResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GotoHomePositionResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="RelativeMoveResponse">
-      <complexType>
-          <sequence>
-            <element ref="tptz:RelativeMoveResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__RelativeMove::tptz__RelativeMoveResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="SetHomePositionResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="StopResponse">
-      <complexType>
-          <sequence>
-            <element ref="tptz:StopResponse" minOccurs="1" maxOccurs="1"/><!-- __tptz__Stop::tptz__StopResponse -->
-          </sequence>
-      </complexType>
-    </element>
-    <element name="GetNodes" type="xsd:anyType"/>
-    <element name="GetConfigurations" type="xsd:anyType"/>
-    <element name="GetPresets" type="xsd:anyType"/>
-    <element name="SetPreset" type="xsd:anyType"/>
-    <element name="GotoPreset" type="xsd:anyType"/>
-    <element name="GetStatus" type="xsd:anyType"/>
-    <element name="GotoHomePosition" type="xsd:anyType"/>
-    <element name="SetHomePosition" type="xsd:anyType"/>
-    <element name="ContinuousMove" type="xsd:anyType"/>
-    <element name="RelativeMove" type="xsd:anyType"/>
-    <element name="Stop" type="xsd:anyType"/>
+    <element name="ContinuousMoveResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="RelativeMoveResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="StopResponse" type="afterveda:AnyResponse"/>
+    <element name="GetStatus" type="tptz:GetStatus"/>
+    <element name="GetNodes" type="afterveda:EmptyRequest"/>
+    <element name="GetConfigurations" type="afterveda:EmptyRequest"/>
+    <element name="GetPresets" type="afterveda:EmptyRequest"/>
+    <element name="SetPreset" type="afterveda:EmptyRequest"/>
+    <element name="GotoPreset" type="afterveda:EmptyRequest"/>
+    <element name="GotoHomePosition" type="afterveda:EmptyRequest"/>
+    <element name="SetHomePosition" type="afterveda:EmptyRequest"/>
+    <element name="ContinuousMove" type="afterveda:EmptyRequest"/>
+    <element name="RelativeMove" type="afterveda:EmptyRequest"/>
+    <element name="Stop" type="afterveda:EmptyRequest"/>
   </schema>
 

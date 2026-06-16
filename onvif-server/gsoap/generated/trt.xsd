@@ -14,6 +14,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -37,6 +39,7 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
@@ -46,103 +49,40 @@
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
     <!-- operation response element -->
-    <element name="GetProfilesResponse">
-      <complexType>
-          <sequence>
-            <element ref="trt:GetProfilesResponse" minOccurs="1" maxOccurs="1"/><!-- __trt__GetProfiles::trt__GetProfilesResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetProfilesResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetServiceCapabilitiesResponse">
-      <complexType>
-          <sequence>
-            <element ref="trt:GetServiceCapabilitiesResponse" minOccurs="1" maxOccurs="1"/><!-- __trt__GetServiceCapabilities::trt__GetServiceCapabilitiesResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetProfileResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourcesResponse">
-      <complexType>
-          <sequence>
-            <element ref="trt:GetVideoSourcesResponse" minOccurs="1" maxOccurs="1"/><!-- __trt__GetVideoSources::trt__GetVideoSourcesResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourceConfigurationsResponse">
-      <complexType>
-          <sequence>
-            <element ref="trt:GetVideoSourceConfigurationsResponse" minOccurs="1" maxOccurs="1"/><!-- __trt__GetVideoSourceConfigurations::trt__GetVideoSourceConfigurationsResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetVideoSourcesResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourceConfigurationResponse">
-      <complexType>
-          <sequence>
-            <element ref="trt:GetVideoSourceConfigurationResponse" minOccurs="1" maxOccurs="1"/><!-- __trt__GetVideoSourceConfiguration::trt__GetVideoSourceConfigurationResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetVideoSourceConfigurationsResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoEncoderConfigurationsResponse">
-      <complexType>
-          <sequence>
-            <element ref="trt:GetVideoEncoderConfigurationsResponse" minOccurs="1" maxOccurs="1"/><!-- __trt__GetVideoEncoderConfigurations::trt__GetVideoEncoderConfigurationsResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetVideoSourceConfigurationResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetStreamUriResponse">
-      <complexType>
-          <sequence>
-            <element ref="trt:GetStreamUriResponse" minOccurs="1" maxOccurs="1"/><!-- __trt__GetStreamUri::trt__GetStreamUriResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetVideoEncoderConfigurationsResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoEncoderConfigurationResponse">
-      <complexType>
-          <sequence>
-            <element ref="trt:GetVideoEncoderConfigurationResponse" minOccurs="1" maxOccurs="1"/><!-- __trt__GetVideoEncoderConfiguration::trt__GetVideoEncoderConfigurationResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetStreamUriResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourceConfigurationOptionsResponse">
-      <complexType>
-          <sequence>
-            <element ref="trt:GetVideoSourceConfigurationOptionsResponse" minOccurs="1" maxOccurs="1"/><!-- __trt__GetVideoSourceConfigurationOptions::trt__GetVideoSourceConfigurationOptionsResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetVideoEncoderConfigurationResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoEncoderConfigurationOptionsResponse">
-      <complexType>
-          <sequence>
-            <element ref="trt:GetVideoEncoderConfigurationOptionsResponse" minOccurs="1" maxOccurs="1"/><!-- __trt__GetVideoEncoderConfigurationOptions::trt__GetVideoEncoderConfigurationOptionsResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetVideoSourceConfigurationOptionsResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="SetVideoEncoderConfigurationResponse">
-      <complexType>
-          <sequence>
-            <element ref="trt:SetVideoEncoderConfigurationResponse" minOccurs="1" maxOccurs="1"/><!-- __trt__SetVideoEncoderConfiguration::trt__SetVideoEncoderConfigurationResponse -->
-          </sequence>
-      </complexType>
-    </element>
-    <element name="GetProfiles" type="xsd:anyType"/>
-    <element name="GetServiceCapabilities" type="xsd:anyType"/>
-    <element name="GetVideoSources" type="xsd:anyType"/>
-    <element name="GetVideoSourceConfigurations" type="xsd:anyType"/>
-    <element name="GetVideoSourceConfiguration" type="xsd:anyType"/>
-    <element name="GetVideoEncoderConfigurations" type="xsd:anyType"/>
-    <element name="GetStreamUri" type="xsd:anyType"/>
-    <element name="GetVideoEncoderConfiguration" type="xsd:anyType"/>
-    <element name="GetVideoSourceConfigurationOptions" type="xsd:anyType"/>
-    <element name="GetVideoEncoderConfigurationOptions" type="xsd:anyType"/>
-    <element name="SetVideoEncoderConfiguration" type="xsd:anyType"/>
+    <element name="GetVideoEncoderConfigurationOptionsResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="SetVideoEncoderConfigurationResponse" type="afterveda:AnyResponse"/>
+    <element name="GetProfiles" type="afterveda:EmptyRequest"/>
+    <element name="GetProfile" type="afterveda:EmptyRequest"/>
+    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoSources" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoSourceConfigurations" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoSourceConfiguration" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoEncoderConfigurations" type="afterveda:EmptyRequest"/>
+    <element name="GetStreamUri" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoEncoderConfiguration" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoSourceConfigurationOptions" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoEncoderConfigurationOptions" type="afterveda:EmptyRequest"/>
+    <element name="SetVideoEncoderConfiguration" type="afterveda:EmptyRequest"/>
   </schema>
 

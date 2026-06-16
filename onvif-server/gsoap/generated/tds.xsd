@@ -14,6 +14,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -37,6 +39,7 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
@@ -45,86 +48,46 @@
     <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
-    <!-- operation response element -->
-    <element name="GetServicesResponse">
-      <complexType>
+    <complexType name="GetDeviceInformation"><!-- _tds__GetDeviceInformation -->
           <sequence>
-            <element ref="tds:GetServicesResponse" minOccurs="1" maxOccurs="1"/><!-- __tds__GetServices::tds__GetServicesResponse -->
+            <any processContents="lax" minOccurs="0" maxOccurs="1"/><!-- __any -->
           </sequence>
-      </complexType>
-    </element>
-    <!-- operation response element -->
-    <element name="GetServiceCapabilitiesResponse">
-      <complexType>
+    </complexType>
+    <complexType name="GetDeviceInformationResponse"><!-- _tds__GetDeviceInformationResponse -->
           <sequence>
-            <element ref="tds:GetServiceCapabilitiesResponse" minOccurs="1" maxOccurs="1"/><!-- __tds__GetServiceCapabilities::tds__GetServiceCapabilitiesResponse -->
+            <element name="Manufacturer" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tds__GetDeviceInformationResponse::Manufacturer -->
+            <element name="Model" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tds__GetDeviceInformationResponse::Model -->
+            <element name="FirmwareVersion" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tds__GetDeviceInformationResponse::FirmwareVersion -->
+            <element name="SerialNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tds__GetDeviceInformationResponse::SerialNumber -->
+            <element name="HardwareId" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tds__GetDeviceInformationResponse::HardwareId -->
           </sequence>
-      </complexType>
-    </element>
+    </complexType>
     <!-- operation response element -->
-    <element name="GetDeviceInformationResponse">
-      <complexType>
-          <sequence>
-            <element ref="tds:GetDeviceInformationResponse" minOccurs="1" maxOccurs="1"/><!-- __tds__GetDeviceInformation::tds__GetDeviceInformationResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetServicesResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetSystemDateAndTimeResponse">
-      <complexType>
-          <sequence>
-            <element ref="tds:GetSystemDateAndTimeResponse" minOccurs="1" maxOccurs="1"/><!-- __tds__GetSystemDateAndTime::tds__GetSystemDateAndTimeResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetScopesResponse">
-      <complexType>
-          <sequence>
-            <element ref="tds:GetScopesResponse" minOccurs="1" maxOccurs="1"/><!-- __tds__GetScopes::tds__GetScopesResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetDeviceInformationResponse" type="tds:GetDeviceInformationResponse"/>
     <!-- operation response element -->
-    <element name="GetHostnameResponse">
-      <complexType>
-          <sequence>
-            <element ref="tds:GetHostnameResponse" minOccurs="1" maxOccurs="1"/><!-- __tds__GetHostname::tds__GetHostnameResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetSystemDateAndTimeResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetNetworkInterfacesResponse">
-      <complexType>
-          <sequence>
-            <element ref="tds:GetNetworkInterfacesResponse" minOccurs="1" maxOccurs="1"/><!-- __tds__GetNetworkInterfaces::tds__GetNetworkInterfacesResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetScopesResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetUsersResponse">
-      <complexType>
-          <sequence>
-            <element ref="tds:GetUsersResponse" minOccurs="1" maxOccurs="1"/><!-- __tds__GetUsers::tds__GetUsersResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetHostnameResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetCapabilitiesResponse">
-      <complexType>
-          <sequence>
-            <element ref="tds:GetCapabilitiesResponse" minOccurs="1" maxOccurs="1"/><!-- __tds__GetCapabilities::tds__GetCapabilitiesResponse -->
-          </sequence>
-      </complexType>
-    </element>
-    <element name="GetServices" type="xsd:anyType"/>
-    <element name="GetServiceCapabilities" type="xsd:anyType"/>
-    <element name="GetDeviceInformation" type="xsd:anyType"/>
-    <element name="GetSystemDateAndTime" type="xsd:anyType"/>
-    <element name="GetScopes" type="xsd:anyType"/>
-    <element name="GetHostname" type="xsd:anyType"/>
-    <element name="GetNetworkInterfaces" type="xsd:anyType"/>
-    <element name="GetUsers" type="xsd:anyType"/>
-    <element name="GetCapabilities" type="xsd:anyType"/>
+    <element name="GetNetworkInterfacesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetUsersResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetDeviceInformation" type="tds:GetDeviceInformation"/>
+    <element name="GetServices" type="afterveda:EmptyRequest"/>
+    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
+    <element name="GetSystemDateAndTime" type="afterveda:EmptyRequest"/>
+    <element name="GetScopes" type="afterveda:EmptyRequest"/>
+    <element name="GetHostname" type="afterveda:EmptyRequest"/>
+    <element name="GetNetworkInterfaces" type="afterveda:EmptyRequest"/>
+    <element name="GetUsers" type="afterveda:EmptyRequest"/>
+    <element name="GetCapabilities" type="afterveda:EmptyRequest"/>
   </schema>
 

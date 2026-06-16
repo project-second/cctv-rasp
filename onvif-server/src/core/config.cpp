@@ -31,7 +31,7 @@ void print_usage(const char* program) {
         << "  --rtsp-uri <uri>           RTSP URI returned by GetStreamUri\n"
         << "  --rail-control-url <url>   rail-media HTTP control URL. Default: http://127.0.0.1:8081\n"
         << "  --ptz-device <path>        PTZ character device. Default: /dev/afterveda_ptz\n"
-        << "  --ptz-step <deg>           PTZ step in degrees. Default: 5\n"
+        << "  --ptz-step <deg>           Max PTZ degrees moved for ONVIF x/y 1.0. Default: 5\n"
         << "  --ptz-dry-run              Log PTZ commands without writing to the device\n"
         << "  --username <user>          Require ONVIF UsernameToken username\n"
         << "  --password <password>      Require password text in UsernameToken\n"

@@ -14,6 +14,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -37,6 +39,7 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
@@ -46,31 +49,13 @@
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
     <!-- operation response element -->
-    <element name="GetProfilesResponse">
-      <complexType>
-          <sequence>
-            <element ref="tr2:GetProfilesResponse" minOccurs="1" maxOccurs="1"/><!-- __tr2__GetProfiles::tr2__GetProfilesResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetProfilesResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetStreamUriResponse">
-      <complexType>
-          <sequence>
-            <element ref="tr2:GetStreamUriResponse" minOccurs="1" maxOccurs="1"/><!-- __tr2__GetStreamUri::tr2__GetStreamUriResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetStreamUriResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetServiceCapabilitiesResponse">
-      <complexType>
-          <sequence>
-            <element ref="tr2:GetServiceCapabilitiesResponse" minOccurs="1" maxOccurs="1"/><!-- __tr2__GetServiceCapabilities::tr2__GetServiceCapabilitiesResponse -->
-          </sequence>
-      </complexType>
-    </element>
-    <element name="GetProfiles" type="xsd:anyType"/>
-    <element name="GetStreamUri" type="xsd:anyType"/>
-    <element name="GetServiceCapabilities" type="xsd:anyType"/>
+    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetProfiles" type="afterveda:EmptyRequest"/>
+    <element name="GetStreamUri" type="afterveda:EmptyRequest"/>
+    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
   </schema>
 

@@ -72,19 +72,19 @@ set(GSOAP_PLUGIN_SOURCES
 set_source_files_properties(${GSOAP_PLUGIN_SOURCES} PROPERTIES LANGUAGE CXX)
 
 add_executable(afterveda-onvif
-    src/app.cpp
-    src/config.cpp
-    src/discovery_server.cpp
-    src/http_client.cpp
-    src/http_server.cpp
+    src/core/app.cpp
+    src/core/config.cpp
+    src/core/utils.cpp
+    src/media/media_model.cpp
+    src/media/media_xml.cpp
+    src/network/discovery_server.cpp
+    src/network/http_client.cpp
+    src/network/http_server.cpp
+    src/network/rail_client.cpp
+    src/ptz/ptz_device.cpp
+    src/ptz/ptz_service.cpp
+    src/soap/soap_services.cpp
     src/main.cpp
-    src/media_model.cpp
-    src/media_xml.cpp
-    src/ptz_device.cpp
-    src/ptz_service.cpp
-    src/rail_client.cpp
-    src/soap_services.cpp
-    src/utils.cpp
     gsoap/generated/soapC.cpp
     gsoap/generated/soapClient.cpp
     gsoap/generated/soapServer.cpp
@@ -97,6 +97,11 @@ target_include_directories(afterveda-onvif
         ${GSOAP_SHARE_DIR}
         ${GSOAP_SHARE_DIR}/import
         ${GSOAP_SHARE_DIR}/plugin
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/core
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/media
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/network
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/ptz
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/soap
         ${CMAKE_CURRENT_SOURCE_DIR}/gsoap/generated
 )
 

@@ -66,15 +66,6 @@ std::string ptz_configuration_xml() {
         "</tt:PTZConfiguration>";
 }
 
-std::string media1_profile_xml(const VideoProfile& profile) {
-    return "<trt:Profiles token=\"" + xml_escape(profile.token) + "\" fixed=\"false\">"
-        "<tt:Name>" + xml_escape(profile.name) + "</tt:Name>" +
-        video_source_configuration_xml(profile) +
-        video_encoder_configuration_xml(profile, "tt:VideoEncoderConfiguration") +
-        ptz_configuration_xml() +
-        "</trt:Profiles>";
-}
-
 std::string media2_profile_xml(const VideoProfile& profile) {
     return "<tr2:Profiles token=\"" + xml_escape(profile.token) + "\" fixed=\"false\">"
         "<tt:Name>" + xml_escape(profile.name) + "</tt:Name>"
@@ -95,6 +86,15 @@ std::string media2_profile_xml(const VideoProfile& profile) {
 
 VideoProfile first_profile(const MediaModel& model) {
     return profile_for_token(model, "main");
+}
+
+std::string media1_profile_xml_with_tag(const VideoProfile& profile, const std::string& tag) {
+    return "<trt:" + tag + " token=\"" + xml_escape(profile.token) + "\" fixed=\"false\">"
+        "<tt:Name>" + xml_escape(profile.name) + "</tt:Name>" +
+        video_source_configuration_xml(profile) +
+        video_encoder_configuration_xml(profile, "tt:VideoEncoderConfiguration") +
+        ptz_configuration_xml() +
+        "</trt:" + tag + ">";
 }
 
 }  // namespace
@@ -124,6 +124,14 @@ std::string media1_service_capabilities_xml() {
 std::string media2_service_capabilities_xml() {
     return "<tr2:Capabilities SnapshotUri=\"false\" Rotation=\"false\" VideoSourceMode=\"false\" "
         "OSD=\"true\" TemporaryOSDText=\"true\" EXICompression=\"false\"/>";
+}
+
+std::string media1_profile_xml(const VideoProfile& profile) {
+    return media1_profile_xml_with_tag(profile, "Profiles");
+}
+
+std::string media1_get_profile_xml(const VideoProfile& profile) {
+    return media1_profile_xml_with_tag(profile, "Profile");
 }
 
 std::string media1_profiles_xml(const MediaModel& model) {

@@ -119,7 +119,7 @@ SOAP HTTP server는 기본 `8000` 포트에서 요청을 받는다. `/health` �
 
 `GetStreamUri`는 자체 스트림을 만들지 않고 `--rtsp-uri`로 받은 값을 응답한다. UDP multicast 요청은 현재 지원하지 않고 RTP/RTSP/TCP unicast 중심으로 동작한다.
 
-PTZ 요청은 `/dev/afterveda_ptz` 문자 장치에 텍스트 명령을 기록한다. `ContinuousMove` 또는 `RelativeMove`의 X/Y 값 방향을 읽어 `left`, `right`, `up`, `down`, `stop` 중 하나로 변환한다. `GotoPreset`, `SetHomePosition`, `GotoHomePosition`은 `center` 명령으로 처리한다.
+PTZ 요청은 `/dev/afterveda_ptz` 문자 장치에 텍스트 명령을 기록한다. `ContinuousMove` 또는 `RelativeMove`의 X/Y 값을 현재 `pan=<deg> tilt=<deg>` 위치 기준 증분 각도로 변환하고, 커널 장치에는 `pan=120 tilt=80` 같은 절대 위치 명령을 쓴다. `GotoPreset`, `SetHomePosition`, `GotoHomePosition`은 기본 위치인 `pan=90 tilt=45`로 처리한다.
 
 ### 3. afterveda-bsp/ptz-kmod: Pan/Tilt 서보 제어
 
@@ -140,7 +140,7 @@ PTZ 요청은 `/dev/afterveda_ptz` 문자 장치에 텍스트 명령을 기록�
 | Tilt PWM | channel 1 / BCM GPIO19 |
 | Pan range | `30..150` degrees |
 | Tilt range | `45..135` degrees |
-| Center | `90` degrees |
+| Default position | `pan=90 tilt=45` |
 | Step | `5` degrees |
 
 명령은 `/dev/afterveda_ptz`에 한 줄 text로 기록한다. 커널 모듈이 현재 각도를 유지하므로 다음 명령은 이전 위치를 기준으로 움직인다. `stop`은 모터 전원 차단이 아니라 현재 위치를 다시 적용하는 동작이다.
@@ -302,7 +302,7 @@ ONVIF SetVideoEncoderConfiguration 또는 HTTP POST /profile/<name>
 - Imaging 설정은 호환 응답 중심이며 실제 센서 제어로 연결되어 있지 않다.
 - OSD 응답은 기본 호환 응답이며 실제 영상 오버레이 pipeline은 아직 구현되지 않았다.
 - Metadata streaming은 아직 완성되지 않았다.
-- PTZ는 continuous velocity를 실제 속도 제어로 처리하지 않고 방향별 step 명령으로 변환한다.
+- PTZ는 continuous velocity를 실제 속도 제어로 처리하지 않고 현재 위치 기준 `pan=<deg> tilt=<deg>` 절대 각도 명령으로 변환한다.
 - PTZ 명령은 `/dev/afterveda_ptz` write 권한이 필요하다.
 - `stop`은 즉시 정지나 전원 차단이 아니라 현재 각도를 유지하도록 PWM을 다시 쓰는 동작이다.
 - `rail-media`의 HTTP control server는 단순 HTTP parser이므로 reverse proxy 수준의 복잡한 HTTP 기능을 기대하면 안 된다.

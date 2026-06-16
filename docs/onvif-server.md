@@ -61,4 +61,4 @@ onvif-server/build/afterveda-onvif \
 - Imaging 설정은 현재 호환 응답 중심이며 실제 센서 제어로 연결되어 있지 않다.
 - Metadata streaming과 실제 영상 OSD 오버레이는 아직 완성되지 않았다.
 - Zoom 하드웨어가 없으므로 zoom 요청은 SOAP fault로 응답한다.
-- PTZ는 속도 제어가 아니라 방향별 step 명령으로 처리한다.
+- PTZ는 속도 제어가 아니라 현재 `pan=<deg> tilt=<deg>` 위치를 읽고 ONVIF x/y 값을 절대 각도 증분으로 변환해 다시 기록한다.

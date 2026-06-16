@@ -16,6 +16,8 @@
   xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
   xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
   xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+  xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+  xmlns:tt="http://www.onvif.org/ver10/schema"
   xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
   xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
   xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -33,7 +35,7 @@
 
 <types>
 
-  <schema targetNamespace="http://www.onvif.org/ver10/device/wsdl"
+  <schema targetNamespace="http://tempuri.org/afterveda.xsd"
     xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
     xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -48,6 +50,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -71,6 +75,8 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
+    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
@@ -79,15 +85,189 @@
     <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
-    <element name="GetServices" type="xsd:anyType"/>
-    <element name="GetServiceCapabilities" type="xsd:anyType"/>
-    <element name="GetDeviceInformation" type="xsd:anyType"/>
-    <element name="GetSystemDateAndTime" type="xsd:anyType"/>
-    <element name="GetScopes" type="xsd:anyType"/>
-    <element name="GetHostname" type="xsd:anyType"/>
-    <element name="GetNetworkInterfaces" type="xsd:anyType"/>
-    <element name="GetUsers" type="xsd:anyType"/>
-    <element name="GetCapabilities" type="xsd:anyType"/>
+    <complexType name="EmptyRequest"><!-- afterveda__EmptyRequest -->
+          <sequence>
+            <any processContents="lax" minOccurs="0" maxOccurs="1"/><!-- __any -->
+          </sequence>
+    </complexType>
+    <complexType name="AnyResponse"><!-- afterveda__AnyResponse -->
+          <sequence>
+            <any processContents="lax" minOccurs="0" maxOccurs="1"/><!-- __any -->
+          </sequence>
+    </complexType>
+  </schema>
+
+  <schema targetNamespace="http://www.onvif.org/ver10/schema"
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
+    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified">
+    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
+    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
+    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
+    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
+    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
+    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
+    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
+    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
+
+    <complexType name="Vector2D"><!-- tt__Vector2D -->
+          <sequence>
+            <element name="x" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector2D::x -->
+            <element name="y" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector2D::y -->
+          </sequence>
+    </complexType>
+    <complexType name="Vector1D"><!-- tt__Vector1D -->
+          <sequence>
+            <element name="x" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector1D::x -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZVector"><!-- tt__PTZVector -->
+          <sequence>
+            <element name="PanTilt" type="tt:Vector2D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZVector::PanTilt -->
+            <element name="Zoom" type="tt:Vector1D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZVector::Zoom -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZMoveStatus"><!-- tt__PTZMoveStatus -->
+          <sequence>
+            <element name="PanTilt" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZMoveStatus::PanTilt -->
+            <element name="Zoom" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZMoveStatus::Zoom -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZStatus"><!-- tt__PTZStatus -->
+          <sequence>
+            <element name="Position" type="tt:PTZVector" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::Position -->
+            <element name="MoveStatus" type="tt:PTZMoveStatus" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::MoveStatus -->
+            <element name="UtcTime" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::UtcTime -->
+          </sequence>
+    </complexType>
+  </schema>
+
+  <schema targetNamespace="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
+    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
+    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
+    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
+    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
+    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
+    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
+    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified">
+    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
+    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
+    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
+    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
+    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
+    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
+    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
+    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
+    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
+    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
+    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
+    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
+    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
+
+    <complexType name="GetDeviceInformation"><!-- _tds__GetDeviceInformation -->
+          <sequence>
+            <any processContents="lax" minOccurs="0" maxOccurs="1"/><!-- __any -->
+          </sequence>
+    </complexType>
+    <complexType name="GetDeviceInformationResponse"><!-- _tds__GetDeviceInformationResponse -->
+          <sequence>
+            <element name="Manufacturer" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tds__GetDeviceInformationResponse::Manufacturer -->
+            <element name="Model" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tds__GetDeviceInformationResponse::Model -->
+            <element name="FirmwareVersion" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tds__GetDeviceInformationResponse::FirmwareVersion -->
+            <element name="SerialNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tds__GetDeviceInformationResponse::SerialNumber -->
+            <element name="HardwareId" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tds__GetDeviceInformationResponse::HardwareId -->
+          </sequence>
+    </complexType>
+    <!-- operation response element -->
+    <element name="GetServicesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetDeviceInformationResponse" type="tds:GetDeviceInformationResponse"/>
+    <!-- operation response element -->
+    <element name="GetSystemDateAndTimeResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetScopesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetHostnameResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetNetworkInterfacesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetUsersResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetDeviceInformation" type="tds:GetDeviceInformation"/>
+    <element name="GetServices" type="afterveda:EmptyRequest"/>
+    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
+    <element name="GetSystemDateAndTime" type="afterveda:EmptyRequest"/>
+    <element name="GetScopes" type="afterveda:EmptyRequest"/>
+    <element name="GetHostname" type="afterveda:EmptyRequest"/>
+    <element name="GetNetworkInterfaces" type="afterveda:EmptyRequest"/>
+    <element name="GetUsers" type="afterveda:EmptyRequest"/>
+    <element name="GetCapabilities" type="afterveda:EmptyRequest"/>
   </schema>
 
   <schema targetNamespace="http://www.onvif.org/ver10/media/wsdl"
@@ -105,6 +285,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -128,6 +310,7 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
@@ -136,17 +319,42 @@
     <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
-    <element name="GetProfiles" type="xsd:anyType"/>
-    <element name="GetServiceCapabilities" type="xsd:anyType"/>
-    <element name="GetVideoSources" type="xsd:anyType"/>
-    <element name="GetVideoSourceConfigurations" type="xsd:anyType"/>
-    <element name="GetVideoSourceConfiguration" type="xsd:anyType"/>
-    <element name="GetVideoEncoderConfigurations" type="xsd:anyType"/>
-    <element name="GetStreamUri" type="xsd:anyType"/>
-    <element name="GetVideoEncoderConfiguration" type="xsd:anyType"/>
-    <element name="GetVideoSourceConfigurationOptions" type="xsd:anyType"/>
-    <element name="GetVideoEncoderConfigurationOptions" type="xsd:anyType"/>
-    <element name="SetVideoEncoderConfiguration" type="xsd:anyType"/>
+    <!-- operation response element -->
+    <element name="GetProfilesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetProfileResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoSourcesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoSourceConfigurationsResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoSourceConfigurationResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoEncoderConfigurationsResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetStreamUriResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoEncoderConfigurationResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoSourceConfigurationOptionsResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoEncoderConfigurationOptionsResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="SetVideoEncoderConfigurationResponse" type="afterveda:AnyResponse"/>
+    <element name="GetProfiles" type="afterveda:EmptyRequest"/>
+    <element name="GetProfile" type="afterveda:EmptyRequest"/>
+    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoSources" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoSourceConfigurations" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoSourceConfiguration" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoEncoderConfigurations" type="afterveda:EmptyRequest"/>
+    <element name="GetStreamUri" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoEncoderConfiguration" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoSourceConfigurationOptions" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoEncoderConfigurationOptions" type="afterveda:EmptyRequest"/>
+    <element name="SetVideoEncoderConfiguration" type="afterveda:EmptyRequest"/>
   </schema>
 
   <schema targetNamespace="http://www.onvif.org/ver20/media/wsdl"
@@ -164,6 +372,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -187,6 +397,7 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
@@ -196,32 +407,14 @@
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
     <!-- operation response element -->
-    <element name="GetProfilesResponse">
-      <complexType>
-          <sequence>
-            <element ref="tr2:GetProfilesResponse" minOccurs="1" maxOccurs="1"/><!-- __tr2__GetProfiles::tr2__GetProfilesResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetProfilesResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetStreamUriResponse">
-      <complexType>
-          <sequence>
-            <element ref="tr2:GetStreamUriResponse" minOccurs="1" maxOccurs="1"/><!-- __tr2__GetStreamUri::tr2__GetStreamUriResponse -->
-          </sequence>
-      </complexType>
-    </element>
+    <element name="GetStreamUriResponse" type="afterveda:AnyResponse"/>
     <!-- operation response element -->
-    <element name="GetServiceCapabilitiesResponse">
-      <complexType>
-          <sequence>
-            <element ref="tr2:GetServiceCapabilitiesResponse" minOccurs="1" maxOccurs="1"/><!-- __tr2__GetServiceCapabilities::tr2__GetServiceCapabilitiesResponse -->
-          </sequence>
-      </complexType>
-    </element>
-    <element name="GetProfiles" type="xsd:anyType"/>
-    <element name="GetStreamUri" type="xsd:anyType"/>
-    <element name="GetServiceCapabilities" type="xsd:anyType"/>
+    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetProfiles" type="afterveda:EmptyRequest"/>
+    <element name="GetStreamUri" type="afterveda:EmptyRequest"/>
+    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
   </schema>
 
   <schema targetNamespace="http://www.onvif.org/ver20/ptz/wsdl"
@@ -239,6 +432,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -262,6 +457,7 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
@@ -270,17 +466,49 @@
     <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
-    <element name="GetNodes" type="xsd:anyType"/>
-    <element name="GetConfigurations" type="xsd:anyType"/>
-    <element name="GetPresets" type="xsd:anyType"/>
-    <element name="SetPreset" type="xsd:anyType"/>
-    <element name="GotoPreset" type="xsd:anyType"/>
-    <element name="GetStatus" type="xsd:anyType"/>
-    <element name="GotoHomePosition" type="xsd:anyType"/>
-    <element name="SetHomePosition" type="xsd:anyType"/>
-    <element name="ContinuousMove" type="xsd:anyType"/>
-    <element name="RelativeMove" type="xsd:anyType"/>
-    <element name="Stop" type="xsd:anyType"/>
+    <complexType name="GetStatus"><!-- _tptz__GetStatus -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetStatus::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetStatusResponse"><!-- _tptz__GetStatusResponse -->
+          <sequence>
+            <element name="PTZStatus" type="tt:PTZStatus" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetStatusResponse::PTZStatus -->
+          </sequence>
+    </complexType>
+    <!-- operation response element -->
+    <element name="GetNodesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetConfigurationsResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetPresetsResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="SetPresetResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GotoPresetResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetStatusResponse" type="tptz:GetStatusResponse"/>
+    <!-- operation response element -->
+    <element name="GotoHomePositionResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="SetHomePositionResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="ContinuousMoveResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="RelativeMoveResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="StopResponse" type="afterveda:AnyResponse"/>
+    <element name="GetStatus" type="tptz:GetStatus"/>
+    <element name="GetNodes" type="afterveda:EmptyRequest"/>
+    <element name="GetConfigurations" type="afterveda:EmptyRequest"/>
+    <element name="GetPresets" type="afterveda:EmptyRequest"/>
+    <element name="SetPreset" type="afterveda:EmptyRequest"/>
+    <element name="GotoPreset" type="afterveda:EmptyRequest"/>
+    <element name="GotoHomePosition" type="afterveda:EmptyRequest"/>
+    <element name="SetHomePosition" type="afterveda:EmptyRequest"/>
+    <element name="ContinuousMove" type="afterveda:EmptyRequest"/>
+    <element name="RelativeMove" type="afterveda:EmptyRequest"/>
+    <element name="Stop" type="afterveda:EmptyRequest"/>
   </schema>
 
   <schema targetNamespace="http://www.onvif.org/ver20/imaging/wsdl"
@@ -298,6 +526,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -321,6 +551,7 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
@@ -329,10 +560,18 @@
     <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
-    <element name="GetServiceCapabilities" type="xsd:anyType"/>
-    <element name="GetImagingSettings" type="xsd:anyType"/>
-    <element name="SetImagingSettings" type="xsd:anyType"/>
-    <element name="GetOptions" type="xsd:anyType"/>
+    <!-- operation response element -->
+    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetImagingSettingsResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="SetImagingSettingsResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetOptionsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
+    <element name="GetImagingSettings" type="afterveda:EmptyRequest"/>
+    <element name="SetImagingSettings" type="afterveda:EmptyRequest"/>
+    <element name="GetOptions" type="afterveda:EmptyRequest"/>
   </schema>
 
   <schema targetNamespace="http://www.onvif.org/ver10/events/wsdl"
@@ -350,6 +589,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -373,6 +614,7 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
@@ -381,9 +623,15 @@
     <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
-    <element name="GetEventProperties" type="xsd:anyType"/>
-    <element name="CreatePullPointSubscription" type="xsd:anyType"/>
-    <element name="PullMessages" type="xsd:anyType"/>
+    <!-- operation response element -->
+    <element name="GetEventPropertiesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="CreatePullPointSubscriptionResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="PullMessagesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetEventProperties" type="afterveda:EmptyRequest"/>
+    <element name="CreatePullPointSubscription" type="afterveda:EmptyRequest"/>
+    <element name="PullMessages" type="afterveda:EmptyRequest"/>
   </schema>
 
   <schema targetNamespace="http://docs.oasis-open.org/wsn/b-2"
@@ -401,6 +649,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -424,6 +674,7 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
@@ -432,8 +683,12 @@
     <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
-    <element name="Renew" type="xsd:anyType"/>
-    <element name="Unsubscribe" type="xsd:anyType"/>
+    <!-- operation response element -->
+    <element name="RenewResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="UnsubscribeResponse" type="afterveda:AnyResponse"/>
+    <element name="Renew" type="afterveda:EmptyRequest"/>
+    <element name="Unsubscribe" type="afterveda:EmptyRequest"/>
   </schema>
 
   <schema targetNamespace="http://www.onvif.org/ver10/osd/wsdl"
@@ -451,6 +706,8 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
+    xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
@@ -474,6 +731,7 @@
     <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
     <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
+    <import namespace="http://www.onvif.org/ver10/schema"/>
     <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
@@ -482,10 +740,18 @@
     <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
     <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
 
-    <element name="GetServiceCapabilities" type="xsd:anyType"/>
-    <element name="GetOSDs" type="xsd:anyType"/>
-    <element name="GetOSD" type="xsd:anyType"/>
-    <element name="SetOSD" type="xsd:anyType"/>
+    <!-- operation response element -->
+    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetOSDsResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="GetOSDResponse" type="afterveda:AnyResponse"/>
+    <!-- operation response element -->
+    <element name="SetOSDResponse" type="afterveda:AnyResponse"/>
+    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
+    <element name="GetOSDs" type="afterveda:EmptyRequest"/>
+    <element name="GetOSD" type="afterveda:EmptyRequest"/>
+    <element name="SetOSD" type="afterveda:EmptyRequest"/>
   </schema>
 
 </types>
@@ -494,24 +760,12 @@
   <part name="Body" element="tr2:GetProfiles"/><!-- __tr2__GetProfiles::tr2__GetProfiles -->
 </message>
 
-<message name="GetProfilesResponse">
-  <part name="Body" element="-tr2:GetProfilesResponse"/>
-</message>
-
 <message name="GetStreamUri">
   <part name="Body" element="tr2:GetStreamUri"/><!-- __tr2__GetStreamUri::tr2__GetStreamUri -->
 </message>
 
-<message name="GetStreamUriResponse">
-  <part name="Body" element="-tr2:GetStreamUriResponse"/>
-</message>
-
 <message name="GetServiceCapabilities">
   <part name="Body" element="tr2:GetServiceCapabilities"/><!-- __tr2__GetServiceCapabilities::tr2__GetServiceCapabilities -->
-</message>
-
-<message name="GetServiceCapabilitiesResponse">
-  <part name="Body" element="-tr2:GetServiceCapabilitiesResponse"/>
 </message>
 
 <message name="Media2BindingHeader">
@@ -530,17 +784,17 @@
   <operation name="GetProfiles">
     <documentation>Service definition of function __tr2__GetProfiles</documentation>
     <input message="tns:GetProfiles"/>
-    <output message="tns:GetProfilesResponse"/>
+    <output message="tns:AnyResponse"/>
   </operation>
   <operation name="GetStreamUri">
     <documentation>Service definition of function __tr2__GetStreamUri</documentation>
     <input message="tns:GetStreamUri"/>
-    <output message="tns:GetStreamUriResponse"/>
+    <output message="tns:AnyResponse"/>
   </operation>
   <operation name="GetServiceCapabilities">
     <documentation>Service definition of function __tr2__GetServiceCapabilities</documentation>
     <input message="tns:GetServiceCapabilities"/>
-    <output message="tns:GetServiceCapabilitiesResponse"/>
+    <output message="tns:AnyResponse"/>
   </operation>
 </portType>
 

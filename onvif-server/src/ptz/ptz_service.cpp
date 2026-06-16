@@ -3,12 +3,31 @@
 #include "ptz_device.h"
 #include "utils.h"
 
+#include <iomanip>
+#include <sstream>
+
 namespace afterveda_onvif {
 namespace {
 
-std::string run_ptz_command(const Config& config, const std::string& command) {
-    const std::string error = write_ptz_command(config, command);
+std::string ptz_fault(const std::string& error) {
     return error.empty() ? std::string{} : soap_fault(error);
+}
+
+std::string onvif_position_value(double value) {
+    std::ostringstream out;
+    out << std::fixed << std::setprecision(3) << value;
+    return out.str();
+}
+
+std::string extract_preset_token(const std::string& request) {
+    return first_nonempty({
+        xml_text_for_local_name(request, "PresetToken"),
+        xml_attribute_for_local_name(request, "Preset", "token"),
+    });
+}
+
+bool is_supported_preset_token(const std::string& token) {
+    return token.empty() || token == "home";
 }
 
 }  // namespace
@@ -43,51 +62,54 @@ std::string handle_ptz(const Config& config, const std::string& request) {
         return soap_envelope("<tptz:GetPresetsResponse><tptz:Preset token=\"home\"><tt:Name>Home</tt:Name></tptz:Preset></tptz:GetPresetsResponse>");
     }
     if (contains(request, "SetPreset")) {
+        const std::string token = extract_preset_token(request);
+        if (!is_supported_preset_token(token)) {
+            return soap_fault("Invalid or unsupported token: " + token);
+        }
+        const std::string fault = ptz_fault(set_home_ptz_from_current(config));
+        if (!fault.empty()) {
+            return fault;
+        }
         return soap_envelope("<tptz:SetPresetResponse><tptz:PresetToken>home</tptz:PresetToken></tptz:SetPresetResponse>");
     }
     if (contains(request, "GotoPreset")) {
-        const std::string fault = run_ptz_command(config, "center");
+        const std::string token = extract_preset_token(request);
+        if (!is_supported_preset_token(token)) {
+            return soap_fault("Invalid or unsupported token: " + token);
+        }
+        const std::string fault = ptz_fault(home_ptz(config));
         return fault.empty() ? soap_envelope("<tptz:GotoPresetResponse/>") : fault;
     }
 
     if (contains(request, "GetStatus")) {
+        PtzPosition position{};
+        const std::string fault = ptz_fault(read_ptz_position(config, position));
+        if (!fault.empty()) {
+            return fault;
+        }
         return soap_envelope(
             "<tptz:GetStatusResponse><tptz:PTZStatus>"
-            "<tt:Position><tt:PanTilt x=\"0\" y=\"0\"/><tt:Zoom x=\"0\"/></tt:Position>"
+            "<tt:Position><tt:PanTilt x=\"" + onvif_position_value(ptz_pan_to_onvif(position.pan)) +
+            "\" y=\"" + onvif_position_value(ptz_tilt_to_onvif(position.tilt)) + "\"/><tt:Zoom x=\"0\"/></tt:Position>"
             "<tt:MoveStatus><tt:PanTilt>IDLE</tt:PanTilt><tt:Zoom>IDLE</tt:Zoom></tt:MoveStatus>"
             "<tt:UtcTime>" + now_utc() + "</tt:UtcTime>"
             "</tptz:PTZStatus></tptz:GetStatusResponse>");
     }
 
     if (contains(request, "SetHomePosition")) {
-        const std::string fault = run_ptz_command(config, "center");
+        const std::string fault = ptz_fault(set_home_ptz_from_current(config));
         return fault.empty() ? soap_envelope("<tptz:SetHomePositionResponse/>") : fault;
     }
     if (contains(request, "GotoHomePosition")) {
-        const std::string fault = run_ptz_command(config, "center");
+        const std::string fault = ptz_fault(home_ptz(config));
         return fault.empty() ? soap_envelope("<tptz:GotoHomePositionResponse/>") : fault;
     }
     if (contains(request, "Stop")) {
-        const std::string fault = run_ptz_command(config, "stop");
+        const std::string fault = ptz_fault(stop_ptz(config));
         return fault.empty() ? soap_envelope("<tptz:StopResponse/>") : fault;
     }
 
-    std::string command = "stop";
-    const bool negative_x = contains(request, "x=\"-") || contains(request, "<tt:x>-");
-    const bool positive_x = contains(request, "x=\"0.") || contains(request, "x=\"1") || contains(request, "<tt:x>0.") || contains(request, "<tt:x>1");
-    const bool negative_y = contains(request, "y=\"-") || contains(request, "<tt:y>-");
-    const bool positive_y = contains(request, "y=\"0.") || contains(request, "y=\"1") || contains(request, "<tt:y>0.") || contains(request, "<tt:y>1");
-    if (negative_x) {
-        command = "left";
-    } else if (positive_x) {
-        command = "right";
-    } else if (negative_y) {
-        command = "up";
-    } else if (positive_y) {
-        command = "down";
-    }
-
-    const std::string fault = run_ptz_command(config, command);
+    const std::string fault = ptz_fault(move_ptz_from_request(config, request));
     if (!fault.empty()) {
         return fault;
     }

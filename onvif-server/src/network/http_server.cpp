@@ -16,13 +16,10 @@ namespace {
 
 int health_check(struct soap* ctx) {
     static constexpr const char* kBody = "{\"status\":\"ok\",\"service\":\"afterveda-onvif\"}\n";
+    ctx->http_content = "application/json";
     if (soap_response(ctx, SOAP_FILE) != SOAP_OK) {
         return ctx->error;
     }
-    soap_send(ctx, "Content-Type: application/json\r\n");
-    soap_send(ctx, "Content-Length: ");
-    soap_send(ctx, std::to_string(std::char_traits<char>::length(kBody)).c_str());
-    soap_send(ctx, "\r\n\r\n");
     soap_send(ctx, kBody);
     return soap_end_send(ctx);
 }

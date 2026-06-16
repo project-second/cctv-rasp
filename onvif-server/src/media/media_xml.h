@@ -10,6 +10,8 @@ namespace afterveda_onvif {
 std::string device_capabilities_xml(const Config& config);
 std::string media1_service_capabilities_xml();
 std::string media2_service_capabilities_xml();
+std::string media1_profile_xml(const VideoProfile& profile);
+std::string media1_get_profile_xml(const VideoProfile& profile);
 std::string media1_profiles_xml(const MediaModel& model);
 std::string media2_profiles_xml(const MediaModel& model);
 std::string media1_stream_uri_xml(const MediaModel& model);
