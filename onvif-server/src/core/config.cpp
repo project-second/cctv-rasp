@@ -31,7 +31,8 @@ void print_usage(const char* program) {
         << "  --rtsp-uri <uri>           RTSP URI returned by GetStreamUri\n"
         << "  --rail-control-url <url>   rail-media HTTP control URL. Default: http://127.0.0.1:8081\n"
         << "  --ptz-device <path>        PTZ character device. Default: /dev/afterveda_ptz\n"
-        << "  --ptz-step <deg>           Max PTZ degrees moved for ONVIF x/y 1.0. Default: 5\n"
+        << "  --ptz-step <deg>           Max PTZ degrees moved for RelativeMove x/y 1.0. Default: 5\n"
+        << "  --ptz-speed <deg/s>        Max PTZ speed for ContinuousMove x/y 1.0. Default: 30\n"
         << "  --ptz-dry-run              Log PTZ commands without writing to the device\n"
         << "  --username <user>          Require ONVIF UsernameToken username\n"
         << "  --password <password>      Require password text in UsernameToken\n"
@@ -78,6 +79,8 @@ Config parse_args(int argc, char* argv[]) {
             config.ptz_device = require_value(arg);
         } else if (arg == "--ptz-step") {
             config.ptz_step = parse_int(require_value(arg), arg);
+        } else if (arg == "--ptz-speed") {
+            config.ptz_speed = parse_int(require_value(arg), arg);
         } else if (arg == "--ptz-dry-run") {
             config.ptz_dry_run = true;
         } else if (arg == "--username") {

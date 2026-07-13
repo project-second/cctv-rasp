@@ -18,7 +18,7 @@ workspace/
 ├── afterveda/         # RTSP/ONVIF 애플리케이션
 │   ├── media-server/  # 카메라 입력, RTSP 송출, 미디어 서버 구성
 │   ├── onvif-server/  # ONVIF 검색, 장치/미디어/PTZ 서비스
-│   ├── deploy/        # systemd, 실행 스크립트, 배포 문서
+│   ├── cmake/         # Raspberry Pi 크로스 컴파일 toolchain
 │   ├── docs/          # 계획과 아키텍처 문서
 │   └── README.md
 └── afterveda-bsp/
@@ -49,19 +49,59 @@ CCTV 카메라
 → VLC 또는 외부 클라이언트에서 확인
 ```
 
+## Raspberry Pi 전체 빌드
+
+`rail-media`와 `afterveda-onvif`를 한 번에 Raspberry Pi 4/5 64-bit용으로 빌드한다. 이 빌드는 `sysroot/raspi-aarch64`의 GStreamer/libsoup/json-glib/gSOAP 헤더와 라이브러리를 사용한다.
+
+```bash
+cmake --preset pi-release
+cmake --build --preset pi-release
+```
+
+같은 설정을 프리셋 없이 실행하려면 다음 명령을 사용한다.
+
+```bash
+cmake -S . -B build/pi-release \
+  -DCMAKE_TOOLCHAIN_FILE="$PWD/cmake/toolchains/raspi-aarch64.cmake" \
+  -DCMAKE_BUILD_TYPE=Release
+
+cmake --build build/pi-release
+```
+
+빌드 결과:
+
+```txt
+build/pi-release/media-server/rail-media
+build/pi-release/onvif-server/afterveda-onvif
+```
+
 ## ONVIF 실행 예시
 
 `rail-media`를 먼저 실행한 뒤 별도 프로세스로 ONVIF 서버를 실행한다.
 
 ```bash
-onvif-server/build/afterveda-onvif \
+build/pi-release/media-server/rail-media --profile main
+
+build/pi-release/onvif-server/afterveda-onvif \
   --xaddr-host <pi-ip> \
   --rtsp-uri rtsp://<pi-ip>:8554/live \
   --rail-control-url http://127.0.0.1:8081 \
-  --ptz-device /dev/afterveda_ptz
+  --ptz-device /dev/afterveda_ptz \
+  --ptz-speed 30
 ```
 
-ONVIF 서버는 검색/제어를 담당하고, 실제 영상은 기존 `rail-media` RTSP 스트림을 그대로 사용한다. PTZ 요청은 `--ptz-device`로 지정한 커널 모듈 문자 장치에 직접 기록한다.
+ONVIF 서버는 검색/제어를 담당하고, 실제 영상은 기존 `rail-media` RTSP 스트림을 그대로 사용한다. PTZ 요청은 `--ptz-device`로 지정한 커널 모듈 문자 장치에 직접 기록한다. `ContinuousMove`는 `pan_speed=<deg/s> tilt_speed=<deg/s>`, `Stop`은 `stop`, `RelativeMove`/home/preset 이동은 `pan=<deg> tilt=<deg>` 명령으로 연결된다.
+
+## 현재 구현 요약
+
+- `rail-media`: PiCam `libcamerasrc` 입력, H.264 RTSP `/live` 송출, 로컬 HTTP 제어 API `127.0.0.1:8081`
+- `afterveda-onvif`: WS-Discovery UDP `3702`, ONVIF SOAP HTTP `8000`, Device/Media/PTZ/Imaging/OSD 호환 응답
+- `afterveda-bsp/ptz-kmod`: `/dev/afterveda_ptz` 문자 장치와 GPIO18/19 PWM Pan/Tilt 제어
+- 인증: RTSP Digest 인증은 `rail-media --rtsp-user --rtsp-password`, ONVIF UsernameToken은 `afterveda-onvif --username --password`로 선택 적용
+
+## Media/ONVIF 상세 문서
+
+현재 `rail-media`와 `afterveda-onvif`의 기능, 토큰, 요청 흐름, Raspberry Pi 배포 및 ODM 검증 방법은 [docs/media-onvif-runtime/README.md](docs/media-onvif-runtime/README.md)에 정리되어 있다.
 
 ## 다음 작업
 

@@ -17,7 +17,7 @@ A commercial use license is available from Genivia Inc., contact@genivia.com
 #endif
 #include "soapH.h"
 
-SOAP_SOURCE_STAMP("@(#) soapClient.cpp ver 2.8.135 2026-06-16 12:13:22 GMT")
+SOAP_SOURCE_STAMP("@(#) soapClient.cpp ver 2.8.135 2026-07-13 07:08:13 GMT")
 
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_send_SOAP_ENV__Fault(struct soap *soap, const char *soap_endpoint, const char *soap_action, char *faultcode, char *faultstring, char *faultactor, struct SOAP_ENV__Detail *detail, struct SOAP_ENV__Code *SOAP_ENV__Code, struct SOAP_ENV__Reason *SOAP_ENV__Reason, char *SOAP_ENV__Node, char *SOAP_ENV__Role, struct SOAP_ENV__Detail *SOAP_ENV__Detail)
@@ -413,13 +413,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___wsdd__ResolveMatches(struct soap *soap, st
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetServices(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetServices, struct afterveda__AnyResponse &tds__GetServicesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetServices(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetServices *tds__GetServices, struct _tds__GetServicesResponse &tds__GetServicesResponse)
 {	if (soap_send___tds__GetServices(soap, soap_endpoint, soap_action, tds__GetServices) || soap_recv___tds__GetServices(soap, tds__GetServicesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetServices(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetServices)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetServices(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetServices *tds__GetServices)
 {	struct __tds__GetServices soap_tmp___tds__GetServices;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/device/wsdl/GetServices";
@@ -454,15 +454,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetServices(struct soap *soap, const 
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetServices(struct soap *soap, struct afterveda__AnyResponse &tds__GetServicesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetServices(struct soap *soap, struct _tds__GetServicesResponse &tds__GetServicesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tds__GetServicesResponse);
+	soap_default__tds__GetServicesResponse(soap, &tds__GetServicesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tds__GetServicesResponse, "tds:GetServicesResponse", NULL);
+	soap_get__tds__GetServicesResponse(soap, &tds__GetServicesResponse, "tds:GetServicesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -472,13 +472,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetServices(struct soap *soap, struct
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetServiceCapabilities, struct afterveda__AnyResponse &tds__GetServiceCapabilitiesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetServiceCapabilities *tds__GetServiceCapabilities, struct _tds__GetServiceCapabilitiesResponse &tds__GetServiceCapabilitiesResponse)
 {	if (soap_send___tds__GetServiceCapabilities(soap, soap_endpoint, soap_action, tds__GetServiceCapabilities) || soap_recv___tds__GetServiceCapabilities(soap, tds__GetServiceCapabilitiesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetServiceCapabilities)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetServiceCapabilities *tds__GetServiceCapabilities)
 {	struct __tds__GetServiceCapabilities soap_tmp___tds__GetServiceCapabilities;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/device/wsdl/GetServiceCapabilities";
@@ -513,15 +513,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetServiceCapabilities(struct soap *s
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetServiceCapabilities(struct soap *soap, struct afterveda__AnyResponse &tds__GetServiceCapabilitiesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetServiceCapabilities(struct soap *soap, struct _tds__GetServiceCapabilitiesResponse &tds__GetServiceCapabilitiesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tds__GetServiceCapabilitiesResponse);
+	soap_default__tds__GetServiceCapabilitiesResponse(soap, &tds__GetServiceCapabilitiesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tds__GetServiceCapabilitiesResponse, "tds:GetServiceCapabilitiesResponse", NULL);
+	soap_get__tds__GetServiceCapabilitiesResponse(soap, &tds__GetServiceCapabilitiesResponse, "tds:GetServiceCapabilitiesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -590,13 +590,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetDeviceInformation(struct soap *soa
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetSystemDateAndTime(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetSystemDateAndTime, struct afterveda__AnyResponse &tds__GetSystemDateAndTimeResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetSystemDateAndTime(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetSystemDateAndTime *tds__GetSystemDateAndTime, struct _tds__GetSystemDateAndTimeResponse &tds__GetSystemDateAndTimeResponse)
 {	if (soap_send___tds__GetSystemDateAndTime(soap, soap_endpoint, soap_action, tds__GetSystemDateAndTime) || soap_recv___tds__GetSystemDateAndTime(soap, tds__GetSystemDateAndTimeResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetSystemDateAndTime(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetSystemDateAndTime)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetSystemDateAndTime(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetSystemDateAndTime *tds__GetSystemDateAndTime)
 {	struct __tds__GetSystemDateAndTime soap_tmp___tds__GetSystemDateAndTime;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/device/wsdl/GetSystemDateAndTime";
@@ -631,15 +631,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetSystemDateAndTime(struct soap *soa
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetSystemDateAndTime(struct soap *soap, struct afterveda__AnyResponse &tds__GetSystemDateAndTimeResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetSystemDateAndTime(struct soap *soap, struct _tds__GetSystemDateAndTimeResponse &tds__GetSystemDateAndTimeResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tds__GetSystemDateAndTimeResponse);
+	soap_default__tds__GetSystemDateAndTimeResponse(soap, &tds__GetSystemDateAndTimeResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tds__GetSystemDateAndTimeResponse, "tds:GetSystemDateAndTimeResponse", NULL);
+	soap_get__tds__GetSystemDateAndTimeResponse(soap, &tds__GetSystemDateAndTimeResponse, "tds:GetSystemDateAndTimeResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -649,13 +649,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetSystemDateAndTime(struct soap *soa
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetScopes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetScopes, struct afterveda__AnyResponse &tds__GetScopesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetScopes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetScopes *tds__GetScopes, struct _tds__GetScopesResponse &tds__GetScopesResponse)
 {	if (soap_send___tds__GetScopes(soap, soap_endpoint, soap_action, tds__GetScopes) || soap_recv___tds__GetScopes(soap, tds__GetScopesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetScopes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetScopes)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetScopes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetScopes *tds__GetScopes)
 {	struct __tds__GetScopes soap_tmp___tds__GetScopes;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/device/wsdl/GetScopes";
@@ -690,15 +690,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetScopes(struct soap *soap, const ch
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetScopes(struct soap *soap, struct afterveda__AnyResponse &tds__GetScopesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetScopes(struct soap *soap, struct _tds__GetScopesResponse &tds__GetScopesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tds__GetScopesResponse);
+	soap_default__tds__GetScopesResponse(soap, &tds__GetScopesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tds__GetScopesResponse, "tds:GetScopesResponse", NULL);
+	soap_get__tds__GetScopesResponse(soap, &tds__GetScopesResponse, "tds:GetScopesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -708,13 +708,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetScopes(struct soap *soap, struct a
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetHostname(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetHostname, struct afterveda__AnyResponse &tds__GetHostnameResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetHostname(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetHostname *tds__GetHostname, struct _tds__GetHostnameResponse &tds__GetHostnameResponse)
 {	if (soap_send___tds__GetHostname(soap, soap_endpoint, soap_action, tds__GetHostname) || soap_recv___tds__GetHostname(soap, tds__GetHostnameResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetHostname(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetHostname)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetHostname(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetHostname *tds__GetHostname)
 {	struct __tds__GetHostname soap_tmp___tds__GetHostname;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/device/wsdl/GetHostname";
@@ -749,15 +749,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetHostname(struct soap *soap, const 
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetHostname(struct soap *soap, struct afterveda__AnyResponse &tds__GetHostnameResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetHostname(struct soap *soap, struct _tds__GetHostnameResponse &tds__GetHostnameResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tds__GetHostnameResponse);
+	soap_default__tds__GetHostnameResponse(soap, &tds__GetHostnameResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tds__GetHostnameResponse, "tds:GetHostnameResponse", NULL);
+	soap_get__tds__GetHostnameResponse(soap, &tds__GetHostnameResponse, "tds:GetHostnameResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -767,13 +767,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetHostname(struct soap *soap, struct
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetNetworkInterfaces(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetNetworkInterfaces, struct afterveda__AnyResponse &tds__GetNetworkInterfacesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetNetworkInterfaces(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetNetworkInterfaces *tds__GetNetworkInterfaces, struct _tds__GetNetworkInterfacesResponse &tds__GetNetworkInterfacesResponse)
 {	if (soap_send___tds__GetNetworkInterfaces(soap, soap_endpoint, soap_action, tds__GetNetworkInterfaces) || soap_recv___tds__GetNetworkInterfaces(soap, tds__GetNetworkInterfacesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetNetworkInterfaces(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetNetworkInterfaces)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetNetworkInterfaces(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetNetworkInterfaces *tds__GetNetworkInterfaces)
 {	struct __tds__GetNetworkInterfaces soap_tmp___tds__GetNetworkInterfaces;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/device/wsdl/GetNetworkInterfaces";
@@ -808,15 +808,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetNetworkInterfaces(struct soap *soa
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetNetworkInterfaces(struct soap *soap, struct afterveda__AnyResponse &tds__GetNetworkInterfacesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetNetworkInterfaces(struct soap *soap, struct _tds__GetNetworkInterfacesResponse &tds__GetNetworkInterfacesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tds__GetNetworkInterfacesResponse);
+	soap_default__tds__GetNetworkInterfacesResponse(soap, &tds__GetNetworkInterfacesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tds__GetNetworkInterfacesResponse, "tds:GetNetworkInterfacesResponse", NULL);
+	soap_get__tds__GetNetworkInterfacesResponse(soap, &tds__GetNetworkInterfacesResponse, "tds:GetNetworkInterfacesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -826,13 +826,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetNetworkInterfaces(struct soap *soa
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetUsers(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetUsers, struct afterveda__AnyResponse &tds__GetUsersResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetUsers(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetUsers *tds__GetUsers, struct _tds__GetUsersResponse &tds__GetUsersResponse)
 {	if (soap_send___tds__GetUsers(soap, soap_endpoint, soap_action, tds__GetUsers) || soap_recv___tds__GetUsers(soap, tds__GetUsersResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetUsers(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetUsers)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetUsers(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetUsers *tds__GetUsers)
 {	struct __tds__GetUsers soap_tmp___tds__GetUsers;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/device/wsdl/GetUsers";
@@ -867,15 +867,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetUsers(struct soap *soap, const cha
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetUsers(struct soap *soap, struct afterveda__AnyResponse &tds__GetUsersResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetUsers(struct soap *soap, struct _tds__GetUsersResponse &tds__GetUsersResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tds__GetUsersResponse);
+	soap_default__tds__GetUsersResponse(soap, &tds__GetUsersResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tds__GetUsersResponse, "tds:GetUsersResponse", NULL);
+	soap_get__tds__GetUsersResponse(soap, &tds__GetUsersResponse, "tds:GetUsersResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -885,13 +885,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetUsers(struct soap *soap, struct af
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetCapabilities, struct afterveda__AnyResponse &tds__GetCapabilitiesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetCapabilities *tds__GetCapabilities, struct _tds__GetCapabilitiesResponse &tds__GetCapabilitiesResponse)
 {	if (soap_send___tds__GetCapabilities(soap, soap_endpoint, soap_action, tds__GetCapabilities) || soap_recv___tds__GetCapabilities(soap, tds__GetCapabilitiesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetCapabilities)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetCapabilities *tds__GetCapabilities)
 {	struct __tds__GetCapabilities soap_tmp___tds__GetCapabilities;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/device/wsdl/GetCapabilities";
@@ -926,15 +926,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetCapabilities(struct soap *soap, co
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetCapabilities(struct soap *soap, struct afterveda__AnyResponse &tds__GetCapabilitiesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetCapabilities(struct soap *soap, struct _tds__GetCapabilitiesResponse &tds__GetCapabilitiesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tds__GetCapabilitiesResponse);
+	soap_default__tds__GetCapabilitiesResponse(soap, &tds__GetCapabilitiesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tds__GetCapabilitiesResponse, "tds:GetCapabilitiesResponse", NULL);
+	soap_get__tds__GetCapabilitiesResponse(soap, &tds__GetCapabilitiesResponse, "tds:GetCapabilitiesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -944,13 +944,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetCapabilities(struct soap *soap, st
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetProfiles, struct afterveda__AnyResponse &trt__GetProfilesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetProfiles *trt__GetProfiles, struct _trt__GetProfilesResponse &trt__GetProfilesResponse)
 {	if (soap_send___trt__GetProfiles(soap, soap_endpoint, soap_action, trt__GetProfiles) || soap_recv___trt__GetProfiles(soap, trt__GetProfilesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetProfiles)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetProfiles *trt__GetProfiles)
 {	struct __trt__GetProfiles soap_tmp___trt__GetProfiles;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetProfiles";
@@ -985,15 +985,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetProfiles(struct soap *soap, const 
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetProfiles(struct soap *soap, struct afterveda__AnyResponse &trt__GetProfilesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetProfiles(struct soap *soap, struct _trt__GetProfilesResponse &trt__GetProfilesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__GetProfilesResponse);
+	soap_default__trt__GetProfilesResponse(soap, &trt__GetProfilesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__GetProfilesResponse, "trt:GetProfilesResponse", NULL);
+	soap_get__trt__GetProfilesResponse(soap, &trt__GetProfilesResponse, "trt:GetProfilesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1003,13 +1003,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetProfiles(struct soap *soap, struct
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetProfile(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetProfile, struct afterveda__AnyResponse &trt__GetProfileResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetProfile(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetProfile *trt__GetProfile, struct _trt__GetProfileResponse &trt__GetProfileResponse)
 {	if (soap_send___trt__GetProfile(soap, soap_endpoint, soap_action, trt__GetProfile) || soap_recv___trt__GetProfile(soap, trt__GetProfileResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetProfile(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetProfile)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetProfile(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetProfile *trt__GetProfile)
 {	struct __trt__GetProfile soap_tmp___trt__GetProfile;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetProfile";
@@ -1044,15 +1044,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetProfile(struct soap *soap, const c
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetProfile(struct soap *soap, struct afterveda__AnyResponse &trt__GetProfileResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetProfile(struct soap *soap, struct _trt__GetProfileResponse &trt__GetProfileResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__GetProfileResponse);
+	soap_default__trt__GetProfileResponse(soap, &trt__GetProfileResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__GetProfileResponse, "trt:GetProfileResponse", NULL);
+	soap_get__trt__GetProfileResponse(soap, &trt__GetProfileResponse, "trt:GetProfileResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1062,13 +1062,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetProfile(struct soap *soap, struct 
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetServiceCapabilities, struct afterveda__AnyResponse &trt__GetServiceCapabilitiesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetServiceCapabilities *trt__GetServiceCapabilities, struct _trt__GetServiceCapabilitiesResponse &trt__GetServiceCapabilitiesResponse)
 {	if (soap_send___trt__GetServiceCapabilities(soap, soap_endpoint, soap_action, trt__GetServiceCapabilities) || soap_recv___trt__GetServiceCapabilities(soap, trt__GetServiceCapabilitiesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetServiceCapabilities)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetServiceCapabilities *trt__GetServiceCapabilities)
 {	struct __trt__GetServiceCapabilities soap_tmp___trt__GetServiceCapabilities;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetServiceCapabilities";
@@ -1103,15 +1103,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetServiceCapabilities(struct soap *s
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetServiceCapabilities(struct soap *soap, struct afterveda__AnyResponse &trt__GetServiceCapabilitiesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetServiceCapabilities(struct soap *soap, struct _trt__GetServiceCapabilitiesResponse &trt__GetServiceCapabilitiesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__GetServiceCapabilitiesResponse);
+	soap_default__trt__GetServiceCapabilitiesResponse(soap, &trt__GetServiceCapabilitiesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__GetServiceCapabilitiesResponse, "trt:GetServiceCapabilitiesResponse", NULL);
+	soap_get__trt__GetServiceCapabilitiesResponse(soap, &trt__GetServiceCapabilitiesResponse, "trt:GetServiceCapabilitiesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1121,13 +1121,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetServiceCapabilities(struct soap *s
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSources(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSources, struct afterveda__AnyResponse &trt__GetVideoSourcesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSources(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSources *trt__GetVideoSources, struct _trt__GetVideoSourcesResponse &trt__GetVideoSourcesResponse)
 {	if (soap_send___trt__GetVideoSources(soap, soap_endpoint, soap_action, trt__GetVideoSources) || soap_recv___trt__GetVideoSources(soap, trt__GetVideoSourcesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSources(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSources)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSources(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSources *trt__GetVideoSources)
 {	struct __trt__GetVideoSources soap_tmp___trt__GetVideoSources;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetVideoSources";
@@ -1162,15 +1162,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSources(struct soap *soap, co
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSources(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoSourcesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSources(struct soap *soap, struct _trt__GetVideoSourcesResponse &trt__GetVideoSourcesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoSourcesResponse);
+	soap_default__trt__GetVideoSourcesResponse(soap, &trt__GetVideoSourcesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__GetVideoSourcesResponse, "trt:GetVideoSourcesResponse", NULL);
+	soap_get__trt__GetVideoSourcesResponse(soap, &trt__GetVideoSourcesResponse, "trt:GetVideoSourcesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1180,13 +1180,367 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSources(struct soap *soap, st
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurations, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetOSDs(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSDs *trt__GetOSDs, struct _trt__GetOSDsResponse &trt__GetOSDsResponse)
+{	if (soap_send___trt__GetOSDs(soap, soap_endpoint, soap_action, trt__GetOSDs) || soap_recv___trt__GetOSDs(soap, trt__GetOSDsResponse))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetOSDs(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSDs *trt__GetOSDs)
+{	struct __trt__GetOSDs soap_tmp___trt__GetOSDs;
+	if (soap_action == NULL)
+		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetOSDs";
+	soap_tmp___trt__GetOSDs.trt__GetOSDs = trt__GetOSDs;
+	soap_begin(soap);
+	soap_set_version(soap, 2); /* use SOAP1.2 */
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize___trt__GetOSDs(soap, &soap_tmp___trt__GetOSDs);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___trt__GetOSDs(soap, &soap_tmp___trt__GetOSDs, "-trt:GetOSDs", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___trt__GetOSDs(soap, &soap_tmp___trt__GetOSDs, "-trt:GetOSDs", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetOSDs(struct soap *soap, struct _trt__GetOSDsResponse &trt__GetOSDsResponse)
+{
+	soap_default__trt__GetOSDsResponse(soap, &trt__GetOSDsResponse);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get__trt__GetOSDsResponse(soap, &trt__GetOSDsResponse, "trt:GetOSDsResponse", NULL);
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSD *trt__GetOSD, struct _trt__GetOSDResponse &trt__GetOSDResponse)
+{	if (soap_send___trt__GetOSD(soap, soap_endpoint, soap_action, trt__GetOSD) || soap_recv___trt__GetOSD(soap, trt__GetOSDResponse))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSD *trt__GetOSD)
+{	struct __trt__GetOSD soap_tmp___trt__GetOSD;
+	if (soap_action == NULL)
+		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetOSD";
+	soap_tmp___trt__GetOSD.trt__GetOSD = trt__GetOSD;
+	soap_begin(soap);
+	soap_set_version(soap, 2); /* use SOAP1.2 */
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize___trt__GetOSD(soap, &soap_tmp___trt__GetOSD);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___trt__GetOSD(soap, &soap_tmp___trt__GetOSD, "-trt:GetOSD", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___trt__GetOSD(soap, &soap_tmp___trt__GetOSD, "-trt:GetOSD", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetOSD(struct soap *soap, struct _trt__GetOSDResponse &trt__GetOSDResponse)
+{
+	soap_default__trt__GetOSDResponse(soap, &trt__GetOSDResponse);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get__trt__GetOSDResponse(soap, &trt__GetOSDResponse, "trt:GetOSDResponse", NULL);
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetOSDOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSDOptions *trt__GetOSDOptions, struct _trt__GetOSDOptionsResponse &trt__GetOSDOptionsResponse)
+{	if (soap_send___trt__GetOSDOptions(soap, soap_endpoint, soap_action, trt__GetOSDOptions) || soap_recv___trt__GetOSDOptions(soap, trt__GetOSDOptionsResponse))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetOSDOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSDOptions *trt__GetOSDOptions)
+{	struct __trt__GetOSDOptions soap_tmp___trt__GetOSDOptions;
+	if (soap_action == NULL)
+		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetOSDOptions";
+	soap_tmp___trt__GetOSDOptions.trt__GetOSDOptions = trt__GetOSDOptions;
+	soap_begin(soap);
+	soap_set_version(soap, 2); /* use SOAP1.2 */
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize___trt__GetOSDOptions(soap, &soap_tmp___trt__GetOSDOptions);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___trt__GetOSDOptions(soap, &soap_tmp___trt__GetOSDOptions, "-trt:GetOSDOptions", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___trt__GetOSDOptions(soap, &soap_tmp___trt__GetOSDOptions, "-trt:GetOSDOptions", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetOSDOptions(struct soap *soap, struct _trt__GetOSDOptionsResponse &trt__GetOSDOptionsResponse)
+{
+	soap_default__trt__GetOSDOptionsResponse(soap, &trt__GetOSDOptionsResponse);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get__trt__GetOSDOptionsResponse(soap, &trt__GetOSDOptionsResponse, "trt:GetOSDOptionsResponse", NULL);
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__SetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__SetOSD *trt__SetOSD, struct _trt__SetOSDResponse &trt__SetOSDResponse)
+{	if (soap_send___trt__SetOSD(soap, soap_endpoint, soap_action, trt__SetOSD) || soap_recv___trt__SetOSD(soap, trt__SetOSDResponse))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__SetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__SetOSD *trt__SetOSD)
+{	struct __trt__SetOSD soap_tmp___trt__SetOSD;
+	if (soap_action == NULL)
+		soap_action = "http://www.onvif.org/ver10/media/wsdl/SetOSD";
+	soap_tmp___trt__SetOSD.trt__SetOSD = trt__SetOSD;
+	soap_begin(soap);
+	soap_set_version(soap, 2); /* use SOAP1.2 */
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize___trt__SetOSD(soap, &soap_tmp___trt__SetOSD);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___trt__SetOSD(soap, &soap_tmp___trt__SetOSD, "-trt:SetOSD", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___trt__SetOSD(soap, &soap_tmp___trt__SetOSD, "-trt:SetOSD", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__SetOSD(struct soap *soap, struct _trt__SetOSDResponse &trt__SetOSDResponse)
+{
+	soap_default__trt__SetOSDResponse(soap, &trt__SetOSDResponse);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get__trt__SetOSDResponse(soap, &trt__SetOSDResponse, "trt:SetOSDResponse", NULL);
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__CreateOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__CreateOSD *trt__CreateOSD, struct _trt__CreateOSDResponse &trt__CreateOSDResponse)
+{	if (soap_send___trt__CreateOSD(soap, soap_endpoint, soap_action, trt__CreateOSD) || soap_recv___trt__CreateOSD(soap, trt__CreateOSDResponse))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__CreateOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__CreateOSD *trt__CreateOSD)
+{	struct __trt__CreateOSD soap_tmp___trt__CreateOSD;
+	if (soap_action == NULL)
+		soap_action = "http://www.onvif.org/ver10/media/wsdl/CreateOSD";
+	soap_tmp___trt__CreateOSD.trt__CreateOSD = trt__CreateOSD;
+	soap_begin(soap);
+	soap_set_version(soap, 2); /* use SOAP1.2 */
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize___trt__CreateOSD(soap, &soap_tmp___trt__CreateOSD);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___trt__CreateOSD(soap, &soap_tmp___trt__CreateOSD, "-trt:CreateOSD", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___trt__CreateOSD(soap, &soap_tmp___trt__CreateOSD, "-trt:CreateOSD", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__CreateOSD(struct soap *soap, struct _trt__CreateOSDResponse &trt__CreateOSDResponse)
+{
+	soap_default__trt__CreateOSDResponse(soap, &trt__CreateOSDResponse);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get__trt__CreateOSDResponse(soap, &trt__CreateOSDResponse, "trt:CreateOSDResponse", NULL);
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__DeleteOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__DeleteOSD *trt__DeleteOSD, struct _trt__DeleteOSDResponse &trt__DeleteOSDResponse)
+{	if (soap_send___trt__DeleteOSD(soap, soap_endpoint, soap_action, trt__DeleteOSD) || soap_recv___trt__DeleteOSD(soap, trt__DeleteOSDResponse))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__DeleteOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__DeleteOSD *trt__DeleteOSD)
+{	struct __trt__DeleteOSD soap_tmp___trt__DeleteOSD;
+	if (soap_action == NULL)
+		soap_action = "http://www.onvif.org/ver10/media/wsdl/DeleteOSD";
+	soap_tmp___trt__DeleteOSD.trt__DeleteOSD = trt__DeleteOSD;
+	soap_begin(soap);
+	soap_set_version(soap, 2); /* use SOAP1.2 */
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize___trt__DeleteOSD(soap, &soap_tmp___trt__DeleteOSD);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___trt__DeleteOSD(soap, &soap_tmp___trt__DeleteOSD, "-trt:DeleteOSD", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___trt__DeleteOSD(soap, &soap_tmp___trt__DeleteOSD, "-trt:DeleteOSD", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__DeleteOSD(struct soap *soap, struct _trt__DeleteOSDResponse &trt__DeleteOSDResponse)
+{
+	soap_default__trt__DeleteOSDResponse(soap, &trt__DeleteOSDResponse);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get__trt__DeleteOSDResponse(soap, &trt__DeleteOSDResponse, "trt:DeleteOSDResponse", NULL);
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfigurations *trt__GetVideoSourceConfigurations, struct _trt__GetVideoSourceConfigurationsResponse &trt__GetVideoSourceConfigurationsResponse)
 {	if (soap_send___trt__GetVideoSourceConfigurations(soap, soap_endpoint, soap_action, trt__GetVideoSourceConfigurations) || soap_recv___trt__GetVideoSourceConfigurations(soap, trt__GetVideoSourceConfigurationsResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurations)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfigurations *trt__GetVideoSourceConfigurations)
 {	struct __trt__GetVideoSourceConfigurations soap_tmp___trt__GetVideoSourceConfigurations;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetVideoSourceConfigurations";
@@ -1221,15 +1575,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfigurations(struct s
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfigurations(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfigurations(struct soap *soap, struct _trt__GetVideoSourceConfigurationsResponse &trt__GetVideoSourceConfigurationsResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationsResponse);
+	soap_default__trt__GetVideoSourceConfigurationsResponse(soap, &trt__GetVideoSourceConfigurationsResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationsResponse, "trt:GetVideoSourceConfigurationsResponse", NULL);
+	soap_get__trt__GetVideoSourceConfigurationsResponse(soap, &trt__GetVideoSourceConfigurationsResponse, "trt:GetVideoSourceConfigurationsResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1239,13 +1593,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfigurations(struct s
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfiguration, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfiguration *trt__GetVideoSourceConfiguration, struct _trt__GetVideoSourceConfigurationResponse &trt__GetVideoSourceConfigurationResponse)
 {	if (soap_send___trt__GetVideoSourceConfiguration(soap, soap_endpoint, soap_action, trt__GetVideoSourceConfiguration) || soap_recv___trt__GetVideoSourceConfiguration(soap, trt__GetVideoSourceConfigurationResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfiguration)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfiguration *trt__GetVideoSourceConfiguration)
 {	struct __trt__GetVideoSourceConfiguration soap_tmp___trt__GetVideoSourceConfiguration;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetVideoSourceConfiguration";
@@ -1280,15 +1634,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfiguration(struct so
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfiguration(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfiguration(struct soap *soap, struct _trt__GetVideoSourceConfigurationResponse &trt__GetVideoSourceConfigurationResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationResponse);
+	soap_default__trt__GetVideoSourceConfigurationResponse(soap, &trt__GetVideoSourceConfigurationResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationResponse, "trt:GetVideoSourceConfigurationResponse", NULL);
+	soap_get__trt__GetVideoSourceConfigurationResponse(soap, &trt__GetVideoSourceConfigurationResponse, "trt:GetVideoSourceConfigurationResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1298,13 +1652,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfiguration(struct so
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurations, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfigurations *trt__GetVideoEncoderConfigurations, struct _trt__GetVideoEncoderConfigurationsResponse &trt__GetVideoEncoderConfigurationsResponse)
 {	if (soap_send___trt__GetVideoEncoderConfigurations(soap, soap_endpoint, soap_action, trt__GetVideoEncoderConfigurations) || soap_recv___trt__GetVideoEncoderConfigurations(soap, trt__GetVideoEncoderConfigurationsResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurations)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfigurations *trt__GetVideoEncoderConfigurations)
 {	struct __trt__GetVideoEncoderConfigurations soap_tmp___trt__GetVideoEncoderConfigurations;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetVideoEncoderConfigurations";
@@ -1339,15 +1693,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfigurations(struct 
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfigurations(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfigurations(struct soap *soap, struct _trt__GetVideoEncoderConfigurationsResponse &trt__GetVideoEncoderConfigurationsResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationsResponse);
+	soap_default__trt__GetVideoEncoderConfigurationsResponse(soap, &trt__GetVideoEncoderConfigurationsResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationsResponse, "trt:GetVideoEncoderConfigurationsResponse", NULL);
+	soap_get__trt__GetVideoEncoderConfigurationsResponse(soap, &trt__GetVideoEncoderConfigurationsResponse, "trt:GetVideoEncoderConfigurationsResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1357,13 +1711,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfigurations(struct 
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetStreamUri, struct afterveda__AnyResponse &trt__GetStreamUriResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetStreamUri *trt__GetStreamUri, struct _trt__GetStreamUriResponse &trt__GetStreamUriResponse)
 {	if (soap_send___trt__GetStreamUri(soap, soap_endpoint, soap_action, trt__GetStreamUri) || soap_recv___trt__GetStreamUri(soap, trt__GetStreamUriResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetStreamUri)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetStreamUri *trt__GetStreamUri)
 {	struct __trt__GetStreamUri soap_tmp___trt__GetStreamUri;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetStreamUri";
@@ -1398,15 +1752,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetStreamUri(struct soap *soap, const
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetStreamUri(struct soap *soap, struct afterveda__AnyResponse &trt__GetStreamUriResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetStreamUri(struct soap *soap, struct _trt__GetStreamUriResponse &trt__GetStreamUriResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__GetStreamUriResponse);
+	soap_default__trt__GetStreamUriResponse(soap, &trt__GetStreamUriResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__GetStreamUriResponse, "trt:GetStreamUriResponse", NULL);
+	soap_get__trt__GetStreamUriResponse(soap, &trt__GetStreamUriResponse, "trt:GetStreamUriResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1416,13 +1770,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetStreamUri(struct soap *soap, struc
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfiguration, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfiguration *trt__GetVideoEncoderConfiguration, struct _trt__GetVideoEncoderConfigurationResponse &trt__GetVideoEncoderConfigurationResponse)
 {	if (soap_send___trt__GetVideoEncoderConfiguration(soap, soap_endpoint, soap_action, trt__GetVideoEncoderConfiguration) || soap_recv___trt__GetVideoEncoderConfiguration(soap, trt__GetVideoEncoderConfigurationResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfiguration)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfiguration *trt__GetVideoEncoderConfiguration)
 {	struct __trt__GetVideoEncoderConfiguration soap_tmp___trt__GetVideoEncoderConfiguration;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetVideoEncoderConfiguration";
@@ -1457,15 +1811,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfiguration(struct s
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfiguration(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfiguration(struct soap *soap, struct _trt__GetVideoEncoderConfigurationResponse &trt__GetVideoEncoderConfigurationResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationResponse);
+	soap_default__trt__GetVideoEncoderConfigurationResponse(soap, &trt__GetVideoEncoderConfigurationResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationResponse, "trt:GetVideoEncoderConfigurationResponse", NULL);
+	soap_get__trt__GetVideoEncoderConfigurationResponse(soap, &trt__GetVideoEncoderConfigurationResponse, "trt:GetVideoEncoderConfigurationResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1475,13 +1829,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfiguration(struct s
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurationOptions, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationOptionsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfigurationOptions *trt__GetVideoSourceConfigurationOptions, struct _trt__GetVideoSourceConfigurationOptionsResponse &trt__GetVideoSourceConfigurationOptionsResponse)
 {	if (soap_send___trt__GetVideoSourceConfigurationOptions(soap, soap_endpoint, soap_action, trt__GetVideoSourceConfigurationOptions) || soap_recv___trt__GetVideoSourceConfigurationOptions(soap, trt__GetVideoSourceConfigurationOptionsResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurationOptions)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfigurationOptions *trt__GetVideoSourceConfigurationOptions)
 {	struct __trt__GetVideoSourceConfigurationOptions soap_tmp___trt__GetVideoSourceConfigurationOptions;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetVideoSourceConfigurationOptions";
@@ -1516,15 +1870,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfigurationOptions(st
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfigurationOptions(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationOptionsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfigurationOptions(struct soap *soap, struct _trt__GetVideoSourceConfigurationOptionsResponse &trt__GetVideoSourceConfigurationOptionsResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse);
+	soap_default__trt__GetVideoSourceConfigurationOptionsResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse, "trt:GetVideoSourceConfigurationOptionsResponse", NULL);
+	soap_get__trt__GetVideoSourceConfigurationOptionsResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse, "trt:GetVideoSourceConfigurationOptionsResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1534,13 +1888,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfigurationOptions(st
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurationOptions, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationOptionsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfigurationOptions *trt__GetVideoEncoderConfigurationOptions, struct _trt__GetVideoEncoderConfigurationOptionsResponse &trt__GetVideoEncoderConfigurationOptionsResponse)
 {	if (soap_send___trt__GetVideoEncoderConfigurationOptions(soap, soap_endpoint, soap_action, trt__GetVideoEncoderConfigurationOptions) || soap_recv___trt__GetVideoEncoderConfigurationOptions(soap, trt__GetVideoEncoderConfigurationOptionsResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurationOptions)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfigurationOptions *trt__GetVideoEncoderConfigurationOptions)
 {	struct __trt__GetVideoEncoderConfigurationOptions soap_tmp___trt__GetVideoEncoderConfigurationOptions;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/GetVideoEncoderConfigurationOptions";
@@ -1575,15 +1929,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfigurationOptions(s
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationOptionsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, struct _trt__GetVideoEncoderConfigurationOptionsResponse &trt__GetVideoEncoderConfigurationOptionsResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse);
+	soap_default__trt__GetVideoEncoderConfigurationOptionsResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse, "trt:GetVideoEncoderConfigurationOptionsResponse", NULL);
+	soap_get__trt__GetVideoEncoderConfigurationOptionsResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse, "trt:GetVideoEncoderConfigurationOptionsResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1593,13 +1947,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfigurationOptions(s
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__SetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__SetVideoEncoderConfiguration, struct afterveda__AnyResponse &trt__SetVideoEncoderConfigurationResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__SetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__SetVideoEncoderConfiguration *trt__SetVideoEncoderConfiguration, struct _trt__SetVideoEncoderConfigurationResponse &trt__SetVideoEncoderConfigurationResponse)
 {	if (soap_send___trt__SetVideoEncoderConfiguration(soap, soap_endpoint, soap_action, trt__SetVideoEncoderConfiguration) || soap_recv___trt__SetVideoEncoderConfiguration(soap, trt__SetVideoEncoderConfigurationResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__SetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__SetVideoEncoderConfiguration)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__SetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__SetVideoEncoderConfiguration *trt__SetVideoEncoderConfiguration)
 {	struct __trt__SetVideoEncoderConfiguration soap_tmp___trt__SetVideoEncoderConfiguration;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver10/media/wsdl/SetVideoEncoderConfiguration";
@@ -1634,15 +1988,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__SetVideoEncoderConfiguration(struct s
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__SetVideoEncoderConfiguration(struct soap *soap, struct afterveda__AnyResponse &trt__SetVideoEncoderConfigurationResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__SetVideoEncoderConfiguration(struct soap *soap, struct _trt__SetVideoEncoderConfigurationResponse &trt__SetVideoEncoderConfigurationResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &trt__SetVideoEncoderConfigurationResponse);
+	soap_default__trt__SetVideoEncoderConfigurationResponse(soap, &trt__SetVideoEncoderConfigurationResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &trt__SetVideoEncoderConfigurationResponse, "trt:SetVideoEncoderConfigurationResponse", NULL);
+	soap_get__trt__SetVideoEncoderConfigurationResponse(soap, &trt__SetVideoEncoderConfigurationResponse, "trt:SetVideoEncoderConfigurationResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1652,13 +2006,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__SetVideoEncoderConfiguration(struct s
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetProfiles, struct afterveda__AnyResponse &tr2__GetProfilesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetProfiles *tr2__GetProfiles, struct _tr2__GetProfilesResponse &tr2__GetProfilesResponse)
 {	if (soap_send___tr2__GetProfiles(soap, soap_endpoint, soap_action, tr2__GetProfiles) || soap_recv___tr2__GetProfiles(soap, tr2__GetProfilesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetProfiles)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetProfiles *tr2__GetProfiles)
 {	struct __tr2__GetProfiles soap_tmp___tr2__GetProfiles;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/media/wsdl/GetProfiles";
@@ -1693,15 +2047,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetProfiles(struct soap *soap, const 
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetProfiles(struct soap *soap, struct afterveda__AnyResponse &tr2__GetProfilesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetProfiles(struct soap *soap, struct _tr2__GetProfilesResponse &tr2__GetProfilesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tr2__GetProfilesResponse);
+	soap_default__tr2__GetProfilesResponse(soap, &tr2__GetProfilesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tr2__GetProfilesResponse, "tr2:GetProfilesResponse", NULL);
+	soap_get__tr2__GetProfilesResponse(soap, &tr2__GetProfilesResponse, "tr2:GetProfilesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1711,13 +2065,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetProfiles(struct soap *soap, struct
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetStreamUri, struct afterveda__AnyResponse &tr2__GetStreamUriResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetStreamUri *tr2__GetStreamUri, struct _tr2__GetStreamUriResponse &tr2__GetStreamUriResponse)
 {	if (soap_send___tr2__GetStreamUri(soap, soap_endpoint, soap_action, tr2__GetStreamUri) || soap_recv___tr2__GetStreamUri(soap, tr2__GetStreamUriResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetStreamUri)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetStreamUri *tr2__GetStreamUri)
 {	struct __tr2__GetStreamUri soap_tmp___tr2__GetStreamUri;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/media/wsdl/GetStreamUri";
@@ -1752,15 +2106,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetStreamUri(struct soap *soap, const
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetStreamUri(struct soap *soap, struct afterveda__AnyResponse &tr2__GetStreamUriResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetStreamUri(struct soap *soap, struct _tr2__GetStreamUriResponse &tr2__GetStreamUriResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tr2__GetStreamUriResponse);
+	soap_default__tr2__GetStreamUriResponse(soap, &tr2__GetStreamUriResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tr2__GetStreamUriResponse, "tr2:GetStreamUriResponse", NULL);
+	soap_get__tr2__GetStreamUriResponse(soap, &tr2__GetStreamUriResponse, "tr2:GetStreamUriResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1770,13 +2124,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetStreamUri(struct soap *soap, struc
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetServiceCapabilities, struct afterveda__AnyResponse &tr2__GetServiceCapabilitiesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetServiceCapabilities *tr2__GetServiceCapabilities, struct _tr2__GetServiceCapabilitiesResponse &tr2__GetServiceCapabilitiesResponse)
 {	if (soap_send___tr2__GetServiceCapabilities(soap, soap_endpoint, soap_action, tr2__GetServiceCapabilities) || soap_recv___tr2__GetServiceCapabilities(soap, tr2__GetServiceCapabilitiesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetServiceCapabilities)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetServiceCapabilities *tr2__GetServiceCapabilities)
 {	struct __tr2__GetServiceCapabilities soap_tmp___tr2__GetServiceCapabilities;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/media/wsdl/GetServiceCapabilities";
@@ -1811,15 +2165,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetServiceCapabilities(struct soap *s
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetServiceCapabilities(struct soap *soap, struct afterveda__AnyResponse &tr2__GetServiceCapabilitiesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetServiceCapabilities(struct soap *soap, struct _tr2__GetServiceCapabilitiesResponse &tr2__GetServiceCapabilitiesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tr2__GetServiceCapabilitiesResponse);
+	soap_default__tr2__GetServiceCapabilitiesResponse(soap, &tr2__GetServiceCapabilitiesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tr2__GetServiceCapabilitiesResponse, "tr2:GetServiceCapabilitiesResponse", NULL);
+	soap_get__tr2__GetServiceCapabilitiesResponse(soap, &tr2__GetServiceCapabilitiesResponse, "tr2:GetServiceCapabilitiesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1829,13 +2183,72 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetServiceCapabilities(struct soap *s
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetNodes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetNodes, struct afterveda__AnyResponse &tptz__GetNodesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetServiceCapabilities *tptz__GetServiceCapabilities, struct _tptz__GetServiceCapabilitiesResponse &tptz__GetServiceCapabilitiesResponse)
+{	if (soap_send___tptz__GetServiceCapabilities(soap, soap_endpoint, soap_action, tptz__GetServiceCapabilities) || soap_recv___tptz__GetServiceCapabilities(soap, tptz__GetServiceCapabilitiesResponse))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetServiceCapabilities *tptz__GetServiceCapabilities)
+{	struct __tptz__GetServiceCapabilities soap_tmp___tptz__GetServiceCapabilities;
+	if (soap_action == NULL)
+		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/GetServiceCapabilities";
+	soap_tmp___tptz__GetServiceCapabilities.tptz__GetServiceCapabilities = tptz__GetServiceCapabilities;
+	soap_begin(soap);
+	soap_set_version(soap, 2); /* use SOAP1.2 */
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize___tptz__GetServiceCapabilities(soap, &soap_tmp___tptz__GetServiceCapabilities);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___tptz__GetServiceCapabilities(soap, &soap_tmp___tptz__GetServiceCapabilities, "-tptz:GetServiceCapabilities", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___tptz__GetServiceCapabilities(soap, &soap_tmp___tptz__GetServiceCapabilities, "-tptz:GetServiceCapabilities", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetServiceCapabilities(struct soap *soap, struct _tptz__GetServiceCapabilitiesResponse &tptz__GetServiceCapabilitiesResponse)
+{
+	soap_default__tptz__GetServiceCapabilitiesResponse(soap, &tptz__GetServiceCapabilitiesResponse);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get__tptz__GetServiceCapabilitiesResponse(soap, &tptz__GetServiceCapabilitiesResponse, "tptz:GetServiceCapabilitiesResponse", NULL);
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetNodes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetNodes *tptz__GetNodes, struct _tptz__GetNodesResponse &tptz__GetNodesResponse)
 {	if (soap_send___tptz__GetNodes(soap, soap_endpoint, soap_action, tptz__GetNodes) || soap_recv___tptz__GetNodes(soap, tptz__GetNodesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetNodes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetNodes)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetNodes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetNodes *tptz__GetNodes)
 {	struct __tptz__GetNodes soap_tmp___tptz__GetNodes;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/GetNodes";
@@ -1870,15 +2283,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetNodes(struct soap *soap, const ch
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetNodes(struct soap *soap, struct afterveda__AnyResponse &tptz__GetNodesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetNodes(struct soap *soap, struct _tptz__GetNodesResponse &tptz__GetNodesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tptz__GetNodesResponse);
+	soap_default__tptz__GetNodesResponse(soap, &tptz__GetNodesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tptz__GetNodesResponse, "tptz:GetNodesResponse", NULL);
+	soap_get__tptz__GetNodesResponse(soap, &tptz__GetNodesResponse, "tptz:GetNodesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1888,13 +2301,72 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetNodes(struct soap *soap, struct a
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetConfigurations, struct afterveda__AnyResponse &tptz__GetConfigurationsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetNode(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetNode *tptz__GetNode, struct _tptz__GetNodeResponse &tptz__GetNodeResponse)
+{	if (soap_send___tptz__GetNode(soap, soap_endpoint, soap_action, tptz__GetNode) || soap_recv___tptz__GetNode(soap, tptz__GetNodeResponse))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetNode(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetNode *tptz__GetNode)
+{	struct __tptz__GetNode soap_tmp___tptz__GetNode;
+	if (soap_action == NULL)
+		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/GetNode";
+	soap_tmp___tptz__GetNode.tptz__GetNode = tptz__GetNode;
+	soap_begin(soap);
+	soap_set_version(soap, 2); /* use SOAP1.2 */
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize___tptz__GetNode(soap, &soap_tmp___tptz__GetNode);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___tptz__GetNode(soap, &soap_tmp___tptz__GetNode, "-tptz:GetNode", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___tptz__GetNode(soap, &soap_tmp___tptz__GetNode, "-tptz:GetNode", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetNode(struct soap *soap, struct _tptz__GetNodeResponse &tptz__GetNodeResponse)
+{
+	soap_default__tptz__GetNodeResponse(soap, &tptz__GetNodeResponse);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get__tptz__GetNodeResponse(soap, &tptz__GetNodeResponse, "tptz:GetNodeResponse", NULL);
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfigurations *tptz__GetConfigurations, struct _tptz__GetConfigurationsResponse &tptz__GetConfigurationsResponse)
 {	if (soap_send___tptz__GetConfigurations(soap, soap_endpoint, soap_action, tptz__GetConfigurations) || soap_recv___tptz__GetConfigurations(soap, tptz__GetConfigurationsResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetConfigurations)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfigurations *tptz__GetConfigurations)
 {	struct __tptz__GetConfigurations soap_tmp___tptz__GetConfigurations;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/GetConfigurations";
@@ -1929,15 +2401,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetConfigurations(struct soap *soap,
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetConfigurations(struct soap *soap, struct afterveda__AnyResponse &tptz__GetConfigurationsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetConfigurations(struct soap *soap, struct _tptz__GetConfigurationsResponse &tptz__GetConfigurationsResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tptz__GetConfigurationsResponse);
+	soap_default__tptz__GetConfigurationsResponse(soap, &tptz__GetConfigurationsResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tptz__GetConfigurationsResponse, "tptz:GetConfigurationsResponse", NULL);
+	soap_get__tptz__GetConfigurationsResponse(soap, &tptz__GetConfigurationsResponse, "tptz:GetConfigurationsResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -1947,13 +2419,131 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetConfigurations(struct soap *soap,
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetPresets(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetPresets, struct afterveda__AnyResponse &tptz__GetPresetsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfiguration *tptz__GetConfiguration, struct _tptz__GetConfigurationResponse &tptz__GetConfigurationResponse)
+{	if (soap_send___tptz__GetConfiguration(soap, soap_endpoint, soap_action, tptz__GetConfiguration) || soap_recv___tptz__GetConfiguration(soap, tptz__GetConfigurationResponse))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfiguration *tptz__GetConfiguration)
+{	struct __tptz__GetConfiguration soap_tmp___tptz__GetConfiguration;
+	if (soap_action == NULL)
+		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/GetConfiguration";
+	soap_tmp___tptz__GetConfiguration.tptz__GetConfiguration = tptz__GetConfiguration;
+	soap_begin(soap);
+	soap_set_version(soap, 2); /* use SOAP1.2 */
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize___tptz__GetConfiguration(soap, &soap_tmp___tptz__GetConfiguration);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___tptz__GetConfiguration(soap, &soap_tmp___tptz__GetConfiguration, "-tptz:GetConfiguration", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___tptz__GetConfiguration(soap, &soap_tmp___tptz__GetConfiguration, "-tptz:GetConfiguration", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetConfiguration(struct soap *soap, struct _tptz__GetConfigurationResponse &tptz__GetConfigurationResponse)
+{
+	soap_default__tptz__GetConfigurationResponse(soap, &tptz__GetConfigurationResponse);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get__tptz__GetConfigurationResponse(soap, &tptz__GetConfigurationResponse, "tptz:GetConfigurationResponse", NULL);
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfigurationOptions *tptz__GetConfigurationOptions, struct _tptz__GetConfigurationOptionsResponse &tptz__GetConfigurationOptionsResponse)
+{	if (soap_send___tptz__GetConfigurationOptions(soap, soap_endpoint, soap_action, tptz__GetConfigurationOptions) || soap_recv___tptz__GetConfigurationOptions(soap, tptz__GetConfigurationOptionsResponse))
+		return soap->error;
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfigurationOptions *tptz__GetConfigurationOptions)
+{	struct __tptz__GetConfigurationOptions soap_tmp___tptz__GetConfigurationOptions;
+	if (soap_action == NULL)
+		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/GetConfigurationOptions";
+	soap_tmp___tptz__GetConfigurationOptions.tptz__GetConfigurationOptions = tptz__GetConfigurationOptions;
+	soap_begin(soap);
+	soap_set_version(soap, 2); /* use SOAP1.2 */
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize___tptz__GetConfigurationOptions(soap, &soap_tmp___tptz__GetConfigurationOptions);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put___tptz__GetConfigurationOptions(soap, &soap_tmp___tptz__GetConfigurationOptions, "-tptz:GetConfigurationOptions", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	}
+	if (soap_end_count(soap))
+		return soap->error;
+	if (soap_connect(soap, soap_endpoint, soap_action)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put___tptz__GetConfigurationOptions(soap, &soap_tmp___tptz__GetConfigurationOptions, "-tptz:GetConfigurationOptions", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap_closesock(soap);
+	return SOAP_OK;
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetConfigurationOptions(struct soap *soap, struct _tptz__GetConfigurationOptionsResponse &tptz__GetConfigurationOptionsResponse)
+{
+	soap_default__tptz__GetConfigurationOptionsResponse(soap, &tptz__GetConfigurationOptionsResponse);
+	if (soap_begin_recv(soap)
+	 || soap_envelope_begin_in(soap)
+	 || soap_recv_header(soap)
+	 || soap_body_begin_in(soap))
+		return soap_closesock(soap);
+	soap_get__tptz__GetConfigurationOptionsResponse(soap, &tptz__GetConfigurationOptionsResponse, "tptz:GetConfigurationOptionsResponse", NULL);
+	if (soap->error)
+		return soap_recv_fault(soap, 0);
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap_closesock(soap);
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetPresets(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetPresets *tptz__GetPresets, struct _tptz__GetPresetsResponse &tptz__GetPresetsResponse)
 {	if (soap_send___tptz__GetPresets(soap, soap_endpoint, soap_action, tptz__GetPresets) || soap_recv___tptz__GetPresets(soap, tptz__GetPresetsResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetPresets(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetPresets)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetPresets(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetPresets *tptz__GetPresets)
 {	struct __tptz__GetPresets soap_tmp___tptz__GetPresets;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/GetPresets";
@@ -1988,15 +2578,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetPresets(struct soap *soap, const 
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetPresets(struct soap *soap, struct afterveda__AnyResponse &tptz__GetPresetsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetPresets(struct soap *soap, struct _tptz__GetPresetsResponse &tptz__GetPresetsResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tptz__GetPresetsResponse);
+	soap_default__tptz__GetPresetsResponse(soap, &tptz__GetPresetsResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tptz__GetPresetsResponse, "tptz:GetPresetsResponse", NULL);
+	soap_get__tptz__GetPresetsResponse(soap, &tptz__GetPresetsResponse, "tptz:GetPresetsResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -2006,13 +2596,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetPresets(struct soap *soap, struct
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__SetPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__SetPreset, struct afterveda__AnyResponse &tptz__SetPresetResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__SetPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__SetPreset *tptz__SetPreset, struct _tptz__SetPresetResponse &tptz__SetPresetResponse)
 {	if (soap_send___tptz__SetPreset(soap, soap_endpoint, soap_action, tptz__SetPreset) || soap_recv___tptz__SetPreset(soap, tptz__SetPresetResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__SetPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__SetPreset)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__SetPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__SetPreset *tptz__SetPreset)
 {	struct __tptz__SetPreset soap_tmp___tptz__SetPreset;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/SetPreset";
@@ -2047,15 +2637,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__SetPreset(struct soap *soap, const c
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__SetPreset(struct soap *soap, struct afterveda__AnyResponse &tptz__SetPresetResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__SetPreset(struct soap *soap, struct _tptz__SetPresetResponse &tptz__SetPresetResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tptz__SetPresetResponse);
+	soap_default__tptz__SetPresetResponse(soap, &tptz__SetPresetResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tptz__SetPresetResponse, "tptz:SetPresetResponse", NULL);
+	soap_get__tptz__SetPresetResponse(soap, &tptz__SetPresetResponse, "tptz:SetPresetResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -2065,13 +2655,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__SetPreset(struct soap *soap, struct 
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GotoPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GotoPreset, struct afterveda__AnyResponse &tptz__GotoPresetResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GotoPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GotoPreset *tptz__GotoPreset, struct _tptz__GotoPresetResponse &tptz__GotoPresetResponse)
 {	if (soap_send___tptz__GotoPreset(soap, soap_endpoint, soap_action, tptz__GotoPreset) || soap_recv___tptz__GotoPreset(soap, tptz__GotoPresetResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GotoPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GotoPreset)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GotoPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GotoPreset *tptz__GotoPreset)
 {	struct __tptz__GotoPreset soap_tmp___tptz__GotoPreset;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/GotoPreset";
@@ -2106,15 +2696,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GotoPreset(struct soap *soap, const 
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GotoPreset(struct soap *soap, struct afterveda__AnyResponse &tptz__GotoPresetResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GotoPreset(struct soap *soap, struct _tptz__GotoPresetResponse &tptz__GotoPresetResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tptz__GotoPresetResponse);
+	soap_default__tptz__GotoPresetResponse(soap, &tptz__GotoPresetResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tptz__GotoPresetResponse, "tptz:GotoPresetResponse", NULL);
+	soap_get__tptz__GotoPresetResponse(soap, &tptz__GotoPresetResponse, "tptz:GotoPresetResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -2183,13 +2773,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetStatus(struct soap *soap, struct 
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GotoHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GotoHomePosition, struct afterveda__AnyResponse &tptz__GotoHomePositionResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GotoHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GotoHomePosition *tptz__GotoHomePosition, struct _tptz__GotoHomePositionResponse &tptz__GotoHomePositionResponse)
 {	if (soap_send___tptz__GotoHomePosition(soap, soap_endpoint, soap_action, tptz__GotoHomePosition) || soap_recv___tptz__GotoHomePosition(soap, tptz__GotoHomePositionResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GotoHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GotoHomePosition)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GotoHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GotoHomePosition *tptz__GotoHomePosition)
 {	struct __tptz__GotoHomePosition soap_tmp___tptz__GotoHomePosition;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/GotoHomePosition";
@@ -2224,15 +2814,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GotoHomePosition(struct soap *soap, 
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GotoHomePosition(struct soap *soap, struct afterveda__AnyResponse &tptz__GotoHomePositionResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GotoHomePosition(struct soap *soap, struct _tptz__GotoHomePositionResponse &tptz__GotoHomePositionResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tptz__GotoHomePositionResponse);
+	soap_default__tptz__GotoHomePositionResponse(soap, &tptz__GotoHomePositionResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tptz__GotoHomePositionResponse, "tptz:GotoHomePositionResponse", NULL);
+	soap_get__tptz__GotoHomePositionResponse(soap, &tptz__GotoHomePositionResponse, "tptz:GotoHomePositionResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -2242,13 +2832,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GotoHomePosition(struct soap *soap, 
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__SetHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__SetHomePosition, struct afterveda__AnyResponse &tptz__SetHomePositionResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__SetHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__SetHomePosition *tptz__SetHomePosition, struct _tptz__SetHomePositionResponse &tptz__SetHomePositionResponse)
 {	if (soap_send___tptz__SetHomePosition(soap, soap_endpoint, soap_action, tptz__SetHomePosition) || soap_recv___tptz__SetHomePosition(soap, tptz__SetHomePositionResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__SetHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__SetHomePosition)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__SetHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__SetHomePosition *tptz__SetHomePosition)
 {	struct __tptz__SetHomePosition soap_tmp___tptz__SetHomePosition;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/SetHomePosition";
@@ -2283,15 +2873,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__SetHomePosition(struct soap *soap, c
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__SetHomePosition(struct soap *soap, struct afterveda__AnyResponse &tptz__SetHomePositionResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__SetHomePosition(struct soap *soap, struct _tptz__SetHomePositionResponse &tptz__SetHomePositionResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tptz__SetHomePositionResponse);
+	soap_default__tptz__SetHomePositionResponse(soap, &tptz__SetHomePositionResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tptz__SetHomePositionResponse, "tptz:SetHomePositionResponse", NULL);
+	soap_get__tptz__SetHomePositionResponse(soap, &tptz__SetHomePositionResponse, "tptz:SetHomePositionResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -2301,13 +2891,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__SetHomePosition(struct soap *soap, s
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__ContinuousMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__ContinuousMove, struct afterveda__AnyResponse &tptz__ContinuousMoveResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__ContinuousMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__ContinuousMove *tptz__ContinuousMove, struct _tptz__ContinuousMoveResponse &tptz__ContinuousMoveResponse)
 {	if (soap_send___tptz__ContinuousMove(soap, soap_endpoint, soap_action, tptz__ContinuousMove) || soap_recv___tptz__ContinuousMove(soap, tptz__ContinuousMoveResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__ContinuousMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__ContinuousMove)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__ContinuousMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__ContinuousMove *tptz__ContinuousMove)
 {	struct __tptz__ContinuousMove soap_tmp___tptz__ContinuousMove;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/ContinuousMove";
@@ -2342,15 +2932,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__ContinuousMove(struct soap *soap, co
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__ContinuousMove(struct soap *soap, struct afterveda__AnyResponse &tptz__ContinuousMoveResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__ContinuousMove(struct soap *soap, struct _tptz__ContinuousMoveResponse &tptz__ContinuousMoveResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tptz__ContinuousMoveResponse);
+	soap_default__tptz__ContinuousMoveResponse(soap, &tptz__ContinuousMoveResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tptz__ContinuousMoveResponse, "tptz:ContinuousMoveResponse", NULL);
+	soap_get__tptz__ContinuousMoveResponse(soap, &tptz__ContinuousMoveResponse, "tptz:ContinuousMoveResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -2360,13 +2950,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__ContinuousMove(struct soap *soap, st
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__RelativeMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__RelativeMove, struct afterveda__AnyResponse &tptz__RelativeMoveResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__RelativeMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__RelativeMove *tptz__RelativeMove, struct _tptz__RelativeMoveResponse &tptz__RelativeMoveResponse)
 {	if (soap_send___tptz__RelativeMove(soap, soap_endpoint, soap_action, tptz__RelativeMove) || soap_recv___tptz__RelativeMove(soap, tptz__RelativeMoveResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__RelativeMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__RelativeMove)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__RelativeMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__RelativeMove *tptz__RelativeMove)
 {	struct __tptz__RelativeMove soap_tmp___tptz__RelativeMove;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/RelativeMove";
@@ -2401,15 +2991,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__RelativeMove(struct soap *soap, cons
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__RelativeMove(struct soap *soap, struct afterveda__AnyResponse &tptz__RelativeMoveResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__RelativeMove(struct soap *soap, struct _tptz__RelativeMoveResponse &tptz__RelativeMoveResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tptz__RelativeMoveResponse);
+	soap_default__tptz__RelativeMoveResponse(soap, &tptz__RelativeMoveResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tptz__RelativeMoveResponse, "tptz:RelativeMoveResponse", NULL);
+	soap_get__tptz__RelativeMoveResponse(soap, &tptz__RelativeMoveResponse, "tptz:RelativeMoveResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -2419,13 +3009,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__RelativeMove(struct soap *soap, stru
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__Stop(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__Stop, struct afterveda__AnyResponse &tptz__StopResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__Stop(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__Stop *tptz__Stop, struct _tptz__StopResponse &tptz__StopResponse)
 {	if (soap_send___tptz__Stop(soap, soap_endpoint, soap_action, tptz__Stop) || soap_recv___tptz__Stop(soap, tptz__StopResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__Stop(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__Stop)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__Stop(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__Stop *tptz__Stop)
 {	struct __tptz__Stop soap_tmp___tptz__Stop;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/ptz/wsdl/Stop";
@@ -2460,15 +3050,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__Stop(struct soap *soap, const char *
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__Stop(struct soap *soap, struct afterveda__AnyResponse &tptz__StopResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__Stop(struct soap *soap, struct _tptz__StopResponse &tptz__StopResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &tptz__StopResponse);
+	soap_default__tptz__StopResponse(soap, &tptz__StopResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tptz__StopResponse, "tptz:StopResponse", NULL);
+	soap_get__tptz__StopResponse(soap, &tptz__StopResponse, "tptz:StopResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -2478,13 +3068,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__Stop(struct soap *soap, struct after
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetServiceCapabilities, struct afterveda__AnyResponse &timg__GetServiceCapabilitiesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetServiceCapabilities *timg__GetServiceCapabilities, struct _timg__GetServiceCapabilitiesResponse &timg__GetServiceCapabilitiesResponse)
 {	if (soap_send___timg__GetServiceCapabilities(soap, soap_endpoint, soap_action, timg__GetServiceCapabilities) || soap_recv___timg__GetServiceCapabilities(soap, timg__GetServiceCapabilitiesResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetServiceCapabilities)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetServiceCapabilities *timg__GetServiceCapabilities)
 {	struct __timg__GetServiceCapabilities soap_tmp___timg__GetServiceCapabilities;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/imaging/wsdl/GetServiceCapabilities";
@@ -2519,15 +3109,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetServiceCapabilities(struct soap *
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetServiceCapabilities(struct soap *soap, struct afterveda__AnyResponse &timg__GetServiceCapabilitiesResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetServiceCapabilities(struct soap *soap, struct _timg__GetServiceCapabilitiesResponse &timg__GetServiceCapabilitiesResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &timg__GetServiceCapabilitiesResponse);
+	soap_default__timg__GetServiceCapabilitiesResponse(soap, &timg__GetServiceCapabilitiesResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &timg__GetServiceCapabilitiesResponse, "timg:GetServiceCapabilitiesResponse", NULL);
+	soap_get__timg__GetServiceCapabilitiesResponse(soap, &timg__GetServiceCapabilitiesResponse, "timg:GetServiceCapabilitiesResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -2537,13 +3127,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetServiceCapabilities(struct soap *
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetImagingSettings, struct afterveda__AnyResponse &timg__GetImagingSettingsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetImagingSettings *timg__GetImagingSettings, struct _timg__GetImagingSettingsResponse &timg__GetImagingSettingsResponse)
 {	if (soap_send___timg__GetImagingSettings(soap, soap_endpoint, soap_action, timg__GetImagingSettings) || soap_recv___timg__GetImagingSettings(soap, timg__GetImagingSettingsResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetImagingSettings)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetImagingSettings *timg__GetImagingSettings)
 {	struct __timg__GetImagingSettings soap_tmp___timg__GetImagingSettings;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/imaging/wsdl/GetImagingSettings";
@@ -2578,15 +3168,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetImagingSettings(struct soap *soap
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetImagingSettings(struct soap *soap, struct afterveda__AnyResponse &timg__GetImagingSettingsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetImagingSettings(struct soap *soap, struct _timg__GetImagingSettingsResponse &timg__GetImagingSettingsResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &timg__GetImagingSettingsResponse);
+	soap_default__timg__GetImagingSettingsResponse(soap, &timg__GetImagingSettingsResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &timg__GetImagingSettingsResponse, "timg:GetImagingSettingsResponse", NULL);
+	soap_get__timg__GetImagingSettingsResponse(soap, &timg__GetImagingSettingsResponse, "timg:GetImagingSettingsResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -2596,13 +3186,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetImagingSettings(struct soap *soap
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__SetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__SetImagingSettings, struct afterveda__AnyResponse &timg__SetImagingSettingsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__SetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__SetImagingSettings *timg__SetImagingSettings, struct _timg__SetImagingSettingsResponse &timg__SetImagingSettingsResponse)
 {	if (soap_send___timg__SetImagingSettings(soap, soap_endpoint, soap_action, timg__SetImagingSettings) || soap_recv___timg__SetImagingSettings(soap, timg__SetImagingSettingsResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__SetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__SetImagingSettings)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__SetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__SetImagingSettings *timg__SetImagingSettings)
 {	struct __timg__SetImagingSettings soap_tmp___timg__SetImagingSettings;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/imaging/wsdl/SetImagingSettings";
@@ -2637,15 +3227,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__SetImagingSettings(struct soap *soap
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__SetImagingSettings(struct soap *soap, struct afterveda__AnyResponse &timg__SetImagingSettingsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__SetImagingSettings(struct soap *soap, struct _timg__SetImagingSettingsResponse &timg__SetImagingSettingsResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &timg__SetImagingSettingsResponse);
+	soap_default__timg__SetImagingSettingsResponse(soap, &timg__SetImagingSettingsResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &timg__SetImagingSettingsResponse, "timg:SetImagingSettingsResponse", NULL);
+	soap_get__timg__SetImagingSettingsResponse(soap, &timg__SetImagingSettingsResponse, "timg:SetImagingSettingsResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)
@@ -2655,13 +3245,13 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__SetImagingSettings(struct soap *soap
 	return soap_closesock(soap);
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetOptions, struct afterveda__AnyResponse &timg__GetOptionsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetOptions *timg__GetOptions, struct _timg__GetOptionsResponse &timg__GetOptionsResponse)
 {	if (soap_send___timg__GetOptions(soap, soap_endpoint, soap_action, timg__GetOptions) || soap_recv___timg__GetOptions(soap, timg__GetOptionsResponse))
 		return soap->error;
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetOptions)
+SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetOptions *timg__GetOptions)
 {	struct __timg__GetOptions soap_tmp___timg__GetOptions;
 	if (soap_action == NULL)
 		soap_action = "http://www.onvif.org/ver20/imaging/wsdl/GetOptions";
@@ -2696,546 +3286,15 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetOptions(struct soap *soap, const 
 	return SOAP_OK;
 }
 
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetOptions(struct soap *soap, struct afterveda__AnyResponse &timg__GetOptionsResponse)
+SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetOptions(struct soap *soap, struct _timg__GetOptionsResponse &timg__GetOptionsResponse)
 {
-	soap_default_afterveda__AnyResponse(soap, &timg__GetOptionsResponse);
+	soap_default__timg__GetOptionsResponse(soap, &timg__GetOptionsResponse);
 	if (soap_begin_recv(soap)
 	 || soap_envelope_begin_in(soap)
 	 || soap_recv_header(soap)
 	 || soap_body_begin_in(soap))
 		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &timg__GetOptionsResponse, "timg:GetOptionsResponse", NULL);
-	if (soap->error)
-		return soap_recv_fault(soap, 0);
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap_closesock(soap);
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tev__GetEventProperties(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__GetEventProperties, struct afterveda__AnyResponse &tev__GetEventPropertiesResponse)
-{	if (soap_send___tev__GetEventProperties(soap, soap_endpoint, soap_action, tev__GetEventProperties) || soap_recv___tev__GetEventProperties(soap, tev__GetEventPropertiesResponse))
-		return soap->error;
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tev__GetEventProperties(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__GetEventProperties)
-{	struct __tev__GetEventProperties soap_tmp___tev__GetEventProperties;
-	if (soap_action == NULL)
-		soap_action = "http://www.onvif.org/ver10/events/wsdl/GetEventProperties";
-	soap_tmp___tev__GetEventProperties.tev__GetEventProperties = tev__GetEventProperties;
-	soap_begin(soap);
-	soap_set_version(soap, 2); /* use SOAP1.2 */
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize___tev__GetEventProperties(soap, &soap_tmp___tev__GetEventProperties);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put___tev__GetEventProperties(soap, &soap_tmp___tev__GetEventProperties, "-tev:GetEventProperties", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	}
-	if (soap_end_count(soap))
-		return soap->error;
-	if (soap_connect(soap, soap_endpoint, soap_action)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put___tev__GetEventProperties(soap, &soap_tmp___tev__GetEventProperties, "-tev:GetEventProperties", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap_closesock(soap);
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tev__GetEventProperties(struct soap *soap, struct afterveda__AnyResponse &tev__GetEventPropertiesResponse)
-{
-	soap_default_afterveda__AnyResponse(soap, &tev__GetEventPropertiesResponse);
-	if (soap_begin_recv(soap)
-	 || soap_envelope_begin_in(soap)
-	 || soap_recv_header(soap)
-	 || soap_body_begin_in(soap))
-		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tev__GetEventPropertiesResponse, "tev:GetEventPropertiesResponse", NULL);
-	if (soap->error)
-		return soap_recv_fault(soap, 0);
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap_closesock(soap);
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tev__CreatePullPointSubscription(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__CreatePullPointSubscription, struct afterveda__AnyResponse &tev__CreatePullPointSubscriptionResponse)
-{	if (soap_send___tev__CreatePullPointSubscription(soap, soap_endpoint, soap_action, tev__CreatePullPointSubscription) || soap_recv___tev__CreatePullPointSubscription(soap, tev__CreatePullPointSubscriptionResponse))
-		return soap->error;
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tev__CreatePullPointSubscription(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__CreatePullPointSubscription)
-{	struct __tev__CreatePullPointSubscription soap_tmp___tev__CreatePullPointSubscription;
-	if (soap_action == NULL)
-		soap_action = "http://www.onvif.org/ver10/events/wsdl/CreatePullPointSubscription";
-	soap_tmp___tev__CreatePullPointSubscription.tev__CreatePullPointSubscription = tev__CreatePullPointSubscription;
-	soap_begin(soap);
-	soap_set_version(soap, 2); /* use SOAP1.2 */
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize___tev__CreatePullPointSubscription(soap, &soap_tmp___tev__CreatePullPointSubscription);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put___tev__CreatePullPointSubscription(soap, &soap_tmp___tev__CreatePullPointSubscription, "-tev:CreatePullPointSubscription", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	}
-	if (soap_end_count(soap))
-		return soap->error;
-	if (soap_connect(soap, soap_endpoint, soap_action)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put___tev__CreatePullPointSubscription(soap, &soap_tmp___tev__CreatePullPointSubscription, "-tev:CreatePullPointSubscription", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap_closesock(soap);
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tev__CreatePullPointSubscription(struct soap *soap, struct afterveda__AnyResponse &tev__CreatePullPointSubscriptionResponse)
-{
-	soap_default_afterveda__AnyResponse(soap, &tev__CreatePullPointSubscriptionResponse);
-	if (soap_begin_recv(soap)
-	 || soap_envelope_begin_in(soap)
-	 || soap_recv_header(soap)
-	 || soap_body_begin_in(soap))
-		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tev__CreatePullPointSubscriptionResponse, "tev:CreatePullPointSubscriptionResponse", NULL);
-	if (soap->error)
-		return soap_recv_fault(soap, 0);
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap_closesock(soap);
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tev__PullMessages(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__PullMessages, struct afterveda__AnyResponse &tev__PullMessagesResponse)
-{	if (soap_send___tev__PullMessages(soap, soap_endpoint, soap_action, tev__PullMessages) || soap_recv___tev__PullMessages(soap, tev__PullMessagesResponse))
-		return soap->error;
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tev__PullMessages(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__PullMessages)
-{	struct __tev__PullMessages soap_tmp___tev__PullMessages;
-	if (soap_action == NULL)
-		soap_action = "http://www.onvif.org/ver10/events/wsdl/PullMessages";
-	soap_tmp___tev__PullMessages.tev__PullMessages = tev__PullMessages;
-	soap_begin(soap);
-	soap_set_version(soap, 2); /* use SOAP1.2 */
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize___tev__PullMessages(soap, &soap_tmp___tev__PullMessages);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put___tev__PullMessages(soap, &soap_tmp___tev__PullMessages, "-tev:PullMessages", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	}
-	if (soap_end_count(soap))
-		return soap->error;
-	if (soap_connect(soap, soap_endpoint, soap_action)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put___tev__PullMessages(soap, &soap_tmp___tev__PullMessages, "-tev:PullMessages", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap_closesock(soap);
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tev__PullMessages(struct soap *soap, struct afterveda__AnyResponse &tev__PullMessagesResponse)
-{
-	soap_default_afterveda__AnyResponse(soap, &tev__PullMessagesResponse);
-	if (soap_begin_recv(soap)
-	 || soap_envelope_begin_in(soap)
-	 || soap_recv_header(soap)
-	 || soap_body_begin_in(soap))
-		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tev__PullMessagesResponse, "tev:PullMessagesResponse", NULL);
-	if (soap->error)
-		return soap_recv_fault(soap, 0);
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap_closesock(soap);
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___wsnt__Renew(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *wsnt__Renew, struct afterveda__AnyResponse &wsnt__RenewResponse)
-{	if (soap_send___wsnt__Renew(soap, soap_endpoint, soap_action, wsnt__Renew) || soap_recv___wsnt__Renew(soap, wsnt__RenewResponse))
-		return soap->error;
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___wsnt__Renew(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *wsnt__Renew)
-{	struct __wsnt__Renew soap_tmp___wsnt__Renew;
-	if (soap_action == NULL)
-		soap_action = "http://docs.oasis-open.org/wsn/bw-2/SubscriptionManager/RenewRequest";
-	soap_tmp___wsnt__Renew.wsnt__Renew = wsnt__Renew;
-	soap_begin(soap);
-	soap_set_version(soap, 2); /* use SOAP1.2 */
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize___wsnt__Renew(soap, &soap_tmp___wsnt__Renew);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put___wsnt__Renew(soap, &soap_tmp___wsnt__Renew, "-wsnt:Renew", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	}
-	if (soap_end_count(soap))
-		return soap->error;
-	if (soap_connect(soap, soap_endpoint, soap_action)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put___wsnt__Renew(soap, &soap_tmp___wsnt__Renew, "-wsnt:Renew", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap_closesock(soap);
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___wsnt__Renew(struct soap *soap, struct afterveda__AnyResponse &wsnt__RenewResponse)
-{
-	soap_default_afterveda__AnyResponse(soap, &wsnt__RenewResponse);
-	if (soap_begin_recv(soap)
-	 || soap_envelope_begin_in(soap)
-	 || soap_recv_header(soap)
-	 || soap_body_begin_in(soap))
-		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &wsnt__RenewResponse, "wsnt:RenewResponse", NULL);
-	if (soap->error)
-		return soap_recv_fault(soap, 0);
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap_closesock(soap);
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___wsnt__Unsubscribe(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *wsnt__Unsubscribe, struct afterveda__AnyResponse &wsnt__UnsubscribeResponse)
-{	if (soap_send___wsnt__Unsubscribe(soap, soap_endpoint, soap_action, wsnt__Unsubscribe) || soap_recv___wsnt__Unsubscribe(soap, wsnt__UnsubscribeResponse))
-		return soap->error;
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___wsnt__Unsubscribe(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *wsnt__Unsubscribe)
-{	struct __wsnt__Unsubscribe soap_tmp___wsnt__Unsubscribe;
-	if (soap_action == NULL)
-		soap_action = "http://docs.oasis-open.org/wsn/bw-2/SubscriptionManager/UnsubscribeRequest";
-	soap_tmp___wsnt__Unsubscribe.wsnt__Unsubscribe = wsnt__Unsubscribe;
-	soap_begin(soap);
-	soap_set_version(soap, 2); /* use SOAP1.2 */
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize___wsnt__Unsubscribe(soap, &soap_tmp___wsnt__Unsubscribe);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put___wsnt__Unsubscribe(soap, &soap_tmp___wsnt__Unsubscribe, "-wsnt:Unsubscribe", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	}
-	if (soap_end_count(soap))
-		return soap->error;
-	if (soap_connect(soap, soap_endpoint, soap_action)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put___wsnt__Unsubscribe(soap, &soap_tmp___wsnt__Unsubscribe, "-wsnt:Unsubscribe", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap_closesock(soap);
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___wsnt__Unsubscribe(struct soap *soap, struct afterveda__AnyResponse &wsnt__UnsubscribeResponse)
-{
-	soap_default_afterveda__AnyResponse(soap, &wsnt__UnsubscribeResponse);
-	if (soap_begin_recv(soap)
-	 || soap_envelope_begin_in(soap)
-	 || soap_recv_header(soap)
-	 || soap_body_begin_in(soap))
-		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &wsnt__UnsubscribeResponse, "wsnt:UnsubscribeResponse", NULL);
-	if (soap->error)
-		return soap_recv_fault(soap, 0);
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap_closesock(soap);
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tosd__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetServiceCapabilities, struct afterveda__AnyResponse &tosd__GetServiceCapabilitiesResponse)
-{	if (soap_send___tosd__GetServiceCapabilities(soap, soap_endpoint, soap_action, tosd__GetServiceCapabilities) || soap_recv___tosd__GetServiceCapabilities(soap, tosd__GetServiceCapabilitiesResponse))
-		return soap->error;
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tosd__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetServiceCapabilities)
-{	struct __tosd__GetServiceCapabilities soap_tmp___tosd__GetServiceCapabilities;
-	if (soap_action == NULL)
-		soap_action = "http://www.onvif.org/ver10/osd/wsdl/GetServiceCapabilities";
-	soap_tmp___tosd__GetServiceCapabilities.tosd__GetServiceCapabilities = tosd__GetServiceCapabilities;
-	soap_begin(soap);
-	soap_set_version(soap, 2); /* use SOAP1.2 */
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize___tosd__GetServiceCapabilities(soap, &soap_tmp___tosd__GetServiceCapabilities);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put___tosd__GetServiceCapabilities(soap, &soap_tmp___tosd__GetServiceCapabilities, "-tosd:GetServiceCapabilities", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	}
-	if (soap_end_count(soap))
-		return soap->error;
-	if (soap_connect(soap, soap_endpoint, soap_action)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put___tosd__GetServiceCapabilities(soap, &soap_tmp___tosd__GetServiceCapabilities, "-tosd:GetServiceCapabilities", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap_closesock(soap);
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tosd__GetServiceCapabilities(struct soap *soap, struct afterveda__AnyResponse &tosd__GetServiceCapabilitiesResponse)
-{
-	soap_default_afterveda__AnyResponse(soap, &tosd__GetServiceCapabilitiesResponse);
-	if (soap_begin_recv(soap)
-	 || soap_envelope_begin_in(soap)
-	 || soap_recv_header(soap)
-	 || soap_body_begin_in(soap))
-		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tosd__GetServiceCapabilitiesResponse, "tosd:GetServiceCapabilitiesResponse", NULL);
-	if (soap->error)
-		return soap_recv_fault(soap, 0);
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap_closesock(soap);
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tosd__GetOSDs(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetOSDs, struct afterveda__AnyResponse &tosd__GetOSDsResponse)
-{	if (soap_send___tosd__GetOSDs(soap, soap_endpoint, soap_action, tosd__GetOSDs) || soap_recv___tosd__GetOSDs(soap, tosd__GetOSDsResponse))
-		return soap->error;
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tosd__GetOSDs(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetOSDs)
-{	struct __tosd__GetOSDs soap_tmp___tosd__GetOSDs;
-	if (soap_action == NULL)
-		soap_action = "http://www.onvif.org/ver10/osd/wsdl/GetOSDs";
-	soap_tmp___tosd__GetOSDs.tosd__GetOSDs = tosd__GetOSDs;
-	soap_begin(soap);
-	soap_set_version(soap, 2); /* use SOAP1.2 */
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize___tosd__GetOSDs(soap, &soap_tmp___tosd__GetOSDs);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put___tosd__GetOSDs(soap, &soap_tmp___tosd__GetOSDs, "-tosd:GetOSDs", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	}
-	if (soap_end_count(soap))
-		return soap->error;
-	if (soap_connect(soap, soap_endpoint, soap_action)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put___tosd__GetOSDs(soap, &soap_tmp___tosd__GetOSDs, "-tosd:GetOSDs", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap_closesock(soap);
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tosd__GetOSDs(struct soap *soap, struct afterveda__AnyResponse &tosd__GetOSDsResponse)
-{
-	soap_default_afterveda__AnyResponse(soap, &tosd__GetOSDsResponse);
-	if (soap_begin_recv(soap)
-	 || soap_envelope_begin_in(soap)
-	 || soap_recv_header(soap)
-	 || soap_body_begin_in(soap))
-		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tosd__GetOSDsResponse, "tosd:GetOSDsResponse", NULL);
-	if (soap->error)
-		return soap_recv_fault(soap, 0);
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap_closesock(soap);
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tosd__GetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetOSD, struct afterveda__AnyResponse &tosd__GetOSDResponse)
-{	if (soap_send___tosd__GetOSD(soap, soap_endpoint, soap_action, tosd__GetOSD) || soap_recv___tosd__GetOSD(soap, tosd__GetOSDResponse))
-		return soap->error;
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tosd__GetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetOSD)
-{	struct __tosd__GetOSD soap_tmp___tosd__GetOSD;
-	if (soap_action == NULL)
-		soap_action = "http://www.onvif.org/ver10/osd/wsdl/GetOSD";
-	soap_tmp___tosd__GetOSD.tosd__GetOSD = tosd__GetOSD;
-	soap_begin(soap);
-	soap_set_version(soap, 2); /* use SOAP1.2 */
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize___tosd__GetOSD(soap, &soap_tmp___tosd__GetOSD);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put___tosd__GetOSD(soap, &soap_tmp___tosd__GetOSD, "-tosd:GetOSD", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	}
-	if (soap_end_count(soap))
-		return soap->error;
-	if (soap_connect(soap, soap_endpoint, soap_action)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put___tosd__GetOSD(soap, &soap_tmp___tosd__GetOSD, "-tosd:GetOSD", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap_closesock(soap);
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tosd__GetOSD(struct soap *soap, struct afterveda__AnyResponse &tosd__GetOSDResponse)
-{
-	soap_default_afterveda__AnyResponse(soap, &tosd__GetOSDResponse);
-	if (soap_begin_recv(soap)
-	 || soap_envelope_begin_in(soap)
-	 || soap_recv_header(soap)
-	 || soap_body_begin_in(soap))
-		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tosd__GetOSDResponse, "tosd:GetOSDResponse", NULL);
-	if (soap->error)
-		return soap_recv_fault(soap, 0);
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap_closesock(soap);
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_call___tosd__SetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__SetOSD, struct afterveda__AnyResponse &tosd__SetOSDResponse)
-{	if (soap_send___tosd__SetOSD(soap, soap_endpoint, soap_action, tosd__SetOSD) || soap_recv___tosd__SetOSD(soap, tosd__SetOSDResponse))
-		return soap->error;
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_send___tosd__SetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__SetOSD)
-{	struct __tosd__SetOSD soap_tmp___tosd__SetOSD;
-	if (soap_action == NULL)
-		soap_action = "http://www.onvif.org/ver10/osd/wsdl/SetOSD";
-	soap_tmp___tosd__SetOSD.tosd__SetOSD = tosd__SetOSD;
-	soap_begin(soap);
-	soap_set_version(soap, 2); /* use SOAP1.2 */
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize___tosd__SetOSD(soap, &soap_tmp___tosd__SetOSD);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put___tosd__SetOSD(soap, &soap_tmp___tosd__SetOSD, "-tosd:SetOSD", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	}
-	if (soap_end_count(soap))
-		return soap->error;
-	if (soap_connect(soap, soap_endpoint, soap_action)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put___tosd__SetOSD(soap, &soap_tmp___tosd__SetOSD, "-tosd:SetOSD", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap_closesock(soap);
-	return SOAP_OK;
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tosd__SetOSD(struct soap *soap, struct afterveda__AnyResponse &tosd__SetOSDResponse)
-{
-	soap_default_afterveda__AnyResponse(soap, &tosd__SetOSDResponse);
-	if (soap_begin_recv(soap)
-	 || soap_envelope_begin_in(soap)
-	 || soap_recv_header(soap)
-	 || soap_body_begin_in(soap))
-		return soap_closesock(soap);
-	soap_get_afterveda__AnyResponse(soap, &tosd__SetOSDResponse, "tosd:SetOSDResponse", NULL);
+	soap_get__timg__GetOptionsResponse(soap, &timg__GetOptionsResponse, "timg:GetOptionsResponse", NULL);
 	if (soap->error)
 		return soap_recv_fault(soap, 0);
 	if (soap_body_end_in(soap)

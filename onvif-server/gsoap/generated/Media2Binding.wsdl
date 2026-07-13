@@ -16,16 +16,12 @@
   xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
   xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
   xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-  xmlns:afterveda="http://tempuri.org/afterveda.xsd"
   xmlns:tt="http://www.onvif.org/ver10/schema"
   xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
   xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
   xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
   xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
   xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-  xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-  xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-  xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
   xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap12/"
   xmlns:HTTP="http://schemas.xmlsoap.org/wsdl/http/"
   xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
@@ -34,68 +30,6 @@
   xmlns="http://schemas.xmlsoap.org/wsdl/">
 
 <types>
-
-  <schema targetNamespace="http://tempuri.org/afterveda.xsd"
-    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
-    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
-    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
-    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
-    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
-    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
-    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
-    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
-    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
-    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
-    xmlns:tt="http://www.onvif.org/ver10/schema"
-    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
-    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
-    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
-    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
-    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
-    xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
-    attributeFormDefault="unqualified">
-    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
-    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
-    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
-    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
-    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
-    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
-    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
-    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
-    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
-    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
-    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
-    <import namespace="http://www.onvif.org/ver10/schema"/>
-    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
-
-    <complexType name="EmptyRequest"><!-- afterveda__EmptyRequest -->
-          <sequence>
-            <any processContents="lax" minOccurs="0" maxOccurs="1"/><!-- __any -->
-          </sequence>
-    </complexType>
-    <complexType name="AnyResponse"><!-- afterveda__AnyResponse -->
-          <sequence>
-            <any processContents="lax" minOccurs="0" maxOccurs="1"/><!-- __any -->
-          </sequence>
-    </complexType>
-  </schema>
 
   <schema targetNamespace="http://www.onvif.org/ver10/schema"
     xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
@@ -112,18 +46,14 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
     xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
     xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
     xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
+    elementFormDefault="qualified"
     attributeFormDefault="unqualified">
     <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
     <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
@@ -142,25 +72,356 @@
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
+    <complexType name="OnvifVersion"><!-- tt__OnvifVersion -->
+          <sequence>
+            <element name="Major" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__OnvifVersion::Major -->
+            <element name="Minor" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__OnvifVersion::Minor -->
+          </sequence>
+    </complexType>
+    <complexType name="StreamingCapabilities"><!-- tt__StreamingCapabilities -->
+          <sequence>
+            <element name="RTPMulticast" type="xsd:boolean" minOccurs="0" maxOccurs="1"/><!-- tt__StreamingCapabilities::RTPMulticast -->
+            <element name="RTP_TCP" type="xsd:boolean" minOccurs="0" maxOccurs="1"/><!-- tt__StreamingCapabilities::RTP_USCORETCP -->
+            <element name="RTP_RTSP_TCP" type="xsd:boolean" minOccurs="0" maxOccurs="1"/><!-- tt__StreamingCapabilities::RTP_USCORERTSP_USCORETCP -->
+          </sequence>
+    </complexType>
+    <complexType name="DeviceCapabilities"><!-- tt__DeviceCapabilities -->
+          <sequence>
+            <element name="XAddr" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__DeviceCapabilities::XAddr -->
+          </sequence>
+    </complexType>
+    <complexType name="MediaCapabilities"><!-- tt__MediaCapabilities -->
+          <sequence>
+            <element name="XAddr" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__MediaCapabilities::XAddr -->
+            <element name="StreamingCapabilities" type="tt:StreamingCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__MediaCapabilities::StreamingCapabilities -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZCapabilities"><!-- tt__PTZCapabilities -->
+          <sequence>
+            <element name="XAddr" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZCapabilities::XAddr -->
+          </sequence>
+    </complexType>
+    <complexType name="ImagingCapabilities"><!-- tt__ImagingCapabilities -->
+          <sequence>
+            <element name="XAddr" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingCapabilities::XAddr -->
+          </sequence>
+    </complexType>
+    <complexType name="Capabilities"><!-- tt__Capabilities -->
+          <sequence>
+            <element name="Device" type="tt:DeviceCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__Capabilities::Device -->
+            <element name="Media" type="tt:MediaCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__Capabilities::Media -->
+            <element name="Media2" type="tt:MediaCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__Capabilities::Media2 -->
+            <element name="PTZ" type="tt:PTZCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__Capabilities::PTZ -->
+            <element name="Imaging" type="tt:ImagingCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__Capabilities::Imaging -->
+          </sequence>
+    </complexType>
+    <complexType name="Time"><!-- tt__Time -->
+          <sequence>
+            <element name="Hour" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Time::Hour -->
+            <element name="Minute" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Time::Minute -->
+            <element name="Second" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Time::Second -->
+          </sequence>
+    </complexType>
+    <complexType name="Date"><!-- tt__Date -->
+          <sequence>
+            <element name="Year" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Date::Year -->
+            <element name="Month" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Date::Month -->
+            <element name="Day" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Date::Day -->
+          </sequence>
+    </complexType>
+    <complexType name="DateTime"><!-- tt__DateTime -->
+          <sequence>
+            <element name="Time" type="tt:Time" minOccurs="0" maxOccurs="1"/><!-- tt__DateTime::Time -->
+            <element name="Date" type="tt:Date" minOccurs="0" maxOccurs="1"/><!-- tt__DateTime::Date -->
+          </sequence>
+    </complexType>
+    <complexType name="SystemDateTime"><!-- tt__SystemDateTime -->
+          <sequence>
+            <element name="DateTimeType" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__SystemDateTime::DateTimeType -->
+            <element name="DaylightSavings" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__SystemDateTime::DaylightSavings -->
+            <element name="UTCDateTime" type="tt:DateTime" minOccurs="0" maxOccurs="1"/><!-- tt__SystemDateTime::UTCDateTime -->
+          </sequence>
+    </complexType>
+    <complexType name="Scope"><!-- tt__Scope -->
+          <sequence>
+            <element name="ScopeDef" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__Scope::ScopeDef -->
+            <element name="ScopeItem" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__Scope::ScopeItem -->
+          </sequence>
+    </complexType>
+    <complexType name="HostnameInformation"><!-- tt__HostnameInformation -->
+          <sequence>
+            <element name="FromDHCP" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__HostnameInformation::FromDHCP -->
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__HostnameInformation::Name -->
+          </sequence>
+    </complexType>
+    <complexType name="NetworkInterfaceInfo"><!-- tt__NetworkInterfaceInfo -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__NetworkInterfaceInfo::Name -->
+            <element name="HwAddress" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__NetworkInterfaceInfo::HwAddress -->
+            <element name="MTU" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__NetworkInterfaceInfo::MTU -->
+          </sequence>
+    </complexType>
+    <complexType name="PrefixedIPv4Address"><!-- tt__PrefixedIPv4Address -->
+          <sequence>
+            <element name="Address" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PrefixedIPv4Address::Address -->
+            <element name="PrefixLength" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__PrefixedIPv4Address::PrefixLength -->
+          </sequence>
+    </complexType>
+    <complexType name="IPv4Configuration"><!-- tt__IPv4Configuration -->
+          <sequence>
+            <element name="Manual" type="tt:PrefixedIPv4Address" minOccurs="0" maxOccurs="unbounded"/><!-- tt__IPv4Configuration::__sizeManual -->
+            <element name="LinkLocal" type="tt:PrefixedIPv4Address" minOccurs="0" maxOccurs="1"/><!-- tt__IPv4Configuration::LinkLocal -->
+            <element name="FromDHCP" type="tt:PrefixedIPv4Address" minOccurs="0" maxOccurs="1"/><!-- tt__IPv4Configuration::FromDHCP -->
+            <element name="DHCP" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__IPv4Configuration::DHCP -->
+          </sequence>
+    </complexType>
+    <complexType name="IPv4NetworkInterface"><!-- tt__IPv4NetworkInterface -->
+          <sequence>
+            <element name="Enabled" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__IPv4NetworkInterface::Enabled -->
+            <element name="Config" type="tt:IPv4Configuration" minOccurs="0" maxOccurs="1"/><!-- tt__IPv4NetworkInterface::Config -->
+          </sequence>
+    </complexType>
+    <complexType name="NetworkInterface"><!-- tt__NetworkInterface -->
+          <sequence>
+            <element name="Info" type="tt:NetworkInterfaceInfo" minOccurs="0" maxOccurs="1"/><!-- tt__NetworkInterface::Info -->
+            <element name="IPv4" type="tt:IPv4NetworkInterface" minOccurs="0" maxOccurs="1"/><!-- tt__NetworkInterface::IPv4 -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__NetworkInterface::token -->
+          <attribute name="enabled" type="xsd:boolean"/><!-- tt__NetworkInterface::enabled -->
+    </complexType>
+    <complexType name="User"><!-- tt__User -->
+          <sequence>
+            <element name="Username" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__User::Username -->
+            <element name="UserLevel" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__User::UserLevel -->
+          </sequence>
+    </complexType>
+    <complexType name="IntRectangle"><!-- tt__IntRectangle -->
+          <sequence>
+          </sequence>
+          <attribute name="x" type="xsd:int"/><!-- tt__IntRectangle::x -->
+          <attribute name="y" type="xsd:int"/><!-- tt__IntRectangle::y -->
+          <attribute name="width" type="xsd:int"/><!-- tt__IntRectangle::width -->
+          <attribute name="height" type="xsd:int"/><!-- tt__IntRectangle::height -->
+    </complexType>
+    <complexType name="VideoResolution"><!-- tt__VideoResolution -->
+          <sequence>
+            <element name="Width" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoResolution::Width -->
+            <element name="Height" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoResolution::Height -->
+          </sequence>
+    </complexType>
+    <complexType name="VideoRateControl"><!-- tt__VideoRateControl -->
+          <sequence>
+            <element name="FrameRateLimit" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoRateControl::FrameRateLimit -->
+            <element name="EncodingInterval" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoRateControl::EncodingInterval -->
+            <element name="BitrateLimit" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoRateControl::BitrateLimit -->
+          </sequence>
+    </complexType>
+    <complexType name="H264Configuration"><!-- tt__H264Configuration -->
+          <sequence>
+            <element name="GovLength" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__H264Configuration::GovLength -->
+            <element name="H264Profile" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__H264Configuration::H264Profile -->
+          </sequence>
+    </complexType>
+    <complexType name="IPAddress"><!-- tt__IPAddress -->
+          <sequence>
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__IPAddress::Type -->
+            <element name="IPv4Address" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__IPAddress::IPv4Address -->
+          </sequence>
+    </complexType>
+    <complexType name="MulticastConfiguration"><!-- tt__MulticastConfiguration -->
+          <sequence>
+            <element name="Address" type="tt:IPAddress" minOccurs="0" maxOccurs="1"/><!-- tt__MulticastConfiguration::Address -->
+            <element name="Port" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__MulticastConfiguration::Port -->
+            <element name="TTL" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__MulticastConfiguration::TTL -->
+            <element name="AutoStart" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__MulticastConfiguration::AutoStart -->
+          </sequence>
+    </complexType>
+    <complexType name="VideoSource"><!-- tt__VideoSource -->
+          <sequence>
+            <element name="Framerate" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- tt__VideoSource::Framerate -->
+            <element name="Resolution" type="tt:VideoResolution" minOccurs="0" maxOccurs="1"/><!-- tt__VideoSource::Resolution -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__VideoSource::token -->
+    </complexType>
+    <complexType name="VideoSourceConfiguration"><!-- tt__VideoSourceConfiguration -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__VideoSourceConfiguration::Name -->
+            <element name="UseCount" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoSourceConfiguration::UseCount -->
+            <element name="SourceToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__VideoSourceConfiguration::SourceToken -->
+            <element name="Bounds" type="tt:IntRectangle" minOccurs="0" maxOccurs="1"/><!-- tt__VideoSourceConfiguration::Bounds -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__VideoSourceConfiguration::token -->
+    </complexType>
+    <complexType name="VideoEncoderConfiguration"><!-- tt__VideoEncoderConfiguration -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::Name -->
+            <element name="UseCount" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::UseCount -->
+            <element name="Encoding" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::Encoding -->
+            <element name="Resolution" type="tt:VideoResolution" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::Resolution -->
+            <element name="Quality" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::Quality -->
+            <element name="RateControl" type="tt:VideoRateControl" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::RateControl -->
+            <element name="H264" type="tt:H264Configuration" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::H264 -->
+            <element name="Multicast" type="tt:MulticastConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::Multicast -->
+            <element name="SessionTimeout" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::SessionTimeout -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__VideoEncoderConfiguration::token -->
+    </complexType>
+    <complexType name="FloatRange"><!-- tt__FloatRange -->
+          <sequence>
+            <element name="Min" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- tt__FloatRange::Min -->
+            <element name="Max" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- tt__FloatRange::Max -->
+          </sequence>
+    </complexType>
+    <complexType name="IntRange"><!-- tt__IntRange -->
+          <sequence>
+            <element name="Min" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__IntRange::Min -->
+            <element name="Max" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__IntRange::Max -->
+          </sequence>
+    </complexType>
+    <complexType name="IntRectangleRange"><!-- tt__IntRectangleRange -->
+          <sequence>
+            <element name="XRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__IntRectangleRange::XRange -->
+            <element name="YRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__IntRectangleRange::YRange -->
+            <element name="WidthRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__IntRectangleRange::WidthRange -->
+            <element name="HeightRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__IntRectangleRange::HeightRange -->
+          </sequence>
+    </complexType>
+    <complexType name="VideoSourceConfigurationOptions"><!-- tt__VideoSourceConfigurationOptions -->
+          <sequence>
+            <element name="BoundsRange" type="tt:IntRectangleRange" minOccurs="0" maxOccurs="1"/><!-- tt__VideoSourceConfigurationOptions::BoundsRange -->
+            <element name="VideoSourceTokensAvailable" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/><!-- tt__VideoSourceConfigurationOptions::__sizeVideoSourceTokensAvailable -->
+          </sequence>
+    </complexType>
+    <complexType name="H264Options"><!-- tt__H264Options -->
+          <sequence>
+            <element name="ResolutionsAvailable" type="tt:VideoResolution" minOccurs="0" maxOccurs="unbounded"/><!-- tt__H264Options::__sizeResolutionsAvailable -->
+            <element name="GovLengthRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__H264Options::GovLengthRange -->
+            <element name="FrameRateRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__H264Options::FrameRateRange -->
+            <element name="EncodingIntervalRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__H264Options::EncodingIntervalRange -->
+            <element name="H264ProfilesSupported" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/><!-- tt__H264Options::__sizeH264ProfilesSupported -->
+          </sequence>
+    </complexType>
+    <complexType name="VideoEncoderConfigurationOptionsExtension"><!-- tt__VideoEncoderConfigurationOptionsExtension -->
+          <sequence>
+            <element name="H264" type="tt:H264Options" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfigurationOptionsExtension::H264 -->
+          </sequence>
+    </complexType>
+    <complexType name="VideoEncoderConfigurationOptions"><!-- tt__VideoEncoderConfigurationOptions -->
+          <sequence>
+            <element name="QualityRange" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfigurationOptions::QualityRange -->
+            <element name="H264" type="tt:H264Options" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfigurationOptions::H264 -->
+            <element name="Extension" type="tt:VideoEncoderConfigurationOptionsExtension" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfigurationOptions::Extension -->
+            <element name="BitrateRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfigurationOptions::BitrateRange -->
+          </sequence>
+    </complexType>
+    <complexType name="Transport"><!-- tt__Transport -->
+          <sequence>
+            <element name="Protocol" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__Transport::Protocol -->
+          </sequence>
+    </complexType>
+    <complexType name="StreamSetup"><!-- tt__StreamSetup -->
+          <sequence>
+            <element name="Stream" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__StreamSetup::Stream -->
+            <element name="Transport" type="tt:Transport" minOccurs="0" maxOccurs="1"/><!-- tt__StreamSetup::Transport -->
+          </sequence>
+    </complexType>
+    <complexType name="Space2DDescription"><!-- tt__Space2DDescription -->
+          <sequence>
+            <element name="URI" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__Space2DDescription::URI -->
+            <element name="XRange" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__Space2DDescription::XRange -->
+            <element name="YRange" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__Space2DDescription::YRange -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZSpaces"><!-- tt__PTZSpaces -->
+          <sequence>
+            <element name="RelativePanTiltTranslationSpace" type="tt:Space2DDescription" minOccurs="0" maxOccurs="unbounded"/><!-- tt__PTZSpaces::__sizeRelativePanTiltTranslationSpace -->
+            <element name="ContinuousPanTiltVelocitySpace" type="tt:Space2DDescription" minOccurs="0" maxOccurs="unbounded"/><!-- tt__PTZSpaces::__sizeContinuousPanTiltVelocitySpace -->
+          </sequence>
+    </complexType>
+    <complexType name="DurationRange"><!-- tt__DurationRange -->
+          <sequence>
+            <element name="Min" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__DurationRange::Min -->
+            <element name="Max" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__DurationRange::Max -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZConfigurationOptions"><!-- tt__PTZConfigurationOptions -->
+          <sequence>
+            <element name="Spaces" type="tt:PTZSpaces" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfigurationOptions::Spaces -->
+            <element name="PTZTimeout" type="tt:DurationRange" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfigurationOptions::PTZTimeout -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZNode"><!-- tt__PTZNode -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZNode::Name -->
+            <element name="SupportedPTZSpaces" type="tt:PTZSpaces" minOccurs="0" maxOccurs="1"/><!-- tt__PTZNode::SupportedPTZSpaces -->
+            <element name="MaximumNumberOfPresets" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__PTZNode::MaximumNumberOfPresets -->
+            <element name="HomeSupported" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__PTZNode::HomeSupported -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__PTZNode::token -->
+    </complexType>
+    <complexType name="PanTiltLimits"><!-- tt__PanTiltLimits -->
+          <sequence>
+            <element name="Range" type="tt:Space2DDescription" minOccurs="0" maxOccurs="1"/><!-- tt__PanTiltLimits::Range -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZConfiguration"><!-- tt__PTZConfiguration -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::Name -->
+            <element name="UseCount" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__PTZConfiguration::UseCount -->
+            <element name="NodeToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::NodeToken -->
+            <element name="DefaultContinuousPanTiltVelocitySpace" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::DefaultContinuousPanTiltVelocitySpace -->
+            <element name="DefaultRelativePanTiltTranslationSpace" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::DefaultRelativePanTiltTranslationSpace -->
+            <element name="DefaultPTZTimeout" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::DefaultPTZTimeout -->
+            <element name="PanTiltLimits" type="tt:PanTiltLimits" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::PanTiltLimits -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__PTZConfiguration::token -->
+    </complexType>
+    <complexType name="PTZPreset"><!-- tt__PTZPreset -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZPreset::Name -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__PTZPreset::token -->
+    </complexType>
+    <complexType name="Profile"><!-- tt__Profile -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__Profile::Name -->
+            <element name="VideoSourceConfiguration" type="tt:VideoSourceConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__Profile::VideoSourceConfiguration -->
+            <element name="VideoEncoderConfiguration" type="tt:VideoEncoderConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__Profile::VideoEncoderConfiguration -->
+            <element name="PTZConfiguration" type="tt:PTZConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__Profile::PTZConfiguration -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__Profile::token -->
+          <attribute name="fixed" type="xsd:boolean"/><!-- tt__Profile::fixed -->
+    </complexType>
+    <complexType name="MediaUri"><!-- tt__MediaUri -->
+          <sequence>
+            <element name="Uri" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__MediaUri::Uri -->
+            <element name="InvalidAfterConnect" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__MediaUri::InvalidAfterConnect -->
+            <element name="InvalidAfterReboot" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__MediaUri::InvalidAfterReboot -->
+            <element name="Timeout" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__MediaUri::Timeout -->
+          </sequence>
+    </complexType>
     <complexType name="Vector2D"><!-- tt__Vector2D -->
           <sequence>
-            <element name="x" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector2D::x -->
-            <element name="y" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector2D::y -->
           </sequence>
+          <attribute name="x" type="xsd:double"/><!-- tt__Vector2D::x -->
+          <attribute name="y" type="xsd:double"/><!-- tt__Vector2D::y -->
     </complexType>
     <complexType name="Vector1D"><!-- tt__Vector1D -->
           <sequence>
-            <element name="x" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector1D::x -->
           </sequence>
+          <attribute name="x" type="xsd:double"/><!-- tt__Vector1D::x -->
     </complexType>
     <complexType name="PTZVector"><!-- tt__PTZVector -->
           <sequence>
             <element name="PanTilt" type="tt:Vector2D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZVector::PanTilt -->
             <element name="Zoom" type="tt:Vector1D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZVector::Zoom -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZSpeed"><!-- tt__PTZSpeed -->
+          <sequence>
+            <element name="PanTilt" type="tt:Vector2D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZSpeed::PanTilt -->
+            <element name="Zoom" type="tt:Vector1D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZSpeed::Zoom -->
           </sequence>
     </complexType>
     <complexType name="PTZMoveStatus"><!-- tt__PTZMoveStatus -->
@@ -174,6 +435,63 @@
             <element name="Position" type="tt:PTZVector" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::Position -->
             <element name="MoveStatus" type="tt:PTZMoveStatus" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::MoveStatus -->
             <element name="UtcTime" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::UtcTime -->
+          </sequence>
+    </complexType>
+    <complexType name="ImagingSettings20"><!-- tt__ImagingSettings20 -->
+          <sequence>
+            <element name="Brightness" type="xsd:float" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingSettings20::Brightness -->
+            <element name="ColorSaturation" type="xsd:float" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingSettings20::ColorSaturation -->
+            <element name="Contrast" type="xsd:float" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingSettings20::Contrast -->
+          </sequence>
+    </complexType>
+    <complexType name="ImagingOptions20"><!-- tt__ImagingOptions20 -->
+          <sequence>
+            <element name="Brightness" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingOptions20::Brightness -->
+            <element name="ColorSaturation" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingOptions20::ColorSaturation -->
+            <element name="Contrast" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingOptions20::Contrast -->
+          </sequence>
+    </complexType>
+    <complexType name="OSDPosConfiguration"><!-- tt__OSDPosConfiguration -->
+          <sequence>
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__OSDPosConfiguration::Type -->
+          </sequence>
+    </complexType>
+    <complexType name="OSDTextConfiguration"><!-- tt__OSDTextConfiguration -->
+          <sequence>
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__OSDTextConfiguration::Type -->
+            <element name="PlainText" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__OSDTextConfiguration::PlainText -->
+          </sequence>
+    </complexType>
+    <complexType name="OSDConfiguration"><!-- tt__OSDConfiguration -->
+          <sequence>
+            <element name="VideoSourceConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfiguration::VideoSourceConfigurationToken -->
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfiguration::Type -->
+            <element name="Position" type="tt:OSDPosConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfiguration::Position -->
+            <element name="TextString" type="tt:OSDTextConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfiguration::TextString -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__OSDConfiguration::token -->
+    </complexType>
+    <complexType name="MaximumNumberOfOSDs"><!-- tt__MaximumNumberOfOSDs -->
+          <sequence>
+          </sequence>
+          <attribute name="Total" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::Total -->
+          <attribute name="Image" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::Image -->
+          <attribute name="PlainText" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::PlainText -->
+          <attribute name="Date" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::Date -->
+          <attribute name="Time" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::Time -->
+          <attribute name="DateAndTime" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::DateAndTime -->
+    </complexType>
+    <complexType name="OSDTextOptions"><!-- tt__OSDTextOptions -->
+          <sequence>
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/><!-- tt__OSDTextOptions::__sizeType -->
+          </sequence>
+    </complexType>
+    <complexType name="OSDConfigurationOptions"><!-- tt__OSDConfigurationOptions -->
+          <sequence>
+            <element name="MaximumNumberOfOSDs" type="tt:MaximumNumberOfOSDs" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfigurationOptions::MaximumNumberOfOSDs -->
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/><!-- tt__OSDConfigurationOptions::__sizeType -->
+            <element name="PositionOption" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/><!-- tt__OSDConfigurationOptions::__sizePositionOption -->
+            <element name="TextOption" type="tt:OSDTextOptions" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfigurationOptions::TextOption -->
           </sequence>
     </complexType>
   </schema>
@@ -193,18 +511,14 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
     xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
     xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
     xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
+    elementFormDefault="qualified"
     attributeFormDefault="unqualified">
     <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
     <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
@@ -223,13 +537,61 @@
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
+    <simpleType name="CapabilityCategory"><!-- tds__CapabilityCategory -->
+      <restriction base="xsd:string">
+        <!-- = 0 -->
+        <enumeration value="All"/><!-- tds__CapabilityCategory__All -->
+        <!-- = 1 -->
+        <enumeration value="Analytics"/><!-- tds__CapabilityCategory__Analytics -->
+        <!-- = 2 -->
+        <enumeration value="Device"/><!-- tds__CapabilityCategory__Device -->
+        <!-- = 3 -->
+        <enumeration value="Events"/><!-- tds__CapabilityCategory__Events -->
+        <!-- = 4 -->
+        <enumeration value="Imaging"/><!-- tds__CapabilityCategory__Imaging -->
+        <!-- = 5 -->
+        <enumeration value="Media"/><!-- tds__CapabilityCategory__Media -->
+        <!-- = 6 -->
+        <enumeration value="PTZ"/><!-- tds__CapabilityCategory__PTZ -->
+      </restriction>
+    </simpleType>
+    <complexType name="GetServices"><!-- _tds__GetServices -->
+          <sequence>
+            <element name="IncludeCapability" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- _tds__GetServices::IncludeCapability -->
+          </sequence>
+    </complexType>
+    <complexType name="GetServiceCapabilities"><!-- _tds__GetServiceCapabilities -->
+          <sequence>
+          </sequence>
+    </complexType>
     <complexType name="GetDeviceInformation"><!-- _tds__GetDeviceInformation -->
           <sequence>
-            <any processContents="lax" minOccurs="0" maxOccurs="1"/><!-- __any -->
+          </sequence>
+    </complexType>
+    <complexType name="GetSystemDateAndTime"><!-- _tds__GetSystemDateAndTime -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetScopes"><!-- _tds__GetScopes -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetHostname"><!-- _tds__GetHostname -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetNetworkInterfaces"><!-- _tds__GetNetworkInterfaces -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetUsers"><!-- _tds__GetUsers -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetCapabilities"><!-- _tds__GetCapabilities -->
+          <sequence>
+            <element name="Category" type="tds:CapabilityCategory" minOccurs="0" maxOccurs="unbounded"/><!-- _tds__GetCapabilities::__sizeCategory -->
           </sequence>
     </complexType>
     <complexType name="GetDeviceInformationResponse"><!-- _tds__GetDeviceInformationResponse -->
@@ -241,33 +603,114 @@
             <element name="HardwareId" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tds__GetDeviceInformationResponse::HardwareId -->
           </sequence>
     </complexType>
+    <complexType name="Service"><!-- tds__Service -->
+          <sequence>
+            <element name="Namespace" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tds__Service::Namespace -->
+            <element name="XAddr" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tds__Service::XAddr -->
+            <element name="Version" type="tt:OnvifVersion" minOccurs="0" maxOccurs="1"/><!-- tds__Service::Version -->
+          </sequence>
+    </complexType>
+    <complexType name="GetServicesResponse"><!-- _tds__GetServicesResponse -->
+          <sequence>
+            <element name="Service" type="tds:Service" minOccurs="0" maxOccurs="unbounded"/><!-- _tds__GetServicesResponse::__sizeService -->
+          </sequence>
+    </complexType>
+    <complexType name="GetCapabilitiesResponse"><!-- _tds__GetCapabilitiesResponse -->
+          <sequence>
+            <element name="Capabilities" type="tt:Capabilities" minOccurs="0" maxOccurs="1"/><!-- _tds__GetCapabilitiesResponse::Capabilities -->
+          </sequence>
+    </complexType>
+    <complexType name="NetworkCapabilities"><!-- tds__NetworkCapabilities -->
+          <sequence>
+          </sequence>
+          <attribute name="IPFilter" type="xsd:boolean"/><!-- tds__NetworkCapabilities::IPFilter -->
+          <attribute name="ZeroConfiguration" type="xsd:boolean"/><!-- tds__NetworkCapabilities::ZeroConfiguration -->
+          <attribute name="IPVersion6" type="xsd:boolean"/><!-- tds__NetworkCapabilities::IPVersion6 -->
+          <attribute name="DynDNS" type="xsd:boolean"/><!-- tds__NetworkCapabilities::DynDNS -->
+    </complexType>
+    <complexType name="SecurityCapabilities"><!-- tds__SecurityCapabilities -->
+          <sequence>
+          </sequence>
+          <attribute name="OnboardKeyGeneration" type="xsd:boolean"/><!-- tds__SecurityCapabilities::OnboardKeyGeneration -->
+          <attribute name="AccessPolicyConfig" type="xsd:boolean"/><!-- tds__SecurityCapabilities::AccessPolicyConfig -->
+          <attribute name="DefaultAccessPolicy" type="xsd:boolean"/><!-- tds__SecurityCapabilities::DefaultAccessPolicy -->
+          <attribute name="Dot1X" type="xsd:boolean"/><!-- tds__SecurityCapabilities::Dot1X -->
+          <attribute name="RemoteUserHandling" type="xsd:boolean"/><!-- tds__SecurityCapabilities::RemoteUserHandling -->
+    </complexType>
+    <complexType name="SystemCapabilities"><!-- tds__SystemCapabilities -->
+          <sequence>
+          </sequence>
+          <attribute name="DiscoveryResolve" type="xsd:boolean"/><!-- tds__SystemCapabilities::DiscoveryResolve -->
+          <attribute name="DiscoveryBye" type="xsd:boolean"/><!-- tds__SystemCapabilities::DiscoveryBye -->
+          <attribute name="RemoteDiscovery" type="xsd:boolean"/><!-- tds__SystemCapabilities::RemoteDiscovery -->
+          <attribute name="SystemBackup" type="xsd:boolean"/><!-- tds__SystemCapabilities::SystemBackup -->
+          <attribute name="SystemLogging" type="xsd:boolean"/><!-- tds__SystemCapabilities::SystemLogging -->
+          <attribute name="FirmwareUpgrade" type="xsd:boolean"/><!-- tds__SystemCapabilities::FirmwareUpgrade -->
+    </complexType>
+    <complexType name="DeviceServiceCapabilities"><!-- tds__DeviceServiceCapabilities -->
+          <sequence>
+            <element name="Network" type="tds:NetworkCapabilities" minOccurs="0" maxOccurs="1"/><!-- tds__DeviceServiceCapabilities::Network -->
+            <element name="Security" type="tds:SecurityCapabilities" minOccurs="0" maxOccurs="1"/><!-- tds__DeviceServiceCapabilities::Security -->
+            <element name="System" type="tds:SystemCapabilities" minOccurs="0" maxOccurs="1"/><!-- tds__DeviceServiceCapabilities::System -->
+          </sequence>
+    </complexType>
+    <complexType name="GetServiceCapabilitiesResponse"><!-- _tds__GetServiceCapabilitiesResponse -->
+          <sequence>
+            <element name="Capabilities" type="tds:DeviceServiceCapabilities" minOccurs="0" maxOccurs="1"/><!-- _tds__GetServiceCapabilitiesResponse::Capabilities -->
+          </sequence>
+    </complexType>
+    <complexType name="GetSystemDateAndTimeResponse"><!-- _tds__GetSystemDateAndTimeResponse -->
+          <sequence>
+            <element name="SystemDateAndTime" type="tt:SystemDateTime" minOccurs="0" maxOccurs="1"/><!-- _tds__GetSystemDateAndTimeResponse::SystemDateAndTime -->
+          </sequence>
+    </complexType>
+    <complexType name="GetScopesResponse"><!-- _tds__GetScopesResponse -->
+          <sequence>
+            <element name="Scopes" type="tt:Scope" minOccurs="0" maxOccurs="unbounded"/><!-- _tds__GetScopesResponse::__sizeScopes -->
+          </sequence>
+    </complexType>
+    <complexType name="GetHostnameResponse"><!-- _tds__GetHostnameResponse -->
+          <sequence>
+            <element name="HostnameInformation" type="tt:HostnameInformation" minOccurs="0" maxOccurs="1"/><!-- _tds__GetHostnameResponse::HostnameInformation -->
+          </sequence>
+    </complexType>
+    <complexType name="GetNetworkInterfacesResponse"><!-- _tds__GetNetworkInterfacesResponse -->
+          <sequence>
+            <element name="NetworkInterfaces" type="tt:NetworkInterface" minOccurs="0" maxOccurs="unbounded"/><!-- _tds__GetNetworkInterfacesResponse::__sizeNetworkInterfaces -->
+          </sequence>
+    </complexType>
+    <complexType name="GetUsersResponse"><!-- _tds__GetUsersResponse -->
+          <sequence>
+            <element name="User" type="tt:User" minOccurs="0" maxOccurs="unbounded"/><!-- _tds__GetUsersResponse::__sizeUser -->
+          </sequence>
+    </complexType>
     <!-- operation response element -->
-    <element name="GetServicesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetServicesResponse" type="tds:GetServicesResponse"/>
     <!-- operation response element -->
-    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetServiceCapabilitiesResponse" type="tds:GetServiceCapabilitiesResponse"/>
     <!-- operation response element -->
     <element name="GetDeviceInformationResponse" type="tds:GetDeviceInformationResponse"/>
     <!-- operation response element -->
-    <element name="GetSystemDateAndTimeResponse" type="afterveda:AnyResponse"/>
+    <element name="GetSystemDateAndTimeResponse" type="tds:GetSystemDateAndTimeResponse"/>
     <!-- operation response element -->
-    <element name="GetScopesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetScopesResponse" type="tds:GetScopesResponse"/>
     <!-- operation response element -->
-    <element name="GetHostnameResponse" type="afterveda:AnyResponse"/>
+    <element name="GetHostnameResponse" type="tds:GetHostnameResponse"/>
     <!-- operation response element -->
-    <element name="GetNetworkInterfacesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetNetworkInterfacesResponse" type="tds:GetNetworkInterfacesResponse"/>
     <!-- operation response element -->
-    <element name="GetUsersResponse" type="afterveda:AnyResponse"/>
+    <element name="GetUsersResponse" type="tds:GetUsersResponse"/>
     <!-- operation response element -->
-    <element name="GetCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetCapabilitiesResponse" type="tds:GetCapabilitiesResponse"/>
+    <element name="GetServices" type="tds:GetServices"/>
+    <element name="GetServiceCapabilities" type="tds:GetServiceCapabilities"/>
     <element name="GetDeviceInformation" type="tds:GetDeviceInformation"/>
-    <element name="GetServices" type="afterveda:EmptyRequest"/>
-    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
-    <element name="GetSystemDateAndTime" type="afterveda:EmptyRequest"/>
-    <element name="GetScopes" type="afterveda:EmptyRequest"/>
-    <element name="GetHostname" type="afterveda:EmptyRequest"/>
-    <element name="GetNetworkInterfaces" type="afterveda:EmptyRequest"/>
-    <element name="GetUsers" type="afterveda:EmptyRequest"/>
-    <element name="GetCapabilities" type="afterveda:EmptyRequest"/>
+    <element name="GetSystemDateAndTime" type="tds:GetSystemDateAndTime"/>
+    <element name="GetScopes" type="tds:GetScopes"/>
+    <element name="GetHostname" type="tds:GetHostname"/>
+    <element name="GetNetworkInterfaces" type="tds:GetNetworkInterfaces"/>
+    <element name="GetUsers" type="tds:GetUsers"/>
+    <element name="GetCapabilities" type="tds:GetCapabilities"/>
   </schema>
 
   <schema targetNamespace="http://www.onvif.org/ver10/media/wsdl"
@@ -285,18 +728,14 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
     xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
     xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
     xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
+    elementFormDefault="qualified"
     attributeFormDefault="unqualified">
     <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
     <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
@@ -315,46 +754,247 @@
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
+    <complexType name="GetProfiles"><!-- _trt__GetProfiles -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetProfile"><!-- _trt__GetProfile -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetProfile::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetServiceCapabilities"><!-- _trt__GetServiceCapabilities -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSources"><!-- _trt__GetVideoSources -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfigurations"><!-- _trt__GetVideoSourceConfigurations -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfiguration"><!-- _trt__GetVideoSourceConfiguration -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoSourceConfiguration::ConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfigurations"><!-- _trt__GetVideoEncoderConfigurations -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetStreamUri"><!-- _trt__GetStreamUri -->
+          <sequence>
+            <element name="StreamSetup" type="tt:StreamSetup" minOccurs="0" maxOccurs="1"/><!-- _trt__GetStreamUri::StreamSetup -->
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetStreamUri::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfiguration"><!-- _trt__GetVideoEncoderConfiguration -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoEncoderConfiguration::ConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfigurationOptions"><!-- _trt__GetVideoSourceConfigurationOptions -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoSourceConfigurationOptions::ConfigurationToken -->
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoSourceConfigurationOptions::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfigurationOptions"><!-- _trt__GetVideoEncoderConfigurationOptions -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoEncoderConfigurationOptions::ConfigurationToken -->
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoEncoderConfigurationOptions::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="Capabilities"><!-- trt__Capabilities -->
+          <sequence>
+          </sequence>
+          <attribute name="SnapshotUri" type="xsd:boolean"/><!-- trt__Capabilities::SnapshotUri -->
+          <attribute name="Rotation" type="xsd:boolean"/><!-- trt__Capabilities::Rotation -->
+          <attribute name="VideoSourceMode" type="xsd:boolean"/><!-- trt__Capabilities::VideoSourceMode -->
+          <attribute name="OSD" type="xsd:boolean"/><!-- trt__Capabilities::OSD -->
+          <attribute name="TemporaryOSDText" type="xsd:boolean"/><!-- trt__Capabilities::TemporaryOSDText -->
+          <attribute name="EXICompression" type="xsd:boolean"/><!-- trt__Capabilities::EXICompression -->
+    </complexType>
+    <complexType name="GetServiceCapabilitiesResponse"><!-- _trt__GetServiceCapabilitiesResponse -->
+          <sequence>
+            <element name="Capabilities" type="trt:Capabilities" minOccurs="0" maxOccurs="1"/><!-- _trt__GetServiceCapabilitiesResponse::Capabilities -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfigurationsResponse"><!-- _trt__GetVideoSourceConfigurationsResponse -->
+          <sequence>
+            <element name="Configurations" type="tt:VideoSourceConfiguration" minOccurs="0" maxOccurs="unbounded"/><!-- _trt__GetVideoSourceConfigurationsResponse::__sizeConfigurations -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfigurationResponse"><!-- _trt__GetVideoSourceConfigurationResponse -->
+          <sequence>
+            <element name="Configuration" type="tt:VideoSourceConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoSourceConfigurationResponse::Configuration -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfigurationOptionsResponse"><!-- _trt__GetVideoSourceConfigurationOptionsResponse -->
+          <sequence>
+            <element name="Options" type="tt:VideoSourceConfigurationOptions" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoSourceConfigurationOptionsResponse::Options -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfigurationOptionsResponse"><!-- _trt__GetVideoEncoderConfigurationOptionsResponse -->
+          <sequence>
+            <element name="Options" type="tt:VideoEncoderConfigurationOptions" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoEncoderConfigurationOptionsResponse::Options -->
+          </sequence>
+    </complexType>
+    <complexType name="SetVideoEncoderConfiguration"><!-- _trt__SetVideoEncoderConfiguration -->
+          <sequence>
+            <element name="Configuration" type="tt:VideoEncoderConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__SetVideoEncoderConfiguration::Configuration -->
+            <element name="ForcePersistence" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- _trt__SetVideoEncoderConfiguration::ForcePersistence -->
+          </sequence>
+    </complexType>
+    <complexType name="SetVideoEncoderConfigurationResponse"><!-- _trt__SetVideoEncoderConfigurationResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetProfilesResponse"><!-- _trt__GetProfilesResponse -->
+          <sequence>
+            <element name="Profiles" type="tt:Profile" minOccurs="0" maxOccurs="unbounded"/><!-- _trt__GetProfilesResponse::__sizeProfiles -->
+          </sequence>
+    </complexType>
+    <complexType name="GetProfileResponse"><!-- _trt__GetProfileResponse -->
+          <sequence>
+            <element name="Profile" type="tt:Profile" minOccurs="0" maxOccurs="1"/><!-- _trt__GetProfileResponse::Profile -->
+          </sequence>
+    </complexType>
+    <complexType name="GetStreamUriResponse"><!-- _trt__GetStreamUriResponse -->
+          <sequence>
+            <element name="MediaUri" type="tt:MediaUri" minOccurs="0" maxOccurs="1"/><!-- _trt__GetStreamUriResponse::MediaUri -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourcesResponse"><!-- _trt__GetVideoSourcesResponse -->
+          <sequence>
+            <element name="VideoSources" type="tt:VideoSource" minOccurs="0" maxOccurs="unbounded"/><!-- _trt__GetVideoSourcesResponse::__sizeVideoSources -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfigurationResponse"><!-- _trt__GetVideoEncoderConfigurationResponse -->
+          <sequence>
+            <element name="Configuration" type="tt:VideoEncoderConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoEncoderConfigurationResponse::Configuration -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfigurationsResponse"><!-- _trt__GetVideoEncoderConfigurationsResponse -->
+          <sequence>
+            <element name="Configurations" type="tt:VideoEncoderConfiguration" minOccurs="0" maxOccurs="unbounded"/><!-- _trt__GetVideoEncoderConfigurationsResponse::__sizeConfigurations -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSDs"><!-- _trt__GetOSDs -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetOSDs::ConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSDsResponse"><!-- _trt__GetOSDsResponse -->
+          <sequence>
+            <element name="OSDs" type="tt:OSDConfiguration" minOccurs="0" maxOccurs="unbounded"/><!-- _trt__GetOSDsResponse::__sizeOSDs -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSD"><!-- _trt__GetOSD -->
+          <sequence>
+            <element name="OSDToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetOSD::OSDToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSDResponse"><!-- _trt__GetOSDResponse -->
+          <sequence>
+            <element name="OSD" type="tt:OSDConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__GetOSDResponse::OSD -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSDOptions"><!-- _trt__GetOSDOptions -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetOSDOptions::ConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSDOptionsResponse"><!-- _trt__GetOSDOptionsResponse -->
+          <sequence>
+            <element name="OSDOptions" type="tt:OSDConfigurationOptions" minOccurs="0" maxOccurs="1"/><!-- _trt__GetOSDOptionsResponse::OSDOptions -->
+          </sequence>
+    </complexType>
+    <complexType name="SetOSD"><!-- _trt__SetOSD -->
+          <sequence>
+            <element name="OSD" type="tt:OSDConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__SetOSD::OSD -->
+          </sequence>
+    </complexType>
+    <complexType name="SetOSDResponse"><!-- _trt__SetOSDResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="CreateOSD"><!-- _trt__CreateOSD -->
+          <sequence>
+            <element name="OSD" type="tt:OSDConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__CreateOSD::OSD -->
+          </sequence>
+    </complexType>
+    <complexType name="CreateOSDResponse"><!-- _trt__CreateOSDResponse -->
+          <sequence>
+            <element name="OSDToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__CreateOSDResponse::OSDToken -->
+          </sequence>
+    </complexType>
+    <complexType name="DeleteOSD"><!-- _trt__DeleteOSD -->
+          <sequence>
+            <element name="OSDToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__DeleteOSD::OSDToken -->
+          </sequence>
+    </complexType>
+    <complexType name="DeleteOSDResponse"><!-- _trt__DeleteOSDResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
     <!-- operation response element -->
-    <element name="GetProfilesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetProfilesResponse" type="trt:GetProfilesResponse"/>
     <!-- operation response element -->
-    <element name="GetProfileResponse" type="afterveda:AnyResponse"/>
+    <element name="GetProfileResponse" type="trt:GetProfileResponse"/>
     <!-- operation response element -->
-    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetServiceCapabilitiesResponse" type="trt:GetServiceCapabilitiesResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourcesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetVideoSourcesResponse" type="trt:GetVideoSourcesResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourceConfigurationsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetOSDsResponse" type="trt:GetOSDsResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourceConfigurationResponse" type="afterveda:AnyResponse"/>
+    <element name="GetOSDResponse" type="trt:GetOSDResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoEncoderConfigurationsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetOSDOptionsResponse" type="trt:GetOSDOptionsResponse"/>
     <!-- operation response element -->
-    <element name="GetStreamUriResponse" type="afterveda:AnyResponse"/>
+    <element name="SetOSDResponse" type="trt:SetOSDResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoEncoderConfigurationResponse" type="afterveda:AnyResponse"/>
+    <element name="CreateOSDResponse" type="trt:CreateOSDResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourceConfigurationOptionsResponse" type="afterveda:AnyResponse"/>
+    <element name="DeleteOSDResponse" type="trt:DeleteOSDResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoEncoderConfigurationOptionsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetVideoSourceConfigurationsResponse" type="trt:GetVideoSourceConfigurationsResponse"/>
     <!-- operation response element -->
-    <element name="SetVideoEncoderConfigurationResponse" type="afterveda:AnyResponse"/>
-    <element name="GetProfiles" type="afterveda:EmptyRequest"/>
-    <element name="GetProfile" type="afterveda:EmptyRequest"/>
-    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoSources" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoSourceConfigurations" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoSourceConfiguration" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoEncoderConfigurations" type="afterveda:EmptyRequest"/>
-    <element name="GetStreamUri" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoEncoderConfiguration" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoSourceConfigurationOptions" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoEncoderConfigurationOptions" type="afterveda:EmptyRequest"/>
-    <element name="SetVideoEncoderConfiguration" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoSourceConfigurationResponse" type="trt:GetVideoSourceConfigurationResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoEncoderConfigurationsResponse" type="trt:GetVideoEncoderConfigurationsResponse"/>
+    <!-- operation response element -->
+    <element name="GetStreamUriResponse" type="trt:GetStreamUriResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoEncoderConfigurationResponse" type="trt:GetVideoEncoderConfigurationResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoSourceConfigurationOptionsResponse" type="trt:GetVideoSourceConfigurationOptionsResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoEncoderConfigurationOptionsResponse" type="trt:GetVideoEncoderConfigurationOptionsResponse"/>
+    <!-- operation response element -->
+    <element name="SetVideoEncoderConfigurationResponse" type="trt:SetVideoEncoderConfigurationResponse"/>
+    <element name="GetProfiles" type="trt:GetProfiles"/>
+    <element name="GetProfile" type="trt:GetProfile"/>
+    <element name="GetServiceCapabilities" type="trt:GetServiceCapabilities"/>
+    <element name="GetVideoSources" type="trt:GetVideoSources"/>
+    <element name="GetVideoSourceConfigurations" type="trt:GetVideoSourceConfigurations"/>
+    <element name="GetVideoSourceConfiguration" type="trt:GetVideoSourceConfiguration"/>
+    <element name="GetVideoEncoderConfigurations" type="trt:GetVideoEncoderConfigurations"/>
+    <element name="GetStreamUri" type="trt:GetStreamUri"/>
+    <element name="GetVideoEncoderConfiguration" type="trt:GetVideoEncoderConfiguration"/>
+    <element name="GetVideoSourceConfigurationOptions" type="trt:GetVideoSourceConfigurationOptions"/>
+    <element name="GetVideoEncoderConfigurationOptions" type="trt:GetVideoEncoderConfigurationOptions"/>
+    <element name="SetVideoEncoderConfiguration" type="trt:SetVideoEncoderConfiguration"/>
+    <element name="GetOSDs" type="trt:GetOSDs"/>
+    <element name="GetOSD" type="trt:GetOSD"/>
+    <element name="GetOSDOptions" type="trt:GetOSDOptions"/>
+    <element name="SetOSD" type="trt:SetOSD"/>
+    <element name="CreateOSD" type="trt:CreateOSD"/>
+    <element name="DeleteOSD" type="trt:DeleteOSD"/>
   </schema>
 
   <schema targetNamespace="http://www.onvif.org/ver20/media/wsdl"
@@ -372,18 +1012,14 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
     xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
     xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
     xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
+    elementFormDefault="qualified"
     attributeFormDefault="unqualified">
     <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
     <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
@@ -402,19 +1038,71 @@
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
+    <complexType name="Capabilities"><!-- tr2__Capabilities -->
+          <sequence>
+          </sequence>
+          <attribute name="SnapshotUri" type="xsd:boolean"/><!-- tr2__Capabilities::SnapshotUri -->
+          <attribute name="Rotation" type="xsd:boolean"/><!-- tr2__Capabilities::Rotation -->
+          <attribute name="VideoSourceMode" type="xsd:boolean"/><!-- tr2__Capabilities::VideoSourceMode -->
+          <attribute name="OSD" type="xsd:boolean"/><!-- tr2__Capabilities::OSD -->
+          <attribute name="TemporaryOSDText" type="xsd:boolean"/><!-- tr2__Capabilities::TemporaryOSDText -->
+          <attribute name="EXICompression" type="xsd:boolean"/><!-- tr2__Capabilities::EXICompression -->
+    </complexType>
+    <complexType name="ConfigurationSet"><!-- tr2__ConfigurationSet -->
+          <sequence>
+            <element name="VideoSource" type="tt:VideoSourceConfiguration" minOccurs="0" maxOccurs="1"/><!-- tr2__ConfigurationSet::VideoSource -->
+            <element name="VideoEncoder" type="tt:VideoEncoderConfiguration" minOccurs="0" maxOccurs="1"/><!-- tr2__ConfigurationSet::VideoEncoder -->
+          </sequence>
+    </complexType>
+    <complexType name="MediaProfile"><!-- tr2__MediaProfile -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tr2__MediaProfile::Name -->
+            <element name="Configurations" type="tr2:ConfigurationSet" minOccurs="0" maxOccurs="1"/><!-- tr2__MediaProfile::Configurations -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tr2__MediaProfile::token -->
+          <attribute name="fixed" type="xsd:boolean"/><!-- tr2__MediaProfile::fixed -->
+    </complexType>
+    <complexType name="GetProfiles"><!-- _tr2__GetProfiles -->
+          <sequence>
+            <element name="Token" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tr2__GetProfiles::Token -->
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/><!-- _tr2__GetProfiles::__sizeType -->
+          </sequence>
+    </complexType>
+    <complexType name="GetStreamUri"><!-- _tr2__GetStreamUri -->
+          <sequence>
+            <element name="Protocol" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tr2__GetStreamUri::Protocol -->
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tr2__GetStreamUri::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetServiceCapabilities"><!-- _tr2__GetServiceCapabilities -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetProfilesResponse"><!-- _tr2__GetProfilesResponse -->
+          <sequence>
+            <element name="Profiles" type="tr2:MediaProfile" minOccurs="0" maxOccurs="unbounded"/><!-- _tr2__GetProfilesResponse::__sizeProfiles -->
+          </sequence>
+    </complexType>
+    <complexType name="GetStreamUriResponse"><!-- _tr2__GetStreamUriResponse -->
+          <sequence>
+            <element name="Uri" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tr2__GetStreamUriResponse::Uri -->
+          </sequence>
+    </complexType>
+    <complexType name="GetServiceCapabilitiesResponse"><!-- _tr2__GetServiceCapabilitiesResponse -->
+          <sequence>
+            <element name="Capabilities" type="tr2:Capabilities" minOccurs="0" maxOccurs="1"/><!-- _tr2__GetServiceCapabilitiesResponse::Capabilities -->
+          </sequence>
+    </complexType>
     <!-- operation response element -->
-    <element name="GetProfilesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetProfilesResponse" type="tr2:GetProfilesResponse"/>
     <!-- operation response element -->
-    <element name="GetStreamUriResponse" type="afterveda:AnyResponse"/>
+    <element name="GetStreamUriResponse" type="tr2:GetStreamUriResponse"/>
     <!-- operation response element -->
-    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
-    <element name="GetProfiles" type="afterveda:EmptyRequest"/>
-    <element name="GetStreamUri" type="afterveda:EmptyRequest"/>
-    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
+    <element name="GetServiceCapabilitiesResponse" type="tr2:GetServiceCapabilitiesResponse"/>
+    <element name="GetProfiles" type="tr2:GetProfiles"/>
+    <element name="GetStreamUri" type="tr2:GetStreamUri"/>
+    <element name="GetServiceCapabilities" type="tr2:GetServiceCapabilities"/>
   </schema>
 
   <schema targetNamespace="http://www.onvif.org/ver20/ptz/wsdl"
@@ -432,18 +1120,14 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
     xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
     xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
     xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
+    elementFormDefault="qualified"
     attributeFormDefault="unqualified">
     <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
     <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
@@ -462,10 +1146,95 @@
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
+    <complexType name="Capabilities"><!-- tptz__Capabilities -->
+          <sequence>
+          </sequence>
+          <attribute name="EFlip" type="xsd:boolean"/><!-- tptz__Capabilities::EFlip -->
+          <attribute name="Reverse" type="xsd:boolean"/><!-- tptz__Capabilities::Reverse -->
+          <attribute name="GetCompatibleConfigurations" type="xsd:boolean"/><!-- tptz__Capabilities::GetCompatibleConfigurations -->
+          <attribute name="MoveStatus" type="xsd:boolean"/><!-- tptz__Capabilities::MoveStatus -->
+          <attribute name="StatusPosition" type="xsd:boolean"/><!-- tptz__Capabilities::StatusPosition -->
+    </complexType>
+    <complexType name="GetNodesResponse"><!-- _tptz__GetNodesResponse -->
+          <sequence>
+            <element name="PTZNode" type="tt:PTZNode" minOccurs="0" maxOccurs="unbounded"/><!-- _tptz__GetNodesResponse::__sizePTZNode -->
+          </sequence>
+    </complexType>
+    <complexType name="GetServiceCapabilities"><!-- _tptz__GetServiceCapabilities -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetServiceCapabilitiesResponse"><!-- _tptz__GetServiceCapabilitiesResponse -->
+          <sequence>
+            <element name="Capabilities" type="tptz:Capabilities" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetServiceCapabilitiesResponse::Capabilities -->
+          </sequence>
+    </complexType>
+    <complexType name="GetNode"><!-- _tptz__GetNode -->
+          <sequence>
+            <element name="NodeToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetNode::NodeToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetNodeResponse"><!-- _tptz__GetNodeResponse -->
+          <sequence>
+            <element name="PTZNode" type="tt:PTZNode" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetNodeResponse::PTZNode -->
+          </sequence>
+    </complexType>
+    <complexType name="GetConfiguration"><!-- _tptz__GetConfiguration -->
+          <sequence>
+            <element name="PTZConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetConfiguration::PTZConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetConfigurationResponse"><!-- _tptz__GetConfigurationResponse -->
+          <sequence>
+            <element name="PTZConfiguration" type="tt:PTZConfiguration" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetConfigurationResponse::PTZConfiguration -->
+          </sequence>
+    </complexType>
+    <complexType name="GetConfigurationOptions"><!-- _tptz__GetConfigurationOptions -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetConfigurationOptions::ConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetConfigurationOptionsResponse"><!-- _tptz__GetConfigurationOptionsResponse -->
+          <sequence>
+            <element name="PTZConfigurationOptions" type="tt:PTZConfigurationOptions" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetConfigurationOptionsResponse::PTZConfigurationOptions -->
+          </sequence>
+    </complexType>
+    <complexType name="GetConfigurationsResponse"><!-- _tptz__GetConfigurationsResponse -->
+          <sequence>
+            <element name="PTZConfiguration" type="tt:PTZConfiguration" minOccurs="0" maxOccurs="unbounded"/><!-- _tptz__GetConfigurationsResponse::__sizePTZConfiguration -->
+          </sequence>
+    </complexType>
+    <complexType name="GetPresetsResponse"><!-- _tptz__GetPresetsResponse -->
+          <sequence>
+            <element name="Preset" type="tt:PTZPreset" minOccurs="0" maxOccurs="unbounded"/><!-- _tptz__GetPresetsResponse::__sizePreset -->
+          </sequence>
+    </complexType>
+    <complexType name="GetNodes"><!-- _tptz__GetNodes -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetConfigurations"><!-- _tptz__GetConfigurations -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetPresets"><!-- _tptz__GetPresets -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetPresets::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="SetPreset"><!-- _tptz__SetPreset -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__SetPreset::ProfileToken -->
+            <element name="PresetName" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__SetPreset::PresetName -->
+            <element name="PresetToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__SetPreset::PresetToken -->
+          </sequence>
+    </complexType>
+    <complexType name="SetPresetResponse"><!-- _tptz__SetPresetResponse -->
+          <sequence>
+            <element name="PresetToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__SetPresetResponse::PresetToken -->
+          </sequence>
+    </complexType>
     <complexType name="GetStatus"><!-- _tptz__GetStatus -->
           <sequence>
             <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetStatus::ProfileToken -->
@@ -476,39 +1245,114 @@
             <element name="PTZStatus" type="tt:PTZStatus" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetStatusResponse::PTZStatus -->
           </sequence>
     </complexType>
+    <complexType name="ContinuousMove"><!-- _tptz__ContinuousMove -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__ContinuousMove::ProfileToken -->
+            <element name="Velocity" type="tt:PTZSpeed" minOccurs="0" maxOccurs="1"/><!-- _tptz__ContinuousMove::Velocity -->
+            <element name="Timeout" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__ContinuousMove::Timeout -->
+          </sequence>
+    </complexType>
+    <complexType name="RelativeMove"><!-- _tptz__RelativeMove -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__RelativeMove::ProfileToken -->
+            <element name="Translation" type="tt:PTZVector" minOccurs="0" maxOccurs="1"/><!-- _tptz__RelativeMove::Translation -->
+            <element name="Speed" type="tt:PTZSpeed" minOccurs="0" maxOccurs="1"/><!-- _tptz__RelativeMove::Speed -->
+          </sequence>
+    </complexType>
+    <complexType name="GotoPreset"><!-- _tptz__GotoPreset -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GotoPreset::ProfileToken -->
+            <element name="PresetToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GotoPreset::PresetToken -->
+            <element name="Speed" type="tt:PTZSpeed" minOccurs="0" maxOccurs="1"/><!-- _tptz__GotoPreset::Speed -->
+          </sequence>
+    </complexType>
+    <complexType name="GotoPresetResponse"><!-- _tptz__GotoPresetResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="SetHomePosition"><!-- _tptz__SetHomePosition -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__SetHomePosition::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="SetHomePositionResponse"><!-- _tptz__SetHomePositionResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GotoHomePosition"><!-- _tptz__GotoHomePosition -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GotoHomePosition::ProfileToken -->
+            <element name="Speed" type="tt:PTZSpeed" minOccurs="0" maxOccurs="1"/><!-- _tptz__GotoHomePosition::Speed -->
+          </sequence>
+    </complexType>
+    <complexType name="GotoHomePositionResponse"><!-- _tptz__GotoHomePositionResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="ContinuousMoveResponse"><!-- _tptz__ContinuousMoveResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="RelativeMoveResponse"><!-- _tptz__RelativeMoveResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="Stop"><!-- _tptz__Stop -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__Stop::ProfileToken -->
+            <element name="PanTilt" type="xsd:boolean" minOccurs="0" maxOccurs="1"/><!-- _tptz__Stop::PanTilt -->
+            <element name="Zoom" type="xsd:boolean" minOccurs="0" maxOccurs="1"/><!-- _tptz__Stop::Zoom -->
+          </sequence>
+    </complexType>
+    <complexType name="StopResponse"><!-- _tptz__StopResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
     <!-- operation response element -->
-    <element name="GetNodesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetServiceCapabilitiesResponse" type="tptz:GetServiceCapabilitiesResponse"/>
     <!-- operation response element -->
-    <element name="GetConfigurationsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetNodesResponse" type="tptz:GetNodesResponse"/>
     <!-- operation response element -->
-    <element name="GetPresetsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetNodeResponse" type="tptz:GetNodeResponse"/>
     <!-- operation response element -->
-    <element name="SetPresetResponse" type="afterveda:AnyResponse"/>
+    <element name="GetConfigurationsResponse" type="tptz:GetConfigurationsResponse"/>
     <!-- operation response element -->
-    <element name="GotoPresetResponse" type="afterveda:AnyResponse"/>
+    <element name="GetConfigurationResponse" type="tptz:GetConfigurationResponse"/>
+    <!-- operation response element -->
+    <element name="GetConfigurationOptionsResponse" type="tptz:GetConfigurationOptionsResponse"/>
+    <!-- operation response element -->
+    <element name="GetPresetsResponse" type="tptz:GetPresetsResponse"/>
+    <!-- operation response element -->
+    <element name="SetPresetResponse" type="tptz:SetPresetResponse"/>
+    <!-- operation response element -->
+    <element name="GotoPresetResponse" type="tptz:GotoPresetResponse"/>
     <!-- operation response element -->
     <element name="GetStatusResponse" type="tptz:GetStatusResponse"/>
     <!-- operation response element -->
-    <element name="GotoHomePositionResponse" type="afterveda:AnyResponse"/>
+    <element name="GotoHomePositionResponse" type="tptz:GotoHomePositionResponse"/>
     <!-- operation response element -->
-    <element name="SetHomePositionResponse" type="afterveda:AnyResponse"/>
+    <element name="SetHomePositionResponse" type="tptz:SetHomePositionResponse"/>
     <!-- operation response element -->
-    <element name="ContinuousMoveResponse" type="afterveda:AnyResponse"/>
+    <element name="ContinuousMoveResponse" type="tptz:ContinuousMoveResponse"/>
     <!-- operation response element -->
-    <element name="RelativeMoveResponse" type="afterveda:AnyResponse"/>
+    <element name="RelativeMoveResponse" type="tptz:RelativeMoveResponse"/>
     <!-- operation response element -->
-    <element name="StopResponse" type="afterveda:AnyResponse"/>
+    <element name="StopResponse" type="tptz:StopResponse"/>
+    <element name="GetServiceCapabilities" type="tptz:GetServiceCapabilities"/>
+    <element name="GetNode" type="tptz:GetNode"/>
+    <element name="GetConfiguration" type="tptz:GetConfiguration"/>
+    <element name="GetConfigurationOptions" type="tptz:GetConfigurationOptions"/>
+    <element name="GetNodes" type="tptz:GetNodes"/>
+    <element name="GetConfigurations" type="tptz:GetConfigurations"/>
+    <element name="GetPresets" type="tptz:GetPresets"/>
+    <element name="SetPreset" type="tptz:SetPreset"/>
     <element name="GetStatus" type="tptz:GetStatus"/>
-    <element name="GetNodes" type="afterveda:EmptyRequest"/>
-    <element name="GetConfigurations" type="afterveda:EmptyRequest"/>
-    <element name="GetPresets" type="afterveda:EmptyRequest"/>
-    <element name="SetPreset" type="afterveda:EmptyRequest"/>
-    <element name="GotoPreset" type="afterveda:EmptyRequest"/>
-    <element name="GotoHomePosition" type="afterveda:EmptyRequest"/>
-    <element name="SetHomePosition" type="afterveda:EmptyRequest"/>
-    <element name="ContinuousMove" type="afterveda:EmptyRequest"/>
-    <element name="RelativeMove" type="afterveda:EmptyRequest"/>
-    <element name="Stop" type="afterveda:EmptyRequest"/>
+    <element name="ContinuousMove" type="tptz:ContinuousMove"/>
+    <element name="RelativeMove" type="tptz:RelativeMove"/>
+    <element name="GotoPreset" type="tptz:GotoPreset"/>
+    <element name="SetHomePosition" type="tptz:SetHomePosition"/>
+    <element name="GotoHomePosition" type="tptz:GotoHomePosition"/>
+    <element name="Stop" type="tptz:Stop"/>
   </schema>
 
   <schema targetNamespace="http://www.onvif.org/ver20/imaging/wsdl"
@@ -526,18 +1370,14 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
     xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
     xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
     xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
+    elementFormDefault="qualified"
     attributeFormDefault="unqualified">
     <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
     <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
@@ -556,202 +1396,65 @@
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
+    <complexType name="Capabilities"><!-- timg__Capabilities -->
+          <sequence>
+          </sequence>
+          <attribute name="ImageStabilization" type="xsd:boolean"/><!-- timg__Capabilities::ImageStabilization -->
+          <attribute name="Presets" type="xsd:boolean"/><!-- timg__Capabilities::Presets -->
+    </complexType>
+    <complexType name="GetServiceCapabilities"><!-- _timg__GetServiceCapabilities -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetServiceCapabilitiesResponse"><!-- _timg__GetServiceCapabilitiesResponse -->
+          <sequence>
+            <element name="Capabilities" type="timg:Capabilities" minOccurs="0" maxOccurs="1"/><!-- _timg__GetServiceCapabilitiesResponse::Capabilities -->
+          </sequence>
+    </complexType>
+    <complexType name="GetImagingSettings"><!-- _timg__GetImagingSettings -->
+          <sequence>
+            <element name="VideoSourceToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _timg__GetImagingSettings::VideoSourceToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetImagingSettingsResponse"><!-- _timg__GetImagingSettingsResponse -->
+          <sequence>
+            <element name="ImagingSettings" type="tt:ImagingSettings20" minOccurs="0" maxOccurs="1"/><!-- _timg__GetImagingSettingsResponse::ImagingSettings -->
+          </sequence>
+    </complexType>
+    <complexType name="SetImagingSettings"><!-- _timg__SetImagingSettings -->
+          <sequence>
+            <element name="VideoSourceToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _timg__SetImagingSettings::VideoSourceToken -->
+            <element name="ImagingSettings" type="tt:ImagingSettings20" minOccurs="0" maxOccurs="1"/><!-- _timg__SetImagingSettings::ImagingSettings -->
+            <element name="ForcePersistence" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- _timg__SetImagingSettings::ForcePersistence -->
+          </sequence>
+    </complexType>
+    <complexType name="SetImagingSettingsResponse"><!-- _timg__SetImagingSettingsResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetOptions"><!-- _timg__GetOptions -->
+          <sequence>
+            <element name="VideoSourceToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _timg__GetOptions::VideoSourceToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOptionsResponse"><!-- _timg__GetOptionsResponse -->
+          <sequence>
+            <element name="ImagingOptions" type="tt:ImagingOptions20" minOccurs="0" maxOccurs="1"/><!-- _timg__GetOptionsResponse::ImagingOptions -->
+          </sequence>
+    </complexType>
     <!-- operation response element -->
-    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetServiceCapabilitiesResponse" type="timg:GetServiceCapabilitiesResponse"/>
     <!-- operation response element -->
-    <element name="GetImagingSettingsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetImagingSettingsResponse" type="timg:GetImagingSettingsResponse"/>
     <!-- operation response element -->
-    <element name="SetImagingSettingsResponse" type="afterveda:AnyResponse"/>
+    <element name="SetImagingSettingsResponse" type="timg:SetImagingSettingsResponse"/>
     <!-- operation response element -->
-    <element name="GetOptionsResponse" type="afterveda:AnyResponse"/>
-    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
-    <element name="GetImagingSettings" type="afterveda:EmptyRequest"/>
-    <element name="SetImagingSettings" type="afterveda:EmptyRequest"/>
-    <element name="GetOptions" type="afterveda:EmptyRequest"/>
-  </schema>
-
-  <schema targetNamespace="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
-    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
-    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
-    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
-    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
-    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
-    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
-    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
-    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
-    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
-    xmlns:tt="http://www.onvif.org/ver10/schema"
-    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
-    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
-    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
-    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
-    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
-    xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
-    attributeFormDefault="unqualified">
-    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
-    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
-    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
-    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
-    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
-    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
-    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
-    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
-    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
-    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
-    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
-    <import namespace="http://www.onvif.org/ver10/schema"/>
-    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
-
-    <!-- operation response element -->
-    <element name="GetEventPropertiesResponse" type="afterveda:AnyResponse"/>
-    <!-- operation response element -->
-    <element name="CreatePullPointSubscriptionResponse" type="afterveda:AnyResponse"/>
-    <!-- operation response element -->
-    <element name="PullMessagesResponse" type="afterveda:AnyResponse"/>
-    <element name="GetEventProperties" type="afterveda:EmptyRequest"/>
-    <element name="CreatePullPointSubscription" type="afterveda:EmptyRequest"/>
-    <element name="PullMessages" type="afterveda:EmptyRequest"/>
-  </schema>
-
-  <schema targetNamespace="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
-    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
-    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
-    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
-    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
-    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
-    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
-    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
-    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
-    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
-    xmlns:tt="http://www.onvif.org/ver10/schema"
-    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
-    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
-    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
-    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
-    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
-    xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
-    attributeFormDefault="unqualified">
-    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
-    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
-    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
-    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
-    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
-    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
-    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
-    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
-    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
-    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
-    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
-    <import namespace="http://www.onvif.org/ver10/schema"/>
-    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
-
-    <!-- operation response element -->
-    <element name="RenewResponse" type="afterveda:AnyResponse"/>
-    <!-- operation response element -->
-    <element name="UnsubscribeResponse" type="afterveda:AnyResponse"/>
-    <element name="Renew" type="afterveda:EmptyRequest"/>
-    <element name="Unsubscribe" type="afterveda:EmptyRequest"/>
-  </schema>
-
-  <schema targetNamespace="http://www.onvif.org/ver10/osd/wsdl"
-    xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope"
-    xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
-    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
-    xmlns:saml1="urn:oasis:names:tc:SAML:1.0:assertion"
-    xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
-    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
-    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
-    xmlns:wsc="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
-    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
-    xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
-    xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
-    xmlns:tt="http://www.onvif.org/ver10/schema"
-    xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
-    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
-    xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
-    xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
-    xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
-    xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
-    attributeFormDefault="unqualified">
-    <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
-    <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
-    <import namespace="http://www.w3.org/2001/10/xml-exc-c14n#" schemaLocation="http://www.w3.org/2001/10/xml-exc-c14n#"/>
-    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="http://www.w3.org/2000/09/xmldsig#"/>
-    <import namespace="urn:oasis:names:tc:SAML:1.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:1.0:assertion"/>
-    <import namespace="urn:oasis:names:tc:SAML:2.0:assertion" schemaLocation="urn:oasis:names:tc:SAML:2.0:assertion"/>
-    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"/>
-    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="http://www.w3.org/2001/04/xmlenc#"/>
-    <import namespace="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512" schemaLocation="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"/>
-    <import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"/>
-    <import namespace="http://schemas.xmlsoap.org/ws/2004/08/addressing" schemaLocation="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
-    <import namespace="http://schemas.xmlsoap.org/ws/2005/04/discovery" schemaLocation="http://schemas.xmlsoap.org/ws/2005/04/discovery"/>
-    <import namespace="http://www.onvif.org/ver10/schema"/>
-    <import namespace="http://www.onvif.org/ver10/device/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
-    <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-
-    <!-- operation response element -->
-    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
-    <!-- operation response element -->
-    <element name="GetOSDsResponse" type="afterveda:AnyResponse"/>
-    <!-- operation response element -->
-    <element name="GetOSDResponse" type="afterveda:AnyResponse"/>
-    <!-- operation response element -->
-    <element name="SetOSDResponse" type="afterveda:AnyResponse"/>
-    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
-    <element name="GetOSDs" type="afterveda:EmptyRequest"/>
-    <element name="GetOSD" type="afterveda:EmptyRequest"/>
-    <element name="SetOSD" type="afterveda:EmptyRequest"/>
+    <element name="GetOptionsResponse" type="timg:GetOptionsResponse"/>
+    <element name="GetServiceCapabilities" type="timg:GetServiceCapabilities"/>
+    <element name="GetImagingSettings" type="timg:GetImagingSettings"/>
+    <element name="SetImagingSettings" type="timg:SetImagingSettings"/>
+    <element name="GetOptions" type="timg:GetOptions"/>
   </schema>
 
 </types>
@@ -760,12 +1463,24 @@
   <part name="Body" element="tr2:GetProfiles"/><!-- __tr2__GetProfiles::tr2__GetProfiles -->
 </message>
 
+<message name="GetProfilesResponse">
+  <part name="Body" element="tr2:GetProfilesResponse"/>
+</message>
+
 <message name="GetStreamUri">
   <part name="Body" element="tr2:GetStreamUri"/><!-- __tr2__GetStreamUri::tr2__GetStreamUri -->
 </message>
 
+<message name="GetStreamUriResponse">
+  <part name="Body" element="tr2:GetStreamUriResponse"/>
+</message>
+
 <message name="GetServiceCapabilities">
   <part name="Body" element="tr2:GetServiceCapabilities"/><!-- __tr2__GetServiceCapabilities::tr2__GetServiceCapabilities -->
+</message>
+
+<message name="GetServiceCapabilitiesResponse">
+  <part name="Body" element="tr2:GetServiceCapabilitiesResponse"/>
 </message>
 
 <message name="Media2BindingHeader">
@@ -784,17 +1499,17 @@
   <operation name="GetProfiles">
     <documentation>Service definition of function __tr2__GetProfiles</documentation>
     <input message="tns:GetProfiles"/>
-    <output message="tns:AnyResponse"/>
+    <output message="tns:GetProfilesResponse"/>
   </operation>
   <operation name="GetStreamUri">
     <documentation>Service definition of function __tr2__GetStreamUri</documentation>
     <input message="tns:GetStreamUri"/>
-    <output message="tns:AnyResponse"/>
+    <output message="tns:GetStreamUriResponse"/>
   </operation>
   <operation name="GetServiceCapabilities">
     <documentation>Service definition of function __tr2__GetServiceCapabilities</documentation>
     <input message="tns:GetServiceCapabilities"/>
-    <output message="tns:AnyResponse"/>
+    <output message="tns:GetServiceCapabilitiesResponse"/>
   </operation>
 </portType>
 

@@ -10,6 +10,8 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GSTREAMER REQUIRED IMPORTED_TARGET gstreamer-1.0)
 pkg_check_modules(GST_RTSP_SERVER REQUIRED IMPORTED_TARGET gstreamer-rtsp-server-1.0)
 pkg_check_modules(GIO REQUIRED IMPORTED_TARGET gio-2.0)
+pkg_check_modules(LIBSOUP REQUIRED IMPORTED_TARGET libsoup-3.0)
+pkg_check_modules(JSON_GLIB REQUIRED IMPORTED_TARGET json-glib-1.0)
 
 add_executable(rail-media
     src/config.cpp
@@ -25,6 +27,8 @@ target_link_libraries(rail-media
         PkgConfig::GSTREAMER
         PkgConfig::GST_RTSP_SERVER
         PkgConfig::GIO
+        PkgConfig::LIBSOUP
+        PkgConfig::JSON_GLIB
 )
 
 target_compile_options(rail-media

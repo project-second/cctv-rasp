@@ -14,18 +14,14 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
     xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
     xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
     xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
+    elementFormDefault="qualified"
     attributeFormDefault="unqualified">
     <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
     <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
@@ -44,10 +40,95 @@
     <import namespace="http://www.onvif.org/ver10/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
+    <complexType name="Capabilities"><!-- tptz__Capabilities -->
+          <sequence>
+          </sequence>
+          <attribute name="EFlip" type="xsd:boolean"/><!-- tptz__Capabilities::EFlip -->
+          <attribute name="Reverse" type="xsd:boolean"/><!-- tptz__Capabilities::Reverse -->
+          <attribute name="GetCompatibleConfigurations" type="xsd:boolean"/><!-- tptz__Capabilities::GetCompatibleConfigurations -->
+          <attribute name="MoveStatus" type="xsd:boolean"/><!-- tptz__Capabilities::MoveStatus -->
+          <attribute name="StatusPosition" type="xsd:boolean"/><!-- tptz__Capabilities::StatusPosition -->
+    </complexType>
+    <complexType name="GetNodesResponse"><!-- _tptz__GetNodesResponse -->
+          <sequence>
+            <element name="PTZNode" type="tt:PTZNode" minOccurs="0" maxOccurs="unbounded"/><!-- _tptz__GetNodesResponse::__sizePTZNode -->
+          </sequence>
+    </complexType>
+    <complexType name="GetServiceCapabilities"><!-- _tptz__GetServiceCapabilities -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetServiceCapabilitiesResponse"><!-- _tptz__GetServiceCapabilitiesResponse -->
+          <sequence>
+            <element name="Capabilities" type="tptz:Capabilities" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetServiceCapabilitiesResponse::Capabilities -->
+          </sequence>
+    </complexType>
+    <complexType name="GetNode"><!-- _tptz__GetNode -->
+          <sequence>
+            <element name="NodeToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetNode::NodeToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetNodeResponse"><!-- _tptz__GetNodeResponse -->
+          <sequence>
+            <element name="PTZNode" type="tt:PTZNode" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetNodeResponse::PTZNode -->
+          </sequence>
+    </complexType>
+    <complexType name="GetConfiguration"><!-- _tptz__GetConfiguration -->
+          <sequence>
+            <element name="PTZConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetConfiguration::PTZConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetConfigurationResponse"><!-- _tptz__GetConfigurationResponse -->
+          <sequence>
+            <element name="PTZConfiguration" type="tt:PTZConfiguration" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetConfigurationResponse::PTZConfiguration -->
+          </sequence>
+    </complexType>
+    <complexType name="GetConfigurationOptions"><!-- _tptz__GetConfigurationOptions -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetConfigurationOptions::ConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetConfigurationOptionsResponse"><!-- _tptz__GetConfigurationOptionsResponse -->
+          <sequence>
+            <element name="PTZConfigurationOptions" type="tt:PTZConfigurationOptions" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetConfigurationOptionsResponse::PTZConfigurationOptions -->
+          </sequence>
+    </complexType>
+    <complexType name="GetConfigurationsResponse"><!-- _tptz__GetConfigurationsResponse -->
+          <sequence>
+            <element name="PTZConfiguration" type="tt:PTZConfiguration" minOccurs="0" maxOccurs="unbounded"/><!-- _tptz__GetConfigurationsResponse::__sizePTZConfiguration -->
+          </sequence>
+    </complexType>
+    <complexType name="GetPresetsResponse"><!-- _tptz__GetPresetsResponse -->
+          <sequence>
+            <element name="Preset" type="tt:PTZPreset" minOccurs="0" maxOccurs="unbounded"/><!-- _tptz__GetPresetsResponse::__sizePreset -->
+          </sequence>
+    </complexType>
+    <complexType name="GetNodes"><!-- _tptz__GetNodes -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetConfigurations"><!-- _tptz__GetConfigurations -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetPresets"><!-- _tptz__GetPresets -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetPresets::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="SetPreset"><!-- _tptz__SetPreset -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__SetPreset::ProfileToken -->
+            <element name="PresetName" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__SetPreset::PresetName -->
+            <element name="PresetToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__SetPreset::PresetToken -->
+          </sequence>
+    </complexType>
+    <complexType name="SetPresetResponse"><!-- _tptz__SetPresetResponse -->
+          <sequence>
+            <element name="PresetToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__SetPresetResponse::PresetToken -->
+          </sequence>
+    </complexType>
     <complexType name="GetStatus"><!-- _tptz__GetStatus -->
           <sequence>
             <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetStatus::ProfileToken -->
@@ -58,38 +139,113 @@
             <element name="PTZStatus" type="tt:PTZStatus" minOccurs="0" maxOccurs="1"/><!-- _tptz__GetStatusResponse::PTZStatus -->
           </sequence>
     </complexType>
+    <complexType name="ContinuousMove"><!-- _tptz__ContinuousMove -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__ContinuousMove::ProfileToken -->
+            <element name="Velocity" type="tt:PTZSpeed" minOccurs="0" maxOccurs="1"/><!-- _tptz__ContinuousMove::Velocity -->
+            <element name="Timeout" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__ContinuousMove::Timeout -->
+          </sequence>
+    </complexType>
+    <complexType name="RelativeMove"><!-- _tptz__RelativeMove -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__RelativeMove::ProfileToken -->
+            <element name="Translation" type="tt:PTZVector" minOccurs="0" maxOccurs="1"/><!-- _tptz__RelativeMove::Translation -->
+            <element name="Speed" type="tt:PTZSpeed" minOccurs="0" maxOccurs="1"/><!-- _tptz__RelativeMove::Speed -->
+          </sequence>
+    </complexType>
+    <complexType name="GotoPreset"><!-- _tptz__GotoPreset -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GotoPreset::ProfileToken -->
+            <element name="PresetToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GotoPreset::PresetToken -->
+            <element name="Speed" type="tt:PTZSpeed" minOccurs="0" maxOccurs="1"/><!-- _tptz__GotoPreset::Speed -->
+          </sequence>
+    </complexType>
+    <complexType name="GotoPresetResponse"><!-- _tptz__GotoPresetResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="SetHomePosition"><!-- _tptz__SetHomePosition -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__SetHomePosition::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="SetHomePositionResponse"><!-- _tptz__SetHomePositionResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GotoHomePosition"><!-- _tptz__GotoHomePosition -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__GotoHomePosition::ProfileToken -->
+            <element name="Speed" type="tt:PTZSpeed" minOccurs="0" maxOccurs="1"/><!-- _tptz__GotoHomePosition::Speed -->
+          </sequence>
+    </complexType>
+    <complexType name="GotoHomePositionResponse"><!-- _tptz__GotoHomePositionResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="ContinuousMoveResponse"><!-- _tptz__ContinuousMoveResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="RelativeMoveResponse"><!-- _tptz__RelativeMoveResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="Stop"><!-- _tptz__Stop -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _tptz__Stop::ProfileToken -->
+            <element name="PanTilt" type="xsd:boolean" minOccurs="0" maxOccurs="1"/><!-- _tptz__Stop::PanTilt -->
+            <element name="Zoom" type="xsd:boolean" minOccurs="0" maxOccurs="1"/><!-- _tptz__Stop::Zoom -->
+          </sequence>
+    </complexType>
+    <complexType name="StopResponse"><!-- _tptz__StopResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
     <!-- operation response element -->
-    <element name="GetNodesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetServiceCapabilitiesResponse" type="tptz:GetServiceCapabilitiesResponse"/>
     <!-- operation response element -->
-    <element name="GetConfigurationsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetNodesResponse" type="tptz:GetNodesResponse"/>
     <!-- operation response element -->
-    <element name="GetPresetsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetNodeResponse" type="tptz:GetNodeResponse"/>
     <!-- operation response element -->
-    <element name="SetPresetResponse" type="afterveda:AnyResponse"/>
+    <element name="GetConfigurationsResponse" type="tptz:GetConfigurationsResponse"/>
     <!-- operation response element -->
-    <element name="GotoPresetResponse" type="afterveda:AnyResponse"/>
+    <element name="GetConfigurationResponse" type="tptz:GetConfigurationResponse"/>
+    <!-- operation response element -->
+    <element name="GetConfigurationOptionsResponse" type="tptz:GetConfigurationOptionsResponse"/>
+    <!-- operation response element -->
+    <element name="GetPresetsResponse" type="tptz:GetPresetsResponse"/>
+    <!-- operation response element -->
+    <element name="SetPresetResponse" type="tptz:SetPresetResponse"/>
+    <!-- operation response element -->
+    <element name="GotoPresetResponse" type="tptz:GotoPresetResponse"/>
     <!-- operation response element -->
     <element name="GetStatusResponse" type="tptz:GetStatusResponse"/>
     <!-- operation response element -->
-    <element name="GotoHomePositionResponse" type="afterveda:AnyResponse"/>
+    <element name="GotoHomePositionResponse" type="tptz:GotoHomePositionResponse"/>
     <!-- operation response element -->
-    <element name="SetHomePositionResponse" type="afterveda:AnyResponse"/>
+    <element name="SetHomePositionResponse" type="tptz:SetHomePositionResponse"/>
     <!-- operation response element -->
-    <element name="ContinuousMoveResponse" type="afterveda:AnyResponse"/>
+    <element name="ContinuousMoveResponse" type="tptz:ContinuousMoveResponse"/>
     <!-- operation response element -->
-    <element name="RelativeMoveResponse" type="afterveda:AnyResponse"/>
+    <element name="RelativeMoveResponse" type="tptz:RelativeMoveResponse"/>
     <!-- operation response element -->
-    <element name="StopResponse" type="afterveda:AnyResponse"/>
+    <element name="StopResponse" type="tptz:StopResponse"/>
+    <element name="GetServiceCapabilities" type="tptz:GetServiceCapabilities"/>
+    <element name="GetNode" type="tptz:GetNode"/>
+    <element name="GetConfiguration" type="tptz:GetConfiguration"/>
+    <element name="GetConfigurationOptions" type="tptz:GetConfigurationOptions"/>
+    <element name="GetNodes" type="tptz:GetNodes"/>
+    <element name="GetConfigurations" type="tptz:GetConfigurations"/>
+    <element name="GetPresets" type="tptz:GetPresets"/>
+    <element name="SetPreset" type="tptz:SetPreset"/>
     <element name="GetStatus" type="tptz:GetStatus"/>
-    <element name="GetNodes" type="afterveda:EmptyRequest"/>
-    <element name="GetConfigurations" type="afterveda:EmptyRequest"/>
-    <element name="GetPresets" type="afterveda:EmptyRequest"/>
-    <element name="SetPreset" type="afterveda:EmptyRequest"/>
-    <element name="GotoPreset" type="afterveda:EmptyRequest"/>
-    <element name="GotoHomePosition" type="afterveda:EmptyRequest"/>
-    <element name="SetHomePosition" type="afterveda:EmptyRequest"/>
-    <element name="ContinuousMove" type="afterveda:EmptyRequest"/>
-    <element name="RelativeMove" type="afterveda:EmptyRequest"/>
-    <element name="Stop" type="afterveda:EmptyRequest"/>
+    <element name="ContinuousMove" type="tptz:ContinuousMove"/>
+    <element name="RelativeMove" type="tptz:RelativeMove"/>
+    <element name="GotoPreset" type="tptz:GotoPreset"/>
+    <element name="SetHomePosition" type="tptz:SetHomePosition"/>
+    <element name="GotoHomePosition" type="tptz:GotoHomePosition"/>
+    <element name="Stop" type="tptz:Stop"/>
   </schema>
 

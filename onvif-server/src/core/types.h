@@ -13,11 +13,15 @@ struct VideoProfile {
     int bitrate_kbps = 2500;
 };
 
-struct HttpResponse {
-    int status = 200;
-    std::string reason = "OK";
-    std::string content_type = "application/soap+xml; charset=utf-8";
-    std::string body;
+struct ImageSettings {
+    double brightness = 50.0;
+    double contrast = 50.0;
+    double color_saturation = 50.0;
+};
+
+struct OsdSettings {
+    bool enabled = true;
+    std::string text = "Afterveda";
 };
 
 }  // namespace afterveda_onvif

@@ -17,7 +17,7 @@ A commercial use license is available from Genivia Inc., contact@genivia.com
 #endif
 #include "soapH.h"
 
-SOAP_SOURCE_STAMP("@(#) soapServer.cpp ver 2.8.135 2026-06-16 12:13:22 GMT")
+SOAP_SOURCE_STAMP("@(#) soapServer.cpp ver 2.8.135 2026-07-13 07:08:13 GMT")
 extern "C" SOAP_FMAC5 int SOAP_FMAC6 soap_serve(struct soap *soap)
 {
 #ifndef WITH_FASTCGI
@@ -96,6 +96,18 @@ extern "C" SOAP_FMAC5 int SOAP_FMAC6 soap_serve_request(struct soap *soap)
 		return soap_serve___trt__GetServiceCapabilities(soap);
 	if (!soap_match_tag(soap, soap->tag, "trt:GetVideoSources"))
 		return soap_serve___trt__GetVideoSources(soap);
+	if (!soap_match_tag(soap, soap->tag, "trt:GetOSDs"))
+		return soap_serve___trt__GetOSDs(soap);
+	if (!soap_match_tag(soap, soap->tag, "trt:GetOSD"))
+		return soap_serve___trt__GetOSD(soap);
+	if (!soap_match_tag(soap, soap->tag, "trt:GetOSDOptions"))
+		return soap_serve___trt__GetOSDOptions(soap);
+	if (!soap_match_tag(soap, soap->tag, "trt:SetOSD"))
+		return soap_serve___trt__SetOSD(soap);
+	if (!soap_match_tag(soap, soap->tag, "trt:CreateOSD"))
+		return soap_serve___trt__CreateOSD(soap);
+	if (!soap_match_tag(soap, soap->tag, "trt:DeleteOSD"))
+		return soap_serve___trt__DeleteOSD(soap);
 	if (!soap_match_tag(soap, soap->tag, "trt:GetVideoSourceConfigurations"))
 		return soap_serve___trt__GetVideoSourceConfigurations(soap);
 	if (!soap_match_tag(soap, soap->tag, "trt:GetVideoSourceConfiguration"))
@@ -118,10 +130,18 @@ extern "C" SOAP_FMAC5 int SOAP_FMAC6 soap_serve_request(struct soap *soap)
 		return soap_serve___tr2__GetStreamUri(soap);
 	if (!soap_match_tag(soap, soap->tag, "tr2:GetServiceCapabilities"))
 		return soap_serve___tr2__GetServiceCapabilities(soap);
+	if (!soap_match_tag(soap, soap->tag, "tptz:GetServiceCapabilities"))
+		return soap_serve___tptz__GetServiceCapabilities(soap);
 	if (!soap_match_tag(soap, soap->tag, "tptz:GetNodes"))
 		return soap_serve___tptz__GetNodes(soap);
+	if (!soap_match_tag(soap, soap->tag, "tptz:GetNode"))
+		return soap_serve___tptz__GetNode(soap);
 	if (!soap_match_tag(soap, soap->tag, "tptz:GetConfigurations"))
 		return soap_serve___tptz__GetConfigurations(soap);
+	if (!soap_match_tag(soap, soap->tag, "tptz:GetConfiguration"))
+		return soap_serve___tptz__GetConfiguration(soap);
+	if (!soap_match_tag(soap, soap->tag, "tptz:GetConfigurationOptions"))
+		return soap_serve___tptz__GetConfigurationOptions(soap);
 	if (!soap_match_tag(soap, soap->tag, "tptz:GetPresets"))
 		return soap_serve___tptz__GetPresets(soap);
 	if (!soap_match_tag(soap, soap->tag, "tptz:SetPreset"))
@@ -148,24 +168,6 @@ extern "C" SOAP_FMAC5 int SOAP_FMAC6 soap_serve_request(struct soap *soap)
 		return soap_serve___timg__SetImagingSettings(soap);
 	if (!soap_match_tag(soap, soap->tag, "timg:GetOptions"))
 		return soap_serve___timg__GetOptions(soap);
-	if (!soap_match_tag(soap, soap->tag, "tev:GetEventProperties"))
-		return soap_serve___tev__GetEventProperties(soap);
-	if (!soap_match_tag(soap, soap->tag, "tev:CreatePullPointSubscription"))
-		return soap_serve___tev__CreatePullPointSubscription(soap);
-	if (!soap_match_tag(soap, soap->tag, "tev:PullMessages"))
-		return soap_serve___tev__PullMessages(soap);
-	if (!soap_match_tag(soap, soap->tag, "wsnt:Renew"))
-		return soap_serve___wsnt__Renew(soap);
-	if (!soap_match_tag(soap, soap->tag, "wsnt:Unsubscribe"))
-		return soap_serve___wsnt__Unsubscribe(soap);
-	if (!soap_match_tag(soap, soap->tag, "tosd:GetServiceCapabilities"))
-		return soap_serve___tosd__GetServiceCapabilities(soap);
-	if (!soap_match_tag(soap, soap->tag, "tosd:GetOSDs"))
-		return soap_serve___tosd__GetOSDs(soap);
-	if (!soap_match_tag(soap, soap->tag, "tosd:GetOSD"))
-		return soap_serve___tosd__GetOSD(soap);
-	if (!soap_match_tag(soap, soap->tag, "tosd:SetOSD"))
-		return soap_serve___tosd__SetOSD(soap);
 	return soap->error = SOAP_NO_METHOD;
 }
 #endif
@@ -277,8 +279,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___wsdd__ResolveMatches(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetServices(struct soap *soap)
 {	struct __tds__GetServices soap_tmp___tds__GetServices;
-	struct afterveda__AnyResponse tds__GetServicesResponse;
-	soap_default_afterveda__AnyResponse(soap, &tds__GetServicesResponse);
+	struct _tds__GetServicesResponse tds__GetServicesResponse;
+	soap_default__tds__GetServicesResponse(soap, &tds__GetServicesResponse);
 	soap_default___tds__GetServices(soap, &soap_tmp___tds__GetServices);
 	if (!soap_get___tds__GetServices(soap, &soap_tmp___tds__GetServices, "-tds:GetServices", NULL))
 		return soap->error;
@@ -291,14 +293,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetServices(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tds__GetServicesResponse);
+	soap_serialize__tds__GetServicesResponse(soap, &tds__GetServicesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tds__GetServicesResponse, "tds:GetServicesResponse", "")
+		 || soap_put__tds__GetServicesResponse(soap, &tds__GetServicesResponse, "tds:GetServicesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -308,7 +310,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetServices(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tds__GetServicesResponse, "tds:GetServicesResponse", "")
+	 || soap_put__tds__GetServicesResponse(soap, &tds__GetServicesResponse, "tds:GetServicesResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -318,8 +320,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetServices(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetServiceCapabilities(struct soap *soap)
 {	struct __tds__GetServiceCapabilities soap_tmp___tds__GetServiceCapabilities;
-	struct afterveda__AnyResponse tds__GetServiceCapabilitiesResponse;
-	soap_default_afterveda__AnyResponse(soap, &tds__GetServiceCapabilitiesResponse);
+	struct _tds__GetServiceCapabilitiesResponse tds__GetServiceCapabilitiesResponse;
+	soap_default__tds__GetServiceCapabilitiesResponse(soap, &tds__GetServiceCapabilitiesResponse);
 	soap_default___tds__GetServiceCapabilities(soap, &soap_tmp___tds__GetServiceCapabilities);
 	if (!soap_get___tds__GetServiceCapabilities(soap, &soap_tmp___tds__GetServiceCapabilities, "-tds:GetServiceCapabilities", NULL))
 		return soap->error;
@@ -332,14 +334,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetServiceCapabilities(struct soap *
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tds__GetServiceCapabilitiesResponse);
+	soap_serialize__tds__GetServiceCapabilitiesResponse(soap, &tds__GetServiceCapabilitiesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tds__GetServiceCapabilitiesResponse, "tds:GetServiceCapabilitiesResponse", "")
+		 || soap_put__tds__GetServiceCapabilitiesResponse(soap, &tds__GetServiceCapabilitiesResponse, "tds:GetServiceCapabilitiesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -349,7 +351,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetServiceCapabilities(struct soap *
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tds__GetServiceCapabilitiesResponse, "tds:GetServiceCapabilitiesResponse", "")
+	 || soap_put__tds__GetServiceCapabilitiesResponse(soap, &tds__GetServiceCapabilitiesResponse, "tds:GetServiceCapabilitiesResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -400,8 +402,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetDeviceInformation(struct soap *so
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetSystemDateAndTime(struct soap *soap)
 {	struct __tds__GetSystemDateAndTime soap_tmp___tds__GetSystemDateAndTime;
-	struct afterveda__AnyResponse tds__GetSystemDateAndTimeResponse;
-	soap_default_afterveda__AnyResponse(soap, &tds__GetSystemDateAndTimeResponse);
+	struct _tds__GetSystemDateAndTimeResponse tds__GetSystemDateAndTimeResponse;
+	soap_default__tds__GetSystemDateAndTimeResponse(soap, &tds__GetSystemDateAndTimeResponse);
 	soap_default___tds__GetSystemDateAndTime(soap, &soap_tmp___tds__GetSystemDateAndTime);
 	if (!soap_get___tds__GetSystemDateAndTime(soap, &soap_tmp___tds__GetSystemDateAndTime, "-tds:GetSystemDateAndTime", NULL))
 		return soap->error;
@@ -414,14 +416,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetSystemDateAndTime(struct soap *so
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tds__GetSystemDateAndTimeResponse);
+	soap_serialize__tds__GetSystemDateAndTimeResponse(soap, &tds__GetSystemDateAndTimeResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tds__GetSystemDateAndTimeResponse, "tds:GetSystemDateAndTimeResponse", "")
+		 || soap_put__tds__GetSystemDateAndTimeResponse(soap, &tds__GetSystemDateAndTimeResponse, "tds:GetSystemDateAndTimeResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -431,7 +433,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetSystemDateAndTime(struct soap *so
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tds__GetSystemDateAndTimeResponse, "tds:GetSystemDateAndTimeResponse", "")
+	 || soap_put__tds__GetSystemDateAndTimeResponse(soap, &tds__GetSystemDateAndTimeResponse, "tds:GetSystemDateAndTimeResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -441,8 +443,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetSystemDateAndTime(struct soap *so
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetScopes(struct soap *soap)
 {	struct __tds__GetScopes soap_tmp___tds__GetScopes;
-	struct afterveda__AnyResponse tds__GetScopesResponse;
-	soap_default_afterveda__AnyResponse(soap, &tds__GetScopesResponse);
+	struct _tds__GetScopesResponse tds__GetScopesResponse;
+	soap_default__tds__GetScopesResponse(soap, &tds__GetScopesResponse);
 	soap_default___tds__GetScopes(soap, &soap_tmp___tds__GetScopes);
 	if (!soap_get___tds__GetScopes(soap, &soap_tmp___tds__GetScopes, "-tds:GetScopes", NULL))
 		return soap->error;
@@ -455,14 +457,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetScopes(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tds__GetScopesResponse);
+	soap_serialize__tds__GetScopesResponse(soap, &tds__GetScopesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tds__GetScopesResponse, "tds:GetScopesResponse", "")
+		 || soap_put__tds__GetScopesResponse(soap, &tds__GetScopesResponse, "tds:GetScopesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -472,7 +474,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetScopes(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tds__GetScopesResponse, "tds:GetScopesResponse", "")
+	 || soap_put__tds__GetScopesResponse(soap, &tds__GetScopesResponse, "tds:GetScopesResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -482,8 +484,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetScopes(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetHostname(struct soap *soap)
 {	struct __tds__GetHostname soap_tmp___tds__GetHostname;
-	struct afterveda__AnyResponse tds__GetHostnameResponse;
-	soap_default_afterveda__AnyResponse(soap, &tds__GetHostnameResponse);
+	struct _tds__GetHostnameResponse tds__GetHostnameResponse;
+	soap_default__tds__GetHostnameResponse(soap, &tds__GetHostnameResponse);
 	soap_default___tds__GetHostname(soap, &soap_tmp___tds__GetHostname);
 	if (!soap_get___tds__GetHostname(soap, &soap_tmp___tds__GetHostname, "-tds:GetHostname", NULL))
 		return soap->error;
@@ -496,14 +498,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetHostname(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tds__GetHostnameResponse);
+	soap_serialize__tds__GetHostnameResponse(soap, &tds__GetHostnameResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tds__GetHostnameResponse, "tds:GetHostnameResponse", "")
+		 || soap_put__tds__GetHostnameResponse(soap, &tds__GetHostnameResponse, "tds:GetHostnameResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -513,7 +515,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetHostname(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tds__GetHostnameResponse, "tds:GetHostnameResponse", "")
+	 || soap_put__tds__GetHostnameResponse(soap, &tds__GetHostnameResponse, "tds:GetHostnameResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -523,8 +525,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetHostname(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetNetworkInterfaces(struct soap *soap)
 {	struct __tds__GetNetworkInterfaces soap_tmp___tds__GetNetworkInterfaces;
-	struct afterveda__AnyResponse tds__GetNetworkInterfacesResponse;
-	soap_default_afterveda__AnyResponse(soap, &tds__GetNetworkInterfacesResponse);
+	struct _tds__GetNetworkInterfacesResponse tds__GetNetworkInterfacesResponse;
+	soap_default__tds__GetNetworkInterfacesResponse(soap, &tds__GetNetworkInterfacesResponse);
 	soap_default___tds__GetNetworkInterfaces(soap, &soap_tmp___tds__GetNetworkInterfaces);
 	if (!soap_get___tds__GetNetworkInterfaces(soap, &soap_tmp___tds__GetNetworkInterfaces, "-tds:GetNetworkInterfaces", NULL))
 		return soap->error;
@@ -537,14 +539,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetNetworkInterfaces(struct soap *so
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tds__GetNetworkInterfacesResponse);
+	soap_serialize__tds__GetNetworkInterfacesResponse(soap, &tds__GetNetworkInterfacesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tds__GetNetworkInterfacesResponse, "tds:GetNetworkInterfacesResponse", "")
+		 || soap_put__tds__GetNetworkInterfacesResponse(soap, &tds__GetNetworkInterfacesResponse, "tds:GetNetworkInterfacesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -554,7 +556,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetNetworkInterfaces(struct soap *so
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tds__GetNetworkInterfacesResponse, "tds:GetNetworkInterfacesResponse", "")
+	 || soap_put__tds__GetNetworkInterfacesResponse(soap, &tds__GetNetworkInterfacesResponse, "tds:GetNetworkInterfacesResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -564,8 +566,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetNetworkInterfaces(struct soap *so
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetUsers(struct soap *soap)
 {	struct __tds__GetUsers soap_tmp___tds__GetUsers;
-	struct afterveda__AnyResponse tds__GetUsersResponse;
-	soap_default_afterveda__AnyResponse(soap, &tds__GetUsersResponse);
+	struct _tds__GetUsersResponse tds__GetUsersResponse;
+	soap_default__tds__GetUsersResponse(soap, &tds__GetUsersResponse);
 	soap_default___tds__GetUsers(soap, &soap_tmp___tds__GetUsers);
 	if (!soap_get___tds__GetUsers(soap, &soap_tmp___tds__GetUsers, "-tds:GetUsers", NULL))
 		return soap->error;
@@ -578,14 +580,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetUsers(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tds__GetUsersResponse);
+	soap_serialize__tds__GetUsersResponse(soap, &tds__GetUsersResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tds__GetUsersResponse, "tds:GetUsersResponse", "")
+		 || soap_put__tds__GetUsersResponse(soap, &tds__GetUsersResponse, "tds:GetUsersResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -595,7 +597,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetUsers(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tds__GetUsersResponse, "tds:GetUsersResponse", "")
+	 || soap_put__tds__GetUsersResponse(soap, &tds__GetUsersResponse, "tds:GetUsersResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -605,8 +607,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetUsers(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetCapabilities(struct soap *soap)
 {	struct __tds__GetCapabilities soap_tmp___tds__GetCapabilities;
-	struct afterveda__AnyResponse tds__GetCapabilitiesResponse;
-	soap_default_afterveda__AnyResponse(soap, &tds__GetCapabilitiesResponse);
+	struct _tds__GetCapabilitiesResponse tds__GetCapabilitiesResponse;
+	soap_default__tds__GetCapabilitiesResponse(soap, &tds__GetCapabilitiesResponse);
 	soap_default___tds__GetCapabilities(soap, &soap_tmp___tds__GetCapabilities);
 	if (!soap_get___tds__GetCapabilities(soap, &soap_tmp___tds__GetCapabilities, "-tds:GetCapabilities", NULL))
 		return soap->error;
@@ -619,14 +621,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetCapabilities(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tds__GetCapabilitiesResponse);
+	soap_serialize__tds__GetCapabilitiesResponse(soap, &tds__GetCapabilitiesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tds__GetCapabilitiesResponse, "tds:GetCapabilitiesResponse", "")
+		 || soap_put__tds__GetCapabilitiesResponse(soap, &tds__GetCapabilitiesResponse, "tds:GetCapabilitiesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -636,7 +638,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetCapabilities(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tds__GetCapabilitiesResponse, "tds:GetCapabilitiesResponse", "")
+	 || soap_put__tds__GetCapabilitiesResponse(soap, &tds__GetCapabilitiesResponse, "tds:GetCapabilitiesResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -646,8 +648,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tds__GetCapabilities(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetProfiles(struct soap *soap)
 {	struct __trt__GetProfiles soap_tmp___trt__GetProfiles;
-	struct afterveda__AnyResponse trt__GetProfilesResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__GetProfilesResponse);
+	struct _trt__GetProfilesResponse trt__GetProfilesResponse;
+	soap_default__trt__GetProfilesResponse(soap, &trt__GetProfilesResponse);
 	soap_default___trt__GetProfiles(soap, &soap_tmp___trt__GetProfiles);
 	if (!soap_get___trt__GetProfiles(soap, &soap_tmp___trt__GetProfiles, "-trt:GetProfiles", NULL))
 		return soap->error;
@@ -660,14 +662,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetProfiles(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__GetProfilesResponse);
+	soap_serialize__trt__GetProfilesResponse(soap, &trt__GetProfilesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__GetProfilesResponse, "trt:GetProfilesResponse", "")
+		 || soap_put__trt__GetProfilesResponse(soap, &trt__GetProfilesResponse, "trt:GetProfilesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -677,7 +679,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetProfiles(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__GetProfilesResponse, "trt:GetProfilesResponse", "")
+	 || soap_put__trt__GetProfilesResponse(soap, &trt__GetProfilesResponse, "trt:GetProfilesResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -687,8 +689,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetProfiles(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetProfile(struct soap *soap)
 {	struct __trt__GetProfile soap_tmp___trt__GetProfile;
-	struct afterveda__AnyResponse trt__GetProfileResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__GetProfileResponse);
+	struct _trt__GetProfileResponse trt__GetProfileResponse;
+	soap_default__trt__GetProfileResponse(soap, &trt__GetProfileResponse);
 	soap_default___trt__GetProfile(soap, &soap_tmp___trt__GetProfile);
 	if (!soap_get___trt__GetProfile(soap, &soap_tmp___trt__GetProfile, "-trt:GetProfile", NULL))
 		return soap->error;
@@ -701,14 +703,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetProfile(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__GetProfileResponse);
+	soap_serialize__trt__GetProfileResponse(soap, &trt__GetProfileResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__GetProfileResponse, "trt:GetProfileResponse", "")
+		 || soap_put__trt__GetProfileResponse(soap, &trt__GetProfileResponse, "trt:GetProfileResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -718,7 +720,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetProfile(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__GetProfileResponse, "trt:GetProfileResponse", "")
+	 || soap_put__trt__GetProfileResponse(soap, &trt__GetProfileResponse, "trt:GetProfileResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -728,8 +730,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetProfile(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetServiceCapabilities(struct soap *soap)
 {	struct __trt__GetServiceCapabilities soap_tmp___trt__GetServiceCapabilities;
-	struct afterveda__AnyResponse trt__GetServiceCapabilitiesResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__GetServiceCapabilitiesResponse);
+	struct _trt__GetServiceCapabilitiesResponse trt__GetServiceCapabilitiesResponse;
+	soap_default__trt__GetServiceCapabilitiesResponse(soap, &trt__GetServiceCapabilitiesResponse);
 	soap_default___trt__GetServiceCapabilities(soap, &soap_tmp___trt__GetServiceCapabilities);
 	if (!soap_get___trt__GetServiceCapabilities(soap, &soap_tmp___trt__GetServiceCapabilities, "-trt:GetServiceCapabilities", NULL))
 		return soap->error;
@@ -742,14 +744,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetServiceCapabilities(struct soap *
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__GetServiceCapabilitiesResponse);
+	soap_serialize__trt__GetServiceCapabilitiesResponse(soap, &trt__GetServiceCapabilitiesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__GetServiceCapabilitiesResponse, "trt:GetServiceCapabilitiesResponse", "")
+		 || soap_put__trt__GetServiceCapabilitiesResponse(soap, &trt__GetServiceCapabilitiesResponse, "trt:GetServiceCapabilitiesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -759,7 +761,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetServiceCapabilities(struct soap *
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__GetServiceCapabilitiesResponse, "trt:GetServiceCapabilitiesResponse", "")
+	 || soap_put__trt__GetServiceCapabilitiesResponse(soap, &trt__GetServiceCapabilitiesResponse, "trt:GetServiceCapabilitiesResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -769,8 +771,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetServiceCapabilities(struct soap *
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSources(struct soap *soap)
 {	struct __trt__GetVideoSources soap_tmp___trt__GetVideoSources;
-	struct afterveda__AnyResponse trt__GetVideoSourcesResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoSourcesResponse);
+	struct _trt__GetVideoSourcesResponse trt__GetVideoSourcesResponse;
+	soap_default__trt__GetVideoSourcesResponse(soap, &trt__GetVideoSourcesResponse);
 	soap_default___trt__GetVideoSources(soap, &soap_tmp___trt__GetVideoSources);
 	if (!soap_get___trt__GetVideoSources(soap, &soap_tmp___trt__GetVideoSources, "-trt:GetVideoSources", NULL))
 		return soap->error;
@@ -783,14 +785,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSources(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__GetVideoSourcesResponse);
+	soap_serialize__trt__GetVideoSourcesResponse(soap, &trt__GetVideoSourcesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoSourcesResponse, "trt:GetVideoSourcesResponse", "")
+		 || soap_put__trt__GetVideoSourcesResponse(soap, &trt__GetVideoSourcesResponse, "trt:GetVideoSourcesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -800,7 +802,253 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSources(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoSourcesResponse, "trt:GetVideoSourcesResponse", "")
+	 || soap_put__trt__GetVideoSourcesResponse(soap, &trt__GetVideoSourcesResponse, "trt:GetVideoSourcesResponse", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap->error;
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetOSDs(struct soap *soap)
+{	struct __trt__GetOSDs soap_tmp___trt__GetOSDs;
+	struct _trt__GetOSDsResponse trt__GetOSDsResponse;
+	soap_default__trt__GetOSDsResponse(soap, &trt__GetOSDsResponse);
+	soap_default___trt__GetOSDs(soap, &soap_tmp___trt__GetOSDs);
+	if (!soap_get___trt__GetOSDs(soap, &soap_tmp___trt__GetOSDs, "-trt:GetOSDs", NULL))
+		return soap->error;
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap->error;
+	soap->error = __trt__GetOSDs(soap, soap_tmp___trt__GetOSDs.trt__GetOSDs, trt__GetOSDsResponse);
+	if (soap->error)
+		return soap->error;
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize__trt__GetOSDsResponse(soap, &trt__GetOSDsResponse);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put__trt__GetOSDsResponse(soap, &trt__GetOSDsResponse, "trt:GetOSDsResponse", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	};
+	if (soap_end_count(soap)
+	 || soap_response(soap, SOAP_OK)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put__trt__GetOSDsResponse(soap, &trt__GetOSDsResponse, "trt:GetOSDsResponse", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap->error;
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetOSD(struct soap *soap)
+{	struct __trt__GetOSD soap_tmp___trt__GetOSD;
+	struct _trt__GetOSDResponse trt__GetOSDResponse;
+	soap_default__trt__GetOSDResponse(soap, &trt__GetOSDResponse);
+	soap_default___trt__GetOSD(soap, &soap_tmp___trt__GetOSD);
+	if (!soap_get___trt__GetOSD(soap, &soap_tmp___trt__GetOSD, "-trt:GetOSD", NULL))
+		return soap->error;
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap->error;
+	soap->error = __trt__GetOSD(soap, soap_tmp___trt__GetOSD.trt__GetOSD, trt__GetOSDResponse);
+	if (soap->error)
+		return soap->error;
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize__trt__GetOSDResponse(soap, &trt__GetOSDResponse);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put__trt__GetOSDResponse(soap, &trt__GetOSDResponse, "trt:GetOSDResponse", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	};
+	if (soap_end_count(soap)
+	 || soap_response(soap, SOAP_OK)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put__trt__GetOSDResponse(soap, &trt__GetOSDResponse, "trt:GetOSDResponse", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap->error;
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetOSDOptions(struct soap *soap)
+{	struct __trt__GetOSDOptions soap_tmp___trt__GetOSDOptions;
+	struct _trt__GetOSDOptionsResponse trt__GetOSDOptionsResponse;
+	soap_default__trt__GetOSDOptionsResponse(soap, &trt__GetOSDOptionsResponse);
+	soap_default___trt__GetOSDOptions(soap, &soap_tmp___trt__GetOSDOptions);
+	if (!soap_get___trt__GetOSDOptions(soap, &soap_tmp___trt__GetOSDOptions, "-trt:GetOSDOptions", NULL))
+		return soap->error;
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap->error;
+	soap->error = __trt__GetOSDOptions(soap, soap_tmp___trt__GetOSDOptions.trt__GetOSDOptions, trt__GetOSDOptionsResponse);
+	if (soap->error)
+		return soap->error;
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize__trt__GetOSDOptionsResponse(soap, &trt__GetOSDOptionsResponse);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put__trt__GetOSDOptionsResponse(soap, &trt__GetOSDOptionsResponse, "trt:GetOSDOptionsResponse", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	};
+	if (soap_end_count(soap)
+	 || soap_response(soap, SOAP_OK)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put__trt__GetOSDOptionsResponse(soap, &trt__GetOSDOptionsResponse, "trt:GetOSDOptionsResponse", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap->error;
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__SetOSD(struct soap *soap)
+{	struct __trt__SetOSD soap_tmp___trt__SetOSD;
+	struct _trt__SetOSDResponse trt__SetOSDResponse;
+	soap_default__trt__SetOSDResponse(soap, &trt__SetOSDResponse);
+	soap_default___trt__SetOSD(soap, &soap_tmp___trt__SetOSD);
+	if (!soap_get___trt__SetOSD(soap, &soap_tmp___trt__SetOSD, "-trt:SetOSD", NULL))
+		return soap->error;
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap->error;
+	soap->error = __trt__SetOSD(soap, soap_tmp___trt__SetOSD.trt__SetOSD, trt__SetOSDResponse);
+	if (soap->error)
+		return soap->error;
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize__trt__SetOSDResponse(soap, &trt__SetOSDResponse);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put__trt__SetOSDResponse(soap, &trt__SetOSDResponse, "trt:SetOSDResponse", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	};
+	if (soap_end_count(soap)
+	 || soap_response(soap, SOAP_OK)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put__trt__SetOSDResponse(soap, &trt__SetOSDResponse, "trt:SetOSDResponse", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap->error;
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__CreateOSD(struct soap *soap)
+{	struct __trt__CreateOSD soap_tmp___trt__CreateOSD;
+	struct _trt__CreateOSDResponse trt__CreateOSDResponse;
+	soap_default__trt__CreateOSDResponse(soap, &trt__CreateOSDResponse);
+	soap_default___trt__CreateOSD(soap, &soap_tmp___trt__CreateOSD);
+	if (!soap_get___trt__CreateOSD(soap, &soap_tmp___trt__CreateOSD, "-trt:CreateOSD", NULL))
+		return soap->error;
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap->error;
+	soap->error = __trt__CreateOSD(soap, soap_tmp___trt__CreateOSD.trt__CreateOSD, trt__CreateOSDResponse);
+	if (soap->error)
+		return soap->error;
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize__trt__CreateOSDResponse(soap, &trt__CreateOSDResponse);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put__trt__CreateOSDResponse(soap, &trt__CreateOSDResponse, "trt:CreateOSDResponse", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	};
+	if (soap_end_count(soap)
+	 || soap_response(soap, SOAP_OK)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put__trt__CreateOSDResponse(soap, &trt__CreateOSDResponse, "trt:CreateOSDResponse", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap->error;
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__DeleteOSD(struct soap *soap)
+{	struct __trt__DeleteOSD soap_tmp___trt__DeleteOSD;
+	struct _trt__DeleteOSDResponse trt__DeleteOSDResponse;
+	soap_default__trt__DeleteOSDResponse(soap, &trt__DeleteOSDResponse);
+	soap_default___trt__DeleteOSD(soap, &soap_tmp___trt__DeleteOSD);
+	if (!soap_get___trt__DeleteOSD(soap, &soap_tmp___trt__DeleteOSD, "-trt:DeleteOSD", NULL))
+		return soap->error;
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap->error;
+	soap->error = __trt__DeleteOSD(soap, soap_tmp___trt__DeleteOSD.trt__DeleteOSD, trt__DeleteOSDResponse);
+	if (soap->error)
+		return soap->error;
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize__trt__DeleteOSDResponse(soap, &trt__DeleteOSDResponse);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put__trt__DeleteOSDResponse(soap, &trt__DeleteOSDResponse, "trt:DeleteOSDResponse", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	};
+	if (soap_end_count(soap)
+	 || soap_response(soap, SOAP_OK)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put__trt__DeleteOSDResponse(soap, &trt__DeleteOSDResponse, "trt:DeleteOSDResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -810,8 +1058,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSources(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfigurations(struct soap *soap)
 {	struct __trt__GetVideoSourceConfigurations soap_tmp___trt__GetVideoSourceConfigurations;
-	struct afterveda__AnyResponse trt__GetVideoSourceConfigurationsResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationsResponse);
+	struct _trt__GetVideoSourceConfigurationsResponse trt__GetVideoSourceConfigurationsResponse;
+	soap_default__trt__GetVideoSourceConfigurationsResponse(soap, &trt__GetVideoSourceConfigurationsResponse);
 	soap_default___trt__GetVideoSourceConfigurations(soap, &soap_tmp___trt__GetVideoSourceConfigurations);
 	if (!soap_get___trt__GetVideoSourceConfigurations(soap, &soap_tmp___trt__GetVideoSourceConfigurations, "-trt:GetVideoSourceConfigurations", NULL))
 		return soap->error;
@@ -824,14 +1072,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfigurations(struct 
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationsResponse);
+	soap_serialize__trt__GetVideoSourceConfigurationsResponse(soap, &trt__GetVideoSourceConfigurationsResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationsResponse, "trt:GetVideoSourceConfigurationsResponse", "")
+		 || soap_put__trt__GetVideoSourceConfigurationsResponse(soap, &trt__GetVideoSourceConfigurationsResponse, "trt:GetVideoSourceConfigurationsResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -841,7 +1089,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfigurations(struct 
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationsResponse, "trt:GetVideoSourceConfigurationsResponse", "")
+	 || soap_put__trt__GetVideoSourceConfigurationsResponse(soap, &trt__GetVideoSourceConfigurationsResponse, "trt:GetVideoSourceConfigurationsResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -851,8 +1099,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfigurations(struct 
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfiguration(struct soap *soap)
 {	struct __trt__GetVideoSourceConfiguration soap_tmp___trt__GetVideoSourceConfiguration;
-	struct afterveda__AnyResponse trt__GetVideoSourceConfigurationResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationResponse);
+	struct _trt__GetVideoSourceConfigurationResponse trt__GetVideoSourceConfigurationResponse;
+	soap_default__trt__GetVideoSourceConfigurationResponse(soap, &trt__GetVideoSourceConfigurationResponse);
 	soap_default___trt__GetVideoSourceConfiguration(soap, &soap_tmp___trt__GetVideoSourceConfiguration);
 	if (!soap_get___trt__GetVideoSourceConfiguration(soap, &soap_tmp___trt__GetVideoSourceConfiguration, "-trt:GetVideoSourceConfiguration", NULL))
 		return soap->error;
@@ -865,14 +1113,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfiguration(struct s
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationResponse);
+	soap_serialize__trt__GetVideoSourceConfigurationResponse(soap, &trt__GetVideoSourceConfigurationResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationResponse, "trt:GetVideoSourceConfigurationResponse", "")
+		 || soap_put__trt__GetVideoSourceConfigurationResponse(soap, &trt__GetVideoSourceConfigurationResponse, "trt:GetVideoSourceConfigurationResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -882,7 +1130,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfiguration(struct s
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationResponse, "trt:GetVideoSourceConfigurationResponse", "")
+	 || soap_put__trt__GetVideoSourceConfigurationResponse(soap, &trt__GetVideoSourceConfigurationResponse, "trt:GetVideoSourceConfigurationResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -892,8 +1140,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfiguration(struct s
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfigurations(struct soap *soap)
 {	struct __trt__GetVideoEncoderConfigurations soap_tmp___trt__GetVideoEncoderConfigurations;
-	struct afterveda__AnyResponse trt__GetVideoEncoderConfigurationsResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationsResponse);
+	struct _trt__GetVideoEncoderConfigurationsResponse trt__GetVideoEncoderConfigurationsResponse;
+	soap_default__trt__GetVideoEncoderConfigurationsResponse(soap, &trt__GetVideoEncoderConfigurationsResponse);
 	soap_default___trt__GetVideoEncoderConfigurations(soap, &soap_tmp___trt__GetVideoEncoderConfigurations);
 	if (!soap_get___trt__GetVideoEncoderConfigurations(soap, &soap_tmp___trt__GetVideoEncoderConfigurations, "-trt:GetVideoEncoderConfigurations", NULL))
 		return soap->error;
@@ -906,14 +1154,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfigurations(struct
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationsResponse);
+	soap_serialize__trt__GetVideoEncoderConfigurationsResponse(soap, &trt__GetVideoEncoderConfigurationsResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationsResponse, "trt:GetVideoEncoderConfigurationsResponse", "")
+		 || soap_put__trt__GetVideoEncoderConfigurationsResponse(soap, &trt__GetVideoEncoderConfigurationsResponse, "trt:GetVideoEncoderConfigurationsResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -923,7 +1171,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfigurations(struct
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationsResponse, "trt:GetVideoEncoderConfigurationsResponse", "")
+	 || soap_put__trt__GetVideoEncoderConfigurationsResponse(soap, &trt__GetVideoEncoderConfigurationsResponse, "trt:GetVideoEncoderConfigurationsResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -933,8 +1181,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfigurations(struct
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetStreamUri(struct soap *soap)
 {	struct __trt__GetStreamUri soap_tmp___trt__GetStreamUri;
-	struct afterveda__AnyResponse trt__GetStreamUriResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__GetStreamUriResponse);
+	struct _trt__GetStreamUriResponse trt__GetStreamUriResponse;
+	soap_default__trt__GetStreamUriResponse(soap, &trt__GetStreamUriResponse);
 	soap_default___trt__GetStreamUri(soap, &soap_tmp___trt__GetStreamUri);
 	if (!soap_get___trt__GetStreamUri(soap, &soap_tmp___trt__GetStreamUri, "-trt:GetStreamUri", NULL))
 		return soap->error;
@@ -947,14 +1195,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetStreamUri(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__GetStreamUriResponse);
+	soap_serialize__trt__GetStreamUriResponse(soap, &trt__GetStreamUriResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__GetStreamUriResponse, "trt:GetStreamUriResponse", "")
+		 || soap_put__trt__GetStreamUriResponse(soap, &trt__GetStreamUriResponse, "trt:GetStreamUriResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -964,7 +1212,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetStreamUri(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__GetStreamUriResponse, "trt:GetStreamUriResponse", "")
+	 || soap_put__trt__GetStreamUriResponse(soap, &trt__GetStreamUriResponse, "trt:GetStreamUriResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -974,8 +1222,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetStreamUri(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfiguration(struct soap *soap)
 {	struct __trt__GetVideoEncoderConfiguration soap_tmp___trt__GetVideoEncoderConfiguration;
-	struct afterveda__AnyResponse trt__GetVideoEncoderConfigurationResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationResponse);
+	struct _trt__GetVideoEncoderConfigurationResponse trt__GetVideoEncoderConfigurationResponse;
+	soap_default__trt__GetVideoEncoderConfigurationResponse(soap, &trt__GetVideoEncoderConfigurationResponse);
 	soap_default___trt__GetVideoEncoderConfiguration(soap, &soap_tmp___trt__GetVideoEncoderConfiguration);
 	if (!soap_get___trt__GetVideoEncoderConfiguration(soap, &soap_tmp___trt__GetVideoEncoderConfiguration, "-trt:GetVideoEncoderConfiguration", NULL))
 		return soap->error;
@@ -988,14 +1236,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfiguration(struct 
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationResponse);
+	soap_serialize__trt__GetVideoEncoderConfigurationResponse(soap, &trt__GetVideoEncoderConfigurationResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationResponse, "trt:GetVideoEncoderConfigurationResponse", "")
+		 || soap_put__trt__GetVideoEncoderConfigurationResponse(soap, &trt__GetVideoEncoderConfigurationResponse, "trt:GetVideoEncoderConfigurationResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1005,7 +1253,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfiguration(struct 
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationResponse, "trt:GetVideoEncoderConfigurationResponse", "")
+	 || soap_put__trt__GetVideoEncoderConfigurationResponse(soap, &trt__GetVideoEncoderConfigurationResponse, "trt:GetVideoEncoderConfigurationResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1015,8 +1263,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfiguration(struct 
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfigurationOptions(struct soap *soap)
 {	struct __trt__GetVideoSourceConfigurationOptions soap_tmp___trt__GetVideoSourceConfigurationOptions;
-	struct afterveda__AnyResponse trt__GetVideoSourceConfigurationOptionsResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse);
+	struct _trt__GetVideoSourceConfigurationOptionsResponse trt__GetVideoSourceConfigurationOptionsResponse;
+	soap_default__trt__GetVideoSourceConfigurationOptionsResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse);
 	soap_default___trt__GetVideoSourceConfigurationOptions(soap, &soap_tmp___trt__GetVideoSourceConfigurationOptions);
 	if (!soap_get___trt__GetVideoSourceConfigurationOptions(soap, &soap_tmp___trt__GetVideoSourceConfigurationOptions, "-trt:GetVideoSourceConfigurationOptions", NULL))
 		return soap->error;
@@ -1029,14 +1277,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfigurationOptions(s
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse);
+	soap_serialize__trt__GetVideoSourceConfigurationOptionsResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse, "trt:GetVideoSourceConfigurationOptionsResponse", "")
+		 || soap_put__trt__GetVideoSourceConfigurationOptionsResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse, "trt:GetVideoSourceConfigurationOptionsResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1046,7 +1294,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfigurationOptions(s
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse, "trt:GetVideoSourceConfigurationOptionsResponse", "")
+	 || soap_put__trt__GetVideoSourceConfigurationOptionsResponse(soap, &trt__GetVideoSourceConfigurationOptionsResponse, "trt:GetVideoSourceConfigurationOptionsResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1056,8 +1304,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfigurationOptions(s
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfigurationOptions(struct soap *soap)
 {	struct __trt__GetVideoEncoderConfigurationOptions soap_tmp___trt__GetVideoEncoderConfigurationOptions;
-	struct afterveda__AnyResponse trt__GetVideoEncoderConfigurationOptionsResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse);
+	struct _trt__GetVideoEncoderConfigurationOptionsResponse trt__GetVideoEncoderConfigurationOptionsResponse;
+	soap_default__trt__GetVideoEncoderConfigurationOptionsResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse);
 	soap_default___trt__GetVideoEncoderConfigurationOptions(soap, &soap_tmp___trt__GetVideoEncoderConfigurationOptions);
 	if (!soap_get___trt__GetVideoEncoderConfigurationOptions(soap, &soap_tmp___trt__GetVideoEncoderConfigurationOptions, "-trt:GetVideoEncoderConfigurationOptions", NULL))
 		return soap->error;
@@ -1070,14 +1318,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfigurationOptions(
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse);
+	soap_serialize__trt__GetVideoEncoderConfigurationOptionsResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse, "trt:GetVideoEncoderConfigurationOptionsResponse", "")
+		 || soap_put__trt__GetVideoEncoderConfigurationOptionsResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse, "trt:GetVideoEncoderConfigurationOptionsResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1087,7 +1335,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfigurationOptions(
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse, "trt:GetVideoEncoderConfigurationOptionsResponse", "")
+	 || soap_put__trt__GetVideoEncoderConfigurationOptionsResponse(soap, &trt__GetVideoEncoderConfigurationOptionsResponse, "trt:GetVideoEncoderConfigurationOptionsResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1097,8 +1345,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoEncoderConfigurationOptions(
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__SetVideoEncoderConfiguration(struct soap *soap)
 {	struct __trt__SetVideoEncoderConfiguration soap_tmp___trt__SetVideoEncoderConfiguration;
-	struct afterveda__AnyResponse trt__SetVideoEncoderConfigurationResponse;
-	soap_default_afterveda__AnyResponse(soap, &trt__SetVideoEncoderConfigurationResponse);
+	struct _trt__SetVideoEncoderConfigurationResponse trt__SetVideoEncoderConfigurationResponse;
+	soap_default__trt__SetVideoEncoderConfigurationResponse(soap, &trt__SetVideoEncoderConfigurationResponse);
 	soap_default___trt__SetVideoEncoderConfiguration(soap, &soap_tmp___trt__SetVideoEncoderConfiguration);
 	if (!soap_get___trt__SetVideoEncoderConfiguration(soap, &soap_tmp___trt__SetVideoEncoderConfiguration, "-trt:SetVideoEncoderConfiguration", NULL))
 		return soap->error;
@@ -1111,14 +1359,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__SetVideoEncoderConfiguration(struct 
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &trt__SetVideoEncoderConfigurationResponse);
+	soap_serialize__trt__SetVideoEncoderConfigurationResponse(soap, &trt__SetVideoEncoderConfigurationResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &trt__SetVideoEncoderConfigurationResponse, "trt:SetVideoEncoderConfigurationResponse", "")
+		 || soap_put__trt__SetVideoEncoderConfigurationResponse(soap, &trt__SetVideoEncoderConfigurationResponse, "trt:SetVideoEncoderConfigurationResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1128,7 +1376,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__SetVideoEncoderConfiguration(struct 
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &trt__SetVideoEncoderConfigurationResponse, "trt:SetVideoEncoderConfigurationResponse", "")
+	 || soap_put__trt__SetVideoEncoderConfigurationResponse(soap, &trt__SetVideoEncoderConfigurationResponse, "trt:SetVideoEncoderConfigurationResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1138,8 +1386,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__SetVideoEncoderConfiguration(struct 
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetProfiles(struct soap *soap)
 {	struct __tr2__GetProfiles soap_tmp___tr2__GetProfiles;
-	struct afterveda__AnyResponse tr2__GetProfilesResponse;
-	soap_default_afterveda__AnyResponse(soap, &tr2__GetProfilesResponse);
+	struct _tr2__GetProfilesResponse tr2__GetProfilesResponse;
+	soap_default__tr2__GetProfilesResponse(soap, &tr2__GetProfilesResponse);
 	soap_default___tr2__GetProfiles(soap, &soap_tmp___tr2__GetProfiles);
 	if (!soap_get___tr2__GetProfiles(soap, &soap_tmp___tr2__GetProfiles, "-tr2:GetProfiles", NULL))
 		return soap->error;
@@ -1152,14 +1400,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetProfiles(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tr2__GetProfilesResponse);
+	soap_serialize__tr2__GetProfilesResponse(soap, &tr2__GetProfilesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tr2__GetProfilesResponse, "tr2:GetProfilesResponse", "")
+		 || soap_put__tr2__GetProfilesResponse(soap, &tr2__GetProfilesResponse, "tr2:GetProfilesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1169,7 +1417,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetProfiles(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tr2__GetProfilesResponse, "tr2:GetProfilesResponse", "")
+	 || soap_put__tr2__GetProfilesResponse(soap, &tr2__GetProfilesResponse, "tr2:GetProfilesResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1179,8 +1427,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetProfiles(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetStreamUri(struct soap *soap)
 {	struct __tr2__GetStreamUri soap_tmp___tr2__GetStreamUri;
-	struct afterveda__AnyResponse tr2__GetStreamUriResponse;
-	soap_default_afterveda__AnyResponse(soap, &tr2__GetStreamUriResponse);
+	struct _tr2__GetStreamUriResponse tr2__GetStreamUriResponse;
+	soap_default__tr2__GetStreamUriResponse(soap, &tr2__GetStreamUriResponse);
 	soap_default___tr2__GetStreamUri(soap, &soap_tmp___tr2__GetStreamUri);
 	if (!soap_get___tr2__GetStreamUri(soap, &soap_tmp___tr2__GetStreamUri, "-tr2:GetStreamUri", NULL))
 		return soap->error;
@@ -1193,14 +1441,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetStreamUri(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tr2__GetStreamUriResponse);
+	soap_serialize__tr2__GetStreamUriResponse(soap, &tr2__GetStreamUriResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tr2__GetStreamUriResponse, "tr2:GetStreamUriResponse", "")
+		 || soap_put__tr2__GetStreamUriResponse(soap, &tr2__GetStreamUriResponse, "tr2:GetStreamUriResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1210,7 +1458,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetStreamUri(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tr2__GetStreamUriResponse, "tr2:GetStreamUriResponse", "")
+	 || soap_put__tr2__GetStreamUriResponse(soap, &tr2__GetStreamUriResponse, "tr2:GetStreamUriResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1220,8 +1468,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetStreamUri(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetServiceCapabilities(struct soap *soap)
 {	struct __tr2__GetServiceCapabilities soap_tmp___tr2__GetServiceCapabilities;
-	struct afterveda__AnyResponse tr2__GetServiceCapabilitiesResponse;
-	soap_default_afterveda__AnyResponse(soap, &tr2__GetServiceCapabilitiesResponse);
+	struct _tr2__GetServiceCapabilitiesResponse tr2__GetServiceCapabilitiesResponse;
+	soap_default__tr2__GetServiceCapabilitiesResponse(soap, &tr2__GetServiceCapabilitiesResponse);
 	soap_default___tr2__GetServiceCapabilities(soap, &soap_tmp___tr2__GetServiceCapabilities);
 	if (!soap_get___tr2__GetServiceCapabilities(soap, &soap_tmp___tr2__GetServiceCapabilities, "-tr2:GetServiceCapabilities", NULL))
 		return soap->error;
@@ -1234,14 +1482,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetServiceCapabilities(struct soap *
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tr2__GetServiceCapabilitiesResponse);
+	soap_serialize__tr2__GetServiceCapabilitiesResponse(soap, &tr2__GetServiceCapabilitiesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tr2__GetServiceCapabilitiesResponse, "tr2:GetServiceCapabilitiesResponse", "")
+		 || soap_put__tr2__GetServiceCapabilitiesResponse(soap, &tr2__GetServiceCapabilitiesResponse, "tr2:GetServiceCapabilitiesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1251,7 +1499,48 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetServiceCapabilities(struct soap *
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tr2__GetServiceCapabilitiesResponse, "tr2:GetServiceCapabilitiesResponse", "")
+	 || soap_put__tr2__GetServiceCapabilitiesResponse(soap, &tr2__GetServiceCapabilitiesResponse, "tr2:GetServiceCapabilitiesResponse", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap->error;
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetServiceCapabilities(struct soap *soap)
+{	struct __tptz__GetServiceCapabilities soap_tmp___tptz__GetServiceCapabilities;
+	struct _tptz__GetServiceCapabilitiesResponse tptz__GetServiceCapabilitiesResponse;
+	soap_default__tptz__GetServiceCapabilitiesResponse(soap, &tptz__GetServiceCapabilitiesResponse);
+	soap_default___tptz__GetServiceCapabilities(soap, &soap_tmp___tptz__GetServiceCapabilities);
+	if (!soap_get___tptz__GetServiceCapabilities(soap, &soap_tmp___tptz__GetServiceCapabilities, "-tptz:GetServiceCapabilities", NULL))
+		return soap->error;
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap->error;
+	soap->error = __tptz__GetServiceCapabilities(soap, soap_tmp___tptz__GetServiceCapabilities.tptz__GetServiceCapabilities, tptz__GetServiceCapabilitiesResponse);
+	if (soap->error)
+		return soap->error;
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize__tptz__GetServiceCapabilitiesResponse(soap, &tptz__GetServiceCapabilitiesResponse);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put__tptz__GetServiceCapabilitiesResponse(soap, &tptz__GetServiceCapabilitiesResponse, "tptz:GetServiceCapabilitiesResponse", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	};
+	if (soap_end_count(soap)
+	 || soap_response(soap, SOAP_OK)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put__tptz__GetServiceCapabilitiesResponse(soap, &tptz__GetServiceCapabilitiesResponse, "tptz:GetServiceCapabilitiesResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1261,8 +1550,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetServiceCapabilities(struct soap *
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetNodes(struct soap *soap)
 {	struct __tptz__GetNodes soap_tmp___tptz__GetNodes;
-	struct afterveda__AnyResponse tptz__GetNodesResponse;
-	soap_default_afterveda__AnyResponse(soap, &tptz__GetNodesResponse);
+	struct _tptz__GetNodesResponse tptz__GetNodesResponse;
+	soap_default__tptz__GetNodesResponse(soap, &tptz__GetNodesResponse);
 	soap_default___tptz__GetNodes(soap, &soap_tmp___tptz__GetNodes);
 	if (!soap_get___tptz__GetNodes(soap, &soap_tmp___tptz__GetNodes, "-tptz:GetNodes", NULL))
 		return soap->error;
@@ -1275,14 +1564,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetNodes(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tptz__GetNodesResponse);
+	soap_serialize__tptz__GetNodesResponse(soap, &tptz__GetNodesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tptz__GetNodesResponse, "tptz:GetNodesResponse", "")
+		 || soap_put__tptz__GetNodesResponse(soap, &tptz__GetNodesResponse, "tptz:GetNodesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1292,7 +1581,48 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetNodes(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tptz__GetNodesResponse, "tptz:GetNodesResponse", "")
+	 || soap_put__tptz__GetNodesResponse(soap, &tptz__GetNodesResponse, "tptz:GetNodesResponse", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap->error;
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetNode(struct soap *soap)
+{	struct __tptz__GetNode soap_tmp___tptz__GetNode;
+	struct _tptz__GetNodeResponse tptz__GetNodeResponse;
+	soap_default__tptz__GetNodeResponse(soap, &tptz__GetNodeResponse);
+	soap_default___tptz__GetNode(soap, &soap_tmp___tptz__GetNode);
+	if (!soap_get___tptz__GetNode(soap, &soap_tmp___tptz__GetNode, "-tptz:GetNode", NULL))
+		return soap->error;
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap->error;
+	soap->error = __tptz__GetNode(soap, soap_tmp___tptz__GetNode.tptz__GetNode, tptz__GetNodeResponse);
+	if (soap->error)
+		return soap->error;
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize__tptz__GetNodeResponse(soap, &tptz__GetNodeResponse);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put__tptz__GetNodeResponse(soap, &tptz__GetNodeResponse, "tptz:GetNodeResponse", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	};
+	if (soap_end_count(soap)
+	 || soap_response(soap, SOAP_OK)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put__tptz__GetNodeResponse(soap, &tptz__GetNodeResponse, "tptz:GetNodeResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1302,8 +1632,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetNodes(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetConfigurations(struct soap *soap)
 {	struct __tptz__GetConfigurations soap_tmp___tptz__GetConfigurations;
-	struct afterveda__AnyResponse tptz__GetConfigurationsResponse;
-	soap_default_afterveda__AnyResponse(soap, &tptz__GetConfigurationsResponse);
+	struct _tptz__GetConfigurationsResponse tptz__GetConfigurationsResponse;
+	soap_default__tptz__GetConfigurationsResponse(soap, &tptz__GetConfigurationsResponse);
 	soap_default___tptz__GetConfigurations(soap, &soap_tmp___tptz__GetConfigurations);
 	if (!soap_get___tptz__GetConfigurations(soap, &soap_tmp___tptz__GetConfigurations, "-tptz:GetConfigurations", NULL))
 		return soap->error;
@@ -1316,14 +1646,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetConfigurations(struct soap *soap
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tptz__GetConfigurationsResponse);
+	soap_serialize__tptz__GetConfigurationsResponse(soap, &tptz__GetConfigurationsResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tptz__GetConfigurationsResponse, "tptz:GetConfigurationsResponse", "")
+		 || soap_put__tptz__GetConfigurationsResponse(soap, &tptz__GetConfigurationsResponse, "tptz:GetConfigurationsResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1333,7 +1663,89 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetConfigurations(struct soap *soap
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tptz__GetConfigurationsResponse, "tptz:GetConfigurationsResponse", "")
+	 || soap_put__tptz__GetConfigurationsResponse(soap, &tptz__GetConfigurationsResponse, "tptz:GetConfigurationsResponse", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap->error;
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetConfiguration(struct soap *soap)
+{	struct __tptz__GetConfiguration soap_tmp___tptz__GetConfiguration;
+	struct _tptz__GetConfigurationResponse tptz__GetConfigurationResponse;
+	soap_default__tptz__GetConfigurationResponse(soap, &tptz__GetConfigurationResponse);
+	soap_default___tptz__GetConfiguration(soap, &soap_tmp___tptz__GetConfiguration);
+	if (!soap_get___tptz__GetConfiguration(soap, &soap_tmp___tptz__GetConfiguration, "-tptz:GetConfiguration", NULL))
+		return soap->error;
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap->error;
+	soap->error = __tptz__GetConfiguration(soap, soap_tmp___tptz__GetConfiguration.tptz__GetConfiguration, tptz__GetConfigurationResponse);
+	if (soap->error)
+		return soap->error;
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize__tptz__GetConfigurationResponse(soap, &tptz__GetConfigurationResponse);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put__tptz__GetConfigurationResponse(soap, &tptz__GetConfigurationResponse, "tptz:GetConfigurationResponse", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	};
+	if (soap_end_count(soap)
+	 || soap_response(soap, SOAP_OK)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put__tptz__GetConfigurationResponse(soap, &tptz__GetConfigurationResponse, "tptz:GetConfigurationResponse", "")
+	 || soap_body_end_out(soap)
+	 || soap_envelope_end_out(soap)
+	 || soap_end_send(soap))
+		return soap->error;
+	return soap_closesock(soap);
+}
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetConfigurationOptions(struct soap *soap)
+{	struct __tptz__GetConfigurationOptions soap_tmp___tptz__GetConfigurationOptions;
+	struct _tptz__GetConfigurationOptionsResponse tptz__GetConfigurationOptionsResponse;
+	soap_default__tptz__GetConfigurationOptionsResponse(soap, &tptz__GetConfigurationOptionsResponse);
+	soap_default___tptz__GetConfigurationOptions(soap, &soap_tmp___tptz__GetConfigurationOptions);
+	if (!soap_get___tptz__GetConfigurationOptions(soap, &soap_tmp___tptz__GetConfigurationOptions, "-tptz:GetConfigurationOptions", NULL))
+		return soap->error;
+	if (soap_body_end_in(soap)
+	 || soap_envelope_end_in(soap)
+	 || soap_end_recv(soap))
+		return soap->error;
+	soap->error = __tptz__GetConfigurationOptions(soap, soap_tmp___tptz__GetConfigurationOptions.tptz__GetConfigurationOptions, tptz__GetConfigurationOptionsResponse);
+	if (soap->error)
+		return soap->error;
+	soap->encodingStyle = NULL; /* use SOAP literal style */
+	soap_serializeheader(soap);
+	soap_serialize__tptz__GetConfigurationOptionsResponse(soap, &tptz__GetConfigurationOptionsResponse);
+	if (soap_begin_count(soap))
+		return soap->error;
+	if ((soap->mode & SOAP_IO_LENGTH))
+	{	if (soap_envelope_begin_out(soap)
+		 || soap_putheader(soap)
+		 || soap_body_begin_out(soap)
+		 || soap_put__tptz__GetConfigurationOptionsResponse(soap, &tptz__GetConfigurationOptionsResponse, "tptz:GetConfigurationOptionsResponse", "")
+		 || soap_body_end_out(soap)
+		 || soap_envelope_end_out(soap))
+			 return soap->error;
+	};
+	if (soap_end_count(soap)
+	 || soap_response(soap, SOAP_OK)
+	 || soap_envelope_begin_out(soap)
+	 || soap_putheader(soap)
+	 || soap_body_begin_out(soap)
+	 || soap_put__tptz__GetConfigurationOptionsResponse(soap, &tptz__GetConfigurationOptionsResponse, "tptz:GetConfigurationOptionsResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1343,8 +1755,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetConfigurations(struct soap *soap
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetPresets(struct soap *soap)
 {	struct __tptz__GetPresets soap_tmp___tptz__GetPresets;
-	struct afterveda__AnyResponse tptz__GetPresetsResponse;
-	soap_default_afterveda__AnyResponse(soap, &tptz__GetPresetsResponse);
+	struct _tptz__GetPresetsResponse tptz__GetPresetsResponse;
+	soap_default__tptz__GetPresetsResponse(soap, &tptz__GetPresetsResponse);
 	soap_default___tptz__GetPresets(soap, &soap_tmp___tptz__GetPresets);
 	if (!soap_get___tptz__GetPresets(soap, &soap_tmp___tptz__GetPresets, "-tptz:GetPresets", NULL))
 		return soap->error;
@@ -1357,14 +1769,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetPresets(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tptz__GetPresetsResponse);
+	soap_serialize__tptz__GetPresetsResponse(soap, &tptz__GetPresetsResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tptz__GetPresetsResponse, "tptz:GetPresetsResponse", "")
+		 || soap_put__tptz__GetPresetsResponse(soap, &tptz__GetPresetsResponse, "tptz:GetPresetsResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1374,7 +1786,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetPresets(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tptz__GetPresetsResponse, "tptz:GetPresetsResponse", "")
+	 || soap_put__tptz__GetPresetsResponse(soap, &tptz__GetPresetsResponse, "tptz:GetPresetsResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1384,8 +1796,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetPresets(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__SetPreset(struct soap *soap)
 {	struct __tptz__SetPreset soap_tmp___tptz__SetPreset;
-	struct afterveda__AnyResponse tptz__SetPresetResponse;
-	soap_default_afterveda__AnyResponse(soap, &tptz__SetPresetResponse);
+	struct _tptz__SetPresetResponse tptz__SetPresetResponse;
+	soap_default__tptz__SetPresetResponse(soap, &tptz__SetPresetResponse);
 	soap_default___tptz__SetPreset(soap, &soap_tmp___tptz__SetPreset);
 	if (!soap_get___tptz__SetPreset(soap, &soap_tmp___tptz__SetPreset, "-tptz:SetPreset", NULL))
 		return soap->error;
@@ -1398,14 +1810,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__SetPreset(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tptz__SetPresetResponse);
+	soap_serialize__tptz__SetPresetResponse(soap, &tptz__SetPresetResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tptz__SetPresetResponse, "tptz:SetPresetResponse", "")
+		 || soap_put__tptz__SetPresetResponse(soap, &tptz__SetPresetResponse, "tptz:SetPresetResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1415,7 +1827,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__SetPreset(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tptz__SetPresetResponse, "tptz:SetPresetResponse", "")
+	 || soap_put__tptz__SetPresetResponse(soap, &tptz__SetPresetResponse, "tptz:SetPresetResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1425,8 +1837,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__SetPreset(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GotoPreset(struct soap *soap)
 {	struct __tptz__GotoPreset soap_tmp___tptz__GotoPreset;
-	struct afterveda__AnyResponse tptz__GotoPresetResponse;
-	soap_default_afterveda__AnyResponse(soap, &tptz__GotoPresetResponse);
+	struct _tptz__GotoPresetResponse tptz__GotoPresetResponse;
+	soap_default__tptz__GotoPresetResponse(soap, &tptz__GotoPresetResponse);
 	soap_default___tptz__GotoPreset(soap, &soap_tmp___tptz__GotoPreset);
 	if (!soap_get___tptz__GotoPreset(soap, &soap_tmp___tptz__GotoPreset, "-tptz:GotoPreset", NULL))
 		return soap->error;
@@ -1439,14 +1851,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GotoPreset(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tptz__GotoPresetResponse);
+	soap_serialize__tptz__GotoPresetResponse(soap, &tptz__GotoPresetResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tptz__GotoPresetResponse, "tptz:GotoPresetResponse", "")
+		 || soap_put__tptz__GotoPresetResponse(soap, &tptz__GotoPresetResponse, "tptz:GotoPresetResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1456,7 +1868,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GotoPreset(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tptz__GotoPresetResponse, "tptz:GotoPresetResponse", "")
+	 || soap_put__tptz__GotoPresetResponse(soap, &tptz__GotoPresetResponse, "tptz:GotoPresetResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1507,8 +1919,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetStatus(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GotoHomePosition(struct soap *soap)
 {	struct __tptz__GotoHomePosition soap_tmp___tptz__GotoHomePosition;
-	struct afterveda__AnyResponse tptz__GotoHomePositionResponse;
-	soap_default_afterveda__AnyResponse(soap, &tptz__GotoHomePositionResponse);
+	struct _tptz__GotoHomePositionResponse tptz__GotoHomePositionResponse;
+	soap_default__tptz__GotoHomePositionResponse(soap, &tptz__GotoHomePositionResponse);
 	soap_default___tptz__GotoHomePosition(soap, &soap_tmp___tptz__GotoHomePosition);
 	if (!soap_get___tptz__GotoHomePosition(soap, &soap_tmp___tptz__GotoHomePosition, "-tptz:GotoHomePosition", NULL))
 		return soap->error;
@@ -1521,14 +1933,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GotoHomePosition(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tptz__GotoHomePositionResponse);
+	soap_serialize__tptz__GotoHomePositionResponse(soap, &tptz__GotoHomePositionResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tptz__GotoHomePositionResponse, "tptz:GotoHomePositionResponse", "")
+		 || soap_put__tptz__GotoHomePositionResponse(soap, &tptz__GotoHomePositionResponse, "tptz:GotoHomePositionResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1538,7 +1950,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GotoHomePosition(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tptz__GotoHomePositionResponse, "tptz:GotoHomePositionResponse", "")
+	 || soap_put__tptz__GotoHomePositionResponse(soap, &tptz__GotoHomePositionResponse, "tptz:GotoHomePositionResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1548,8 +1960,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GotoHomePosition(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__SetHomePosition(struct soap *soap)
 {	struct __tptz__SetHomePosition soap_tmp___tptz__SetHomePosition;
-	struct afterveda__AnyResponse tptz__SetHomePositionResponse;
-	soap_default_afterveda__AnyResponse(soap, &tptz__SetHomePositionResponse);
+	struct _tptz__SetHomePositionResponse tptz__SetHomePositionResponse;
+	soap_default__tptz__SetHomePositionResponse(soap, &tptz__SetHomePositionResponse);
 	soap_default___tptz__SetHomePosition(soap, &soap_tmp___tptz__SetHomePosition);
 	if (!soap_get___tptz__SetHomePosition(soap, &soap_tmp___tptz__SetHomePosition, "-tptz:SetHomePosition", NULL))
 		return soap->error;
@@ -1562,14 +1974,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__SetHomePosition(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tptz__SetHomePositionResponse);
+	soap_serialize__tptz__SetHomePositionResponse(soap, &tptz__SetHomePositionResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tptz__SetHomePositionResponse, "tptz:SetHomePositionResponse", "")
+		 || soap_put__tptz__SetHomePositionResponse(soap, &tptz__SetHomePositionResponse, "tptz:SetHomePositionResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1579,7 +1991,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__SetHomePosition(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tptz__SetHomePositionResponse, "tptz:SetHomePositionResponse", "")
+	 || soap_put__tptz__SetHomePositionResponse(soap, &tptz__SetHomePositionResponse, "tptz:SetHomePositionResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1589,8 +2001,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__SetHomePosition(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__ContinuousMove(struct soap *soap)
 {	struct __tptz__ContinuousMove soap_tmp___tptz__ContinuousMove;
-	struct afterveda__AnyResponse tptz__ContinuousMoveResponse;
-	soap_default_afterveda__AnyResponse(soap, &tptz__ContinuousMoveResponse);
+	struct _tptz__ContinuousMoveResponse tptz__ContinuousMoveResponse;
+	soap_default__tptz__ContinuousMoveResponse(soap, &tptz__ContinuousMoveResponse);
 	soap_default___tptz__ContinuousMove(soap, &soap_tmp___tptz__ContinuousMove);
 	if (!soap_get___tptz__ContinuousMove(soap, &soap_tmp___tptz__ContinuousMove, "-tptz:ContinuousMove", NULL))
 		return soap->error;
@@ -1603,14 +2015,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__ContinuousMove(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tptz__ContinuousMoveResponse);
+	soap_serialize__tptz__ContinuousMoveResponse(soap, &tptz__ContinuousMoveResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tptz__ContinuousMoveResponse, "tptz:ContinuousMoveResponse", "")
+		 || soap_put__tptz__ContinuousMoveResponse(soap, &tptz__ContinuousMoveResponse, "tptz:ContinuousMoveResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1620,7 +2032,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__ContinuousMove(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tptz__ContinuousMoveResponse, "tptz:ContinuousMoveResponse", "")
+	 || soap_put__tptz__ContinuousMoveResponse(soap, &tptz__ContinuousMoveResponse, "tptz:ContinuousMoveResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1630,8 +2042,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__ContinuousMove(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__RelativeMove(struct soap *soap)
 {	struct __tptz__RelativeMove soap_tmp___tptz__RelativeMove;
-	struct afterveda__AnyResponse tptz__RelativeMoveResponse;
-	soap_default_afterveda__AnyResponse(soap, &tptz__RelativeMoveResponse);
+	struct _tptz__RelativeMoveResponse tptz__RelativeMoveResponse;
+	soap_default__tptz__RelativeMoveResponse(soap, &tptz__RelativeMoveResponse);
 	soap_default___tptz__RelativeMove(soap, &soap_tmp___tptz__RelativeMove);
 	if (!soap_get___tptz__RelativeMove(soap, &soap_tmp___tptz__RelativeMove, "-tptz:RelativeMove", NULL))
 		return soap->error;
@@ -1644,14 +2056,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__RelativeMove(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tptz__RelativeMoveResponse);
+	soap_serialize__tptz__RelativeMoveResponse(soap, &tptz__RelativeMoveResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tptz__RelativeMoveResponse, "tptz:RelativeMoveResponse", "")
+		 || soap_put__tptz__RelativeMoveResponse(soap, &tptz__RelativeMoveResponse, "tptz:RelativeMoveResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1661,7 +2073,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__RelativeMove(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tptz__RelativeMoveResponse, "tptz:RelativeMoveResponse", "")
+	 || soap_put__tptz__RelativeMoveResponse(soap, &tptz__RelativeMoveResponse, "tptz:RelativeMoveResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1671,8 +2083,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__RelativeMove(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__Stop(struct soap *soap)
 {	struct __tptz__Stop soap_tmp___tptz__Stop;
-	struct afterveda__AnyResponse tptz__StopResponse;
-	soap_default_afterveda__AnyResponse(soap, &tptz__StopResponse);
+	struct _tptz__StopResponse tptz__StopResponse;
+	soap_default__tptz__StopResponse(soap, &tptz__StopResponse);
 	soap_default___tptz__Stop(soap, &soap_tmp___tptz__Stop);
 	if (!soap_get___tptz__Stop(soap, &soap_tmp___tptz__Stop, "-tptz:Stop", NULL))
 		return soap->error;
@@ -1685,14 +2097,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__Stop(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tptz__StopResponse);
+	soap_serialize__tptz__StopResponse(soap, &tptz__StopResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tptz__StopResponse, "tptz:StopResponse", "")
+		 || soap_put__tptz__StopResponse(soap, &tptz__StopResponse, "tptz:StopResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1702,7 +2114,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__Stop(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tptz__StopResponse, "tptz:StopResponse", "")
+	 || soap_put__tptz__StopResponse(soap, &tptz__StopResponse, "tptz:StopResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1712,8 +2124,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__Stop(struct soap *soap)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetServiceCapabilities(struct soap *soap)
 {	struct __timg__GetServiceCapabilities soap_tmp___timg__GetServiceCapabilities;
-	struct afterveda__AnyResponse timg__GetServiceCapabilitiesResponse;
-	soap_default_afterveda__AnyResponse(soap, &timg__GetServiceCapabilitiesResponse);
+	struct _timg__GetServiceCapabilitiesResponse timg__GetServiceCapabilitiesResponse;
+	soap_default__timg__GetServiceCapabilitiesResponse(soap, &timg__GetServiceCapabilitiesResponse);
 	soap_default___timg__GetServiceCapabilities(soap, &soap_tmp___timg__GetServiceCapabilities);
 	if (!soap_get___timg__GetServiceCapabilities(soap, &soap_tmp___timg__GetServiceCapabilities, "-timg:GetServiceCapabilities", NULL))
 		return soap->error;
@@ -1726,14 +2138,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetServiceCapabilities(struct soap 
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &timg__GetServiceCapabilitiesResponse);
+	soap_serialize__timg__GetServiceCapabilitiesResponse(soap, &timg__GetServiceCapabilitiesResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &timg__GetServiceCapabilitiesResponse, "timg:GetServiceCapabilitiesResponse", "")
+		 || soap_put__timg__GetServiceCapabilitiesResponse(soap, &timg__GetServiceCapabilitiesResponse, "timg:GetServiceCapabilitiesResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1743,7 +2155,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetServiceCapabilities(struct soap 
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &timg__GetServiceCapabilitiesResponse, "timg:GetServiceCapabilitiesResponse", "")
+	 || soap_put__timg__GetServiceCapabilitiesResponse(soap, &timg__GetServiceCapabilitiesResponse, "timg:GetServiceCapabilitiesResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1753,8 +2165,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetServiceCapabilities(struct soap 
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetImagingSettings(struct soap *soap)
 {	struct __timg__GetImagingSettings soap_tmp___timg__GetImagingSettings;
-	struct afterveda__AnyResponse timg__GetImagingSettingsResponse;
-	soap_default_afterveda__AnyResponse(soap, &timg__GetImagingSettingsResponse);
+	struct _timg__GetImagingSettingsResponse timg__GetImagingSettingsResponse;
+	soap_default__timg__GetImagingSettingsResponse(soap, &timg__GetImagingSettingsResponse);
 	soap_default___timg__GetImagingSettings(soap, &soap_tmp___timg__GetImagingSettings);
 	if (!soap_get___timg__GetImagingSettings(soap, &soap_tmp___timg__GetImagingSettings, "-timg:GetImagingSettings", NULL))
 		return soap->error;
@@ -1767,14 +2179,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetImagingSettings(struct soap *soa
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &timg__GetImagingSettingsResponse);
+	soap_serialize__timg__GetImagingSettingsResponse(soap, &timg__GetImagingSettingsResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &timg__GetImagingSettingsResponse, "timg:GetImagingSettingsResponse", "")
+		 || soap_put__timg__GetImagingSettingsResponse(soap, &timg__GetImagingSettingsResponse, "timg:GetImagingSettingsResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1784,7 +2196,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetImagingSettings(struct soap *soa
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &timg__GetImagingSettingsResponse, "timg:GetImagingSettingsResponse", "")
+	 || soap_put__timg__GetImagingSettingsResponse(soap, &timg__GetImagingSettingsResponse, "timg:GetImagingSettingsResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1794,8 +2206,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetImagingSettings(struct soap *soa
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__SetImagingSettings(struct soap *soap)
 {	struct __timg__SetImagingSettings soap_tmp___timg__SetImagingSettings;
-	struct afterveda__AnyResponse timg__SetImagingSettingsResponse;
-	soap_default_afterveda__AnyResponse(soap, &timg__SetImagingSettingsResponse);
+	struct _timg__SetImagingSettingsResponse timg__SetImagingSettingsResponse;
+	soap_default__timg__SetImagingSettingsResponse(soap, &timg__SetImagingSettingsResponse);
 	soap_default___timg__SetImagingSettings(soap, &soap_tmp___timg__SetImagingSettings);
 	if (!soap_get___timg__SetImagingSettings(soap, &soap_tmp___timg__SetImagingSettings, "-timg:SetImagingSettings", NULL))
 		return soap->error;
@@ -1808,14 +2220,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__SetImagingSettings(struct soap *soa
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &timg__SetImagingSettingsResponse);
+	soap_serialize__timg__SetImagingSettingsResponse(soap, &timg__SetImagingSettingsResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &timg__SetImagingSettingsResponse, "timg:SetImagingSettingsResponse", "")
+		 || soap_put__timg__SetImagingSettingsResponse(soap, &timg__SetImagingSettingsResponse, "timg:SetImagingSettingsResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1825,7 +2237,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__SetImagingSettings(struct soap *soa
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &timg__SetImagingSettingsResponse, "timg:SetImagingSettingsResponse", "")
+	 || soap_put__timg__SetImagingSettingsResponse(soap, &timg__SetImagingSettingsResponse, "timg:SetImagingSettingsResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))
@@ -1835,8 +2247,8 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__SetImagingSettings(struct soap *soa
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetOptions(struct soap *soap)
 {	struct __timg__GetOptions soap_tmp___timg__GetOptions;
-	struct afterveda__AnyResponse timg__GetOptionsResponse;
-	soap_default_afterveda__AnyResponse(soap, &timg__GetOptionsResponse);
+	struct _timg__GetOptionsResponse timg__GetOptionsResponse;
+	soap_default__timg__GetOptionsResponse(soap, &timg__GetOptionsResponse);
 	soap_default___timg__GetOptions(soap, &soap_tmp___timg__GetOptions);
 	if (!soap_get___timg__GetOptions(soap, &soap_tmp___timg__GetOptions, "-timg:GetOptions", NULL))
 		return soap->error;
@@ -1849,14 +2261,14 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetOptions(struct soap *soap)
 		return soap->error;
 	soap->encodingStyle = NULL; /* use SOAP literal style */
 	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &timg__GetOptionsResponse);
+	soap_serialize__timg__GetOptionsResponse(soap, &timg__GetOptionsResponse);
 	if (soap_begin_count(soap))
 		return soap->error;
 	if ((soap->mode & SOAP_IO_LENGTH))
 	{	if (soap_envelope_begin_out(soap)
 		 || soap_putheader(soap)
 		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &timg__GetOptionsResponse, "timg:GetOptionsResponse", "")
+		 || soap_put__timg__GetOptionsResponse(soap, &timg__GetOptionsResponse, "timg:GetOptionsResponse", "")
 		 || soap_body_end_out(soap)
 		 || soap_envelope_end_out(soap))
 			 return soap->error;
@@ -1866,376 +2278,7 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetOptions(struct soap *soap)
 	 || soap_envelope_begin_out(soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &timg__GetOptionsResponse, "timg:GetOptionsResponse", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap->error;
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tev__GetEventProperties(struct soap *soap)
-{	struct __tev__GetEventProperties soap_tmp___tev__GetEventProperties;
-	struct afterveda__AnyResponse tev__GetEventPropertiesResponse;
-	soap_default_afterveda__AnyResponse(soap, &tev__GetEventPropertiesResponse);
-	soap_default___tev__GetEventProperties(soap, &soap_tmp___tev__GetEventProperties);
-	if (!soap_get___tev__GetEventProperties(soap, &soap_tmp___tev__GetEventProperties, "-tev:GetEventProperties", NULL))
-		return soap->error;
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap->error;
-	soap->error = __tev__GetEventProperties(soap, soap_tmp___tev__GetEventProperties.tev__GetEventProperties, tev__GetEventPropertiesResponse);
-	if (soap->error)
-		return soap->error;
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tev__GetEventPropertiesResponse);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tev__GetEventPropertiesResponse, "tev:GetEventPropertiesResponse", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	};
-	if (soap_end_count(soap)
-	 || soap_response(soap, SOAP_OK)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tev__GetEventPropertiesResponse, "tev:GetEventPropertiesResponse", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap->error;
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tev__CreatePullPointSubscription(struct soap *soap)
-{	struct __tev__CreatePullPointSubscription soap_tmp___tev__CreatePullPointSubscription;
-	struct afterveda__AnyResponse tev__CreatePullPointSubscriptionResponse;
-	soap_default_afterveda__AnyResponse(soap, &tev__CreatePullPointSubscriptionResponse);
-	soap_default___tev__CreatePullPointSubscription(soap, &soap_tmp___tev__CreatePullPointSubscription);
-	if (!soap_get___tev__CreatePullPointSubscription(soap, &soap_tmp___tev__CreatePullPointSubscription, "-tev:CreatePullPointSubscription", NULL))
-		return soap->error;
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap->error;
-	soap->error = __tev__CreatePullPointSubscription(soap, soap_tmp___tev__CreatePullPointSubscription.tev__CreatePullPointSubscription, tev__CreatePullPointSubscriptionResponse);
-	if (soap->error)
-		return soap->error;
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tev__CreatePullPointSubscriptionResponse);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tev__CreatePullPointSubscriptionResponse, "tev:CreatePullPointSubscriptionResponse", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	};
-	if (soap_end_count(soap)
-	 || soap_response(soap, SOAP_OK)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tev__CreatePullPointSubscriptionResponse, "tev:CreatePullPointSubscriptionResponse", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap->error;
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tev__PullMessages(struct soap *soap)
-{	struct __tev__PullMessages soap_tmp___tev__PullMessages;
-	struct afterveda__AnyResponse tev__PullMessagesResponse;
-	soap_default_afterveda__AnyResponse(soap, &tev__PullMessagesResponse);
-	soap_default___tev__PullMessages(soap, &soap_tmp___tev__PullMessages);
-	if (!soap_get___tev__PullMessages(soap, &soap_tmp___tev__PullMessages, "-tev:PullMessages", NULL))
-		return soap->error;
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap->error;
-	soap->error = __tev__PullMessages(soap, soap_tmp___tev__PullMessages.tev__PullMessages, tev__PullMessagesResponse);
-	if (soap->error)
-		return soap->error;
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tev__PullMessagesResponse);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tev__PullMessagesResponse, "tev:PullMessagesResponse", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	};
-	if (soap_end_count(soap)
-	 || soap_response(soap, SOAP_OK)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tev__PullMessagesResponse, "tev:PullMessagesResponse", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap->error;
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___wsnt__Renew(struct soap *soap)
-{	struct __wsnt__Renew soap_tmp___wsnt__Renew;
-	struct afterveda__AnyResponse wsnt__RenewResponse;
-	soap_default_afterveda__AnyResponse(soap, &wsnt__RenewResponse);
-	soap_default___wsnt__Renew(soap, &soap_tmp___wsnt__Renew);
-	if (!soap_get___wsnt__Renew(soap, &soap_tmp___wsnt__Renew, "-wsnt:Renew", NULL))
-		return soap->error;
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap->error;
-	soap->error = __wsnt__Renew(soap, soap_tmp___wsnt__Renew.wsnt__Renew, wsnt__RenewResponse);
-	if (soap->error)
-		return soap->error;
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &wsnt__RenewResponse);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &wsnt__RenewResponse, "wsnt:RenewResponse", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	};
-	if (soap_end_count(soap)
-	 || soap_response(soap, SOAP_OK)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &wsnt__RenewResponse, "wsnt:RenewResponse", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap->error;
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___wsnt__Unsubscribe(struct soap *soap)
-{	struct __wsnt__Unsubscribe soap_tmp___wsnt__Unsubscribe;
-	struct afterveda__AnyResponse wsnt__UnsubscribeResponse;
-	soap_default_afterveda__AnyResponse(soap, &wsnt__UnsubscribeResponse);
-	soap_default___wsnt__Unsubscribe(soap, &soap_tmp___wsnt__Unsubscribe);
-	if (!soap_get___wsnt__Unsubscribe(soap, &soap_tmp___wsnt__Unsubscribe, "-wsnt:Unsubscribe", NULL))
-		return soap->error;
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap->error;
-	soap->error = __wsnt__Unsubscribe(soap, soap_tmp___wsnt__Unsubscribe.wsnt__Unsubscribe, wsnt__UnsubscribeResponse);
-	if (soap->error)
-		return soap->error;
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &wsnt__UnsubscribeResponse);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &wsnt__UnsubscribeResponse, "wsnt:UnsubscribeResponse", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	};
-	if (soap_end_count(soap)
-	 || soap_response(soap, SOAP_OK)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &wsnt__UnsubscribeResponse, "wsnt:UnsubscribeResponse", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap->error;
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tosd__GetServiceCapabilities(struct soap *soap)
-{	struct __tosd__GetServiceCapabilities soap_tmp___tosd__GetServiceCapabilities;
-	struct afterveda__AnyResponse tosd__GetServiceCapabilitiesResponse;
-	soap_default_afterveda__AnyResponse(soap, &tosd__GetServiceCapabilitiesResponse);
-	soap_default___tosd__GetServiceCapabilities(soap, &soap_tmp___tosd__GetServiceCapabilities);
-	if (!soap_get___tosd__GetServiceCapabilities(soap, &soap_tmp___tosd__GetServiceCapabilities, "-tosd:GetServiceCapabilities", NULL))
-		return soap->error;
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap->error;
-	soap->error = __tosd__GetServiceCapabilities(soap, soap_tmp___tosd__GetServiceCapabilities.tosd__GetServiceCapabilities, tosd__GetServiceCapabilitiesResponse);
-	if (soap->error)
-		return soap->error;
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tosd__GetServiceCapabilitiesResponse);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tosd__GetServiceCapabilitiesResponse, "tosd:GetServiceCapabilitiesResponse", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	};
-	if (soap_end_count(soap)
-	 || soap_response(soap, SOAP_OK)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tosd__GetServiceCapabilitiesResponse, "tosd:GetServiceCapabilitiesResponse", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap->error;
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tosd__GetOSDs(struct soap *soap)
-{	struct __tosd__GetOSDs soap_tmp___tosd__GetOSDs;
-	struct afterveda__AnyResponse tosd__GetOSDsResponse;
-	soap_default_afterveda__AnyResponse(soap, &tosd__GetOSDsResponse);
-	soap_default___tosd__GetOSDs(soap, &soap_tmp___tosd__GetOSDs);
-	if (!soap_get___tosd__GetOSDs(soap, &soap_tmp___tosd__GetOSDs, "-tosd:GetOSDs", NULL))
-		return soap->error;
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap->error;
-	soap->error = __tosd__GetOSDs(soap, soap_tmp___tosd__GetOSDs.tosd__GetOSDs, tosd__GetOSDsResponse);
-	if (soap->error)
-		return soap->error;
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tosd__GetOSDsResponse);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tosd__GetOSDsResponse, "tosd:GetOSDsResponse", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	};
-	if (soap_end_count(soap)
-	 || soap_response(soap, SOAP_OK)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tosd__GetOSDsResponse, "tosd:GetOSDsResponse", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap->error;
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tosd__GetOSD(struct soap *soap)
-{	struct __tosd__GetOSD soap_tmp___tosd__GetOSD;
-	struct afterveda__AnyResponse tosd__GetOSDResponse;
-	soap_default_afterveda__AnyResponse(soap, &tosd__GetOSDResponse);
-	soap_default___tosd__GetOSD(soap, &soap_tmp___tosd__GetOSD);
-	if (!soap_get___tosd__GetOSD(soap, &soap_tmp___tosd__GetOSD, "-tosd:GetOSD", NULL))
-		return soap->error;
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap->error;
-	soap->error = __tosd__GetOSD(soap, soap_tmp___tosd__GetOSD.tosd__GetOSD, tosd__GetOSDResponse);
-	if (soap->error)
-		return soap->error;
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tosd__GetOSDResponse);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tosd__GetOSDResponse, "tosd:GetOSDResponse", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	};
-	if (soap_end_count(soap)
-	 || soap_response(soap, SOAP_OK)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tosd__GetOSDResponse, "tosd:GetOSDResponse", "")
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap->error;
-	return soap_closesock(soap);
-}
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tosd__SetOSD(struct soap *soap)
-{	struct __tosd__SetOSD soap_tmp___tosd__SetOSD;
-	struct afterveda__AnyResponse tosd__SetOSDResponse;
-	soap_default_afterveda__AnyResponse(soap, &tosd__SetOSDResponse);
-	soap_default___tosd__SetOSD(soap, &soap_tmp___tosd__SetOSD);
-	if (!soap_get___tosd__SetOSD(soap, &soap_tmp___tosd__SetOSD, "-tosd:SetOSD", NULL))
-		return soap->error;
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap->error;
-	soap->error = __tosd__SetOSD(soap, soap_tmp___tosd__SetOSD.tosd__SetOSD, tosd__SetOSDResponse);
-	if (soap->error)
-		return soap->error;
-	soap->encodingStyle = NULL; /* use SOAP literal style */
-	soap_serializeheader(soap);
-	soap_serialize_afterveda__AnyResponse(soap, &tosd__SetOSDResponse);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if ((soap->mode & SOAP_IO_LENGTH))
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put_afterveda__AnyResponse(soap, &tosd__SetOSDResponse, "tosd:SetOSDResponse", "")
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	};
-	if (soap_end_count(soap)
-	 || soap_response(soap, SOAP_OK)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put_afterveda__AnyResponse(soap, &tosd__SetOSDResponse, "tosd:SetOSDResponse", "")
+	 || soap_put__timg__GetOptionsResponse(soap, &timg__GetOptionsResponse, "timg:GetOptionsResponse", "")
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))

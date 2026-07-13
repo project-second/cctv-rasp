@@ -128,6 +128,21 @@ enum wsdd__FaultCodeType {
 };
 #endif
 
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:40 */
+#ifndef SOAP_TYPE_tds__CapabilityCategory
+#define SOAP_TYPE_tds__CapabilityCategory (372)
+/* tds:CapabilityCategory */
+enum tds__CapabilityCategory {
+	tds__CapabilityCategory__All = 0,
+	tds__CapabilityCategory__Analytics = 1,
+	tds__CapabilityCategory__Device = 2,
+	tds__CapabilityCategory__Events = 3,
+	tds__CapabilityCategory__Imaging = 4,
+	tds__CapabilityCategory__Media = 5,
+	tds__CapabilityCategory__PTZ = 6
+};
+#endif
+
 /******************************************************************************\
  *                                                                            *
  * Types with Custom Serializers                                              *
@@ -266,65 +281,225 @@ struct __wsdd__Probe;	/* wsdx.h:85 */
 struct __wsdd__ProbeMatches;	/* wsdx.h:94 */
 struct __wsdd__Resolve;	/* wsdx.h:103 */
 struct __wsdd__ResolveMatches;	/* wsdx.h:112 */
-struct afterveda__EmptyRequest;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:12 */
-struct afterveda__AnyResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:16 */
-struct _tds__GetDeviceInformation;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:20 */
-struct _tds__GetDeviceInformationResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:24 */
-struct _tptz__GetStatus;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:32 */
-struct tt__Vector2D;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:36 */
-struct tt__Vector1D;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:41 */
-struct tt__PTZVector;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:45 */
-struct tt__PTZMoveStatus;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:50 */
-struct tt__PTZStatus;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:55 */
-struct _tptz__GetStatusResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:61 */
-struct __tds__GetServices;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:70 */
-struct __tds__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:72 */
-struct __tds__GetDeviceInformation;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:74 */
-struct __tds__GetSystemDateAndTime;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:76 */
-struct __tds__GetScopes;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:78 */
-struct __tds__GetHostname;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:80 */
-struct __tds__GetNetworkInterfaces;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:82 */
-struct __tds__GetUsers;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:84 */
-struct __tds__GetCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:86 */
-struct __trt__GetProfiles;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:93 */
-struct __trt__GetProfile;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:95 */
-struct __trt__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:97 */
-struct __trt__GetVideoSources;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:99 */
-struct __trt__GetVideoSourceConfigurations;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:101 */
-struct __trt__GetVideoSourceConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:103 */
-struct __trt__GetVideoEncoderConfigurations;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:105 */
-struct __trt__GetStreamUri;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:107 */
-struct __trt__GetVideoEncoderConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:109 */
-struct __trt__GetVideoSourceConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:111 */
-struct __trt__GetVideoEncoderConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:113 */
-struct __trt__SetVideoEncoderConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:115 */
-struct __tr2__GetProfiles;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:122 */
-struct __tr2__GetStreamUri;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:124 */
-struct __tr2__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:126 */
-struct __tptz__GetNodes;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:133 */
-struct __tptz__GetConfigurations;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:135 */
-struct __tptz__GetPresets;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:137 */
-struct __tptz__SetPreset;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:139 */
-struct __tptz__GotoPreset;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:141 */
-struct __tptz__GetStatus;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:143 */
-struct __tptz__GotoHomePosition;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:145 */
-struct __tptz__SetHomePosition;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:147 */
-struct __tptz__ContinuousMove;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:149 */
-struct __tptz__RelativeMove;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:151 */
-struct __tptz__Stop;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:153 */
-struct __timg__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:160 */
-struct __timg__GetImagingSettings;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:162 */
-struct __timg__SetImagingSettings;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:164 */
-struct __timg__GetOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:166 */
-struct __tev__GetEventProperties;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:173 */
-struct __tev__CreatePullPointSubscription;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:175 */
-struct __tev__PullMessages;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:177 */
-struct __wsnt__Renew;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:184 */
-struct __wsnt__Unsubscribe;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:186 */
-struct __tosd__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:193 */
-struct __tosd__GetOSDs;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:195 */
-struct __tosd__GetOSD;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:197 */
-struct __tosd__SetOSD;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:199 */
+struct _tds__GetServices;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:22 */
+struct _tds__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:26 */
+struct _tds__GetDeviceInformation;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:28 */
+struct _tds__GetSystemDateAndTime;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:30 */
+struct _tds__GetScopes;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:32 */
+struct _tds__GetHostname;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:34 */
+struct _tds__GetNetworkInterfaces;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:36 */
+struct _tds__GetUsers;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:38 */
+struct _tds__GetCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:50 */
+struct _tds__GetDeviceInformationResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:55 */
+struct tt__OnvifVersion;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:63 */
+struct tds__Service;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:68 */
+struct tt__StreamingCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:74 */
+struct tt__DeviceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:80 */
+struct tt__MediaCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:84 */
+struct tt__PTZCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:89 */
+struct tt__ImagingCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:93 */
+struct tt__Capabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:97 */
+struct _tds__GetServicesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:105 */
+struct _tds__GetCapabilitiesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:110 */
+struct tds__NetworkCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:114 */
+struct tds__SecurityCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:121 */
+struct tds__SystemCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:129 */
+struct tds__DeviceServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:138 */
+struct _tds__GetServiceCapabilitiesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:144 */
+struct tt__Time;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:148 */
+struct tt__Date;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:154 */
+struct tt__DateTime;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:160 */
+struct tt__SystemDateTime;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:165 */
+struct _tds__GetSystemDateAndTimeResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:171 */
+struct tt__Scope;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:175 */
+struct _tds__GetScopesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:180 */
+struct tt__HostnameInformation;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:185 */
+struct _tds__GetHostnameResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:190 */
+struct tt__NetworkInterfaceInfo;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:194 */
+struct tt__PrefixedIPv4Address;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:200 */
+struct tt__IPv4Configuration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:205 */
+struct tt__IPv4NetworkInterface;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:213 */
+struct tt__NetworkInterface;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:218 */
+struct _tds__GetNetworkInterfacesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:225 */
+struct tt__User;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:230 */
+struct _tds__GetUsersResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:235 */
+struct tt__IntRectangle;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:240 */
+struct tt__VideoResolution;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:247 */
+struct tt__VideoRateControl;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:252 */
+struct tt__H264Configuration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:258 */
+struct tt__IPAddress;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:263 */
+struct tt__MulticastConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:268 */
+struct tt__VideoSource;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:275 */
+struct tt__VideoSourceConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:281 */
+struct tt__VideoEncoderConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:289 */
+struct tt__FloatRange;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:302 */
+struct tt__IntRange;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:307 */
+struct tt__IntRectangleRange;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:312 */
+struct tt__VideoSourceConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:319 */
+struct tt__H264Options;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:325 */
+struct tt__VideoEncoderConfigurationOptionsExtension;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:335 */
+struct tt__VideoEncoderConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:339 */
+struct tt__Transport;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:346 */
+struct tt__StreamSetup;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:350 */
+struct _trt__GetProfiles;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:355 */
+struct _trt__GetProfile;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:357 */
+struct _trt__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:361 */
+struct _trt__GetVideoSources;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:363 */
+struct _trt__GetVideoSourceConfigurations;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:365 */
+struct _trt__GetVideoSourceConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:367 */
+struct _trt__GetVideoEncoderConfigurations;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:371 */
+struct _trt__GetStreamUri;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:373 */
+struct _trt__GetVideoEncoderConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:378 */
+struct _trt__GetVideoSourceConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:382 */
+struct _trt__GetVideoEncoderConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:387 */
+struct trt__Capabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:392 */
+struct _trt__GetServiceCapabilitiesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:401 */
+struct _trt__GetVideoSourceConfigurationsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:405 */
+struct _trt__GetVideoSourceConfigurationResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:410 */
+struct _trt__GetVideoSourceConfigurationOptionsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:414 */
+struct _trt__GetVideoEncoderConfigurationOptionsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:418 */
+struct _trt__SetVideoEncoderConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:422 */
+struct _trt__SetVideoEncoderConfigurationResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:427 */
+struct tr2__Capabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:430 */
+struct tr2__ConfigurationSet;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:439 */
+struct tr2__MediaProfile;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:444 */
+struct _tr2__GetProfiles;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:451 */
+struct _tr2__GetStreamUri;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:457 */
+struct _tr2__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:462 */
+struct _tr2__GetProfilesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:464 */
+struct _tr2__GetStreamUriResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:469 */
+struct _tr2__GetServiceCapabilitiesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:473 */
+struct tt__Space2DDescription;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:477 */
+struct tt__PTZSpaces;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:483 */
+struct tptz__Capabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:490 */
+struct tt__DurationRange;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:498 */
+struct tt__PTZConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:503 */
+struct tt__PTZNode;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:508 */
+struct tt__PanTiltLimits;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:516 */
+struct tt__PTZConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:520 */
+struct tt__PTZPreset;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:531 */
+struct _tptz__GetNodesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:536 */
+struct _tptz__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:541 */
+struct _tptz__GetServiceCapabilitiesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:543 */
+struct _tptz__GetNode;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:547 */
+struct _tptz__GetNodeResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:551 */
+struct _tptz__GetConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:555 */
+struct _tptz__GetConfigurationResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:559 */
+struct _tptz__GetConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:563 */
+struct _tptz__GetConfigurationOptionsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:567 */
+struct _tptz__GetConfigurationsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:571 */
+struct _tptz__GetPresetsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:576 */
+struct _tptz__GetNodes;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:581 */
+struct _tptz__GetConfigurations;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:583 */
+struct _tptz__GetPresets;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:585 */
+struct _tptz__SetPreset;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:589 */
+struct _tptz__SetPresetResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:595 */
+struct tt__Profile;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:599 */
+struct tt__MediaUri;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:608 */
+struct _trt__GetProfilesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:615 */
+struct _trt__GetProfileResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:620 */
+struct _trt__GetStreamUriResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:624 */
+struct _trt__GetVideoSourcesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:628 */
+struct _trt__GetVideoEncoderConfigurationResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:633 */
+struct _trt__GetVideoEncoderConfigurationsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:637 */
+struct _tptz__GetStatus;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:642 */
+struct tt__Vector2D;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:646 */
+struct tt__Vector1D;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:651 */
+struct tt__PTZVector;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:655 */
+struct tt__PTZSpeed;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:660 */
+struct tt__PTZMoveStatus;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:665 */
+struct tt__PTZStatus;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:670 */
+struct _tptz__GetStatusResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:676 */
+struct _tptz__ContinuousMove;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:680 */
+struct _tptz__RelativeMove;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:686 */
+struct _tptz__GotoPreset;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:692 */
+struct _tptz__GotoPresetResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:698 */
+struct _tptz__SetHomePosition;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:700 */
+struct _tptz__SetHomePositionResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:704 */
+struct _tptz__GotoHomePosition;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:706 */
+struct _tptz__GotoHomePositionResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:711 */
+struct _tptz__ContinuousMoveResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:713 */
+struct _tptz__RelativeMoveResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:715 */
+struct _tptz__Stop;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:717 */
+struct _tptz__StopResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:723 */
+struct tt__ImagingSettings20;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:725 */
+struct tt__ImagingOptions20;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:731 */
+struct timg__Capabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:737 */
+struct _timg__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:742 */
+struct _timg__GetServiceCapabilitiesResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:744 */
+struct _timg__GetImagingSettings;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:748 */
+struct _timg__GetImagingSettingsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:752 */
+struct _timg__SetImagingSettings;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:756 */
+struct _timg__SetImagingSettingsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:762 */
+struct _timg__GetOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:764 */
+struct _timg__GetOptionsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:768 */
+struct tt__OSDPosConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:772 */
+struct tt__OSDTextConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:776 */
+struct tt__OSDConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:781 */
+struct tt__MaximumNumberOfOSDs;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:789 */
+struct tt__OSDTextOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:798 */
+struct tt__OSDConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:803 */
+struct _trt__GetOSDs;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:812 */
+struct _trt__GetOSDsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:816 */
+struct _trt__GetOSD;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:821 */
+struct _trt__GetOSDResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:825 */
+struct _trt__GetOSDOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:829 */
+struct _trt__GetOSDOptionsResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:833 */
+struct _trt__SetOSD;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:837 */
+struct _trt__SetOSDResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:841 */
+struct _trt__CreateOSD;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:843 */
+struct _trt__CreateOSDResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:847 */
+struct _trt__DeleteOSD;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:851 */
+struct _trt__DeleteOSDResponse;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:855 */
+struct __tds__GetServices;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:862 */
+struct __tds__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:864 */
+struct __tds__GetDeviceInformation;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:866 */
+struct __tds__GetSystemDateAndTime;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:868 */
+struct __tds__GetScopes;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:870 */
+struct __tds__GetHostname;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:872 */
+struct __tds__GetNetworkInterfaces;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:874 */
+struct __tds__GetUsers;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:876 */
+struct __tds__GetCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:878 */
+struct __trt__GetProfiles;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:885 */
+struct __trt__GetProfile;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:887 */
+struct __trt__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:889 */
+struct __trt__GetVideoSources;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:891 */
+struct __trt__GetOSDs;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:893 */
+struct __trt__GetOSD;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:895 */
+struct __trt__GetOSDOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:897 */
+struct __trt__SetOSD;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:899 */
+struct __trt__CreateOSD;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:901 */
+struct __trt__DeleteOSD;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:903 */
+struct __trt__GetVideoSourceConfigurations;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:905 */
+struct __trt__GetVideoSourceConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:907 */
+struct __trt__GetVideoEncoderConfigurations;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:909 */
+struct __trt__GetStreamUri;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:911 */
+struct __trt__GetVideoEncoderConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:913 */
+struct __trt__GetVideoSourceConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:915 */
+struct __trt__GetVideoEncoderConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:917 */
+struct __trt__SetVideoEncoderConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:919 */
+struct __tr2__GetProfiles;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:926 */
+struct __tr2__GetStreamUri;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:928 */
+struct __tr2__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:930 */
+struct __tptz__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:937 */
+struct __tptz__GetNodes;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:939 */
+struct __tptz__GetNode;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:941 */
+struct __tptz__GetConfigurations;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:943 */
+struct __tptz__GetConfiguration;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:945 */
+struct __tptz__GetConfigurationOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:947 */
+struct __tptz__GetPresets;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:949 */
+struct __tptz__SetPreset;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:951 */
+struct __tptz__GotoPreset;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:953 */
+struct __tptz__GetStatus;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:955 */
+struct __tptz__GotoHomePosition;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:957 */
+struct __tptz__SetHomePosition;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:959 */
+struct __tptz__ContinuousMove;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:961 */
+struct __tptz__RelativeMove;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:963 */
+struct __tptz__Stop;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:965 */
+struct __timg__GetServiceCapabilities;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:972 */
+struct __timg__GetImagingSettings;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:974 */
+struct __timg__SetImagingSettings;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:976 */
+struct __timg__GetOptions;	/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:978 */
 
 /* wsu.h:77 */
 #ifndef SOAP_TYPE__wsu__Timestamp
@@ -3115,72 +3290,163 @@ struct SOAP_CMAC __wsdd__ResolveMatches {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:12 */
-#ifndef SOAP_TYPE_afterveda__EmptyRequest
-#define SOAP_TYPE_afterveda__EmptyRequest (364)
-/* complex XML schema type 'afterveda:EmptyRequest': */
-struct SOAP_CMAC afterveda__EmptyRequest {
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:22 */
+#ifndef SOAP_TYPE__tds__GetServices
+#define SOAP_TYPE__tds__GetServices (363)
+/* complex XML schema type 'tds:GetServices': */
+struct SOAP_CMAC _tds__GetServices {
       public:
-        char *__any;
+        /** Required element 'tds:IncludeCapability' of XML schema type 'xsd:boolean' */
+        bool IncludeCapability;
       public:
-        /** Return unique type id SOAP_TYPE_afterveda__EmptyRequest */
-        long soap_type() const { return SOAP_TYPE_afterveda__EmptyRequest; }
+        /** Return unique type id SOAP_TYPE__tds__GetServices */
+        long soap_type() const { return SOAP_TYPE__tds__GetServices; }
         /** Constructor with member initializations */
-        afterveda__EmptyRequest() : __any() { }
+        _tds__GetServices() : IncludeCapability() { }
         /** Friend allocator */
-        friend SOAP_FMAC1 afterveda__EmptyRequest * SOAP_FMAC2 soap_instantiate_afterveda__EmptyRequest(struct soap*, int, const char*, const char*, size_t*);
+        friend SOAP_FMAC1 _tds__GetServices * SOAP_FMAC2 soap_instantiate__tds__GetServices(struct soap*, int, const char*, const char*, size_t*);
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:16 */
-#ifndef SOAP_TYPE_afterveda__AnyResponse
-#define SOAP_TYPE_afterveda__AnyResponse (365)
-/* complex XML schema type 'afterveda:AnyResponse': */
-struct SOAP_CMAC afterveda__AnyResponse {
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:26 */
+#ifndef SOAP_TYPE__tds__GetServiceCapabilities
+#define SOAP_TYPE__tds__GetServiceCapabilities (365)
+/* complex XML schema type 'tds:GetServiceCapabilities': */
+struct SOAP_CMAC _tds__GetServiceCapabilities {
       public:
-        char *__any;
-      public:
-        /** Return unique type id SOAP_TYPE_afterveda__AnyResponse */
-        long soap_type() const { return SOAP_TYPE_afterveda__AnyResponse; }
+        /** Return unique type id SOAP_TYPE__tds__GetServiceCapabilities */
+        long soap_type() const { return SOAP_TYPE__tds__GetServiceCapabilities; }
         /** Constructor with member initializations */
-        afterveda__AnyResponse() : __any() { }
+        _tds__GetServiceCapabilities() { }
         /** Friend allocator */
-        friend SOAP_FMAC1 afterveda__AnyResponse * SOAP_FMAC2 soap_instantiate_afterveda__AnyResponse(struct soap*, int, const char*, const char*, size_t*);
+        friend SOAP_FMAC1 _tds__GetServiceCapabilities * SOAP_FMAC2 soap_instantiate__tds__GetServiceCapabilities(struct soap*, int, const char*, const char*, size_t*);
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:20 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:28 */
 #ifndef SOAP_TYPE__tds__GetDeviceInformation
 #define SOAP_TYPE__tds__GetDeviceInformation (366)
 /* complex XML schema type 'tds:GetDeviceInformation': */
 struct SOAP_CMAC _tds__GetDeviceInformation {
       public:
-        char *__any;
-      public:
         /** Return unique type id SOAP_TYPE__tds__GetDeviceInformation */
         long soap_type() const { return SOAP_TYPE__tds__GetDeviceInformation; }
         /** Constructor with member initializations */
-        _tds__GetDeviceInformation() : __any() { }
+        _tds__GetDeviceInformation() { }
         /** Friend allocator */
         friend SOAP_FMAC1 _tds__GetDeviceInformation * SOAP_FMAC2 soap_instantiate__tds__GetDeviceInformation(struct soap*, int, const char*, const char*, size_t*);
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:24 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:30 */
+#ifndef SOAP_TYPE__tds__GetSystemDateAndTime
+#define SOAP_TYPE__tds__GetSystemDateAndTime (367)
+/* complex XML schema type 'tds:GetSystemDateAndTime': */
+struct SOAP_CMAC _tds__GetSystemDateAndTime {
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetSystemDateAndTime */
+        long soap_type() const { return SOAP_TYPE__tds__GetSystemDateAndTime; }
+        /** Constructor with member initializations */
+        _tds__GetSystemDateAndTime() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetSystemDateAndTime * SOAP_FMAC2 soap_instantiate__tds__GetSystemDateAndTime(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:32 */
+#ifndef SOAP_TYPE__tds__GetScopes
+#define SOAP_TYPE__tds__GetScopes (368)
+/* complex XML schema type 'tds:GetScopes': */
+struct SOAP_CMAC _tds__GetScopes {
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetScopes */
+        long soap_type() const { return SOAP_TYPE__tds__GetScopes; }
+        /** Constructor with member initializations */
+        _tds__GetScopes() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetScopes * SOAP_FMAC2 soap_instantiate__tds__GetScopes(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:34 */
+#ifndef SOAP_TYPE__tds__GetHostname
+#define SOAP_TYPE__tds__GetHostname (369)
+/* complex XML schema type 'tds:GetHostname': */
+struct SOAP_CMAC _tds__GetHostname {
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetHostname */
+        long soap_type() const { return SOAP_TYPE__tds__GetHostname; }
+        /** Constructor with member initializations */
+        _tds__GetHostname() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetHostname * SOAP_FMAC2 soap_instantiate__tds__GetHostname(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:36 */
+#ifndef SOAP_TYPE__tds__GetNetworkInterfaces
+#define SOAP_TYPE__tds__GetNetworkInterfaces (370)
+/* complex XML schema type 'tds:GetNetworkInterfaces': */
+struct SOAP_CMAC _tds__GetNetworkInterfaces {
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetNetworkInterfaces */
+        long soap_type() const { return SOAP_TYPE__tds__GetNetworkInterfaces; }
+        /** Constructor with member initializations */
+        _tds__GetNetworkInterfaces() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetNetworkInterfaces * SOAP_FMAC2 soap_instantiate__tds__GetNetworkInterfaces(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:38 */
+#ifndef SOAP_TYPE__tds__GetUsers
+#define SOAP_TYPE__tds__GetUsers (371)
+/* complex XML schema type 'tds:GetUsers': */
+struct SOAP_CMAC _tds__GetUsers {
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetUsers */
+        long soap_type() const { return SOAP_TYPE__tds__GetUsers; }
+        /** Constructor with member initializations */
+        _tds__GetUsers() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetUsers * SOAP_FMAC2 soap_instantiate__tds__GetUsers(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:50 */
+#ifndef SOAP_TYPE__tds__GetCapabilities
+#define SOAP_TYPE__tds__GetCapabilities (373)
+/* complex XML schema type 'tds:GetCapabilities': */
+struct SOAP_CMAC _tds__GetCapabilities {
+      public:
+        /** Sequence of elements 'tds:Category' of XML schema type 'tds:CapabilityCategory' stored in dynamic array Category of length __sizeCategory */
+        int __sizeCategory;
+        enum tds__CapabilityCategory *Category;
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetCapabilities */
+        long soap_type() const { return SOAP_TYPE__tds__GetCapabilities; }
+        /** Constructor with member initializations */
+        _tds__GetCapabilities() : __sizeCategory(), Category() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetCapabilities * SOAP_FMAC2 soap_instantiate__tds__GetCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:55 */
 #ifndef SOAP_TYPE__tds__GetDeviceInformationResponse
-#define SOAP_TYPE__tds__GetDeviceInformationResponse (367)
+#define SOAP_TYPE__tds__GetDeviceInformationResponse (375)
 /* complex XML schema type 'tds:GetDeviceInformationResponse': */
 struct SOAP_CMAC _tds__GetDeviceInformationResponse {
       public:
-        /** Optional element 'Manufacturer' of XML schema type 'xsd:string' */
+        /** Optional element 'tds:Manufacturer' of XML schema type 'xsd:string' */
         char *Manufacturer;
-        /** Optional element 'Model' of XML schema type 'xsd:string' */
+        /** Optional element 'tds:Model' of XML schema type 'xsd:string' */
         char *Model;
-        /** Optional element 'FirmwareVersion' of XML schema type 'xsd:string' */
+        /** Optional element 'tds:FirmwareVersion' of XML schema type 'xsd:string' */
         char *FirmwareVersion;
-        /** Optional element 'SerialNumber' of XML schema type 'xsd:string' */
+        /** Optional element 'tds:SerialNumber' of XML schema type 'xsd:string' */
         char *SerialNumber;
-        /** Optional element 'HardwareId' of XML schema type 'xsd:string' */
+        /** Optional element 'tds:HardwareId' of XML schema type 'xsd:string' */
         char *HardwareId;
       public:
         /** Return unique type id SOAP_TYPE__tds__GetDeviceInformationResponse */
@@ -3192,13 +3458,2270 @@ struct SOAP_CMAC _tds__GetDeviceInformationResponse {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:32 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:63 */
+#ifndef SOAP_TYPE_tt__OnvifVersion
+#define SOAP_TYPE_tt__OnvifVersion (376)
+/* complex XML schema type 'tt:OnvifVersion': */
+struct SOAP_CMAC tt__OnvifVersion {
+      public:
+        /** Required element 'tt:Major' of XML schema type 'xsd:int' */
+        int Major;
+        /** Required element 'tt:Minor' of XML schema type 'xsd:int' */
+        int Minor;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__OnvifVersion */
+        long soap_type() const { return SOAP_TYPE_tt__OnvifVersion; }
+        /** Constructor with member initializations */
+        tt__OnvifVersion() : Major(), Minor() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__OnvifVersion * SOAP_FMAC2 soap_instantiate_tt__OnvifVersion(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:68 */
+#ifndef SOAP_TYPE_tds__Service
+#define SOAP_TYPE_tds__Service (377)
+/* complex XML schema type 'tds:Service': */
+struct SOAP_CMAC tds__Service {
+      public:
+        /** Optional element 'tds:Namespace' of XML schema type 'xsd:string' */
+        char *Namespace;
+        /** Optional element 'tds:XAddr' of XML schema type 'xsd:string' */
+        char *XAddr;
+        /** Optional element 'tds:Version' of XML schema type 'tt:OnvifVersion' */
+        struct tt__OnvifVersion *Version;
+      public:
+        /** Return unique type id SOAP_TYPE_tds__Service */
+        long soap_type() const { return SOAP_TYPE_tds__Service; }
+        /** Constructor with member initializations */
+        tds__Service() : Namespace(), XAddr(), Version() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tds__Service * SOAP_FMAC2 soap_instantiate_tds__Service(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:74 */
+#ifndef SOAP_TYPE_tt__StreamingCapabilities
+#define SOAP_TYPE_tt__StreamingCapabilities (379)
+/* complex XML schema type 'tt:StreamingCapabilities': */
+struct SOAP_CMAC tt__StreamingCapabilities {
+      public:
+        /** Optional element 'tt:RTPMulticast' of XML schema type 'xsd:boolean' */
+        bool *RTPMulticast;
+        /** Optional element 'tt:RTP_TCP' of XML schema type 'xsd:boolean' */
+        bool *RTP_USCORETCP;
+        /** Optional element 'tt:RTP_RTSP_TCP' of XML schema type 'xsd:boolean' */
+        bool *RTP_USCORERTSP_USCORETCP;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__StreamingCapabilities */
+        long soap_type() const { return SOAP_TYPE_tt__StreamingCapabilities; }
+        /** Constructor with member initializations */
+        tt__StreamingCapabilities() : RTPMulticast(), RTP_USCORETCP(), RTP_USCORERTSP_USCORETCP() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__StreamingCapabilities * SOAP_FMAC2 soap_instantiate_tt__StreamingCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:80 */
+#ifndef SOAP_TYPE_tt__DeviceCapabilities
+#define SOAP_TYPE_tt__DeviceCapabilities (381)
+/* complex XML schema type 'tt:DeviceCapabilities': */
+struct SOAP_CMAC tt__DeviceCapabilities {
+      public:
+        /** Optional element 'tt:XAddr' of XML schema type 'xsd:string' */
+        char *XAddr;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__DeviceCapabilities */
+        long soap_type() const { return SOAP_TYPE_tt__DeviceCapabilities; }
+        /** Constructor with member initializations */
+        tt__DeviceCapabilities() : XAddr() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__DeviceCapabilities * SOAP_FMAC2 soap_instantiate_tt__DeviceCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:84 */
+#ifndef SOAP_TYPE_tt__MediaCapabilities
+#define SOAP_TYPE_tt__MediaCapabilities (382)
+/* complex XML schema type 'tt:MediaCapabilities': */
+struct SOAP_CMAC tt__MediaCapabilities {
+      public:
+        /** Optional element 'tt:XAddr' of XML schema type 'xsd:string' */
+        char *XAddr;
+        /** Optional element 'tt:StreamingCapabilities' of XML schema type 'tt:StreamingCapabilities' */
+        struct tt__StreamingCapabilities *StreamingCapabilities;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__MediaCapabilities */
+        long soap_type() const { return SOAP_TYPE_tt__MediaCapabilities; }
+        /** Constructor with member initializations */
+        tt__MediaCapabilities() : XAddr(), StreamingCapabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__MediaCapabilities * SOAP_FMAC2 soap_instantiate_tt__MediaCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:89 */
+#ifndef SOAP_TYPE_tt__PTZCapabilities
+#define SOAP_TYPE_tt__PTZCapabilities (384)
+/* complex XML schema type 'tt:PTZCapabilities': */
+struct SOAP_CMAC tt__PTZCapabilities {
+      public:
+        /** Optional element 'tt:XAddr' of XML schema type 'xsd:string' */
+        char *XAddr;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__PTZCapabilities */
+        long soap_type() const { return SOAP_TYPE_tt__PTZCapabilities; }
+        /** Constructor with member initializations */
+        tt__PTZCapabilities() : XAddr() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__PTZCapabilities * SOAP_FMAC2 soap_instantiate_tt__PTZCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:93 */
+#ifndef SOAP_TYPE_tt__ImagingCapabilities
+#define SOAP_TYPE_tt__ImagingCapabilities (385)
+/* complex XML schema type 'tt:ImagingCapabilities': */
+struct SOAP_CMAC tt__ImagingCapabilities {
+      public:
+        /** Optional element 'tt:XAddr' of XML schema type 'xsd:string' */
+        char *XAddr;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__ImagingCapabilities */
+        long soap_type() const { return SOAP_TYPE_tt__ImagingCapabilities; }
+        /** Constructor with member initializations */
+        tt__ImagingCapabilities() : XAddr() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__ImagingCapabilities * SOAP_FMAC2 soap_instantiate_tt__ImagingCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:97 */
+#ifndef SOAP_TYPE_tt__Capabilities
+#define SOAP_TYPE_tt__Capabilities (386)
+/* complex XML schema type 'tt:Capabilities': */
+struct SOAP_CMAC tt__Capabilities {
+      public:
+        /** Optional element 'tt:Device' of XML schema type 'tt:DeviceCapabilities' */
+        struct tt__DeviceCapabilities *Device;
+        /** Optional element 'tt:Media' of XML schema type 'tt:MediaCapabilities' */
+        struct tt__MediaCapabilities *Media;
+        /** Optional element 'tt:Media2' of XML schema type 'tt:MediaCapabilities' */
+        struct tt__MediaCapabilities *Media2;
+        /** Optional element 'tt:PTZ' of XML schema type 'tt:PTZCapabilities' */
+        struct tt__PTZCapabilities *PTZ;
+        /** Optional element 'tt:Imaging' of XML schema type 'tt:ImagingCapabilities' */
+        struct tt__ImagingCapabilities *Imaging;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__Capabilities */
+        long soap_type() const { return SOAP_TYPE_tt__Capabilities; }
+        /** Constructor with member initializations */
+        tt__Capabilities() : Device(), Media(), Media2(), PTZ(), Imaging() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__Capabilities * SOAP_FMAC2 soap_instantiate_tt__Capabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:105 */
+#ifndef SOAP_TYPE__tds__GetServicesResponse
+#define SOAP_TYPE__tds__GetServicesResponse (391)
+/* complex XML schema type 'tds:GetServicesResponse': */
+struct SOAP_CMAC _tds__GetServicesResponse {
+      public:
+        /** Sequence of elements 'tds:Service' of XML schema type 'tds:Service' stored in dynamic array Service of length __sizeService */
+        int __sizeService;
+        struct tds__Service *Service;
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetServicesResponse */
+        long soap_type() const { return SOAP_TYPE__tds__GetServicesResponse; }
+        /** Constructor with member initializations */
+        _tds__GetServicesResponse() : __sizeService(), Service() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetServicesResponse * SOAP_FMAC2 soap_instantiate__tds__GetServicesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:110 */
+#ifndef SOAP_TYPE__tds__GetCapabilitiesResponse
+#define SOAP_TYPE__tds__GetCapabilitiesResponse (393)
+/* complex XML schema type 'tds:GetCapabilitiesResponse': */
+struct SOAP_CMAC _tds__GetCapabilitiesResponse {
+      public:
+        /** Optional element 'tds:Capabilities' of XML schema type 'tt:Capabilities' */
+        struct tt__Capabilities *Capabilities;
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetCapabilitiesResponse */
+        long soap_type() const { return SOAP_TYPE__tds__GetCapabilitiesResponse; }
+        /** Constructor with member initializations */
+        _tds__GetCapabilitiesResponse() : Capabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetCapabilitiesResponse * SOAP_FMAC2 soap_instantiate__tds__GetCapabilitiesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:114 */
+#ifndef SOAP_TYPE_tds__NetworkCapabilities
+#define SOAP_TYPE_tds__NetworkCapabilities (395)
+/* complex XML schema type 'tds:NetworkCapabilities': */
+struct SOAP_CMAC tds__NetworkCapabilities {
+      public:
+        /** Optional attribute 'IPFilter' of XML schema type 'xsd:boolean' */
+        bool IPFilter;
+        /** Optional attribute 'ZeroConfiguration' of XML schema type 'xsd:boolean' */
+        bool ZeroConfiguration;
+        /** Optional attribute 'IPVersion6' of XML schema type 'xsd:boolean' */
+        bool IPVersion6;
+        /** Optional attribute 'DynDNS' of XML schema type 'xsd:boolean' */
+        bool DynDNS;
+      public:
+        /** Return unique type id SOAP_TYPE_tds__NetworkCapabilities */
+        long soap_type() const { return SOAP_TYPE_tds__NetworkCapabilities; }
+        /** Constructor with member initializations */
+        tds__NetworkCapabilities() : IPFilter(), ZeroConfiguration(), IPVersion6(), DynDNS() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tds__NetworkCapabilities * SOAP_FMAC2 soap_instantiate_tds__NetworkCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:121 */
+#ifndef SOAP_TYPE_tds__SecurityCapabilities
+#define SOAP_TYPE_tds__SecurityCapabilities (396)
+/* complex XML schema type 'tds:SecurityCapabilities': */
+struct SOAP_CMAC tds__SecurityCapabilities {
+      public:
+        /** Optional attribute 'OnboardKeyGeneration' of XML schema type 'xsd:boolean' */
+        bool OnboardKeyGeneration;
+        /** Optional attribute 'AccessPolicyConfig' of XML schema type 'xsd:boolean' */
+        bool AccessPolicyConfig;
+        /** Optional attribute 'DefaultAccessPolicy' of XML schema type 'xsd:boolean' */
+        bool DefaultAccessPolicy;
+        /** Optional attribute 'Dot1X' of XML schema type 'xsd:boolean' */
+        bool Dot1X;
+        /** Optional attribute 'RemoteUserHandling' of XML schema type 'xsd:boolean' */
+        bool RemoteUserHandling;
+      public:
+        /** Return unique type id SOAP_TYPE_tds__SecurityCapabilities */
+        long soap_type() const { return SOAP_TYPE_tds__SecurityCapabilities; }
+        /** Constructor with member initializations */
+        tds__SecurityCapabilities() : OnboardKeyGeneration(), AccessPolicyConfig(), DefaultAccessPolicy(), Dot1X(), RemoteUserHandling() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tds__SecurityCapabilities * SOAP_FMAC2 soap_instantiate_tds__SecurityCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:129 */
+#ifndef SOAP_TYPE_tds__SystemCapabilities
+#define SOAP_TYPE_tds__SystemCapabilities (397)
+/* complex XML schema type 'tds:SystemCapabilities': */
+struct SOAP_CMAC tds__SystemCapabilities {
+      public:
+        /** Optional attribute 'DiscoveryResolve' of XML schema type 'xsd:boolean' */
+        bool DiscoveryResolve;
+        /** Optional attribute 'DiscoveryBye' of XML schema type 'xsd:boolean' */
+        bool DiscoveryBye;
+        /** Optional attribute 'RemoteDiscovery' of XML schema type 'xsd:boolean' */
+        bool RemoteDiscovery;
+        /** Optional attribute 'SystemBackup' of XML schema type 'xsd:boolean' */
+        bool SystemBackup;
+        /** Optional attribute 'SystemLogging' of XML schema type 'xsd:boolean' */
+        bool SystemLogging;
+        /** Optional attribute 'FirmwareUpgrade' of XML schema type 'xsd:boolean' */
+        bool FirmwareUpgrade;
+      public:
+        /** Return unique type id SOAP_TYPE_tds__SystemCapabilities */
+        long soap_type() const { return SOAP_TYPE_tds__SystemCapabilities; }
+        /** Constructor with member initializations */
+        tds__SystemCapabilities() : DiscoveryResolve(), DiscoveryBye(), RemoteDiscovery(), SystemBackup(), SystemLogging(), FirmwareUpgrade() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tds__SystemCapabilities * SOAP_FMAC2 soap_instantiate_tds__SystemCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:138 */
+#ifndef SOAP_TYPE_tds__DeviceServiceCapabilities
+#define SOAP_TYPE_tds__DeviceServiceCapabilities (398)
+/* complex XML schema type 'tds:DeviceServiceCapabilities': */
+struct SOAP_CMAC tds__DeviceServiceCapabilities {
+      public:
+        /** Optional element 'tds:Network' of XML schema type 'tds:NetworkCapabilities' */
+        struct tds__NetworkCapabilities *Network;
+        /** Optional element 'tds:Security' of XML schema type 'tds:SecurityCapabilities' */
+        struct tds__SecurityCapabilities *Security;
+        /** Optional element 'tds:System' of XML schema type 'tds:SystemCapabilities' */
+        struct tds__SystemCapabilities *System;
+      public:
+        /** Return unique type id SOAP_TYPE_tds__DeviceServiceCapabilities */
+        long soap_type() const { return SOAP_TYPE_tds__DeviceServiceCapabilities; }
+        /** Constructor with member initializations */
+        tds__DeviceServiceCapabilities() : Network(), Security(), System() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tds__DeviceServiceCapabilities * SOAP_FMAC2 soap_instantiate_tds__DeviceServiceCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:144 */
+#ifndef SOAP_TYPE__tds__GetServiceCapabilitiesResponse
+#define SOAP_TYPE__tds__GetServiceCapabilitiesResponse (402)
+/* complex XML schema type 'tds:GetServiceCapabilitiesResponse': */
+struct SOAP_CMAC _tds__GetServiceCapabilitiesResponse {
+      public:
+        /** Optional element 'tds:Capabilities' of XML schema type 'tds:DeviceServiceCapabilities' */
+        struct tds__DeviceServiceCapabilities *Capabilities;
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetServiceCapabilitiesResponse */
+        long soap_type() const { return SOAP_TYPE__tds__GetServiceCapabilitiesResponse; }
+        /** Constructor with member initializations */
+        _tds__GetServiceCapabilitiesResponse() : Capabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetServiceCapabilitiesResponse * SOAP_FMAC2 soap_instantiate__tds__GetServiceCapabilitiesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:148 */
+#ifndef SOAP_TYPE_tt__Time
+#define SOAP_TYPE_tt__Time (404)
+/* complex XML schema type 'tt:Time': */
+struct SOAP_CMAC tt__Time {
+      public:
+        /** Required element 'tt:Hour' of XML schema type 'xsd:int' */
+        int Hour;
+        /** Required element 'tt:Minute' of XML schema type 'xsd:int' */
+        int Minute;
+        /** Required element 'tt:Second' of XML schema type 'xsd:int' */
+        int Second;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__Time */
+        long soap_type() const { return SOAP_TYPE_tt__Time; }
+        /** Constructor with member initializations */
+        tt__Time() : Hour(), Minute(), Second() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__Time * SOAP_FMAC2 soap_instantiate_tt__Time(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:154 */
+#ifndef SOAP_TYPE_tt__Date
+#define SOAP_TYPE_tt__Date (405)
+/* complex XML schema type 'tt:Date': */
+struct SOAP_CMAC tt__Date {
+      public:
+        /** Required element 'tt:Year' of XML schema type 'xsd:int' */
+        int Year;
+        /** Required element 'tt:Month' of XML schema type 'xsd:int' */
+        int Month;
+        /** Required element 'tt:Day' of XML schema type 'xsd:int' */
+        int Day;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__Date */
+        long soap_type() const { return SOAP_TYPE_tt__Date; }
+        /** Constructor with member initializations */
+        tt__Date() : Year(), Month(), Day() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__Date * SOAP_FMAC2 soap_instantiate_tt__Date(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:160 */
+#ifndef SOAP_TYPE_tt__DateTime
+#define SOAP_TYPE_tt__DateTime (406)
+/* complex XML schema type 'tt:DateTime': */
+struct SOAP_CMAC tt__DateTime {
+      public:
+        /** Optional element 'tt:Time' of XML schema type 'tt:Time' */
+        struct tt__Time *Time;
+        /** Optional element 'tt:Date' of XML schema type 'tt:Date' */
+        struct tt__Date *Date;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__DateTime */
+        long soap_type() const { return SOAP_TYPE_tt__DateTime; }
+        /** Constructor with member initializations */
+        tt__DateTime() : Time(), Date() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__DateTime * SOAP_FMAC2 soap_instantiate_tt__DateTime(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:165 */
+#ifndef SOAP_TYPE_tt__SystemDateTime
+#define SOAP_TYPE_tt__SystemDateTime (409)
+/* complex XML schema type 'tt:SystemDateTime': */
+struct SOAP_CMAC tt__SystemDateTime {
+      public:
+        /** Optional element 'tt:DateTimeType' of XML schema type 'xsd:string' */
+        char *DateTimeType;
+        /** Required element 'tt:DaylightSavings' of XML schema type 'xsd:boolean' */
+        bool DaylightSavings;
+        /** Optional element 'tt:UTCDateTime' of XML schema type 'tt:DateTime' */
+        struct tt__DateTime *UTCDateTime;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__SystemDateTime */
+        long soap_type() const { return SOAP_TYPE_tt__SystemDateTime; }
+        /** Constructor with member initializations */
+        tt__SystemDateTime() : DateTimeType(), DaylightSavings(), UTCDateTime() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__SystemDateTime * SOAP_FMAC2 soap_instantiate_tt__SystemDateTime(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:171 */
+#ifndef SOAP_TYPE__tds__GetSystemDateAndTimeResponse
+#define SOAP_TYPE__tds__GetSystemDateAndTimeResponse (411)
+/* complex XML schema type 'tds:GetSystemDateAndTimeResponse': */
+struct SOAP_CMAC _tds__GetSystemDateAndTimeResponse {
+      public:
+        /** Optional element 'tds:SystemDateAndTime' of XML schema type 'tt:SystemDateTime' */
+        struct tt__SystemDateTime *SystemDateAndTime;
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetSystemDateAndTimeResponse */
+        long soap_type() const { return SOAP_TYPE__tds__GetSystemDateAndTimeResponse; }
+        /** Constructor with member initializations */
+        _tds__GetSystemDateAndTimeResponse() : SystemDateAndTime() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetSystemDateAndTimeResponse * SOAP_FMAC2 soap_instantiate__tds__GetSystemDateAndTimeResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:175 */
+#ifndef SOAP_TYPE_tt__Scope
+#define SOAP_TYPE_tt__Scope (413)
+/* complex XML schema type 'tt:Scope': */
+struct SOAP_CMAC tt__Scope {
+      public:
+        /** Optional element 'tt:ScopeDef' of XML schema type 'xsd:string' */
+        char *ScopeDef;
+        /** Optional element 'tt:ScopeItem' of XML schema type 'xsd:string' */
+        char *ScopeItem;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__Scope */
+        long soap_type() const { return SOAP_TYPE_tt__Scope; }
+        /** Constructor with member initializations */
+        tt__Scope() : ScopeDef(), ScopeItem() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__Scope * SOAP_FMAC2 soap_instantiate_tt__Scope(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:180 */
+#ifndef SOAP_TYPE__tds__GetScopesResponse
+#define SOAP_TYPE__tds__GetScopesResponse (414)
+/* complex XML schema type 'tds:GetScopesResponse': */
+struct SOAP_CMAC _tds__GetScopesResponse {
+      public:
+        /** Sequence of elements 'tds:Scopes' of XML schema type 'tt:Scope' stored in dynamic array Scopes of length __sizeScopes */
+        int __sizeScopes;
+        struct tt__Scope *Scopes;
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetScopesResponse */
+        long soap_type() const { return SOAP_TYPE__tds__GetScopesResponse; }
+        /** Constructor with member initializations */
+        _tds__GetScopesResponse() : __sizeScopes(), Scopes() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetScopesResponse * SOAP_FMAC2 soap_instantiate__tds__GetScopesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:185 */
+#ifndef SOAP_TYPE_tt__HostnameInformation
+#define SOAP_TYPE_tt__HostnameInformation (416)
+/* complex XML schema type 'tt:HostnameInformation': */
+struct SOAP_CMAC tt__HostnameInformation {
+      public:
+        /** Required element 'tt:FromDHCP' of XML schema type 'xsd:boolean' */
+        bool FromDHCP;
+        /** Optional element 'tt:Name' of XML schema type 'xsd:string' */
+        char *Name;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__HostnameInformation */
+        long soap_type() const { return SOAP_TYPE_tt__HostnameInformation; }
+        /** Constructor with member initializations */
+        tt__HostnameInformation() : FromDHCP(), Name() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__HostnameInformation * SOAP_FMAC2 soap_instantiate_tt__HostnameInformation(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:190 */
+#ifndef SOAP_TYPE__tds__GetHostnameResponse
+#define SOAP_TYPE__tds__GetHostnameResponse (417)
+/* complex XML schema type 'tds:GetHostnameResponse': */
+struct SOAP_CMAC _tds__GetHostnameResponse {
+      public:
+        /** Optional element 'tds:HostnameInformation' of XML schema type 'tt:HostnameInformation' */
+        struct tt__HostnameInformation *HostnameInformation;
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetHostnameResponse */
+        long soap_type() const { return SOAP_TYPE__tds__GetHostnameResponse; }
+        /** Constructor with member initializations */
+        _tds__GetHostnameResponse() : HostnameInformation() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetHostnameResponse * SOAP_FMAC2 soap_instantiate__tds__GetHostnameResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:194 */
+#ifndef SOAP_TYPE_tt__NetworkInterfaceInfo
+#define SOAP_TYPE_tt__NetworkInterfaceInfo (419)
+/* complex XML schema type 'tt:NetworkInterfaceInfo': */
+struct SOAP_CMAC tt__NetworkInterfaceInfo {
+      public:
+        /** Optional element 'tt:Name' of XML schema type 'xsd:string' */
+        char *Name;
+        /** Optional element 'tt:HwAddress' of XML schema type 'xsd:string' */
+        char *HwAddress;
+        /** Required element 'tt:MTU' of XML schema type 'xsd:int' */
+        int MTU;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__NetworkInterfaceInfo */
+        long soap_type() const { return SOAP_TYPE_tt__NetworkInterfaceInfo; }
+        /** Constructor with member initializations */
+        tt__NetworkInterfaceInfo() : Name(), HwAddress(), MTU() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__NetworkInterfaceInfo * SOAP_FMAC2 soap_instantiate_tt__NetworkInterfaceInfo(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:200 */
+#ifndef SOAP_TYPE_tt__PrefixedIPv4Address
+#define SOAP_TYPE_tt__PrefixedIPv4Address (420)
+/* complex XML schema type 'tt:PrefixedIPv4Address': */
+struct SOAP_CMAC tt__PrefixedIPv4Address {
+      public:
+        /** Optional element 'tt:Address' of XML schema type 'xsd:string' */
+        char *Address;
+        /** Required element 'tt:PrefixLength' of XML schema type 'xsd:int' */
+        int PrefixLength;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__PrefixedIPv4Address */
+        long soap_type() const { return SOAP_TYPE_tt__PrefixedIPv4Address; }
+        /** Constructor with member initializations */
+        tt__PrefixedIPv4Address() : Address(), PrefixLength() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__PrefixedIPv4Address * SOAP_FMAC2 soap_instantiate_tt__PrefixedIPv4Address(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:205 */
+#ifndef SOAP_TYPE_tt__IPv4Configuration
+#define SOAP_TYPE_tt__IPv4Configuration (421)
+/* complex XML schema type 'tt:IPv4Configuration': */
+struct SOAP_CMAC tt__IPv4Configuration {
+      public:
+        /** Sequence of elements 'tt:Manual' of XML schema type 'tt:PrefixedIPv4Address' stored in dynamic array Manual of length __sizeManual */
+        int __sizeManual;
+        struct tt__PrefixedIPv4Address *Manual;
+        /** Optional element 'tt:LinkLocal' of XML schema type 'tt:PrefixedIPv4Address' */
+        struct tt__PrefixedIPv4Address *LinkLocal;
+        /** Optional element 'tt:FromDHCP' of XML schema type 'tt:PrefixedIPv4Address' */
+        struct tt__PrefixedIPv4Address *FromDHCP;
+        /** Required element 'tt:DHCP' of XML schema type 'xsd:boolean' */
+        bool DHCP;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__IPv4Configuration */
+        long soap_type() const { return SOAP_TYPE_tt__IPv4Configuration; }
+        /** Constructor with member initializations */
+        tt__IPv4Configuration() : __sizeManual(), Manual(), LinkLocal(), FromDHCP(), DHCP() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__IPv4Configuration * SOAP_FMAC2 soap_instantiate_tt__IPv4Configuration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:213 */
+#ifndef SOAP_TYPE_tt__IPv4NetworkInterface
+#define SOAP_TYPE_tt__IPv4NetworkInterface (423)
+/* complex XML schema type 'tt:IPv4NetworkInterface': */
+struct SOAP_CMAC tt__IPv4NetworkInterface {
+      public:
+        /** Required element 'tt:Enabled' of XML schema type 'xsd:boolean' */
+        bool Enabled;
+        /** Optional element 'tt:Config' of XML schema type 'tt:IPv4Configuration' */
+        struct tt__IPv4Configuration *Config;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__IPv4NetworkInterface */
+        long soap_type() const { return SOAP_TYPE_tt__IPv4NetworkInterface; }
+        /** Constructor with member initializations */
+        tt__IPv4NetworkInterface() : Enabled(), Config() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__IPv4NetworkInterface * SOAP_FMAC2 soap_instantiate_tt__IPv4NetworkInterface(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:218 */
+#ifndef SOAP_TYPE_tt__NetworkInterface
+#define SOAP_TYPE_tt__NetworkInterface (425)
+/* complex XML schema type 'tt:NetworkInterface': */
+struct SOAP_CMAC tt__NetworkInterface {
+      public:
+        /** Optional attribute 'token' of XML schema type 'xsd:string' */
+        char *token;
+        /** Optional attribute 'enabled' of XML schema type 'xsd:boolean' */
+        bool enabled;
+        /** Optional element 'tt:Info' of XML schema type 'tt:NetworkInterfaceInfo' */
+        struct tt__NetworkInterfaceInfo *Info;
+        /** Optional element 'tt:IPv4' of XML schema type 'tt:IPv4NetworkInterface' */
+        struct tt__IPv4NetworkInterface *IPv4;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__NetworkInterface */
+        long soap_type() const { return SOAP_TYPE_tt__NetworkInterface; }
+        /** Constructor with member initializations */
+        tt__NetworkInterface() : token(), enabled(), Info(), IPv4() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__NetworkInterface * SOAP_FMAC2 soap_instantiate_tt__NetworkInterface(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:225 */
+#ifndef SOAP_TYPE__tds__GetNetworkInterfacesResponse
+#define SOAP_TYPE__tds__GetNetworkInterfacesResponse (428)
+/* complex XML schema type 'tds:GetNetworkInterfacesResponse': */
+struct SOAP_CMAC _tds__GetNetworkInterfacesResponse {
+      public:
+        /** Sequence of elements 'tds:NetworkInterfaces' of XML schema type 'tt:NetworkInterface' stored in dynamic array NetworkInterfaces of length __sizeNetworkInterfaces */
+        int __sizeNetworkInterfaces;
+        struct tt__NetworkInterface *NetworkInterfaces;
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetNetworkInterfacesResponse */
+        long soap_type() const { return SOAP_TYPE__tds__GetNetworkInterfacesResponse; }
+        /** Constructor with member initializations */
+        _tds__GetNetworkInterfacesResponse() : __sizeNetworkInterfaces(), NetworkInterfaces() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetNetworkInterfacesResponse * SOAP_FMAC2 soap_instantiate__tds__GetNetworkInterfacesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:230 */
+#ifndef SOAP_TYPE_tt__User
+#define SOAP_TYPE_tt__User (430)
+/* complex XML schema type 'tt:User': */
+struct SOAP_CMAC tt__User {
+      public:
+        /** Optional element 'tt:Username' of XML schema type 'xsd:string' */
+        char *Username;
+        /** Optional element 'tt:UserLevel' of XML schema type 'xsd:string' */
+        char *UserLevel;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__User */
+        long soap_type() const { return SOAP_TYPE_tt__User; }
+        /** Constructor with member initializations */
+        tt__User() : Username(), UserLevel() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__User * SOAP_FMAC2 soap_instantiate_tt__User(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:235 */
+#ifndef SOAP_TYPE__tds__GetUsersResponse
+#define SOAP_TYPE__tds__GetUsersResponse (431)
+/* complex XML schema type 'tds:GetUsersResponse': */
+struct SOAP_CMAC _tds__GetUsersResponse {
+      public:
+        /** Sequence of elements 'tds:User' of XML schema type 'tt:User' stored in dynamic array User of length __sizeUser */
+        int __sizeUser;
+        struct tt__User *User;
+      public:
+        /** Return unique type id SOAP_TYPE__tds__GetUsersResponse */
+        long soap_type() const { return SOAP_TYPE__tds__GetUsersResponse; }
+        /** Constructor with member initializations */
+        _tds__GetUsersResponse() : __sizeUser(), User() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tds__GetUsersResponse * SOAP_FMAC2 soap_instantiate__tds__GetUsersResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:240 */
+#ifndef SOAP_TYPE_tt__IntRectangle
+#define SOAP_TYPE_tt__IntRectangle (433)
+/* complex XML schema type 'tt:IntRectangle': */
+struct SOAP_CMAC tt__IntRectangle {
+      public:
+        /** Optional attribute 'x' of XML schema type 'xsd:int' */
+        int x;
+        /** Optional attribute 'y' of XML schema type 'xsd:int' */
+        int y;
+        /** Optional attribute 'width' of XML schema type 'xsd:int' */
+        int width;
+        /** Optional attribute 'height' of XML schema type 'xsd:int' */
+        int height;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__IntRectangle */
+        long soap_type() const { return SOAP_TYPE_tt__IntRectangle; }
+        /** Constructor with member initializations */
+        tt__IntRectangle() : x(), y(), width(), height() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__IntRectangle * SOAP_FMAC2 soap_instantiate_tt__IntRectangle(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:247 */
+#ifndef SOAP_TYPE_tt__VideoResolution
+#define SOAP_TYPE_tt__VideoResolution (434)
+/* complex XML schema type 'tt:VideoResolution': */
+struct SOAP_CMAC tt__VideoResolution {
+      public:
+        /** Required element 'tt:Width' of XML schema type 'xsd:int' */
+        int Width;
+        /** Required element 'tt:Height' of XML schema type 'xsd:int' */
+        int Height;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__VideoResolution */
+        long soap_type() const { return SOAP_TYPE_tt__VideoResolution; }
+        /** Constructor with member initializations */
+        tt__VideoResolution() : Width(), Height() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__VideoResolution * SOAP_FMAC2 soap_instantiate_tt__VideoResolution(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:252 */
+#ifndef SOAP_TYPE_tt__VideoRateControl
+#define SOAP_TYPE_tt__VideoRateControl (435)
+/* complex XML schema type 'tt:VideoRateControl': */
+struct SOAP_CMAC tt__VideoRateControl {
+      public:
+        /** Required element 'tt:FrameRateLimit' of XML schema type 'xsd:int' */
+        int FrameRateLimit;
+        /** Required element 'tt:EncodingInterval' of XML schema type 'xsd:int' */
+        int EncodingInterval;
+        /** Required element 'tt:BitrateLimit' of XML schema type 'xsd:int' */
+        int BitrateLimit;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__VideoRateControl */
+        long soap_type() const { return SOAP_TYPE_tt__VideoRateControl; }
+        /** Constructor with member initializations */
+        tt__VideoRateControl() : FrameRateLimit(), EncodingInterval(), BitrateLimit() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__VideoRateControl * SOAP_FMAC2 soap_instantiate_tt__VideoRateControl(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:258 */
+#ifndef SOAP_TYPE_tt__H264Configuration
+#define SOAP_TYPE_tt__H264Configuration (436)
+/* complex XML schema type 'tt:H264Configuration': */
+struct SOAP_CMAC tt__H264Configuration {
+      public:
+        /** Required element 'tt:GovLength' of XML schema type 'xsd:int' */
+        int GovLength;
+        /** Optional element 'tt:H264Profile' of XML schema type 'xsd:string' */
+        char *H264Profile;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__H264Configuration */
+        long soap_type() const { return SOAP_TYPE_tt__H264Configuration; }
+        /** Constructor with member initializations */
+        tt__H264Configuration() : GovLength(), H264Profile() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__H264Configuration * SOAP_FMAC2 soap_instantiate_tt__H264Configuration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:263 */
+#ifndef SOAP_TYPE_tt__IPAddress
+#define SOAP_TYPE_tt__IPAddress (437)
+/* complex XML schema type 'tt:IPAddress': */
+struct SOAP_CMAC tt__IPAddress {
+      public:
+        /** Optional element 'tt:Type' of XML schema type 'xsd:string' */
+        char *Type;
+        /** Optional element 'tt:IPv4Address' of XML schema type 'xsd:string' */
+        char *IPv4Address;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__IPAddress */
+        long soap_type() const { return SOAP_TYPE_tt__IPAddress; }
+        /** Constructor with member initializations */
+        tt__IPAddress() : Type(), IPv4Address() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__IPAddress * SOAP_FMAC2 soap_instantiate_tt__IPAddress(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:268 */
+#ifndef SOAP_TYPE_tt__MulticastConfiguration
+#define SOAP_TYPE_tt__MulticastConfiguration (438)
+/* complex XML schema type 'tt:MulticastConfiguration': */
+struct SOAP_CMAC tt__MulticastConfiguration {
+      public:
+        /** Optional element 'tt:Address' of XML schema type 'tt:IPAddress' */
+        struct tt__IPAddress *Address;
+        /** Required element 'tt:Port' of XML schema type 'xsd:int' */
+        int Port;
+        /** Required element 'tt:TTL' of XML schema type 'xsd:int' */
+        int TTL;
+        /** Required element 'tt:AutoStart' of XML schema type 'xsd:boolean' */
+        bool AutoStart;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__MulticastConfiguration */
+        long soap_type() const { return SOAP_TYPE_tt__MulticastConfiguration; }
+        /** Constructor with member initializations */
+        tt__MulticastConfiguration() : Address(), Port(), TTL(), AutoStart() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__MulticastConfiguration * SOAP_FMAC2 soap_instantiate_tt__MulticastConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:275 */
+#ifndef SOAP_TYPE_tt__VideoSource
+#define SOAP_TYPE_tt__VideoSource (440)
+/* complex XML schema type 'tt:VideoSource': */
+struct SOAP_CMAC tt__VideoSource {
+      public:
+        /** Optional attribute 'token' of XML schema type 'xsd:string' */
+        char *token;
+        /** Required element 'tt:Framerate' of XML schema type 'xsd:float' */
+        float Framerate;
+        /** Optional element 'tt:Resolution' of XML schema type 'tt:VideoResolution' */
+        struct tt__VideoResolution *Resolution;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__VideoSource */
+        long soap_type() const { return SOAP_TYPE_tt__VideoSource; }
+        /** Constructor with member initializations */
+        tt__VideoSource() : token(), Framerate(), Resolution() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__VideoSource * SOAP_FMAC2 soap_instantiate_tt__VideoSource(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:281 */
+#ifndef SOAP_TYPE_tt__VideoSourceConfiguration
+#define SOAP_TYPE_tt__VideoSourceConfiguration (443)
+/* complex XML schema type 'tt:VideoSourceConfiguration': */
+struct SOAP_CMAC tt__VideoSourceConfiguration {
+      public:
+        /** Optional attribute 'token' of XML schema type 'xsd:string' */
+        char *token;
+        /** Optional element 'tt:Name' of XML schema type 'xsd:string' */
+        char *Name;
+        /** Required element 'tt:UseCount' of XML schema type 'xsd:int' */
+        int UseCount;
+        /** Optional element 'tt:SourceToken' of XML schema type 'xsd:string' */
+        char *SourceToken;
+        /** Optional element 'tt:Bounds' of XML schema type 'tt:IntRectangle' */
+        struct tt__IntRectangle *Bounds;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__VideoSourceConfiguration */
+        long soap_type() const { return SOAP_TYPE_tt__VideoSourceConfiguration; }
+        /** Constructor with member initializations */
+        tt__VideoSourceConfiguration() : token(), Name(), UseCount(), SourceToken(), Bounds() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__VideoSourceConfiguration * SOAP_FMAC2 soap_instantiate_tt__VideoSourceConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:289 */
+#ifndef SOAP_TYPE_tt__VideoEncoderConfiguration
+#define SOAP_TYPE_tt__VideoEncoderConfiguration (445)
+/* complex XML schema type 'tt:VideoEncoderConfiguration': */
+struct SOAP_CMAC tt__VideoEncoderConfiguration {
+      public:
+        /** Optional attribute 'token' of XML schema type 'xsd:string' */
+        char *token;
+        /** Optional element 'tt:Name' of XML schema type 'xsd:string' */
+        char *Name;
+        /** Required element 'tt:UseCount' of XML schema type 'xsd:int' */
+        int UseCount;
+        /** Optional element 'tt:Encoding' of XML schema type 'xsd:string' */
+        char *Encoding;
+        /** Optional element 'tt:Resolution' of XML schema type 'tt:VideoResolution' */
+        struct tt__VideoResolution *Resolution;
+        /** Required element 'tt:Quality' of XML schema type 'xsd:float' */
+        float Quality;
+        /** Optional element 'tt:RateControl' of XML schema type 'tt:VideoRateControl' */
+        struct tt__VideoRateControl *RateControl;
+        /** Optional element 'tt:H264' of XML schema type 'tt:H264Configuration' */
+        struct tt__H264Configuration *H264;
+        /** Optional element 'tt:Multicast' of XML schema type 'tt:MulticastConfiguration' */
+        struct tt__MulticastConfiguration *Multicast;
+        /** Optional element 'tt:SessionTimeout' of XML schema type 'xsd:string' */
+        char *SessionTimeout;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__VideoEncoderConfiguration */
+        long soap_type() const { return SOAP_TYPE_tt__VideoEncoderConfiguration; }
+        /** Constructor with member initializations */
+        tt__VideoEncoderConfiguration() : token(), Name(), UseCount(), Encoding(), Resolution(), Quality(), RateControl(), H264(), Multicast(), SessionTimeout() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__VideoEncoderConfiguration * SOAP_FMAC2 soap_instantiate_tt__VideoEncoderConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:302 */
+#ifndef SOAP_TYPE_tt__FloatRange
+#define SOAP_TYPE_tt__FloatRange (449)
+/* complex XML schema type 'tt:FloatRange': */
+struct SOAP_CMAC tt__FloatRange {
+      public:
+        /** Required element 'tt:Min' of XML schema type 'xsd:float' */
+        float Min;
+        /** Required element 'tt:Max' of XML schema type 'xsd:float' */
+        float Max;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__FloatRange */
+        long soap_type() const { return SOAP_TYPE_tt__FloatRange; }
+        /** Constructor with member initializations */
+        tt__FloatRange() : Min(), Max() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__FloatRange * SOAP_FMAC2 soap_instantiate_tt__FloatRange(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:307 */
+#ifndef SOAP_TYPE_tt__IntRange
+#define SOAP_TYPE_tt__IntRange (450)
+/* complex XML schema type 'tt:IntRange': */
+struct SOAP_CMAC tt__IntRange {
+      public:
+        /** Required element 'tt:Min' of XML schema type 'xsd:int' */
+        int Min;
+        /** Required element 'tt:Max' of XML schema type 'xsd:int' */
+        int Max;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__IntRange */
+        long soap_type() const { return SOAP_TYPE_tt__IntRange; }
+        /** Constructor with member initializations */
+        tt__IntRange() : Min(), Max() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__IntRange * SOAP_FMAC2 soap_instantiate_tt__IntRange(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:312 */
+#ifndef SOAP_TYPE_tt__IntRectangleRange
+#define SOAP_TYPE_tt__IntRectangleRange (451)
+/* complex XML schema type 'tt:IntRectangleRange': */
+struct SOAP_CMAC tt__IntRectangleRange {
+      public:
+        /** Optional element 'tt:XRange' of XML schema type 'tt:IntRange' */
+        struct tt__IntRange *XRange;
+        /** Optional element 'tt:YRange' of XML schema type 'tt:IntRange' */
+        struct tt__IntRange *YRange;
+        /** Optional element 'tt:WidthRange' of XML schema type 'tt:IntRange' */
+        struct tt__IntRange *WidthRange;
+        /** Optional element 'tt:HeightRange' of XML schema type 'tt:IntRange' */
+        struct tt__IntRange *HeightRange;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__IntRectangleRange */
+        long soap_type() const { return SOAP_TYPE_tt__IntRectangleRange; }
+        /** Constructor with member initializations */
+        tt__IntRectangleRange() : XRange(), YRange(), WidthRange(), HeightRange() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__IntRectangleRange * SOAP_FMAC2 soap_instantiate_tt__IntRectangleRange(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:319 */
+#ifndef SOAP_TYPE_tt__VideoSourceConfigurationOptions
+#define SOAP_TYPE_tt__VideoSourceConfigurationOptions (453)
+/* complex XML schema type 'tt:VideoSourceConfigurationOptions': */
+struct SOAP_CMAC tt__VideoSourceConfigurationOptions {
+      public:
+        /** Optional element 'tt:BoundsRange' of XML schema type 'tt:IntRectangleRange' */
+        struct tt__IntRectangleRange *BoundsRange;
+        /** Sequence of elements 'tt:VideoSourceTokensAvailable' of XML schema type 'xsd:string' stored in dynamic array VideoSourceTokensAvailable of length __sizeVideoSourceTokensAvailable */
+        int __sizeVideoSourceTokensAvailable;
+        char **VideoSourceTokensAvailable;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__VideoSourceConfigurationOptions */
+        long soap_type() const { return SOAP_TYPE_tt__VideoSourceConfigurationOptions; }
+        /** Constructor with member initializations */
+        tt__VideoSourceConfigurationOptions() : BoundsRange(), __sizeVideoSourceTokensAvailable(), VideoSourceTokensAvailable() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__VideoSourceConfigurationOptions * SOAP_FMAC2 soap_instantiate_tt__VideoSourceConfigurationOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:325 */
+#ifndef SOAP_TYPE_tt__H264Options
+#define SOAP_TYPE_tt__H264Options (455)
+/* complex XML schema type 'tt:H264Options': */
+struct SOAP_CMAC tt__H264Options {
+      public:
+        /** Sequence of elements 'tt:ResolutionsAvailable' of XML schema type 'tt:VideoResolution' stored in dynamic array ResolutionsAvailable of length __sizeResolutionsAvailable */
+        int __sizeResolutionsAvailable;
+        struct tt__VideoResolution *ResolutionsAvailable;
+        /** Optional element 'tt:GovLengthRange' of XML schema type 'tt:IntRange' */
+        struct tt__IntRange *GovLengthRange;
+        /** Optional element 'tt:FrameRateRange' of XML schema type 'tt:IntRange' */
+        struct tt__IntRange *FrameRateRange;
+        /** Optional element 'tt:EncodingIntervalRange' of XML schema type 'tt:IntRange' */
+        struct tt__IntRange *EncodingIntervalRange;
+        /** Sequence of elements 'tt:H264ProfilesSupported' of XML schema type 'xsd:string' stored in dynamic array H264ProfilesSupported of length __sizeH264ProfilesSupported */
+        int __sizeH264ProfilesSupported;
+        char **H264ProfilesSupported;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__H264Options */
+        long soap_type() const { return SOAP_TYPE_tt__H264Options; }
+        /** Constructor with member initializations */
+        tt__H264Options() : __sizeResolutionsAvailable(), ResolutionsAvailable(), GovLengthRange(), FrameRateRange(), EncodingIntervalRange(), __sizeH264ProfilesSupported(), H264ProfilesSupported() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__H264Options * SOAP_FMAC2 soap_instantiate_tt__H264Options(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:335 */
+#ifndef SOAP_TYPE_tt__VideoEncoderConfigurationOptionsExtension
+#define SOAP_TYPE_tt__VideoEncoderConfigurationOptionsExtension (456)
+/* complex XML schema type 'tt:VideoEncoderConfigurationOptionsExtension': */
+struct SOAP_CMAC tt__VideoEncoderConfigurationOptionsExtension {
+      public:
+        /** Optional element 'tt:H264' of XML schema type 'tt:H264Options' */
+        struct tt__H264Options *H264;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__VideoEncoderConfigurationOptionsExtension */
+        long soap_type() const { return SOAP_TYPE_tt__VideoEncoderConfigurationOptionsExtension; }
+        /** Constructor with member initializations */
+        tt__VideoEncoderConfigurationOptionsExtension() : H264() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__VideoEncoderConfigurationOptionsExtension * SOAP_FMAC2 soap_instantiate_tt__VideoEncoderConfigurationOptionsExtension(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:339 */
+#ifndef SOAP_TYPE_tt__VideoEncoderConfigurationOptions
+#define SOAP_TYPE_tt__VideoEncoderConfigurationOptions (458)
+/* complex XML schema type 'tt:VideoEncoderConfigurationOptions': */
+struct SOAP_CMAC tt__VideoEncoderConfigurationOptions {
+      public:
+        /** Optional element 'tt:QualityRange' of XML schema type 'tt:FloatRange' */
+        struct tt__FloatRange *QualityRange;
+        /** Optional element 'tt:H264' of XML schema type 'tt:H264Options' */
+        struct tt__H264Options *H264;
+        /** Optional element 'tt:Extension' of XML schema type 'tt:VideoEncoderConfigurationOptionsExtension' */
+        struct tt__VideoEncoderConfigurationOptionsExtension *Extension;
+        /** Optional element 'tt:BitrateRange' of XML schema type 'tt:IntRange' */
+        struct tt__IntRange *BitrateRange;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__VideoEncoderConfigurationOptions */
+        long soap_type() const { return SOAP_TYPE_tt__VideoEncoderConfigurationOptions; }
+        /** Constructor with member initializations */
+        tt__VideoEncoderConfigurationOptions() : QualityRange(), H264(), Extension(), BitrateRange() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__VideoEncoderConfigurationOptions * SOAP_FMAC2 soap_instantiate_tt__VideoEncoderConfigurationOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:346 */
+#ifndef SOAP_TYPE_tt__Transport
+#define SOAP_TYPE_tt__Transport (461)
+/* complex XML schema type 'tt:Transport': */
+struct SOAP_CMAC tt__Transport {
+      public:
+        /** Optional element 'tt:Protocol' of XML schema type 'xsd:string' */
+        char *Protocol;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__Transport */
+        long soap_type() const { return SOAP_TYPE_tt__Transport; }
+        /** Constructor with member initializations */
+        tt__Transport() : Protocol() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__Transport * SOAP_FMAC2 soap_instantiate_tt__Transport(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:350 */
+#ifndef SOAP_TYPE_tt__StreamSetup
+#define SOAP_TYPE_tt__StreamSetup (462)
+/* complex XML schema type 'tt:StreamSetup': */
+struct SOAP_CMAC tt__StreamSetup {
+      public:
+        /** Optional element 'tt:Stream' of XML schema type 'xsd:string' */
+        char *Stream;
+        /** Optional element 'tt:Transport' of XML schema type 'tt:Transport' */
+        struct tt__Transport *Transport;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__StreamSetup */
+        long soap_type() const { return SOAP_TYPE_tt__StreamSetup; }
+        /** Constructor with member initializations */
+        tt__StreamSetup() : Stream(), Transport() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__StreamSetup * SOAP_FMAC2 soap_instantiate_tt__StreamSetup(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:355 */
+#ifndef SOAP_TYPE__trt__GetProfiles
+#define SOAP_TYPE__trt__GetProfiles (464)
+/* complex XML schema type 'trt:GetProfiles': */
+struct SOAP_CMAC _trt__GetProfiles {
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetProfiles */
+        long soap_type() const { return SOAP_TYPE__trt__GetProfiles; }
+        /** Constructor with member initializations */
+        _trt__GetProfiles() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetProfiles * SOAP_FMAC2 soap_instantiate__trt__GetProfiles(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:357 */
+#ifndef SOAP_TYPE__trt__GetProfile
+#define SOAP_TYPE__trt__GetProfile (465)
+/* complex XML schema type 'trt:GetProfile': */
+struct SOAP_CMAC _trt__GetProfile {
+      public:
+        /** Optional element 'trt:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetProfile */
+        long soap_type() const { return SOAP_TYPE__trt__GetProfile; }
+        /** Constructor with member initializations */
+        _trt__GetProfile() : ProfileToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetProfile * SOAP_FMAC2 soap_instantiate__trt__GetProfile(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:361 */
+#ifndef SOAP_TYPE__trt__GetServiceCapabilities
+#define SOAP_TYPE__trt__GetServiceCapabilities (466)
+/* complex XML schema type 'trt:GetServiceCapabilities': */
+struct SOAP_CMAC _trt__GetServiceCapabilities {
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetServiceCapabilities */
+        long soap_type() const { return SOAP_TYPE__trt__GetServiceCapabilities; }
+        /** Constructor with member initializations */
+        _trt__GetServiceCapabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetServiceCapabilities * SOAP_FMAC2 soap_instantiate__trt__GetServiceCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:363 */
+#ifndef SOAP_TYPE__trt__GetVideoSources
+#define SOAP_TYPE__trt__GetVideoSources (467)
+/* complex XML schema type 'trt:GetVideoSources': */
+struct SOAP_CMAC _trt__GetVideoSources {
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoSources */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoSources; }
+        /** Constructor with member initializations */
+        _trt__GetVideoSources() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoSources * SOAP_FMAC2 soap_instantiate__trt__GetVideoSources(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:365 */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfigurations
+#define SOAP_TYPE__trt__GetVideoSourceConfigurations (468)
+/* complex XML schema type 'trt:GetVideoSourceConfigurations': */
+struct SOAP_CMAC _trt__GetVideoSourceConfigurations {
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoSourceConfigurations */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoSourceConfigurations; }
+        /** Constructor with member initializations */
+        _trt__GetVideoSourceConfigurations() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoSourceConfigurations * SOAP_FMAC2 soap_instantiate__trt__GetVideoSourceConfigurations(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:367 */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfiguration
+#define SOAP_TYPE__trt__GetVideoSourceConfiguration (469)
+/* complex XML schema type 'trt:GetVideoSourceConfiguration': */
+struct SOAP_CMAC _trt__GetVideoSourceConfiguration {
+      public:
+        /** Optional element 'trt:ConfigurationToken' of XML schema type 'xsd:string' */
+        char *ConfigurationToken;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoSourceConfiguration */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoSourceConfiguration; }
+        /** Constructor with member initializations */
+        _trt__GetVideoSourceConfiguration() : ConfigurationToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoSourceConfiguration * SOAP_FMAC2 soap_instantiate__trt__GetVideoSourceConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:371 */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurations
+#define SOAP_TYPE__trt__GetVideoEncoderConfigurations (470)
+/* complex XML schema type 'trt:GetVideoEncoderConfigurations': */
+struct SOAP_CMAC _trt__GetVideoEncoderConfigurations {
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoEncoderConfigurations */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoEncoderConfigurations; }
+        /** Constructor with member initializations */
+        _trt__GetVideoEncoderConfigurations() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoEncoderConfigurations * SOAP_FMAC2 soap_instantiate__trt__GetVideoEncoderConfigurations(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:373 */
+#ifndef SOAP_TYPE__trt__GetStreamUri
+#define SOAP_TYPE__trt__GetStreamUri (471)
+/* complex XML schema type 'trt:GetStreamUri': */
+struct SOAP_CMAC _trt__GetStreamUri {
+      public:
+        /** Optional element 'trt:StreamSetup' of XML schema type 'tt:StreamSetup' */
+        struct tt__StreamSetup *StreamSetup;
+        /** Optional element 'trt:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetStreamUri */
+        long soap_type() const { return SOAP_TYPE__trt__GetStreamUri; }
+        /** Constructor with member initializations */
+        _trt__GetStreamUri() : StreamSetup(), ProfileToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetStreamUri * SOAP_FMAC2 soap_instantiate__trt__GetStreamUri(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:378 */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfiguration
+#define SOAP_TYPE__trt__GetVideoEncoderConfiguration (473)
+/* complex XML schema type 'trt:GetVideoEncoderConfiguration': */
+struct SOAP_CMAC _trt__GetVideoEncoderConfiguration {
+      public:
+        /** Optional element 'trt:ConfigurationToken' of XML schema type 'xsd:string' */
+        char *ConfigurationToken;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoEncoderConfiguration */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoEncoderConfiguration; }
+        /** Constructor with member initializations */
+        _trt__GetVideoEncoderConfiguration() : ConfigurationToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoEncoderConfiguration * SOAP_FMAC2 soap_instantiate__trt__GetVideoEncoderConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:382 */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationOptions
+#define SOAP_TYPE__trt__GetVideoSourceConfigurationOptions (474)
+/* complex XML schema type 'trt:GetVideoSourceConfigurationOptions': */
+struct SOAP_CMAC _trt__GetVideoSourceConfigurationOptions {
+      public:
+        /** Optional element 'trt:ConfigurationToken' of XML schema type 'xsd:string' */
+        char *ConfigurationToken;
+        /** Optional element 'trt:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoSourceConfigurationOptions */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoSourceConfigurationOptions; }
+        /** Constructor with member initializations */
+        _trt__GetVideoSourceConfigurationOptions() : ConfigurationToken(), ProfileToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoSourceConfigurationOptions * SOAP_FMAC2 soap_instantiate__trt__GetVideoSourceConfigurationOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:387 */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationOptions
+#define SOAP_TYPE__trt__GetVideoEncoderConfigurationOptions (475)
+/* complex XML schema type 'trt:GetVideoEncoderConfigurationOptions': */
+struct SOAP_CMAC _trt__GetVideoEncoderConfigurationOptions {
+      public:
+        /** Optional element 'trt:ConfigurationToken' of XML schema type 'xsd:string' */
+        char *ConfigurationToken;
+        /** Optional element 'trt:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoEncoderConfigurationOptions */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoEncoderConfigurationOptions; }
+        /** Constructor with member initializations */
+        _trt__GetVideoEncoderConfigurationOptions() : ConfigurationToken(), ProfileToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoEncoderConfigurationOptions * SOAP_FMAC2 soap_instantiate__trt__GetVideoEncoderConfigurationOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:392 */
+#ifndef SOAP_TYPE_trt__Capabilities
+#define SOAP_TYPE_trt__Capabilities (476)
+/* complex XML schema type 'trt:Capabilities': */
+struct SOAP_CMAC trt__Capabilities {
+      public:
+        /** Optional attribute 'SnapshotUri' of XML schema type 'xsd:boolean' */
+        bool SnapshotUri;
+        /** Optional attribute 'Rotation' of XML schema type 'xsd:boolean' */
+        bool Rotation;
+        /** Optional attribute 'VideoSourceMode' of XML schema type 'xsd:boolean' */
+        bool VideoSourceMode;
+        /** Optional attribute 'OSD' of XML schema type 'xsd:boolean' */
+        bool OSD;
+        /** Optional attribute 'TemporaryOSDText' of XML schema type 'xsd:boolean' */
+        bool TemporaryOSDText;
+        /** Optional attribute 'EXICompression' of XML schema type 'xsd:boolean' */
+        bool EXICompression;
+      public:
+        /** Return unique type id SOAP_TYPE_trt__Capabilities */
+        long soap_type() const { return SOAP_TYPE_trt__Capabilities; }
+        /** Constructor with member initializations */
+        trt__Capabilities() : SnapshotUri(), Rotation(), VideoSourceMode(), OSD(), TemporaryOSDText(), EXICompression() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 trt__Capabilities * SOAP_FMAC2 soap_instantiate_trt__Capabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:401 */
+#ifndef SOAP_TYPE__trt__GetServiceCapabilitiesResponse
+#define SOAP_TYPE__trt__GetServiceCapabilitiesResponse (477)
+/* complex XML schema type 'trt:GetServiceCapabilitiesResponse': */
+struct SOAP_CMAC _trt__GetServiceCapabilitiesResponse {
+      public:
+        /** Optional element 'trt:Capabilities' of XML schema type 'trt:Capabilities' */
+        struct trt__Capabilities *Capabilities;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetServiceCapabilitiesResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetServiceCapabilitiesResponse; }
+        /** Constructor with member initializations */
+        _trt__GetServiceCapabilitiesResponse() : Capabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetServiceCapabilitiesResponse * SOAP_FMAC2 soap_instantiate__trt__GetServiceCapabilitiesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:405 */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationsResponse
+#define SOAP_TYPE__trt__GetVideoSourceConfigurationsResponse (479)
+/* complex XML schema type 'trt:GetVideoSourceConfigurationsResponse': */
+struct SOAP_CMAC _trt__GetVideoSourceConfigurationsResponse {
+      public:
+        /** Sequence of elements 'trt:Configurations' of XML schema type 'tt:VideoSourceConfiguration' stored in dynamic array Configurations of length __sizeConfigurations */
+        int __sizeConfigurations;
+        struct tt__VideoSourceConfiguration *Configurations;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoSourceConfigurationsResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoSourceConfigurationsResponse; }
+        /** Constructor with member initializations */
+        _trt__GetVideoSourceConfigurationsResponse() : __sizeConfigurations(), Configurations() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoSourceConfigurationsResponse * SOAP_FMAC2 soap_instantiate__trt__GetVideoSourceConfigurationsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:410 */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationResponse
+#define SOAP_TYPE__trt__GetVideoSourceConfigurationResponse (481)
+/* complex XML schema type 'trt:GetVideoSourceConfigurationResponse': */
+struct SOAP_CMAC _trt__GetVideoSourceConfigurationResponse {
+      public:
+        /** Optional element 'trt:Configuration' of XML schema type 'tt:VideoSourceConfiguration' */
+        struct tt__VideoSourceConfiguration *Configuration;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoSourceConfigurationResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoSourceConfigurationResponse; }
+        /** Constructor with member initializations */
+        _trt__GetVideoSourceConfigurationResponse() : Configuration() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoSourceConfigurationResponse * SOAP_FMAC2 soap_instantiate__trt__GetVideoSourceConfigurationResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:414 */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationOptionsResponse
+#define SOAP_TYPE__trt__GetVideoSourceConfigurationOptionsResponse (482)
+/* complex XML schema type 'trt:GetVideoSourceConfigurationOptionsResponse': */
+struct SOAP_CMAC _trt__GetVideoSourceConfigurationOptionsResponse {
+      public:
+        /** Optional element 'trt:Options' of XML schema type 'tt:VideoSourceConfigurationOptions' */
+        struct tt__VideoSourceConfigurationOptions *Options;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoSourceConfigurationOptionsResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoSourceConfigurationOptionsResponse; }
+        /** Constructor with member initializations */
+        _trt__GetVideoSourceConfigurationOptionsResponse() : Options() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoSourceConfigurationOptionsResponse * SOAP_FMAC2 soap_instantiate__trt__GetVideoSourceConfigurationOptionsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:418 */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationOptionsResponse
+#define SOAP_TYPE__trt__GetVideoEncoderConfigurationOptionsResponse (484)
+/* complex XML schema type 'trt:GetVideoEncoderConfigurationOptionsResponse': */
+struct SOAP_CMAC _trt__GetVideoEncoderConfigurationOptionsResponse {
+      public:
+        /** Optional element 'trt:Options' of XML schema type 'tt:VideoEncoderConfigurationOptions' */
+        struct tt__VideoEncoderConfigurationOptions *Options;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoEncoderConfigurationOptionsResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoEncoderConfigurationOptionsResponse; }
+        /** Constructor with member initializations */
+        _trt__GetVideoEncoderConfigurationOptionsResponse() : Options() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoEncoderConfigurationOptionsResponse * SOAP_FMAC2 soap_instantiate__trt__GetVideoEncoderConfigurationOptionsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:422 */
+#ifndef SOAP_TYPE__trt__SetVideoEncoderConfiguration
+#define SOAP_TYPE__trt__SetVideoEncoderConfiguration (486)
+/* complex XML schema type 'trt:SetVideoEncoderConfiguration': */
+struct SOAP_CMAC _trt__SetVideoEncoderConfiguration {
+      public:
+        /** Optional element 'trt:Configuration' of XML schema type 'tt:VideoEncoderConfiguration' */
+        struct tt__VideoEncoderConfiguration *Configuration;
+        /** Required element 'trt:ForcePersistence' of XML schema type 'xsd:boolean' */
+        bool ForcePersistence;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__SetVideoEncoderConfiguration */
+        long soap_type() const { return SOAP_TYPE__trt__SetVideoEncoderConfiguration; }
+        /** Constructor with member initializations */
+        _trt__SetVideoEncoderConfiguration() : Configuration(), ForcePersistence() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__SetVideoEncoderConfiguration * SOAP_FMAC2 soap_instantiate__trt__SetVideoEncoderConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:427 */
+#ifndef SOAP_TYPE__trt__SetVideoEncoderConfigurationResponse
+#define SOAP_TYPE__trt__SetVideoEncoderConfigurationResponse (488)
+/* complex XML schema type 'trt:SetVideoEncoderConfigurationResponse': */
+struct SOAP_CMAC _trt__SetVideoEncoderConfigurationResponse {
+      public:
+        /** Return unique type id SOAP_TYPE__trt__SetVideoEncoderConfigurationResponse */
+        long soap_type() const { return SOAP_TYPE__trt__SetVideoEncoderConfigurationResponse; }
+        /** Constructor with member initializations */
+        _trt__SetVideoEncoderConfigurationResponse() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__SetVideoEncoderConfigurationResponse * SOAP_FMAC2 soap_instantiate__trt__SetVideoEncoderConfigurationResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:430 */
+#ifndef SOAP_TYPE_tr2__Capabilities
+#define SOAP_TYPE_tr2__Capabilities (489)
+/* complex XML schema type 'tr2:Capabilities': */
+struct SOAP_CMAC tr2__Capabilities {
+      public:
+        /** Optional attribute 'SnapshotUri' of XML schema type 'xsd:boolean' */
+        bool SnapshotUri;
+        /** Optional attribute 'Rotation' of XML schema type 'xsd:boolean' */
+        bool Rotation;
+        /** Optional attribute 'VideoSourceMode' of XML schema type 'xsd:boolean' */
+        bool VideoSourceMode;
+        /** Optional attribute 'OSD' of XML schema type 'xsd:boolean' */
+        bool OSD;
+        /** Optional attribute 'TemporaryOSDText' of XML schema type 'xsd:boolean' */
+        bool TemporaryOSDText;
+        /** Optional attribute 'EXICompression' of XML schema type 'xsd:boolean' */
+        bool EXICompression;
+      public:
+        /** Return unique type id SOAP_TYPE_tr2__Capabilities */
+        long soap_type() const { return SOAP_TYPE_tr2__Capabilities; }
+        /** Constructor with member initializations */
+        tr2__Capabilities() : SnapshotUri(), Rotation(), VideoSourceMode(), OSD(), TemporaryOSDText(), EXICompression() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tr2__Capabilities * SOAP_FMAC2 soap_instantiate_tr2__Capabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:439 */
+#ifndef SOAP_TYPE_tr2__ConfigurationSet
+#define SOAP_TYPE_tr2__ConfigurationSet (490)
+/* complex XML schema type 'tr2:ConfigurationSet': */
+struct SOAP_CMAC tr2__ConfigurationSet {
+      public:
+        /** Optional element 'tr2:VideoSource' of XML schema type 'tt:VideoSourceConfiguration' */
+        struct tt__VideoSourceConfiguration *VideoSource;
+        /** Optional element 'tr2:VideoEncoder' of XML schema type 'tt:VideoEncoderConfiguration' */
+        struct tt__VideoEncoderConfiguration *VideoEncoder;
+      public:
+        /** Return unique type id SOAP_TYPE_tr2__ConfigurationSet */
+        long soap_type() const { return SOAP_TYPE_tr2__ConfigurationSet; }
+        /** Constructor with member initializations */
+        tr2__ConfigurationSet() : VideoSource(), VideoEncoder() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tr2__ConfigurationSet * SOAP_FMAC2 soap_instantiate_tr2__ConfigurationSet(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:444 */
+#ifndef SOAP_TYPE_tr2__MediaProfile
+#define SOAP_TYPE_tr2__MediaProfile (491)
+/* complex XML schema type 'tr2:MediaProfile': */
+struct SOAP_CMAC tr2__MediaProfile {
+      public:
+        /** Optional attribute 'token' of XML schema type 'xsd:string' */
+        char *token;
+        /** Optional attribute 'fixed' of XML schema type 'xsd:boolean' */
+        bool fixed;
+        /** Optional element 'tr2:Name' of XML schema type 'xsd:string' */
+        char *Name;
+        /** Optional element 'tr2:Configurations' of XML schema type 'tr2:ConfigurationSet' */
+        struct tr2__ConfigurationSet *Configurations;
+      public:
+        /** Return unique type id SOAP_TYPE_tr2__MediaProfile */
+        long soap_type() const { return SOAP_TYPE_tr2__MediaProfile; }
+        /** Constructor with member initializations */
+        tr2__MediaProfile() : token(), fixed(), Name(), Configurations() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tr2__MediaProfile * SOAP_FMAC2 soap_instantiate_tr2__MediaProfile(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:451 */
+#ifndef SOAP_TYPE__tr2__GetProfiles
+#define SOAP_TYPE__tr2__GetProfiles (493)
+/* complex XML schema type 'tr2:GetProfiles': */
+struct SOAP_CMAC _tr2__GetProfiles {
+      public:
+        /** Optional element 'tr2:Token' of XML schema type 'xsd:string' */
+        char *Token;
+        /** Sequence of elements 'tr2:Type' of XML schema type 'xsd:string' stored in dynamic array Type of length __sizeType */
+        int __sizeType;
+        char **Type;
+      public:
+        /** Return unique type id SOAP_TYPE__tr2__GetProfiles */
+        long soap_type() const { return SOAP_TYPE__tr2__GetProfiles; }
+        /** Constructor with member initializations */
+        _tr2__GetProfiles() : Token(), __sizeType(), Type() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tr2__GetProfiles * SOAP_FMAC2 soap_instantiate__tr2__GetProfiles(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:457 */
+#ifndef SOAP_TYPE__tr2__GetStreamUri
+#define SOAP_TYPE__tr2__GetStreamUri (494)
+/* complex XML schema type 'tr2:GetStreamUri': */
+struct SOAP_CMAC _tr2__GetStreamUri {
+      public:
+        /** Optional element 'tr2:Protocol' of XML schema type 'xsd:string' */
+        char *Protocol;
+        /** Optional element 'tr2:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+      public:
+        /** Return unique type id SOAP_TYPE__tr2__GetStreamUri */
+        long soap_type() const { return SOAP_TYPE__tr2__GetStreamUri; }
+        /** Constructor with member initializations */
+        _tr2__GetStreamUri() : Protocol(), ProfileToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tr2__GetStreamUri * SOAP_FMAC2 soap_instantiate__tr2__GetStreamUri(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:462 */
+#ifndef SOAP_TYPE__tr2__GetServiceCapabilities
+#define SOAP_TYPE__tr2__GetServiceCapabilities (495)
+/* complex XML schema type 'tr2:GetServiceCapabilities': */
+struct SOAP_CMAC _tr2__GetServiceCapabilities {
+      public:
+        /** Return unique type id SOAP_TYPE__tr2__GetServiceCapabilities */
+        long soap_type() const { return SOAP_TYPE__tr2__GetServiceCapabilities; }
+        /** Constructor with member initializations */
+        _tr2__GetServiceCapabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tr2__GetServiceCapabilities * SOAP_FMAC2 soap_instantiate__tr2__GetServiceCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:464 */
+#ifndef SOAP_TYPE__tr2__GetProfilesResponse
+#define SOAP_TYPE__tr2__GetProfilesResponse (496)
+/* complex XML schema type 'tr2:GetProfilesResponse': */
+struct SOAP_CMAC _tr2__GetProfilesResponse {
+      public:
+        /** Sequence of elements 'tr2:Profiles' of XML schema type 'tr2:MediaProfile' stored in dynamic array Profiles of length __sizeProfiles */
+        int __sizeProfiles;
+        struct tr2__MediaProfile *Profiles;
+      public:
+        /** Return unique type id SOAP_TYPE__tr2__GetProfilesResponse */
+        long soap_type() const { return SOAP_TYPE__tr2__GetProfilesResponse; }
+        /** Constructor with member initializations */
+        _tr2__GetProfilesResponse() : __sizeProfiles(), Profiles() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tr2__GetProfilesResponse * SOAP_FMAC2 soap_instantiate__tr2__GetProfilesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:469 */
+#ifndef SOAP_TYPE__tr2__GetStreamUriResponse
+#define SOAP_TYPE__tr2__GetStreamUriResponse (498)
+/* complex XML schema type 'tr2:GetStreamUriResponse': */
+struct SOAP_CMAC _tr2__GetStreamUriResponse {
+      public:
+        /** Optional element 'tr2:Uri' of XML schema type 'xsd:string' */
+        char *Uri;
+      public:
+        /** Return unique type id SOAP_TYPE__tr2__GetStreamUriResponse */
+        long soap_type() const { return SOAP_TYPE__tr2__GetStreamUriResponse; }
+        /** Constructor with member initializations */
+        _tr2__GetStreamUriResponse() : Uri() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tr2__GetStreamUriResponse * SOAP_FMAC2 soap_instantiate__tr2__GetStreamUriResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:473 */
+#ifndef SOAP_TYPE__tr2__GetServiceCapabilitiesResponse
+#define SOAP_TYPE__tr2__GetServiceCapabilitiesResponse (499)
+/* complex XML schema type 'tr2:GetServiceCapabilitiesResponse': */
+struct SOAP_CMAC _tr2__GetServiceCapabilitiesResponse {
+      public:
+        /** Optional element 'tr2:Capabilities' of XML schema type 'tr2:Capabilities' */
+        struct tr2__Capabilities *Capabilities;
+      public:
+        /** Return unique type id SOAP_TYPE__tr2__GetServiceCapabilitiesResponse */
+        long soap_type() const { return SOAP_TYPE__tr2__GetServiceCapabilitiesResponse; }
+        /** Constructor with member initializations */
+        _tr2__GetServiceCapabilitiesResponse() : Capabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tr2__GetServiceCapabilitiesResponse * SOAP_FMAC2 soap_instantiate__tr2__GetServiceCapabilitiesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:477 */
+#ifndef SOAP_TYPE_tt__Space2DDescription
+#define SOAP_TYPE_tt__Space2DDescription (501)
+/* complex XML schema type 'tt:Space2DDescription': */
+struct SOAP_CMAC tt__Space2DDescription {
+      public:
+        /** Optional element 'tt:URI' of XML schema type 'xsd:string' */
+        char *URI;
+        /** Optional element 'tt:XRange' of XML schema type 'tt:FloatRange' */
+        struct tt__FloatRange *XRange;
+        /** Optional element 'tt:YRange' of XML schema type 'tt:FloatRange' */
+        struct tt__FloatRange *YRange;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__Space2DDescription */
+        long soap_type() const { return SOAP_TYPE_tt__Space2DDescription; }
+        /** Constructor with member initializations */
+        tt__Space2DDescription() : URI(), XRange(), YRange() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__Space2DDescription * SOAP_FMAC2 soap_instantiate_tt__Space2DDescription(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:483 */
+#ifndef SOAP_TYPE_tt__PTZSpaces
+#define SOAP_TYPE_tt__PTZSpaces (502)
+/* complex XML schema type 'tt:PTZSpaces': */
+struct SOAP_CMAC tt__PTZSpaces {
+      public:
+        /** Sequence of elements 'tt:RelativePanTiltTranslationSpace' of XML schema type 'tt:Space2DDescription' stored in dynamic array RelativePanTiltTranslationSpace of length __sizeRelativePanTiltTranslationSpace */
+        int __sizeRelativePanTiltTranslationSpace;
+        struct tt__Space2DDescription *RelativePanTiltTranslationSpace;
+        /** Sequence of elements 'tt:ContinuousPanTiltVelocitySpace' of XML schema type 'tt:Space2DDescription' stored in dynamic array ContinuousPanTiltVelocitySpace of length __sizeContinuousPanTiltVelocitySpace */
+        int __sizeContinuousPanTiltVelocitySpace;
+        struct tt__Space2DDescription *ContinuousPanTiltVelocitySpace;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__PTZSpaces */
+        long soap_type() const { return SOAP_TYPE_tt__PTZSpaces; }
+        /** Constructor with member initializations */
+        tt__PTZSpaces() : __sizeRelativePanTiltTranslationSpace(), RelativePanTiltTranslationSpace(), __sizeContinuousPanTiltVelocitySpace(), ContinuousPanTiltVelocitySpace() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__PTZSpaces * SOAP_FMAC2 soap_instantiate_tt__PTZSpaces(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:490 */
+#ifndef SOAP_TYPE_tptz__Capabilities
+#define SOAP_TYPE_tptz__Capabilities (504)
+/* complex XML schema type 'tptz:Capabilities': */
+struct SOAP_CMAC tptz__Capabilities {
+      public:
+        /** Optional attribute 'EFlip' of XML schema type 'xsd:boolean' */
+        bool EFlip;
+        /** Optional attribute 'Reverse' of XML schema type 'xsd:boolean' */
+        bool Reverse;
+        /** Optional attribute 'GetCompatibleConfigurations' of XML schema type 'xsd:boolean' */
+        bool GetCompatibleConfigurations;
+        /** Optional attribute 'MoveStatus' of XML schema type 'xsd:boolean' */
+        bool MoveStatus;
+        /** Optional attribute 'StatusPosition' of XML schema type 'xsd:boolean' */
+        bool StatusPosition;
+      public:
+        /** Return unique type id SOAP_TYPE_tptz__Capabilities */
+        long soap_type() const { return SOAP_TYPE_tptz__Capabilities; }
+        /** Constructor with member initializations */
+        tptz__Capabilities() : EFlip(), Reverse(), GetCompatibleConfigurations(), MoveStatus(), StatusPosition() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tptz__Capabilities * SOAP_FMAC2 soap_instantiate_tptz__Capabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:498 */
+#ifndef SOAP_TYPE_tt__DurationRange
+#define SOAP_TYPE_tt__DurationRange (505)
+/* complex XML schema type 'tt:DurationRange': */
+struct SOAP_CMAC tt__DurationRange {
+      public:
+        /** Optional element 'tt:Min' of XML schema type 'xsd:string' */
+        char *Min;
+        /** Optional element 'tt:Max' of XML schema type 'xsd:string' */
+        char *Max;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__DurationRange */
+        long soap_type() const { return SOAP_TYPE_tt__DurationRange; }
+        /** Constructor with member initializations */
+        tt__DurationRange() : Min(), Max() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__DurationRange * SOAP_FMAC2 soap_instantiate_tt__DurationRange(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:503 */
+#ifndef SOAP_TYPE_tt__PTZConfigurationOptions
+#define SOAP_TYPE_tt__PTZConfigurationOptions (506)
+/* complex XML schema type 'tt:PTZConfigurationOptions': */
+struct SOAP_CMAC tt__PTZConfigurationOptions {
+      public:
+        /** Optional element 'tt:Spaces' of XML schema type 'tt:PTZSpaces' */
+        struct tt__PTZSpaces *Spaces;
+        /** Optional element 'tt:PTZTimeout' of XML schema type 'tt:DurationRange' */
+        struct tt__DurationRange *PTZTimeout;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__PTZConfigurationOptions */
+        long soap_type() const { return SOAP_TYPE_tt__PTZConfigurationOptions; }
+        /** Constructor with member initializations */
+        tt__PTZConfigurationOptions() : Spaces(), PTZTimeout() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__PTZConfigurationOptions * SOAP_FMAC2 soap_instantiate_tt__PTZConfigurationOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:508 */
+#ifndef SOAP_TYPE_tt__PTZNode
+#define SOAP_TYPE_tt__PTZNode (509)
+/* complex XML schema type 'tt:PTZNode': */
+struct SOAP_CMAC tt__PTZNode {
+      public:
+        /** Optional attribute 'token' of XML schema type 'xsd:string' */
+        char *token;
+        /** Optional element 'tt:Name' of XML schema type 'xsd:string' */
+        char *Name;
+        /** Optional element 'tt:SupportedPTZSpaces' of XML schema type 'tt:PTZSpaces' */
+        struct tt__PTZSpaces *SupportedPTZSpaces;
+        /** Required element 'tt:MaximumNumberOfPresets' of XML schema type 'xsd:int' */
+        int MaximumNumberOfPresets;
+        /** Required element 'tt:HomeSupported' of XML schema type 'xsd:boolean' */
+        bool HomeSupported;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__PTZNode */
+        long soap_type() const { return SOAP_TYPE_tt__PTZNode; }
+        /** Constructor with member initializations */
+        tt__PTZNode() : token(), Name(), SupportedPTZSpaces(), MaximumNumberOfPresets(), HomeSupported() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__PTZNode * SOAP_FMAC2 soap_instantiate_tt__PTZNode(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:516 */
+#ifndef SOAP_TYPE_tt__PanTiltLimits
+#define SOAP_TYPE_tt__PanTiltLimits (510)
+/* complex XML schema type 'tt:PanTiltLimits': */
+struct SOAP_CMAC tt__PanTiltLimits {
+      public:
+        /** Optional element 'tt:Range' of XML schema type 'tt:Space2DDescription' */
+        struct tt__Space2DDescription *Range;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__PanTiltLimits */
+        long soap_type() const { return SOAP_TYPE_tt__PanTiltLimits; }
+        /** Constructor with member initializations */
+        tt__PanTiltLimits() : Range() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__PanTiltLimits * SOAP_FMAC2 soap_instantiate_tt__PanTiltLimits(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:520 */
+#ifndef SOAP_TYPE_tt__PTZConfiguration
+#define SOAP_TYPE_tt__PTZConfiguration (511)
+/* complex XML schema type 'tt:PTZConfiguration': */
+struct SOAP_CMAC tt__PTZConfiguration {
+      public:
+        /** Optional attribute 'token' of XML schema type 'xsd:string' */
+        char *token;
+        /** Optional element 'tt:Name' of XML schema type 'xsd:string' */
+        char *Name;
+        /** Required element 'tt:UseCount' of XML schema type 'xsd:int' */
+        int UseCount;
+        /** Optional element 'tt:NodeToken' of XML schema type 'xsd:string' */
+        char *NodeToken;
+        /** Optional element 'tt:DefaultContinuousPanTiltVelocitySpace' of XML schema type 'xsd:string' */
+        char *DefaultContinuousPanTiltVelocitySpace;
+        /** Optional element 'tt:DefaultRelativePanTiltTranslationSpace' of XML schema type 'xsd:string' */
+        char *DefaultRelativePanTiltTranslationSpace;
+        /** Optional element 'tt:DefaultPTZTimeout' of XML schema type 'xsd:string' */
+        char *DefaultPTZTimeout;
+        /** Optional element 'tt:PanTiltLimits' of XML schema type 'tt:PanTiltLimits' */
+        struct tt__PanTiltLimits *PanTiltLimits;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__PTZConfiguration */
+        long soap_type() const { return SOAP_TYPE_tt__PTZConfiguration; }
+        /** Constructor with member initializations */
+        tt__PTZConfiguration() : token(), Name(), UseCount(), NodeToken(), DefaultContinuousPanTiltVelocitySpace(), DefaultRelativePanTiltTranslationSpace(), DefaultPTZTimeout(), PanTiltLimits() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__PTZConfiguration * SOAP_FMAC2 soap_instantiate_tt__PTZConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:531 */
+#ifndef SOAP_TYPE_tt__PTZPreset
+#define SOAP_TYPE_tt__PTZPreset (513)
+/* complex XML schema type 'tt:PTZPreset': */
+struct SOAP_CMAC tt__PTZPreset {
+      public:
+        /** Optional attribute 'token' of XML schema type 'xsd:string' */
+        char *token;
+        /** Optional element 'tt:Name' of XML schema type 'xsd:string' */
+        char *Name;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__PTZPreset */
+        long soap_type() const { return SOAP_TYPE_tt__PTZPreset; }
+        /** Constructor with member initializations */
+        tt__PTZPreset() : token(), Name() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__PTZPreset * SOAP_FMAC2 soap_instantiate_tt__PTZPreset(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:536 */
+#ifndef SOAP_TYPE__tptz__GetNodesResponse
+#define SOAP_TYPE__tptz__GetNodesResponse (514)
+/* complex XML schema type 'tptz:GetNodesResponse': */
+struct SOAP_CMAC _tptz__GetNodesResponse {
+      public:
+        /** Sequence of elements 'tptz:PTZNode' of XML schema type 'tt:PTZNode' stored in dynamic array PTZNode of length __sizePTZNode */
+        int __sizePTZNode;
+        struct tt__PTZNode *PTZNode;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetNodesResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__GetNodesResponse; }
+        /** Constructor with member initializations */
+        _tptz__GetNodesResponse() : __sizePTZNode(), PTZNode() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetNodesResponse * SOAP_FMAC2 soap_instantiate__tptz__GetNodesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:541 */
+#ifndef SOAP_TYPE__tptz__GetServiceCapabilities
+#define SOAP_TYPE__tptz__GetServiceCapabilities (516)
+/* complex XML schema type 'tptz:GetServiceCapabilities': */
+struct SOAP_CMAC _tptz__GetServiceCapabilities {
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetServiceCapabilities */
+        long soap_type() const { return SOAP_TYPE__tptz__GetServiceCapabilities; }
+        /** Constructor with member initializations */
+        _tptz__GetServiceCapabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetServiceCapabilities * SOAP_FMAC2 soap_instantiate__tptz__GetServiceCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:543 */
+#ifndef SOAP_TYPE__tptz__GetServiceCapabilitiesResponse
+#define SOAP_TYPE__tptz__GetServiceCapabilitiesResponse (517)
+/* complex XML schema type 'tptz:GetServiceCapabilitiesResponse': */
+struct SOAP_CMAC _tptz__GetServiceCapabilitiesResponse {
+      public:
+        /** Optional element 'tptz:Capabilities' of XML schema type 'tptz:Capabilities' */
+        struct tptz__Capabilities *Capabilities;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetServiceCapabilitiesResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__GetServiceCapabilitiesResponse; }
+        /** Constructor with member initializations */
+        _tptz__GetServiceCapabilitiesResponse() : Capabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetServiceCapabilitiesResponse * SOAP_FMAC2 soap_instantiate__tptz__GetServiceCapabilitiesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:547 */
+#ifndef SOAP_TYPE__tptz__GetNode
+#define SOAP_TYPE__tptz__GetNode (519)
+/* complex XML schema type 'tptz:GetNode': */
+struct SOAP_CMAC _tptz__GetNode {
+      public:
+        /** Optional element 'tptz:NodeToken' of XML schema type 'xsd:string' */
+        char *NodeToken;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetNode */
+        long soap_type() const { return SOAP_TYPE__tptz__GetNode; }
+        /** Constructor with member initializations */
+        _tptz__GetNode() : NodeToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetNode * SOAP_FMAC2 soap_instantiate__tptz__GetNode(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:551 */
+#ifndef SOAP_TYPE__tptz__GetNodeResponse
+#define SOAP_TYPE__tptz__GetNodeResponse (520)
+/* complex XML schema type 'tptz:GetNodeResponse': */
+struct SOAP_CMAC _tptz__GetNodeResponse {
+      public:
+        /** Optional element 'tptz:PTZNode' of XML schema type 'tt:PTZNode' */
+        struct tt__PTZNode *PTZNode;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetNodeResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__GetNodeResponse; }
+        /** Constructor with member initializations */
+        _tptz__GetNodeResponse() : PTZNode() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetNodeResponse * SOAP_FMAC2 soap_instantiate__tptz__GetNodeResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:555 */
+#ifndef SOAP_TYPE__tptz__GetConfiguration
+#define SOAP_TYPE__tptz__GetConfiguration (521)
+/* complex XML schema type 'tptz:GetConfiguration': */
+struct SOAP_CMAC _tptz__GetConfiguration {
+      public:
+        /** Optional element 'tptz:PTZConfigurationToken' of XML schema type 'xsd:string' */
+        char *PTZConfigurationToken;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetConfiguration */
+        long soap_type() const { return SOAP_TYPE__tptz__GetConfiguration; }
+        /** Constructor with member initializations */
+        _tptz__GetConfiguration() : PTZConfigurationToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetConfiguration * SOAP_FMAC2 soap_instantiate__tptz__GetConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:559 */
+#ifndef SOAP_TYPE__tptz__GetConfigurationResponse
+#define SOAP_TYPE__tptz__GetConfigurationResponse (522)
+/* complex XML schema type 'tptz:GetConfigurationResponse': */
+struct SOAP_CMAC _tptz__GetConfigurationResponse {
+      public:
+        /** Optional element 'tptz:PTZConfiguration' of XML schema type 'tt:PTZConfiguration' */
+        struct tt__PTZConfiguration *PTZConfiguration;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetConfigurationResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__GetConfigurationResponse; }
+        /** Constructor with member initializations */
+        _tptz__GetConfigurationResponse() : PTZConfiguration() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetConfigurationResponse * SOAP_FMAC2 soap_instantiate__tptz__GetConfigurationResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:563 */
+#ifndef SOAP_TYPE__tptz__GetConfigurationOptions
+#define SOAP_TYPE__tptz__GetConfigurationOptions (524)
+/* complex XML schema type 'tptz:GetConfigurationOptions': */
+struct SOAP_CMAC _tptz__GetConfigurationOptions {
+      public:
+        /** Optional element 'tptz:ConfigurationToken' of XML schema type 'xsd:string' */
+        char *ConfigurationToken;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetConfigurationOptions */
+        long soap_type() const { return SOAP_TYPE__tptz__GetConfigurationOptions; }
+        /** Constructor with member initializations */
+        _tptz__GetConfigurationOptions() : ConfigurationToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetConfigurationOptions * SOAP_FMAC2 soap_instantiate__tptz__GetConfigurationOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:567 */
+#ifndef SOAP_TYPE__tptz__GetConfigurationOptionsResponse
+#define SOAP_TYPE__tptz__GetConfigurationOptionsResponse (525)
+/* complex XML schema type 'tptz:GetConfigurationOptionsResponse': */
+struct SOAP_CMAC _tptz__GetConfigurationOptionsResponse {
+      public:
+        /** Optional element 'tptz:PTZConfigurationOptions' of XML schema type 'tt:PTZConfigurationOptions' */
+        struct tt__PTZConfigurationOptions *PTZConfigurationOptions;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetConfigurationOptionsResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__GetConfigurationOptionsResponse; }
+        /** Constructor with member initializations */
+        _tptz__GetConfigurationOptionsResponse() : PTZConfigurationOptions() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetConfigurationOptionsResponse * SOAP_FMAC2 soap_instantiate__tptz__GetConfigurationOptionsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:571 */
+#ifndef SOAP_TYPE__tptz__GetConfigurationsResponse
+#define SOAP_TYPE__tptz__GetConfigurationsResponse (527)
+/* complex XML schema type 'tptz:GetConfigurationsResponse': */
+struct SOAP_CMAC _tptz__GetConfigurationsResponse {
+      public:
+        /** Sequence of elements 'tptz:PTZConfiguration' of XML schema type 'tt:PTZConfiguration' stored in dynamic array PTZConfiguration of length __sizePTZConfiguration */
+        int __sizePTZConfiguration;
+        struct tt__PTZConfiguration *PTZConfiguration;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetConfigurationsResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__GetConfigurationsResponse; }
+        /** Constructor with member initializations */
+        _tptz__GetConfigurationsResponse() : __sizePTZConfiguration(), PTZConfiguration() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetConfigurationsResponse * SOAP_FMAC2 soap_instantiate__tptz__GetConfigurationsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:576 */
+#ifndef SOAP_TYPE__tptz__GetPresetsResponse
+#define SOAP_TYPE__tptz__GetPresetsResponse (528)
+/* complex XML schema type 'tptz:GetPresetsResponse': */
+struct SOAP_CMAC _tptz__GetPresetsResponse {
+      public:
+        /** Sequence of elements 'tptz:Preset' of XML schema type 'tt:PTZPreset' stored in dynamic array Preset of length __sizePreset */
+        int __sizePreset;
+        struct tt__PTZPreset *Preset;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetPresetsResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__GetPresetsResponse; }
+        /** Constructor with member initializations */
+        _tptz__GetPresetsResponse() : __sizePreset(), Preset() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetPresetsResponse * SOAP_FMAC2 soap_instantiate__tptz__GetPresetsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:581 */
+#ifndef SOAP_TYPE__tptz__GetNodes
+#define SOAP_TYPE__tptz__GetNodes (530)
+/* complex XML schema type 'tptz:GetNodes': */
+struct SOAP_CMAC _tptz__GetNodes {
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetNodes */
+        long soap_type() const { return SOAP_TYPE__tptz__GetNodes; }
+        /** Constructor with member initializations */
+        _tptz__GetNodes() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetNodes * SOAP_FMAC2 soap_instantiate__tptz__GetNodes(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:583 */
+#ifndef SOAP_TYPE__tptz__GetConfigurations
+#define SOAP_TYPE__tptz__GetConfigurations (531)
+/* complex XML schema type 'tptz:GetConfigurations': */
+struct SOAP_CMAC _tptz__GetConfigurations {
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetConfigurations */
+        long soap_type() const { return SOAP_TYPE__tptz__GetConfigurations; }
+        /** Constructor with member initializations */
+        _tptz__GetConfigurations() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetConfigurations * SOAP_FMAC2 soap_instantiate__tptz__GetConfigurations(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:585 */
+#ifndef SOAP_TYPE__tptz__GetPresets
+#define SOAP_TYPE__tptz__GetPresets (532)
+/* complex XML schema type 'tptz:GetPresets': */
+struct SOAP_CMAC _tptz__GetPresets {
+      public:
+        /** Optional element 'tptz:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GetPresets */
+        long soap_type() const { return SOAP_TYPE__tptz__GetPresets; }
+        /** Constructor with member initializations */
+        _tptz__GetPresets() : ProfileToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GetPresets * SOAP_FMAC2 soap_instantiate__tptz__GetPresets(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:589 */
+#ifndef SOAP_TYPE__tptz__SetPreset
+#define SOAP_TYPE__tptz__SetPreset (533)
+/* complex XML schema type 'tptz:SetPreset': */
+struct SOAP_CMAC _tptz__SetPreset {
+      public:
+        /** Optional element 'tptz:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+        /** Optional element 'tptz:PresetName' of XML schema type 'xsd:string' */
+        char *PresetName;
+        /** Optional element 'tptz:PresetToken' of XML schema type 'xsd:string' */
+        char *PresetToken;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__SetPreset */
+        long soap_type() const { return SOAP_TYPE__tptz__SetPreset; }
+        /** Constructor with member initializations */
+        _tptz__SetPreset() : ProfileToken(), PresetName(), PresetToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__SetPreset * SOAP_FMAC2 soap_instantiate__tptz__SetPreset(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:595 */
+#ifndef SOAP_TYPE__tptz__SetPresetResponse
+#define SOAP_TYPE__tptz__SetPresetResponse (534)
+/* complex XML schema type 'tptz:SetPresetResponse': */
+struct SOAP_CMAC _tptz__SetPresetResponse {
+      public:
+        /** Optional element 'tptz:PresetToken' of XML schema type 'xsd:string' */
+        char *PresetToken;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__SetPresetResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__SetPresetResponse; }
+        /** Constructor with member initializations */
+        _tptz__SetPresetResponse() : PresetToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__SetPresetResponse * SOAP_FMAC2 soap_instantiate__tptz__SetPresetResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:599 */
+#ifndef SOAP_TYPE_tt__Profile
+#define SOAP_TYPE_tt__Profile (535)
+/* complex XML schema type 'tt:Profile': */
+struct SOAP_CMAC tt__Profile {
+      public:
+        /** Optional attribute 'token' of XML schema type 'xsd:string' */
+        char *token;
+        /** Optional attribute 'fixed' of XML schema type 'xsd:boolean' */
+        bool fixed;
+        /** Optional element 'tt:Name' of XML schema type 'xsd:string' */
+        char *Name;
+        /** Optional element 'tt:VideoSourceConfiguration' of XML schema type 'tt:VideoSourceConfiguration' */
+        struct tt__VideoSourceConfiguration *VideoSourceConfiguration;
+        /** Optional element 'tt:VideoEncoderConfiguration' of XML schema type 'tt:VideoEncoderConfiguration' */
+        struct tt__VideoEncoderConfiguration *VideoEncoderConfiguration;
+        /** Optional element 'tt:PTZConfiguration' of XML schema type 'tt:PTZConfiguration' */
+        struct tt__PTZConfiguration *PTZConfiguration;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__Profile */
+        long soap_type() const { return SOAP_TYPE_tt__Profile; }
+        /** Constructor with member initializations */
+        tt__Profile() : token(), fixed(), Name(), VideoSourceConfiguration(), VideoEncoderConfiguration(), PTZConfiguration() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__Profile * SOAP_FMAC2 soap_instantiate_tt__Profile(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:608 */
+#ifndef SOAP_TYPE_tt__MediaUri
+#define SOAP_TYPE_tt__MediaUri (536)
+/* complex XML schema type 'tt:MediaUri': */
+struct SOAP_CMAC tt__MediaUri {
+      public:
+        /** Optional element 'tt:Uri' of XML schema type 'xsd:string' */
+        char *Uri;
+        /** Required element 'tt:InvalidAfterConnect' of XML schema type 'xsd:boolean' */
+        bool InvalidAfterConnect;
+        /** Required element 'tt:InvalidAfterReboot' of XML schema type 'xsd:boolean' */
+        bool InvalidAfterReboot;
+        /** Optional element 'tt:Timeout' of XML schema type 'xsd:string' */
+        char *Timeout;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__MediaUri */
+        long soap_type() const { return SOAP_TYPE_tt__MediaUri; }
+        /** Constructor with member initializations */
+        tt__MediaUri() : Uri(), InvalidAfterConnect(), InvalidAfterReboot(), Timeout() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__MediaUri * SOAP_FMAC2 soap_instantiate_tt__MediaUri(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:615 */
+#ifndef SOAP_TYPE__trt__GetProfilesResponse
+#define SOAP_TYPE__trt__GetProfilesResponse (537)
+/* complex XML schema type 'trt:GetProfilesResponse': */
+struct SOAP_CMAC _trt__GetProfilesResponse {
+      public:
+        /** Sequence of elements 'trt:Profiles' of XML schema type 'tt:Profile' stored in dynamic array Profiles of length __sizeProfiles */
+        int __sizeProfiles;
+        struct tt__Profile *Profiles;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetProfilesResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetProfilesResponse; }
+        /** Constructor with member initializations */
+        _trt__GetProfilesResponse() : __sizeProfiles(), Profiles() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetProfilesResponse * SOAP_FMAC2 soap_instantiate__trt__GetProfilesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:620 */
+#ifndef SOAP_TYPE__trt__GetProfileResponse
+#define SOAP_TYPE__trt__GetProfileResponse (539)
+/* complex XML schema type 'trt:GetProfileResponse': */
+struct SOAP_CMAC _trt__GetProfileResponse {
+      public:
+        /** Optional element 'trt:Profile' of XML schema type 'tt:Profile' */
+        struct tt__Profile *Profile;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetProfileResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetProfileResponse; }
+        /** Constructor with member initializations */
+        _trt__GetProfileResponse() : Profile() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetProfileResponse * SOAP_FMAC2 soap_instantiate__trt__GetProfileResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:624 */
+#ifndef SOAP_TYPE__trt__GetStreamUriResponse
+#define SOAP_TYPE__trt__GetStreamUriResponse (540)
+/* complex XML schema type 'trt:GetStreamUriResponse': */
+struct SOAP_CMAC _trt__GetStreamUriResponse {
+      public:
+        /** Optional element 'trt:MediaUri' of XML schema type 'tt:MediaUri' */
+        struct tt__MediaUri *MediaUri;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetStreamUriResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetStreamUriResponse; }
+        /** Constructor with member initializations */
+        _trt__GetStreamUriResponse() : MediaUri() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetStreamUriResponse * SOAP_FMAC2 soap_instantiate__trt__GetStreamUriResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:628 */
+#ifndef SOAP_TYPE__trt__GetVideoSourcesResponse
+#define SOAP_TYPE__trt__GetVideoSourcesResponse (542)
+/* complex XML schema type 'trt:GetVideoSourcesResponse': */
+struct SOAP_CMAC _trt__GetVideoSourcesResponse {
+      public:
+        /** Sequence of elements 'trt:VideoSources' of XML schema type 'tt:VideoSource' stored in dynamic array VideoSources of length __sizeVideoSources */
+        int __sizeVideoSources;
+        struct tt__VideoSource *VideoSources;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoSourcesResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoSourcesResponse; }
+        /** Constructor with member initializations */
+        _trt__GetVideoSourcesResponse() : __sizeVideoSources(), VideoSources() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoSourcesResponse * SOAP_FMAC2 soap_instantiate__trt__GetVideoSourcesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:633 */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationResponse
+#define SOAP_TYPE__trt__GetVideoEncoderConfigurationResponse (544)
+/* complex XML schema type 'trt:GetVideoEncoderConfigurationResponse': */
+struct SOAP_CMAC _trt__GetVideoEncoderConfigurationResponse {
+      public:
+        /** Optional element 'trt:Configuration' of XML schema type 'tt:VideoEncoderConfiguration' */
+        struct tt__VideoEncoderConfiguration *Configuration;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoEncoderConfigurationResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoEncoderConfigurationResponse; }
+        /** Constructor with member initializations */
+        _trt__GetVideoEncoderConfigurationResponse() : Configuration() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoEncoderConfigurationResponse * SOAP_FMAC2 soap_instantiate__trt__GetVideoEncoderConfigurationResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:637 */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationsResponse
+#define SOAP_TYPE__trt__GetVideoEncoderConfigurationsResponse (545)
+/* complex XML schema type 'trt:GetVideoEncoderConfigurationsResponse': */
+struct SOAP_CMAC _trt__GetVideoEncoderConfigurationsResponse {
+      public:
+        /** Sequence of elements 'trt:Configurations' of XML schema type 'tt:VideoEncoderConfiguration' stored in dynamic array Configurations of length __sizeConfigurations */
+        int __sizeConfigurations;
+        struct tt__VideoEncoderConfiguration *Configurations;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetVideoEncoderConfigurationsResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetVideoEncoderConfigurationsResponse; }
+        /** Constructor with member initializations */
+        _trt__GetVideoEncoderConfigurationsResponse() : __sizeConfigurations(), Configurations() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetVideoEncoderConfigurationsResponse * SOAP_FMAC2 soap_instantiate__trt__GetVideoEncoderConfigurationsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:642 */
 #ifndef SOAP_TYPE__tptz__GetStatus
-#define SOAP_TYPE__tptz__GetStatus (368)
+#define SOAP_TYPE__tptz__GetStatus (546)
 /* complex XML schema type 'tptz:GetStatus': */
 struct SOAP_CMAC _tptz__GetStatus {
       public:
-        /** Optional element 'ProfileToken' of XML schema type 'xsd:string' */
+        /** Optional element 'tptz:ProfileToken' of XML schema type 'xsd:string' */
         char *ProfileToken;
       public:
         /** Return unique type id SOAP_TYPE__tptz__GetStatus */
@@ -3210,15 +5733,15 @@ struct SOAP_CMAC _tptz__GetStatus {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:36 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:646 */
 #ifndef SOAP_TYPE_tt__Vector2D
-#define SOAP_TYPE_tt__Vector2D (369)
+#define SOAP_TYPE_tt__Vector2D (547)
 /* complex XML schema type 'tt:Vector2D': */
 struct SOAP_CMAC tt__Vector2D {
       public:
-        /** Required element 'x' of XML schema type 'xsd:double' */
+        /** Optional attribute 'x' of XML schema type 'xsd:double' */
         double x;
-        /** Required element 'y' of XML schema type 'xsd:double' */
+        /** Optional attribute 'y' of XML schema type 'xsd:double' */
         double y;
       public:
         /** Return unique type id SOAP_TYPE_tt__Vector2D */
@@ -3230,13 +5753,13 @@ struct SOAP_CMAC tt__Vector2D {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:41 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:651 */
 #ifndef SOAP_TYPE_tt__Vector1D
-#define SOAP_TYPE_tt__Vector1D (371)
+#define SOAP_TYPE_tt__Vector1D (549)
 /* complex XML schema type 'tt:Vector1D': */
 struct SOAP_CMAC tt__Vector1D {
       public:
-        /** Required element 'x' of XML schema type 'xsd:double' */
+        /** Optional attribute 'x' of XML schema type 'xsd:double' */
         double x;
       public:
         /** Return unique type id SOAP_TYPE_tt__Vector1D */
@@ -3248,15 +5771,15 @@ struct SOAP_CMAC tt__Vector1D {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:45 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:655 */
 #ifndef SOAP_TYPE_tt__PTZVector
-#define SOAP_TYPE_tt__PTZVector (372)
+#define SOAP_TYPE_tt__PTZVector (550)
 /* complex XML schema type 'tt:PTZVector': */
 struct SOAP_CMAC tt__PTZVector {
       public:
-        /** Optional element 'PanTilt' of XML schema type 'tt:Vector2D' */
+        /** Optional element 'tt:PanTilt' of XML schema type 'tt:Vector2D' */
         struct tt__Vector2D *PanTilt;
-        /** Optional element 'Zoom' of XML schema type 'tt:Vector1D' */
+        /** Optional element 'tt:Zoom' of XML schema type 'tt:Vector1D' */
         struct tt__Vector1D *Zoom;
       public:
         /** Return unique type id SOAP_TYPE_tt__PTZVector */
@@ -3268,15 +5791,35 @@ struct SOAP_CMAC tt__PTZVector {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:50 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:660 */
+#ifndef SOAP_TYPE_tt__PTZSpeed
+#define SOAP_TYPE_tt__PTZSpeed (553)
+/* complex XML schema type 'tt:PTZSpeed': */
+struct SOAP_CMAC tt__PTZSpeed {
+      public:
+        /** Optional element 'tt:PanTilt' of XML schema type 'tt:Vector2D' */
+        struct tt__Vector2D *PanTilt;
+        /** Optional element 'tt:Zoom' of XML schema type 'tt:Vector1D' */
+        struct tt__Vector1D *Zoom;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__PTZSpeed */
+        long soap_type() const { return SOAP_TYPE_tt__PTZSpeed; }
+        /** Constructor with member initializations */
+        tt__PTZSpeed() : PanTilt(), Zoom() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__PTZSpeed * SOAP_FMAC2 soap_instantiate_tt__PTZSpeed(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:665 */
 #ifndef SOAP_TYPE_tt__PTZMoveStatus
-#define SOAP_TYPE_tt__PTZMoveStatus (375)
+#define SOAP_TYPE_tt__PTZMoveStatus (554)
 /* complex XML schema type 'tt:PTZMoveStatus': */
 struct SOAP_CMAC tt__PTZMoveStatus {
       public:
-        /** Optional element 'PanTilt' of XML schema type 'xsd:string' */
+        /** Optional element 'tt:PanTilt' of XML schema type 'xsd:string' */
         char *PanTilt;
-        /** Optional element 'Zoom' of XML schema type 'xsd:string' */
+        /** Optional element 'tt:Zoom' of XML schema type 'xsd:string' */
         char *Zoom;
       public:
         /** Return unique type id SOAP_TYPE_tt__PTZMoveStatus */
@@ -3288,17 +5831,17 @@ struct SOAP_CMAC tt__PTZMoveStatus {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:55 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:670 */
 #ifndef SOAP_TYPE_tt__PTZStatus
-#define SOAP_TYPE_tt__PTZStatus (376)
+#define SOAP_TYPE_tt__PTZStatus (555)
 /* complex XML schema type 'tt:PTZStatus': */
 struct SOAP_CMAC tt__PTZStatus {
       public:
-        /** Optional element 'Position' of XML schema type 'tt:PTZVector' */
+        /** Optional element 'tt:Position' of XML schema type 'tt:PTZVector' */
         struct tt__PTZVector *Position;
-        /** Optional element 'MoveStatus' of XML schema type 'tt:PTZMoveStatus' */
+        /** Optional element 'tt:MoveStatus' of XML schema type 'tt:PTZMoveStatus' */
         struct tt__PTZMoveStatus *MoveStatus;
-        /** Optional element 'UtcTime' of XML schema type 'xsd:string' */
+        /** Optional element 'tt:UtcTime' of XML schema type 'xsd:string' */
         char *UtcTime;
       public:
         /** Return unique type id SOAP_TYPE_tt__PTZStatus */
@@ -3310,13 +5853,13 @@ struct SOAP_CMAC tt__PTZStatus {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:61 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:676 */
 #ifndef SOAP_TYPE__tptz__GetStatusResponse
-#define SOAP_TYPE__tptz__GetStatusResponse (379)
+#define SOAP_TYPE__tptz__GetStatusResponse (558)
 /* complex XML schema type 'tptz:GetStatusResponse': */
 struct SOAP_CMAC _tptz__GetStatusResponse {
       public:
-        /** Optional element 'PTZStatus' of XML schema type 'tt:PTZStatus' */
+        /** Optional element 'tptz:PTZStatus' of XML schema type 'tt:PTZStatus' */
         struct tt__PTZStatus *PTZStatus;
       public:
         /** Return unique type id SOAP_TYPE__tptz__GetStatusResponse */
@@ -3328,14 +5871,784 @@ struct SOAP_CMAC _tptz__GetStatusResponse {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:70 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:680 */
+#ifndef SOAP_TYPE__tptz__ContinuousMove
+#define SOAP_TYPE__tptz__ContinuousMove (560)
+/* complex XML schema type 'tptz:ContinuousMove': */
+struct SOAP_CMAC _tptz__ContinuousMove {
+      public:
+        /** Optional element 'tptz:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+        /** Optional element 'tptz:Velocity' of XML schema type 'tt:PTZSpeed' */
+        struct tt__PTZSpeed *Velocity;
+        /** Optional element 'tptz:Timeout' of XML schema type 'xsd:string' */
+        char *Timeout;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__ContinuousMove */
+        long soap_type() const { return SOAP_TYPE__tptz__ContinuousMove; }
+        /** Constructor with member initializations */
+        _tptz__ContinuousMove() : ProfileToken(), Velocity(), Timeout() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__ContinuousMove * SOAP_FMAC2 soap_instantiate__tptz__ContinuousMove(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:686 */
+#ifndef SOAP_TYPE__tptz__RelativeMove
+#define SOAP_TYPE__tptz__RelativeMove (562)
+/* complex XML schema type 'tptz:RelativeMove': */
+struct SOAP_CMAC _tptz__RelativeMove {
+      public:
+        /** Optional element 'tptz:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+        /** Optional element 'tptz:Translation' of XML schema type 'tt:PTZVector' */
+        struct tt__PTZVector *Translation;
+        /** Optional element 'tptz:Speed' of XML schema type 'tt:PTZSpeed' */
+        struct tt__PTZSpeed *Speed;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__RelativeMove */
+        long soap_type() const { return SOAP_TYPE__tptz__RelativeMove; }
+        /** Constructor with member initializations */
+        _tptz__RelativeMove() : ProfileToken(), Translation(), Speed() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__RelativeMove * SOAP_FMAC2 soap_instantiate__tptz__RelativeMove(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:692 */
+#ifndef SOAP_TYPE__tptz__GotoPreset
+#define SOAP_TYPE__tptz__GotoPreset (563)
+/* complex XML schema type 'tptz:GotoPreset': */
+struct SOAP_CMAC _tptz__GotoPreset {
+      public:
+        /** Optional element 'tptz:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+        /** Optional element 'tptz:PresetToken' of XML schema type 'xsd:string' */
+        char *PresetToken;
+        /** Optional element 'tptz:Speed' of XML schema type 'tt:PTZSpeed' */
+        struct tt__PTZSpeed *Speed;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GotoPreset */
+        long soap_type() const { return SOAP_TYPE__tptz__GotoPreset; }
+        /** Constructor with member initializations */
+        _tptz__GotoPreset() : ProfileToken(), PresetToken(), Speed() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GotoPreset * SOAP_FMAC2 soap_instantiate__tptz__GotoPreset(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:698 */
+#ifndef SOAP_TYPE__tptz__GotoPresetResponse
+#define SOAP_TYPE__tptz__GotoPresetResponse (564)
+/* complex XML schema type 'tptz:GotoPresetResponse': */
+struct SOAP_CMAC _tptz__GotoPresetResponse {
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GotoPresetResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__GotoPresetResponse; }
+        /** Constructor with member initializations */
+        _tptz__GotoPresetResponse() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GotoPresetResponse * SOAP_FMAC2 soap_instantiate__tptz__GotoPresetResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:700 */
+#ifndef SOAP_TYPE__tptz__SetHomePosition
+#define SOAP_TYPE__tptz__SetHomePosition (565)
+/* complex XML schema type 'tptz:SetHomePosition': */
+struct SOAP_CMAC _tptz__SetHomePosition {
+      public:
+        /** Optional element 'tptz:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__SetHomePosition */
+        long soap_type() const { return SOAP_TYPE__tptz__SetHomePosition; }
+        /** Constructor with member initializations */
+        _tptz__SetHomePosition() : ProfileToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__SetHomePosition * SOAP_FMAC2 soap_instantiate__tptz__SetHomePosition(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:704 */
+#ifndef SOAP_TYPE__tptz__SetHomePositionResponse
+#define SOAP_TYPE__tptz__SetHomePositionResponse (566)
+/* complex XML schema type 'tptz:SetHomePositionResponse': */
+struct SOAP_CMAC _tptz__SetHomePositionResponse {
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__SetHomePositionResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__SetHomePositionResponse; }
+        /** Constructor with member initializations */
+        _tptz__SetHomePositionResponse() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__SetHomePositionResponse * SOAP_FMAC2 soap_instantiate__tptz__SetHomePositionResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:706 */
+#ifndef SOAP_TYPE__tptz__GotoHomePosition
+#define SOAP_TYPE__tptz__GotoHomePosition (567)
+/* complex XML schema type 'tptz:GotoHomePosition': */
+struct SOAP_CMAC _tptz__GotoHomePosition {
+      public:
+        /** Optional element 'tptz:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+        /** Optional element 'tptz:Speed' of XML schema type 'tt:PTZSpeed' */
+        struct tt__PTZSpeed *Speed;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GotoHomePosition */
+        long soap_type() const { return SOAP_TYPE__tptz__GotoHomePosition; }
+        /** Constructor with member initializations */
+        _tptz__GotoHomePosition() : ProfileToken(), Speed() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GotoHomePosition * SOAP_FMAC2 soap_instantiate__tptz__GotoHomePosition(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:711 */
+#ifndef SOAP_TYPE__tptz__GotoHomePositionResponse
+#define SOAP_TYPE__tptz__GotoHomePositionResponse (568)
+/* complex XML schema type 'tptz:GotoHomePositionResponse': */
+struct SOAP_CMAC _tptz__GotoHomePositionResponse {
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__GotoHomePositionResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__GotoHomePositionResponse; }
+        /** Constructor with member initializations */
+        _tptz__GotoHomePositionResponse() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__GotoHomePositionResponse * SOAP_FMAC2 soap_instantiate__tptz__GotoHomePositionResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:713 */
+#ifndef SOAP_TYPE__tptz__ContinuousMoveResponse
+#define SOAP_TYPE__tptz__ContinuousMoveResponse (569)
+/* complex XML schema type 'tptz:ContinuousMoveResponse': */
+struct SOAP_CMAC _tptz__ContinuousMoveResponse {
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__ContinuousMoveResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__ContinuousMoveResponse; }
+        /** Constructor with member initializations */
+        _tptz__ContinuousMoveResponse() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__ContinuousMoveResponse * SOAP_FMAC2 soap_instantiate__tptz__ContinuousMoveResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:715 */
+#ifndef SOAP_TYPE__tptz__RelativeMoveResponse
+#define SOAP_TYPE__tptz__RelativeMoveResponse (570)
+/* complex XML schema type 'tptz:RelativeMoveResponse': */
+struct SOAP_CMAC _tptz__RelativeMoveResponse {
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__RelativeMoveResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__RelativeMoveResponse; }
+        /** Constructor with member initializations */
+        _tptz__RelativeMoveResponse() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__RelativeMoveResponse * SOAP_FMAC2 soap_instantiate__tptz__RelativeMoveResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:717 */
+#ifndef SOAP_TYPE__tptz__Stop
+#define SOAP_TYPE__tptz__Stop (571)
+/* complex XML schema type 'tptz:Stop': */
+struct SOAP_CMAC _tptz__Stop {
+      public:
+        /** Optional element 'tptz:ProfileToken' of XML schema type 'xsd:string' */
+        char *ProfileToken;
+        /** Optional element 'tptz:PanTilt' of XML schema type 'xsd:boolean' */
+        bool *PanTilt;
+        /** Optional element 'tptz:Zoom' of XML schema type 'xsd:boolean' */
+        bool *Zoom;
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__Stop */
+        long soap_type() const { return SOAP_TYPE__tptz__Stop; }
+        /** Constructor with member initializations */
+        _tptz__Stop() : ProfileToken(), PanTilt(), Zoom() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__Stop * SOAP_FMAC2 soap_instantiate__tptz__Stop(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:723 */
+#ifndef SOAP_TYPE__tptz__StopResponse
+#define SOAP_TYPE__tptz__StopResponse (572)
+/* complex XML schema type 'tptz:StopResponse': */
+struct SOAP_CMAC _tptz__StopResponse {
+      public:
+        /** Return unique type id SOAP_TYPE__tptz__StopResponse */
+        long soap_type() const { return SOAP_TYPE__tptz__StopResponse; }
+        /** Constructor with member initializations */
+        _tptz__StopResponse() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _tptz__StopResponse * SOAP_FMAC2 soap_instantiate__tptz__StopResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:725 */
+#ifndef SOAP_TYPE_tt__ImagingSettings20
+#define SOAP_TYPE_tt__ImagingSettings20 (573)
+/* complex XML schema type 'tt:ImagingSettings20': */
+struct SOAP_CMAC tt__ImagingSettings20 {
+      public:
+        /** Optional element 'tt:Brightness' of XML schema type 'xsd:float' */
+        float *Brightness;
+        /** Optional element 'tt:ColorSaturation' of XML schema type 'xsd:float' */
+        float *ColorSaturation;
+        /** Optional element 'tt:Contrast' of XML schema type 'xsd:float' */
+        float *Contrast;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__ImagingSettings20 */
+        long soap_type() const { return SOAP_TYPE_tt__ImagingSettings20; }
+        /** Constructor with member initializations */
+        tt__ImagingSettings20() : Brightness(), ColorSaturation(), Contrast() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__ImagingSettings20 * SOAP_FMAC2 soap_instantiate_tt__ImagingSettings20(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:731 */
+#ifndef SOAP_TYPE_tt__ImagingOptions20
+#define SOAP_TYPE_tt__ImagingOptions20 (575)
+/* complex XML schema type 'tt:ImagingOptions20': */
+struct SOAP_CMAC tt__ImagingOptions20 {
+      public:
+        /** Optional element 'tt:Brightness' of XML schema type 'tt:FloatRange' */
+        struct tt__FloatRange *Brightness;
+        /** Optional element 'tt:ColorSaturation' of XML schema type 'tt:FloatRange' */
+        struct tt__FloatRange *ColorSaturation;
+        /** Optional element 'tt:Contrast' of XML schema type 'tt:FloatRange' */
+        struct tt__FloatRange *Contrast;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__ImagingOptions20 */
+        long soap_type() const { return SOAP_TYPE_tt__ImagingOptions20; }
+        /** Constructor with member initializations */
+        tt__ImagingOptions20() : Brightness(), ColorSaturation(), Contrast() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__ImagingOptions20 * SOAP_FMAC2 soap_instantiate_tt__ImagingOptions20(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:737 */
+#ifndef SOAP_TYPE_timg__Capabilities
+#define SOAP_TYPE_timg__Capabilities (576)
+/* complex XML schema type 'timg:Capabilities': */
+struct SOAP_CMAC timg__Capabilities {
+      public:
+        /** Optional attribute 'ImageStabilization' of XML schema type 'xsd:boolean' */
+        bool ImageStabilization;
+        /** Optional attribute 'Presets' of XML schema type 'xsd:boolean' */
+        bool Presets;
+      public:
+        /** Return unique type id SOAP_TYPE_timg__Capabilities */
+        long soap_type() const { return SOAP_TYPE_timg__Capabilities; }
+        /** Constructor with member initializations */
+        timg__Capabilities() : ImageStabilization(), Presets() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 timg__Capabilities * SOAP_FMAC2 soap_instantiate_timg__Capabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:742 */
+#ifndef SOAP_TYPE__timg__GetServiceCapabilities
+#define SOAP_TYPE__timg__GetServiceCapabilities (577)
+/* complex XML schema type 'timg:GetServiceCapabilities': */
+struct SOAP_CMAC _timg__GetServiceCapabilities {
+      public:
+        /** Return unique type id SOAP_TYPE__timg__GetServiceCapabilities */
+        long soap_type() const { return SOAP_TYPE__timg__GetServiceCapabilities; }
+        /** Constructor with member initializations */
+        _timg__GetServiceCapabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _timg__GetServiceCapabilities * SOAP_FMAC2 soap_instantiate__timg__GetServiceCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:744 */
+#ifndef SOAP_TYPE__timg__GetServiceCapabilitiesResponse
+#define SOAP_TYPE__timg__GetServiceCapabilitiesResponse (578)
+/* complex XML schema type 'timg:GetServiceCapabilitiesResponse': */
+struct SOAP_CMAC _timg__GetServiceCapabilitiesResponse {
+      public:
+        /** Optional element 'timg:Capabilities' of XML schema type 'timg:Capabilities' */
+        struct timg__Capabilities *Capabilities;
+      public:
+        /** Return unique type id SOAP_TYPE__timg__GetServiceCapabilitiesResponse */
+        long soap_type() const { return SOAP_TYPE__timg__GetServiceCapabilitiesResponse; }
+        /** Constructor with member initializations */
+        _timg__GetServiceCapabilitiesResponse() : Capabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _timg__GetServiceCapabilitiesResponse * SOAP_FMAC2 soap_instantiate__timg__GetServiceCapabilitiesResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:748 */
+#ifndef SOAP_TYPE__timg__GetImagingSettings
+#define SOAP_TYPE__timg__GetImagingSettings (580)
+/* complex XML schema type 'timg:GetImagingSettings': */
+struct SOAP_CMAC _timg__GetImagingSettings {
+      public:
+        /** Optional element 'timg:VideoSourceToken' of XML schema type 'xsd:string' */
+        char *VideoSourceToken;
+      public:
+        /** Return unique type id SOAP_TYPE__timg__GetImagingSettings */
+        long soap_type() const { return SOAP_TYPE__timg__GetImagingSettings; }
+        /** Constructor with member initializations */
+        _timg__GetImagingSettings() : VideoSourceToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _timg__GetImagingSettings * SOAP_FMAC2 soap_instantiate__timg__GetImagingSettings(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:752 */
+#ifndef SOAP_TYPE__timg__GetImagingSettingsResponse
+#define SOAP_TYPE__timg__GetImagingSettingsResponse (581)
+/* complex XML schema type 'timg:GetImagingSettingsResponse': */
+struct SOAP_CMAC _timg__GetImagingSettingsResponse {
+      public:
+        /** Optional element 'timg:ImagingSettings' of XML schema type 'tt:ImagingSettings20' */
+        struct tt__ImagingSettings20 *ImagingSettings;
+      public:
+        /** Return unique type id SOAP_TYPE__timg__GetImagingSettingsResponse */
+        long soap_type() const { return SOAP_TYPE__timg__GetImagingSettingsResponse; }
+        /** Constructor with member initializations */
+        _timg__GetImagingSettingsResponse() : ImagingSettings() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _timg__GetImagingSettingsResponse * SOAP_FMAC2 soap_instantiate__timg__GetImagingSettingsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:756 */
+#ifndef SOAP_TYPE__timg__SetImagingSettings
+#define SOAP_TYPE__timg__SetImagingSettings (583)
+/* complex XML schema type 'timg:SetImagingSettings': */
+struct SOAP_CMAC _timg__SetImagingSettings {
+      public:
+        /** Optional element 'timg:VideoSourceToken' of XML schema type 'xsd:string' */
+        char *VideoSourceToken;
+        /** Optional element 'timg:ImagingSettings' of XML schema type 'tt:ImagingSettings20' */
+        struct tt__ImagingSettings20 *ImagingSettings;
+        /** Required element 'timg:ForcePersistence' of XML schema type 'xsd:boolean' */
+        bool ForcePersistence;
+      public:
+        /** Return unique type id SOAP_TYPE__timg__SetImagingSettings */
+        long soap_type() const { return SOAP_TYPE__timg__SetImagingSettings; }
+        /** Constructor with member initializations */
+        _timg__SetImagingSettings() : VideoSourceToken(), ImagingSettings(), ForcePersistence() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _timg__SetImagingSettings * SOAP_FMAC2 soap_instantiate__timg__SetImagingSettings(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:762 */
+#ifndef SOAP_TYPE__timg__SetImagingSettingsResponse
+#define SOAP_TYPE__timg__SetImagingSettingsResponse (584)
+/* complex XML schema type 'timg:SetImagingSettingsResponse': */
+struct SOAP_CMAC _timg__SetImagingSettingsResponse {
+      public:
+        /** Return unique type id SOAP_TYPE__timg__SetImagingSettingsResponse */
+        long soap_type() const { return SOAP_TYPE__timg__SetImagingSettingsResponse; }
+        /** Constructor with member initializations */
+        _timg__SetImagingSettingsResponse() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _timg__SetImagingSettingsResponse * SOAP_FMAC2 soap_instantiate__timg__SetImagingSettingsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:764 */
+#ifndef SOAP_TYPE__timg__GetOptions
+#define SOAP_TYPE__timg__GetOptions (585)
+/* complex XML schema type 'timg:GetOptions': */
+struct SOAP_CMAC _timg__GetOptions {
+      public:
+        /** Optional element 'timg:VideoSourceToken' of XML schema type 'xsd:string' */
+        char *VideoSourceToken;
+      public:
+        /** Return unique type id SOAP_TYPE__timg__GetOptions */
+        long soap_type() const { return SOAP_TYPE__timg__GetOptions; }
+        /** Constructor with member initializations */
+        _timg__GetOptions() : VideoSourceToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _timg__GetOptions * SOAP_FMAC2 soap_instantiate__timg__GetOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:768 */
+#ifndef SOAP_TYPE__timg__GetOptionsResponse
+#define SOAP_TYPE__timg__GetOptionsResponse (586)
+/* complex XML schema type 'timg:GetOptionsResponse': */
+struct SOAP_CMAC _timg__GetOptionsResponse {
+      public:
+        /** Optional element 'timg:ImagingOptions' of XML schema type 'tt:ImagingOptions20' */
+        struct tt__ImagingOptions20 *ImagingOptions;
+      public:
+        /** Return unique type id SOAP_TYPE__timg__GetOptionsResponse */
+        long soap_type() const { return SOAP_TYPE__timg__GetOptionsResponse; }
+        /** Constructor with member initializations */
+        _timg__GetOptionsResponse() : ImagingOptions() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _timg__GetOptionsResponse * SOAP_FMAC2 soap_instantiate__timg__GetOptionsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:772 */
+#ifndef SOAP_TYPE_tt__OSDPosConfiguration
+#define SOAP_TYPE_tt__OSDPosConfiguration (588)
+/* complex XML schema type 'tt:OSDPosConfiguration': */
+struct SOAP_CMAC tt__OSDPosConfiguration {
+      public:
+        /** Optional element 'tt:Type' of XML schema type 'xsd:string' */
+        char *Type;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__OSDPosConfiguration */
+        long soap_type() const { return SOAP_TYPE_tt__OSDPosConfiguration; }
+        /** Constructor with member initializations */
+        tt__OSDPosConfiguration() : Type() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__OSDPosConfiguration * SOAP_FMAC2 soap_instantiate_tt__OSDPosConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:776 */
+#ifndef SOAP_TYPE_tt__OSDTextConfiguration
+#define SOAP_TYPE_tt__OSDTextConfiguration (589)
+/* complex XML schema type 'tt:OSDTextConfiguration': */
+struct SOAP_CMAC tt__OSDTextConfiguration {
+      public:
+        /** Optional element 'tt:Type' of XML schema type 'xsd:string' */
+        char *Type;
+        /** Optional element 'tt:PlainText' of XML schema type 'xsd:string' */
+        char *PlainText;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__OSDTextConfiguration */
+        long soap_type() const { return SOAP_TYPE_tt__OSDTextConfiguration; }
+        /** Constructor with member initializations */
+        tt__OSDTextConfiguration() : Type(), PlainText() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__OSDTextConfiguration * SOAP_FMAC2 soap_instantiate_tt__OSDTextConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:781 */
+#ifndef SOAP_TYPE_tt__OSDConfiguration
+#define SOAP_TYPE_tt__OSDConfiguration (590)
+/* complex XML schema type 'tt:OSDConfiguration': */
+struct SOAP_CMAC tt__OSDConfiguration {
+      public:
+        /** Optional attribute 'token' of XML schema type 'xsd:string' */
+        char *token;
+        /** Optional element 'tt:VideoSourceConfigurationToken' of XML schema type 'xsd:string' */
+        char *VideoSourceConfigurationToken;
+        /** Optional element 'tt:Type' of XML schema type 'xsd:string' */
+        char *Type;
+        /** Optional element 'tt:Position' of XML schema type 'tt:OSDPosConfiguration' */
+        struct tt__OSDPosConfiguration *Position;
+        /** Optional element 'tt:TextString' of XML schema type 'tt:OSDTextConfiguration' */
+        struct tt__OSDTextConfiguration *TextString;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__OSDConfiguration */
+        long soap_type() const { return SOAP_TYPE_tt__OSDConfiguration; }
+        /** Constructor with member initializations */
+        tt__OSDConfiguration() : token(), VideoSourceConfigurationToken(), Type(), Position(), TextString() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__OSDConfiguration * SOAP_FMAC2 soap_instantiate_tt__OSDConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:789 */
+#ifndef SOAP_TYPE_tt__MaximumNumberOfOSDs
+#define SOAP_TYPE_tt__MaximumNumberOfOSDs (593)
+/* complex XML schema type 'tt:MaximumNumberOfOSDs': */
+struct SOAP_CMAC tt__MaximumNumberOfOSDs {
+      public:
+        /** Optional attribute 'Total' of XML schema type 'xsd:int' */
+        int Total;
+        /** Optional attribute 'Image' of XML schema type 'xsd:int' */
+        int *Image;
+        /** Optional attribute 'PlainText' of XML schema type 'xsd:int' */
+        int *PlainText;
+        /** Optional attribute 'Date' of XML schema type 'xsd:int' */
+        int *Date;
+        /** Optional attribute 'Time' of XML schema type 'xsd:int' */
+        int *Time;
+        /** Optional attribute 'DateAndTime' of XML schema type 'xsd:int' */
+        int *DateAndTime;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__MaximumNumberOfOSDs */
+        long soap_type() const { return SOAP_TYPE_tt__MaximumNumberOfOSDs; }
+        /** Constructor with member initializations */
+        tt__MaximumNumberOfOSDs() : Total(), Image(), PlainText(), Date(), Time(), DateAndTime() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__MaximumNumberOfOSDs * SOAP_FMAC2 soap_instantiate_tt__MaximumNumberOfOSDs(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:798 */
+#ifndef SOAP_TYPE_tt__OSDTextOptions
+#define SOAP_TYPE_tt__OSDTextOptions (594)
+/* complex XML schema type 'tt:OSDTextOptions': */
+struct SOAP_CMAC tt__OSDTextOptions {
+      public:
+        /** Sequence of elements 'tt:Type' of XML schema type 'xsd:string' stored in dynamic array Type of length __sizeType */
+        int __sizeType;
+        char **Type;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__OSDTextOptions */
+        long soap_type() const { return SOAP_TYPE_tt__OSDTextOptions; }
+        /** Constructor with member initializations */
+        tt__OSDTextOptions() : __sizeType(), Type() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__OSDTextOptions * SOAP_FMAC2 soap_instantiate_tt__OSDTextOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:803 */
+#ifndef SOAP_TYPE_tt__OSDConfigurationOptions
+#define SOAP_TYPE_tt__OSDConfigurationOptions (595)
+/* complex XML schema type 'tt:OSDConfigurationOptions': */
+struct SOAP_CMAC tt__OSDConfigurationOptions {
+      public:
+        /** Optional element 'tt:MaximumNumberOfOSDs' of XML schema type 'tt:MaximumNumberOfOSDs' */
+        struct tt__MaximumNumberOfOSDs *MaximumNumberOfOSDs;
+        /** Sequence of elements 'tt:Type' of XML schema type 'xsd:string' stored in dynamic array Type of length __sizeType */
+        int __sizeType;
+        char **Type;
+        /** Sequence of elements 'tt:PositionOption' of XML schema type 'xsd:string' stored in dynamic array PositionOption of length __sizePositionOption */
+        int __sizePositionOption;
+        char **PositionOption;
+        /** Optional element 'tt:TextOption' of XML schema type 'tt:OSDTextOptions' */
+        struct tt__OSDTextOptions *TextOption;
+      public:
+        /** Return unique type id SOAP_TYPE_tt__OSDConfigurationOptions */
+        long soap_type() const { return SOAP_TYPE_tt__OSDConfigurationOptions; }
+        /** Constructor with member initializations */
+        tt__OSDConfigurationOptions() : MaximumNumberOfOSDs(), __sizeType(), Type(), __sizePositionOption(), PositionOption(), TextOption() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 tt__OSDConfigurationOptions * SOAP_FMAC2 soap_instantiate_tt__OSDConfigurationOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:812 */
+#ifndef SOAP_TYPE__trt__GetOSDs
+#define SOAP_TYPE__trt__GetOSDs (598)
+/* complex XML schema type 'trt:GetOSDs': */
+struct SOAP_CMAC _trt__GetOSDs {
+      public:
+        /** Optional element 'trt:ConfigurationToken' of XML schema type 'xsd:string' */
+        char *ConfigurationToken;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetOSDs */
+        long soap_type() const { return SOAP_TYPE__trt__GetOSDs; }
+        /** Constructor with member initializations */
+        _trt__GetOSDs() : ConfigurationToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetOSDs * SOAP_FMAC2 soap_instantiate__trt__GetOSDs(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:816 */
+#ifndef SOAP_TYPE__trt__GetOSDsResponse
+#define SOAP_TYPE__trt__GetOSDsResponse (599)
+/* complex XML schema type 'trt:GetOSDsResponse': */
+struct SOAP_CMAC _trt__GetOSDsResponse {
+      public:
+        /** Sequence of elements 'trt:OSDs' of XML schema type 'tt:OSDConfiguration' stored in dynamic array OSDs of length __sizeOSDs */
+        int __sizeOSDs;
+        struct tt__OSDConfiguration *OSDs;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetOSDsResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetOSDsResponse; }
+        /** Constructor with member initializations */
+        _trt__GetOSDsResponse() : __sizeOSDs(), OSDs() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetOSDsResponse * SOAP_FMAC2 soap_instantiate__trt__GetOSDsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:821 */
+#ifndef SOAP_TYPE__trt__GetOSD
+#define SOAP_TYPE__trt__GetOSD (601)
+/* complex XML schema type 'trt:GetOSD': */
+struct SOAP_CMAC _trt__GetOSD {
+      public:
+        /** Optional element 'trt:OSDToken' of XML schema type 'xsd:string' */
+        char *OSDToken;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetOSD */
+        long soap_type() const { return SOAP_TYPE__trt__GetOSD; }
+        /** Constructor with member initializations */
+        _trt__GetOSD() : OSDToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetOSD * SOAP_FMAC2 soap_instantiate__trt__GetOSD(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:825 */
+#ifndef SOAP_TYPE__trt__GetOSDResponse
+#define SOAP_TYPE__trt__GetOSDResponse (602)
+/* complex XML schema type 'trt:GetOSDResponse': */
+struct SOAP_CMAC _trt__GetOSDResponse {
+      public:
+        /** Optional element 'trt:OSD' of XML schema type 'tt:OSDConfiguration' */
+        struct tt__OSDConfiguration *OSD;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetOSDResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetOSDResponse; }
+        /** Constructor with member initializations */
+        _trt__GetOSDResponse() : OSD() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetOSDResponse * SOAP_FMAC2 soap_instantiate__trt__GetOSDResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:829 */
+#ifndef SOAP_TYPE__trt__GetOSDOptions
+#define SOAP_TYPE__trt__GetOSDOptions (603)
+/* complex XML schema type 'trt:GetOSDOptions': */
+struct SOAP_CMAC _trt__GetOSDOptions {
+      public:
+        /** Optional element 'trt:ConfigurationToken' of XML schema type 'xsd:string' */
+        char *ConfigurationToken;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetOSDOptions */
+        long soap_type() const { return SOAP_TYPE__trt__GetOSDOptions; }
+        /** Constructor with member initializations */
+        _trt__GetOSDOptions() : ConfigurationToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetOSDOptions * SOAP_FMAC2 soap_instantiate__trt__GetOSDOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:833 */
+#ifndef SOAP_TYPE__trt__GetOSDOptionsResponse
+#define SOAP_TYPE__trt__GetOSDOptionsResponse (604)
+/* complex XML schema type 'trt:GetOSDOptionsResponse': */
+struct SOAP_CMAC _trt__GetOSDOptionsResponse {
+      public:
+        /** Optional element 'trt:OSDOptions' of XML schema type 'tt:OSDConfigurationOptions' */
+        struct tt__OSDConfigurationOptions *OSDOptions;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__GetOSDOptionsResponse */
+        long soap_type() const { return SOAP_TYPE__trt__GetOSDOptionsResponse; }
+        /** Constructor with member initializations */
+        _trt__GetOSDOptionsResponse() : OSDOptions() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__GetOSDOptionsResponse * SOAP_FMAC2 soap_instantiate__trt__GetOSDOptionsResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:837 */
+#ifndef SOAP_TYPE__trt__SetOSD
+#define SOAP_TYPE__trt__SetOSD (606)
+/* complex XML schema type 'trt:SetOSD': */
+struct SOAP_CMAC _trt__SetOSD {
+      public:
+        /** Optional element 'trt:OSD' of XML schema type 'tt:OSDConfiguration' */
+        struct tt__OSDConfiguration *OSD;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__SetOSD */
+        long soap_type() const { return SOAP_TYPE__trt__SetOSD; }
+        /** Constructor with member initializations */
+        _trt__SetOSD() : OSD() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__SetOSD * SOAP_FMAC2 soap_instantiate__trt__SetOSD(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:841 */
+#ifndef SOAP_TYPE__trt__SetOSDResponse
+#define SOAP_TYPE__trt__SetOSDResponse (607)
+/* complex XML schema type 'trt:SetOSDResponse': */
+struct SOAP_CMAC _trt__SetOSDResponse {
+      public:
+        /** Return unique type id SOAP_TYPE__trt__SetOSDResponse */
+        long soap_type() const { return SOAP_TYPE__trt__SetOSDResponse; }
+        /** Constructor with member initializations */
+        _trt__SetOSDResponse() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__SetOSDResponse * SOAP_FMAC2 soap_instantiate__trt__SetOSDResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:843 */
+#ifndef SOAP_TYPE__trt__CreateOSD
+#define SOAP_TYPE__trt__CreateOSD (608)
+/* complex XML schema type 'trt:CreateOSD': */
+struct SOAP_CMAC _trt__CreateOSD {
+      public:
+        /** Optional element 'trt:OSD' of XML schema type 'tt:OSDConfiguration' */
+        struct tt__OSDConfiguration *OSD;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__CreateOSD */
+        long soap_type() const { return SOAP_TYPE__trt__CreateOSD; }
+        /** Constructor with member initializations */
+        _trt__CreateOSD() : OSD() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__CreateOSD * SOAP_FMAC2 soap_instantiate__trt__CreateOSD(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:847 */
+#ifndef SOAP_TYPE__trt__CreateOSDResponse
+#define SOAP_TYPE__trt__CreateOSDResponse (609)
+/* complex XML schema type 'trt:CreateOSDResponse': */
+struct SOAP_CMAC _trt__CreateOSDResponse {
+      public:
+        /** Optional element 'trt:OSDToken' of XML schema type 'xsd:string' */
+        char *OSDToken;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__CreateOSDResponse */
+        long soap_type() const { return SOAP_TYPE__trt__CreateOSDResponse; }
+        /** Constructor with member initializations */
+        _trt__CreateOSDResponse() : OSDToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__CreateOSDResponse * SOAP_FMAC2 soap_instantiate__trt__CreateOSDResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:851 */
+#ifndef SOAP_TYPE__trt__DeleteOSD
+#define SOAP_TYPE__trt__DeleteOSD (610)
+/* complex XML schema type 'trt:DeleteOSD': */
+struct SOAP_CMAC _trt__DeleteOSD {
+      public:
+        /** Optional element 'trt:OSDToken' of XML schema type 'xsd:string' */
+        char *OSDToken;
+      public:
+        /** Return unique type id SOAP_TYPE__trt__DeleteOSD */
+        long soap_type() const { return SOAP_TYPE__trt__DeleteOSD; }
+        /** Constructor with member initializations */
+        _trt__DeleteOSD() : OSDToken() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__DeleteOSD * SOAP_FMAC2 soap_instantiate__trt__DeleteOSD(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:855 */
+#ifndef SOAP_TYPE__trt__DeleteOSDResponse
+#define SOAP_TYPE__trt__DeleteOSDResponse (611)
+/* complex XML schema type 'trt:DeleteOSDResponse': */
+struct SOAP_CMAC _trt__DeleteOSDResponse {
+      public:
+        /** Return unique type id SOAP_TYPE__trt__DeleteOSDResponse */
+        long soap_type() const { return SOAP_TYPE__trt__DeleteOSDResponse; }
+        /** Constructor with member initializations */
+        _trt__DeleteOSDResponse() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 _trt__DeleteOSDResponse * SOAP_FMAC2 soap_instantiate__trt__DeleteOSDResponse(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:862 */
 #ifndef SOAP_TYPE___tds__GetServices
-#define SOAP_TYPE___tds__GetServices (384)
+#define SOAP_TYPE___tds__GetServices (615)
 /* Wrapper: */
 struct SOAP_CMAC __tds__GetServices {
       public:
-        /** Optional element 'tds:GetServices' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tds__GetServices;
+        /** Optional element 'tds:GetServices' of XML schema type 'tds:GetServices' */
+        struct _tds__GetServices *tds__GetServices;
       public:
         /** Return unique type id SOAP_TYPE___tds__GetServices */
         long soap_type() const { return SOAP_TYPE___tds__GetServices; }
@@ -3346,14 +6659,14 @@ struct SOAP_CMAC __tds__GetServices {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:72 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:864 */
 #ifndef SOAP_TYPE___tds__GetServiceCapabilities
-#define SOAP_TYPE___tds__GetServiceCapabilities (386)
+#define SOAP_TYPE___tds__GetServiceCapabilities (619)
 /* Wrapper: */
 struct SOAP_CMAC __tds__GetServiceCapabilities {
       public:
-        /** Optional element 'tds:GetServiceCapabilities' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tds__GetServiceCapabilities;
+        /** Optional element 'tds:GetServiceCapabilities' of XML schema type 'tds:GetServiceCapabilities' */
+        struct _tds__GetServiceCapabilities *tds__GetServiceCapabilities;
       public:
         /** Return unique type id SOAP_TYPE___tds__GetServiceCapabilities */
         long soap_type() const { return SOAP_TYPE___tds__GetServiceCapabilities; }
@@ -3364,9 +6677,9 @@ struct SOAP_CMAC __tds__GetServiceCapabilities {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:74 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:866 */
 #ifndef SOAP_TYPE___tds__GetDeviceInformation
-#define SOAP_TYPE___tds__GetDeviceInformation (390)
+#define SOAP_TYPE___tds__GetDeviceInformation (623)
 /* Wrapper: */
 struct SOAP_CMAC __tds__GetDeviceInformation {
       public:
@@ -3382,14 +6695,14 @@ struct SOAP_CMAC __tds__GetDeviceInformation {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:76 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:868 */
 #ifndef SOAP_TYPE___tds__GetSystemDateAndTime
-#define SOAP_TYPE___tds__GetSystemDateAndTime (392)
+#define SOAP_TYPE___tds__GetSystemDateAndTime (627)
 /* Wrapper: */
 struct SOAP_CMAC __tds__GetSystemDateAndTime {
       public:
-        /** Optional element 'tds:GetSystemDateAndTime' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tds__GetSystemDateAndTime;
+        /** Optional element 'tds:GetSystemDateAndTime' of XML schema type 'tds:GetSystemDateAndTime' */
+        struct _tds__GetSystemDateAndTime *tds__GetSystemDateAndTime;
       public:
         /** Return unique type id SOAP_TYPE___tds__GetSystemDateAndTime */
         long soap_type() const { return SOAP_TYPE___tds__GetSystemDateAndTime; }
@@ -3400,14 +6713,14 @@ struct SOAP_CMAC __tds__GetSystemDateAndTime {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:78 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:870 */
 #ifndef SOAP_TYPE___tds__GetScopes
-#define SOAP_TYPE___tds__GetScopes (394)
+#define SOAP_TYPE___tds__GetScopes (631)
 /* Wrapper: */
 struct SOAP_CMAC __tds__GetScopes {
       public:
-        /** Optional element 'tds:GetScopes' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tds__GetScopes;
+        /** Optional element 'tds:GetScopes' of XML schema type 'tds:GetScopes' */
+        struct _tds__GetScopes *tds__GetScopes;
       public:
         /** Return unique type id SOAP_TYPE___tds__GetScopes */
         long soap_type() const { return SOAP_TYPE___tds__GetScopes; }
@@ -3418,14 +6731,14 @@ struct SOAP_CMAC __tds__GetScopes {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:80 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:872 */
 #ifndef SOAP_TYPE___tds__GetHostname
-#define SOAP_TYPE___tds__GetHostname (396)
+#define SOAP_TYPE___tds__GetHostname (635)
 /* Wrapper: */
 struct SOAP_CMAC __tds__GetHostname {
       public:
-        /** Optional element 'tds:GetHostname' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tds__GetHostname;
+        /** Optional element 'tds:GetHostname' of XML schema type 'tds:GetHostname' */
+        struct _tds__GetHostname *tds__GetHostname;
       public:
         /** Return unique type id SOAP_TYPE___tds__GetHostname */
         long soap_type() const { return SOAP_TYPE___tds__GetHostname; }
@@ -3436,14 +6749,14 @@ struct SOAP_CMAC __tds__GetHostname {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:82 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:874 */
 #ifndef SOAP_TYPE___tds__GetNetworkInterfaces
-#define SOAP_TYPE___tds__GetNetworkInterfaces (398)
+#define SOAP_TYPE___tds__GetNetworkInterfaces (639)
 /* Wrapper: */
 struct SOAP_CMAC __tds__GetNetworkInterfaces {
       public:
-        /** Optional element 'tds:GetNetworkInterfaces' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tds__GetNetworkInterfaces;
+        /** Optional element 'tds:GetNetworkInterfaces' of XML schema type 'tds:GetNetworkInterfaces' */
+        struct _tds__GetNetworkInterfaces *tds__GetNetworkInterfaces;
       public:
         /** Return unique type id SOAP_TYPE___tds__GetNetworkInterfaces */
         long soap_type() const { return SOAP_TYPE___tds__GetNetworkInterfaces; }
@@ -3454,14 +6767,14 @@ struct SOAP_CMAC __tds__GetNetworkInterfaces {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:84 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:876 */
 #ifndef SOAP_TYPE___tds__GetUsers
-#define SOAP_TYPE___tds__GetUsers (400)
+#define SOAP_TYPE___tds__GetUsers (643)
 /* Wrapper: */
 struct SOAP_CMAC __tds__GetUsers {
       public:
-        /** Optional element 'tds:GetUsers' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tds__GetUsers;
+        /** Optional element 'tds:GetUsers' of XML schema type 'tds:GetUsers' */
+        struct _tds__GetUsers *tds__GetUsers;
       public:
         /** Return unique type id SOAP_TYPE___tds__GetUsers */
         long soap_type() const { return SOAP_TYPE___tds__GetUsers; }
@@ -3472,14 +6785,14 @@ struct SOAP_CMAC __tds__GetUsers {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:86 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:878 */
 #ifndef SOAP_TYPE___tds__GetCapabilities
-#define SOAP_TYPE___tds__GetCapabilities (402)
+#define SOAP_TYPE___tds__GetCapabilities (647)
 /* Wrapper: */
 struct SOAP_CMAC __tds__GetCapabilities {
       public:
-        /** Optional element 'tds:GetCapabilities' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tds__GetCapabilities;
+        /** Optional element 'tds:GetCapabilities' of XML schema type 'tds:GetCapabilities' */
+        struct _tds__GetCapabilities *tds__GetCapabilities;
       public:
         /** Return unique type id SOAP_TYPE___tds__GetCapabilities */
         long soap_type() const { return SOAP_TYPE___tds__GetCapabilities; }
@@ -3490,14 +6803,14 @@ struct SOAP_CMAC __tds__GetCapabilities {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:93 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:885 */
 #ifndef SOAP_TYPE___trt__GetProfiles
-#define SOAP_TYPE___trt__GetProfiles (404)
+#define SOAP_TYPE___trt__GetProfiles (651)
 /* Wrapper: */
 struct SOAP_CMAC __trt__GetProfiles {
       public:
-        /** Optional element 'trt:GetProfiles' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__GetProfiles;
+        /** Optional element 'trt:GetProfiles' of XML schema type 'trt:GetProfiles' */
+        struct _trt__GetProfiles *trt__GetProfiles;
       public:
         /** Return unique type id SOAP_TYPE___trt__GetProfiles */
         long soap_type() const { return SOAP_TYPE___trt__GetProfiles; }
@@ -3508,14 +6821,14 @@ struct SOAP_CMAC __trt__GetProfiles {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:95 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:887 */
 #ifndef SOAP_TYPE___trt__GetProfile
-#define SOAP_TYPE___trt__GetProfile (406)
+#define SOAP_TYPE___trt__GetProfile (655)
 /* Wrapper: */
 struct SOAP_CMAC __trt__GetProfile {
       public:
-        /** Optional element 'trt:GetProfile' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__GetProfile;
+        /** Optional element 'trt:GetProfile' of XML schema type 'trt:GetProfile' */
+        struct _trt__GetProfile *trt__GetProfile;
       public:
         /** Return unique type id SOAP_TYPE___trt__GetProfile */
         long soap_type() const { return SOAP_TYPE___trt__GetProfile; }
@@ -3526,14 +6839,14 @@ struct SOAP_CMAC __trt__GetProfile {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:97 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:889 */
 #ifndef SOAP_TYPE___trt__GetServiceCapabilities
-#define SOAP_TYPE___trt__GetServiceCapabilities (408)
+#define SOAP_TYPE___trt__GetServiceCapabilities (659)
 /* Wrapper: */
 struct SOAP_CMAC __trt__GetServiceCapabilities {
       public:
-        /** Optional element 'trt:GetServiceCapabilities' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__GetServiceCapabilities;
+        /** Optional element 'trt:GetServiceCapabilities' of XML schema type 'trt:GetServiceCapabilities' */
+        struct _trt__GetServiceCapabilities *trt__GetServiceCapabilities;
       public:
         /** Return unique type id SOAP_TYPE___trt__GetServiceCapabilities */
         long soap_type() const { return SOAP_TYPE___trt__GetServiceCapabilities; }
@@ -3544,14 +6857,14 @@ struct SOAP_CMAC __trt__GetServiceCapabilities {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:99 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:891 */
 #ifndef SOAP_TYPE___trt__GetVideoSources
-#define SOAP_TYPE___trt__GetVideoSources (410)
+#define SOAP_TYPE___trt__GetVideoSources (663)
 /* Wrapper: */
 struct SOAP_CMAC __trt__GetVideoSources {
       public:
-        /** Optional element 'trt:GetVideoSources' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__GetVideoSources;
+        /** Optional element 'trt:GetVideoSources' of XML schema type 'trt:GetVideoSources' */
+        struct _trt__GetVideoSources *trt__GetVideoSources;
       public:
         /** Return unique type id SOAP_TYPE___trt__GetVideoSources */
         long soap_type() const { return SOAP_TYPE___trt__GetVideoSources; }
@@ -3562,14 +6875,122 @@ struct SOAP_CMAC __trt__GetVideoSources {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:101 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:893 */
+#ifndef SOAP_TYPE___trt__GetOSDs
+#define SOAP_TYPE___trt__GetOSDs (667)
+/* Wrapper: */
+struct SOAP_CMAC __trt__GetOSDs {
+      public:
+        /** Optional element 'trt:GetOSDs' of XML schema type 'trt:GetOSDs' */
+        struct _trt__GetOSDs *trt__GetOSDs;
+      public:
+        /** Return unique type id SOAP_TYPE___trt__GetOSDs */
+        long soap_type() const { return SOAP_TYPE___trt__GetOSDs; }
+        /** Constructor with member initializations */
+        __trt__GetOSDs() : trt__GetOSDs() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 __trt__GetOSDs * SOAP_FMAC2 soap_instantiate___trt__GetOSDs(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:895 */
+#ifndef SOAP_TYPE___trt__GetOSD
+#define SOAP_TYPE___trt__GetOSD (671)
+/* Wrapper: */
+struct SOAP_CMAC __trt__GetOSD {
+      public:
+        /** Optional element 'trt:GetOSD' of XML schema type 'trt:GetOSD' */
+        struct _trt__GetOSD *trt__GetOSD;
+      public:
+        /** Return unique type id SOAP_TYPE___trt__GetOSD */
+        long soap_type() const { return SOAP_TYPE___trt__GetOSD; }
+        /** Constructor with member initializations */
+        __trt__GetOSD() : trt__GetOSD() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 __trt__GetOSD * SOAP_FMAC2 soap_instantiate___trt__GetOSD(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:897 */
+#ifndef SOAP_TYPE___trt__GetOSDOptions
+#define SOAP_TYPE___trt__GetOSDOptions (675)
+/* Wrapper: */
+struct SOAP_CMAC __trt__GetOSDOptions {
+      public:
+        /** Optional element 'trt:GetOSDOptions' of XML schema type 'trt:GetOSDOptions' */
+        struct _trt__GetOSDOptions *trt__GetOSDOptions;
+      public:
+        /** Return unique type id SOAP_TYPE___trt__GetOSDOptions */
+        long soap_type() const { return SOAP_TYPE___trt__GetOSDOptions; }
+        /** Constructor with member initializations */
+        __trt__GetOSDOptions() : trt__GetOSDOptions() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 __trt__GetOSDOptions * SOAP_FMAC2 soap_instantiate___trt__GetOSDOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:899 */
+#ifndef SOAP_TYPE___trt__SetOSD
+#define SOAP_TYPE___trt__SetOSD (679)
+/* Wrapper: */
+struct SOAP_CMAC __trt__SetOSD {
+      public:
+        /** Optional element 'trt:SetOSD' of XML schema type 'trt:SetOSD' */
+        struct _trt__SetOSD *trt__SetOSD;
+      public:
+        /** Return unique type id SOAP_TYPE___trt__SetOSD */
+        long soap_type() const { return SOAP_TYPE___trt__SetOSD; }
+        /** Constructor with member initializations */
+        __trt__SetOSD() : trt__SetOSD() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 __trt__SetOSD * SOAP_FMAC2 soap_instantiate___trt__SetOSD(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:901 */
+#ifndef SOAP_TYPE___trt__CreateOSD
+#define SOAP_TYPE___trt__CreateOSD (683)
+/* Wrapper: */
+struct SOAP_CMAC __trt__CreateOSD {
+      public:
+        /** Optional element 'trt:CreateOSD' of XML schema type 'trt:CreateOSD' */
+        struct _trt__CreateOSD *trt__CreateOSD;
+      public:
+        /** Return unique type id SOAP_TYPE___trt__CreateOSD */
+        long soap_type() const { return SOAP_TYPE___trt__CreateOSD; }
+        /** Constructor with member initializations */
+        __trt__CreateOSD() : trt__CreateOSD() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 __trt__CreateOSD * SOAP_FMAC2 soap_instantiate___trt__CreateOSD(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:903 */
+#ifndef SOAP_TYPE___trt__DeleteOSD
+#define SOAP_TYPE___trt__DeleteOSD (687)
+/* Wrapper: */
+struct SOAP_CMAC __trt__DeleteOSD {
+      public:
+        /** Optional element 'trt:DeleteOSD' of XML schema type 'trt:DeleteOSD' */
+        struct _trt__DeleteOSD *trt__DeleteOSD;
+      public:
+        /** Return unique type id SOAP_TYPE___trt__DeleteOSD */
+        long soap_type() const { return SOAP_TYPE___trt__DeleteOSD; }
+        /** Constructor with member initializations */
+        __trt__DeleteOSD() : trt__DeleteOSD() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 __trt__DeleteOSD * SOAP_FMAC2 soap_instantiate___trt__DeleteOSD(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:905 */
 #ifndef SOAP_TYPE___trt__GetVideoSourceConfigurations
-#define SOAP_TYPE___trt__GetVideoSourceConfigurations (412)
+#define SOAP_TYPE___trt__GetVideoSourceConfigurations (691)
 /* Wrapper: */
 struct SOAP_CMAC __trt__GetVideoSourceConfigurations {
       public:
-        /** Optional element 'trt:GetVideoSourceConfigurations' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurations;
+        /** Optional element 'trt:GetVideoSourceConfigurations' of XML schema type 'trt:GetVideoSourceConfigurations' */
+        struct _trt__GetVideoSourceConfigurations *trt__GetVideoSourceConfigurations;
       public:
         /** Return unique type id SOAP_TYPE___trt__GetVideoSourceConfigurations */
         long soap_type() const { return SOAP_TYPE___trt__GetVideoSourceConfigurations; }
@@ -3580,14 +7001,14 @@ struct SOAP_CMAC __trt__GetVideoSourceConfigurations {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:103 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:907 */
 #ifndef SOAP_TYPE___trt__GetVideoSourceConfiguration
-#define SOAP_TYPE___trt__GetVideoSourceConfiguration (414)
+#define SOAP_TYPE___trt__GetVideoSourceConfiguration (695)
 /* Wrapper: */
 struct SOAP_CMAC __trt__GetVideoSourceConfiguration {
       public:
-        /** Optional element 'trt:GetVideoSourceConfiguration' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__GetVideoSourceConfiguration;
+        /** Optional element 'trt:GetVideoSourceConfiguration' of XML schema type 'trt:GetVideoSourceConfiguration' */
+        struct _trt__GetVideoSourceConfiguration *trt__GetVideoSourceConfiguration;
       public:
         /** Return unique type id SOAP_TYPE___trt__GetVideoSourceConfiguration */
         long soap_type() const { return SOAP_TYPE___trt__GetVideoSourceConfiguration; }
@@ -3598,14 +7019,14 @@ struct SOAP_CMAC __trt__GetVideoSourceConfiguration {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:105 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:909 */
 #ifndef SOAP_TYPE___trt__GetVideoEncoderConfigurations
-#define SOAP_TYPE___trt__GetVideoEncoderConfigurations (416)
+#define SOAP_TYPE___trt__GetVideoEncoderConfigurations (699)
 /* Wrapper: */
 struct SOAP_CMAC __trt__GetVideoEncoderConfigurations {
       public:
-        /** Optional element 'trt:GetVideoEncoderConfigurations' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurations;
+        /** Optional element 'trt:GetVideoEncoderConfigurations' of XML schema type 'trt:GetVideoEncoderConfigurations' */
+        struct _trt__GetVideoEncoderConfigurations *trt__GetVideoEncoderConfigurations;
       public:
         /** Return unique type id SOAP_TYPE___trt__GetVideoEncoderConfigurations */
         long soap_type() const { return SOAP_TYPE___trt__GetVideoEncoderConfigurations; }
@@ -3616,14 +7037,14 @@ struct SOAP_CMAC __trt__GetVideoEncoderConfigurations {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:107 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:911 */
 #ifndef SOAP_TYPE___trt__GetStreamUri
-#define SOAP_TYPE___trt__GetStreamUri (418)
+#define SOAP_TYPE___trt__GetStreamUri (703)
 /* Wrapper: */
 struct SOAP_CMAC __trt__GetStreamUri {
       public:
-        /** Optional element 'trt:GetStreamUri' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__GetStreamUri;
+        /** Optional element 'trt:GetStreamUri' of XML schema type 'trt:GetStreamUri' */
+        struct _trt__GetStreamUri *trt__GetStreamUri;
       public:
         /** Return unique type id SOAP_TYPE___trt__GetStreamUri */
         long soap_type() const { return SOAP_TYPE___trt__GetStreamUri; }
@@ -3634,14 +7055,14 @@ struct SOAP_CMAC __trt__GetStreamUri {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:109 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:913 */
 #ifndef SOAP_TYPE___trt__GetVideoEncoderConfiguration
-#define SOAP_TYPE___trt__GetVideoEncoderConfiguration (420)
+#define SOAP_TYPE___trt__GetVideoEncoderConfiguration (707)
 /* Wrapper: */
 struct SOAP_CMAC __trt__GetVideoEncoderConfiguration {
       public:
-        /** Optional element 'trt:GetVideoEncoderConfiguration' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__GetVideoEncoderConfiguration;
+        /** Optional element 'trt:GetVideoEncoderConfiguration' of XML schema type 'trt:GetVideoEncoderConfiguration' */
+        struct _trt__GetVideoEncoderConfiguration *trt__GetVideoEncoderConfiguration;
       public:
         /** Return unique type id SOAP_TYPE___trt__GetVideoEncoderConfiguration */
         long soap_type() const { return SOAP_TYPE___trt__GetVideoEncoderConfiguration; }
@@ -3652,14 +7073,14 @@ struct SOAP_CMAC __trt__GetVideoEncoderConfiguration {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:111 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:915 */
 #ifndef SOAP_TYPE___trt__GetVideoSourceConfigurationOptions
-#define SOAP_TYPE___trt__GetVideoSourceConfigurationOptions (422)
+#define SOAP_TYPE___trt__GetVideoSourceConfigurationOptions (711)
 /* Wrapper: */
 struct SOAP_CMAC __trt__GetVideoSourceConfigurationOptions {
       public:
-        /** Optional element 'trt:GetVideoSourceConfigurationOptions' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurationOptions;
+        /** Optional element 'trt:GetVideoSourceConfigurationOptions' of XML schema type 'trt:GetVideoSourceConfigurationOptions' */
+        struct _trt__GetVideoSourceConfigurationOptions *trt__GetVideoSourceConfigurationOptions;
       public:
         /** Return unique type id SOAP_TYPE___trt__GetVideoSourceConfigurationOptions */
         long soap_type() const { return SOAP_TYPE___trt__GetVideoSourceConfigurationOptions; }
@@ -3670,14 +7091,14 @@ struct SOAP_CMAC __trt__GetVideoSourceConfigurationOptions {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:113 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:917 */
 #ifndef SOAP_TYPE___trt__GetVideoEncoderConfigurationOptions
-#define SOAP_TYPE___trt__GetVideoEncoderConfigurationOptions (424)
+#define SOAP_TYPE___trt__GetVideoEncoderConfigurationOptions (715)
 /* Wrapper: */
 struct SOAP_CMAC __trt__GetVideoEncoderConfigurationOptions {
       public:
-        /** Optional element 'trt:GetVideoEncoderConfigurationOptions' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurationOptions;
+        /** Optional element 'trt:GetVideoEncoderConfigurationOptions' of XML schema type 'trt:GetVideoEncoderConfigurationOptions' */
+        struct _trt__GetVideoEncoderConfigurationOptions *trt__GetVideoEncoderConfigurationOptions;
       public:
         /** Return unique type id SOAP_TYPE___trt__GetVideoEncoderConfigurationOptions */
         long soap_type() const { return SOAP_TYPE___trt__GetVideoEncoderConfigurationOptions; }
@@ -3688,14 +7109,14 @@ struct SOAP_CMAC __trt__GetVideoEncoderConfigurationOptions {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:115 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:919 */
 #ifndef SOAP_TYPE___trt__SetVideoEncoderConfiguration
-#define SOAP_TYPE___trt__SetVideoEncoderConfiguration (426)
+#define SOAP_TYPE___trt__SetVideoEncoderConfiguration (719)
 /* Wrapper: */
 struct SOAP_CMAC __trt__SetVideoEncoderConfiguration {
       public:
-        /** Optional element 'trt:SetVideoEncoderConfiguration' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *trt__SetVideoEncoderConfiguration;
+        /** Optional element 'trt:SetVideoEncoderConfiguration' of XML schema type 'trt:SetVideoEncoderConfiguration' */
+        struct _trt__SetVideoEncoderConfiguration *trt__SetVideoEncoderConfiguration;
       public:
         /** Return unique type id SOAP_TYPE___trt__SetVideoEncoderConfiguration */
         long soap_type() const { return SOAP_TYPE___trt__SetVideoEncoderConfiguration; }
@@ -3706,14 +7127,14 @@ struct SOAP_CMAC __trt__SetVideoEncoderConfiguration {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:122 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:926 */
 #ifndef SOAP_TYPE___tr2__GetProfiles
-#define SOAP_TYPE___tr2__GetProfiles (428)
+#define SOAP_TYPE___tr2__GetProfiles (723)
 /* Wrapper: */
 struct SOAP_CMAC __tr2__GetProfiles {
       public:
-        /** Optional element 'tr2:GetProfiles' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tr2__GetProfiles;
+        /** Optional element 'tr2:GetProfiles' of XML schema type 'tr2:GetProfiles' */
+        struct _tr2__GetProfiles *tr2__GetProfiles;
       public:
         /** Return unique type id SOAP_TYPE___tr2__GetProfiles */
         long soap_type() const { return SOAP_TYPE___tr2__GetProfiles; }
@@ -3724,14 +7145,14 @@ struct SOAP_CMAC __tr2__GetProfiles {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:124 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:928 */
 #ifndef SOAP_TYPE___tr2__GetStreamUri
-#define SOAP_TYPE___tr2__GetStreamUri (430)
+#define SOAP_TYPE___tr2__GetStreamUri (727)
 /* Wrapper: */
 struct SOAP_CMAC __tr2__GetStreamUri {
       public:
-        /** Optional element 'tr2:GetStreamUri' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tr2__GetStreamUri;
+        /** Optional element 'tr2:GetStreamUri' of XML schema type 'tr2:GetStreamUri' */
+        struct _tr2__GetStreamUri *tr2__GetStreamUri;
       public:
         /** Return unique type id SOAP_TYPE___tr2__GetStreamUri */
         long soap_type() const { return SOAP_TYPE___tr2__GetStreamUri; }
@@ -3742,14 +7163,14 @@ struct SOAP_CMAC __tr2__GetStreamUri {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:126 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:930 */
 #ifndef SOAP_TYPE___tr2__GetServiceCapabilities
-#define SOAP_TYPE___tr2__GetServiceCapabilities (432)
+#define SOAP_TYPE___tr2__GetServiceCapabilities (731)
 /* Wrapper: */
 struct SOAP_CMAC __tr2__GetServiceCapabilities {
       public:
-        /** Optional element 'tr2:GetServiceCapabilities' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tr2__GetServiceCapabilities;
+        /** Optional element 'tr2:GetServiceCapabilities' of XML schema type 'tr2:GetServiceCapabilities' */
+        struct _tr2__GetServiceCapabilities *tr2__GetServiceCapabilities;
       public:
         /** Return unique type id SOAP_TYPE___tr2__GetServiceCapabilities */
         long soap_type() const { return SOAP_TYPE___tr2__GetServiceCapabilities; }
@@ -3760,14 +7181,32 @@ struct SOAP_CMAC __tr2__GetServiceCapabilities {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:133 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:937 */
+#ifndef SOAP_TYPE___tptz__GetServiceCapabilities
+#define SOAP_TYPE___tptz__GetServiceCapabilities (735)
+/* Wrapper: */
+struct SOAP_CMAC __tptz__GetServiceCapabilities {
+      public:
+        /** Optional element 'tptz:GetServiceCapabilities' of XML schema type 'tptz:GetServiceCapabilities' */
+        struct _tptz__GetServiceCapabilities *tptz__GetServiceCapabilities;
+      public:
+        /** Return unique type id SOAP_TYPE___tptz__GetServiceCapabilities */
+        long soap_type() const { return SOAP_TYPE___tptz__GetServiceCapabilities; }
+        /** Constructor with member initializations */
+        __tptz__GetServiceCapabilities() : tptz__GetServiceCapabilities() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 __tptz__GetServiceCapabilities * SOAP_FMAC2 soap_instantiate___tptz__GetServiceCapabilities(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:939 */
 #ifndef SOAP_TYPE___tptz__GetNodes
-#define SOAP_TYPE___tptz__GetNodes (434)
+#define SOAP_TYPE___tptz__GetNodes (739)
 /* Wrapper: */
 struct SOAP_CMAC __tptz__GetNodes {
       public:
-        /** Optional element 'tptz:GetNodes' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tptz__GetNodes;
+        /** Optional element 'tptz:GetNodes' of XML schema type 'tptz:GetNodes' */
+        struct _tptz__GetNodes *tptz__GetNodes;
       public:
         /** Return unique type id SOAP_TYPE___tptz__GetNodes */
         long soap_type() const { return SOAP_TYPE___tptz__GetNodes; }
@@ -3778,14 +7217,32 @@ struct SOAP_CMAC __tptz__GetNodes {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:135 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:941 */
+#ifndef SOAP_TYPE___tptz__GetNode
+#define SOAP_TYPE___tptz__GetNode (743)
+/* Wrapper: */
+struct SOAP_CMAC __tptz__GetNode {
+      public:
+        /** Optional element 'tptz:GetNode' of XML schema type 'tptz:GetNode' */
+        struct _tptz__GetNode *tptz__GetNode;
+      public:
+        /** Return unique type id SOAP_TYPE___tptz__GetNode */
+        long soap_type() const { return SOAP_TYPE___tptz__GetNode; }
+        /** Constructor with member initializations */
+        __tptz__GetNode() : tptz__GetNode() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 __tptz__GetNode * SOAP_FMAC2 soap_instantiate___tptz__GetNode(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:943 */
 #ifndef SOAP_TYPE___tptz__GetConfigurations
-#define SOAP_TYPE___tptz__GetConfigurations (436)
+#define SOAP_TYPE___tptz__GetConfigurations (747)
 /* Wrapper: */
 struct SOAP_CMAC __tptz__GetConfigurations {
       public:
-        /** Optional element 'tptz:GetConfigurations' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tptz__GetConfigurations;
+        /** Optional element 'tptz:GetConfigurations' of XML schema type 'tptz:GetConfigurations' */
+        struct _tptz__GetConfigurations *tptz__GetConfigurations;
       public:
         /** Return unique type id SOAP_TYPE___tptz__GetConfigurations */
         long soap_type() const { return SOAP_TYPE___tptz__GetConfigurations; }
@@ -3796,14 +7253,50 @@ struct SOAP_CMAC __tptz__GetConfigurations {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:137 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:945 */
+#ifndef SOAP_TYPE___tptz__GetConfiguration
+#define SOAP_TYPE___tptz__GetConfiguration (751)
+/* Wrapper: */
+struct SOAP_CMAC __tptz__GetConfiguration {
+      public:
+        /** Optional element 'tptz:GetConfiguration' of XML schema type 'tptz:GetConfiguration' */
+        struct _tptz__GetConfiguration *tptz__GetConfiguration;
+      public:
+        /** Return unique type id SOAP_TYPE___tptz__GetConfiguration */
+        long soap_type() const { return SOAP_TYPE___tptz__GetConfiguration; }
+        /** Constructor with member initializations */
+        __tptz__GetConfiguration() : tptz__GetConfiguration() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 __tptz__GetConfiguration * SOAP_FMAC2 soap_instantiate___tptz__GetConfiguration(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:947 */
+#ifndef SOAP_TYPE___tptz__GetConfigurationOptions
+#define SOAP_TYPE___tptz__GetConfigurationOptions (755)
+/* Wrapper: */
+struct SOAP_CMAC __tptz__GetConfigurationOptions {
+      public:
+        /** Optional element 'tptz:GetConfigurationOptions' of XML schema type 'tptz:GetConfigurationOptions' */
+        struct _tptz__GetConfigurationOptions *tptz__GetConfigurationOptions;
+      public:
+        /** Return unique type id SOAP_TYPE___tptz__GetConfigurationOptions */
+        long soap_type() const { return SOAP_TYPE___tptz__GetConfigurationOptions; }
+        /** Constructor with member initializations */
+        __tptz__GetConfigurationOptions() : tptz__GetConfigurationOptions() { }
+        /** Friend allocator */
+        friend SOAP_FMAC1 __tptz__GetConfigurationOptions * SOAP_FMAC2 soap_instantiate___tptz__GetConfigurationOptions(struct soap*, int, const char*, const char*, size_t*);
+};
+#endif
+
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:949 */
 #ifndef SOAP_TYPE___tptz__GetPresets
-#define SOAP_TYPE___tptz__GetPresets (438)
+#define SOAP_TYPE___tptz__GetPresets (759)
 /* Wrapper: */
 struct SOAP_CMAC __tptz__GetPresets {
       public:
-        /** Optional element 'tptz:GetPresets' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tptz__GetPresets;
+        /** Optional element 'tptz:GetPresets' of XML schema type 'tptz:GetPresets' */
+        struct _tptz__GetPresets *tptz__GetPresets;
       public:
         /** Return unique type id SOAP_TYPE___tptz__GetPresets */
         long soap_type() const { return SOAP_TYPE___tptz__GetPresets; }
@@ -3814,14 +7307,14 @@ struct SOAP_CMAC __tptz__GetPresets {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:139 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:951 */
 #ifndef SOAP_TYPE___tptz__SetPreset
-#define SOAP_TYPE___tptz__SetPreset (440)
+#define SOAP_TYPE___tptz__SetPreset (763)
 /* Wrapper: */
 struct SOAP_CMAC __tptz__SetPreset {
       public:
-        /** Optional element 'tptz:SetPreset' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tptz__SetPreset;
+        /** Optional element 'tptz:SetPreset' of XML schema type 'tptz:SetPreset' */
+        struct _tptz__SetPreset *tptz__SetPreset;
       public:
         /** Return unique type id SOAP_TYPE___tptz__SetPreset */
         long soap_type() const { return SOAP_TYPE___tptz__SetPreset; }
@@ -3832,14 +7325,14 @@ struct SOAP_CMAC __tptz__SetPreset {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:141 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:953 */
 #ifndef SOAP_TYPE___tptz__GotoPreset
-#define SOAP_TYPE___tptz__GotoPreset (442)
+#define SOAP_TYPE___tptz__GotoPreset (767)
 /* Wrapper: */
 struct SOAP_CMAC __tptz__GotoPreset {
       public:
-        /** Optional element 'tptz:GotoPreset' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tptz__GotoPreset;
+        /** Optional element 'tptz:GotoPreset' of XML schema type 'tptz:GotoPreset' */
+        struct _tptz__GotoPreset *tptz__GotoPreset;
       public:
         /** Return unique type id SOAP_TYPE___tptz__GotoPreset */
         long soap_type() const { return SOAP_TYPE___tptz__GotoPreset; }
@@ -3850,9 +7343,9 @@ struct SOAP_CMAC __tptz__GotoPreset {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:143 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:955 */
 #ifndef SOAP_TYPE___tptz__GetStatus
-#define SOAP_TYPE___tptz__GetStatus (446)
+#define SOAP_TYPE___tptz__GetStatus (771)
 /* Wrapper: */
 struct SOAP_CMAC __tptz__GetStatus {
       public:
@@ -3868,14 +7361,14 @@ struct SOAP_CMAC __tptz__GetStatus {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:145 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:957 */
 #ifndef SOAP_TYPE___tptz__GotoHomePosition
-#define SOAP_TYPE___tptz__GotoHomePosition (448)
+#define SOAP_TYPE___tptz__GotoHomePosition (775)
 /* Wrapper: */
 struct SOAP_CMAC __tptz__GotoHomePosition {
       public:
-        /** Optional element 'tptz:GotoHomePosition' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tptz__GotoHomePosition;
+        /** Optional element 'tptz:GotoHomePosition' of XML schema type 'tptz:GotoHomePosition' */
+        struct _tptz__GotoHomePosition *tptz__GotoHomePosition;
       public:
         /** Return unique type id SOAP_TYPE___tptz__GotoHomePosition */
         long soap_type() const { return SOAP_TYPE___tptz__GotoHomePosition; }
@@ -3886,14 +7379,14 @@ struct SOAP_CMAC __tptz__GotoHomePosition {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:147 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:959 */
 #ifndef SOAP_TYPE___tptz__SetHomePosition
-#define SOAP_TYPE___tptz__SetHomePosition (450)
+#define SOAP_TYPE___tptz__SetHomePosition (779)
 /* Wrapper: */
 struct SOAP_CMAC __tptz__SetHomePosition {
       public:
-        /** Optional element 'tptz:SetHomePosition' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tptz__SetHomePosition;
+        /** Optional element 'tptz:SetHomePosition' of XML schema type 'tptz:SetHomePosition' */
+        struct _tptz__SetHomePosition *tptz__SetHomePosition;
       public:
         /** Return unique type id SOAP_TYPE___tptz__SetHomePosition */
         long soap_type() const { return SOAP_TYPE___tptz__SetHomePosition; }
@@ -3904,14 +7397,14 @@ struct SOAP_CMAC __tptz__SetHomePosition {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:149 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:961 */
 #ifndef SOAP_TYPE___tptz__ContinuousMove
-#define SOAP_TYPE___tptz__ContinuousMove (452)
+#define SOAP_TYPE___tptz__ContinuousMove (783)
 /* Wrapper: */
 struct SOAP_CMAC __tptz__ContinuousMove {
       public:
-        /** Optional element 'tptz:ContinuousMove' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tptz__ContinuousMove;
+        /** Optional element 'tptz:ContinuousMove' of XML schema type 'tptz:ContinuousMove' */
+        struct _tptz__ContinuousMove *tptz__ContinuousMove;
       public:
         /** Return unique type id SOAP_TYPE___tptz__ContinuousMove */
         long soap_type() const { return SOAP_TYPE___tptz__ContinuousMove; }
@@ -3922,14 +7415,14 @@ struct SOAP_CMAC __tptz__ContinuousMove {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:151 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:963 */
 #ifndef SOAP_TYPE___tptz__RelativeMove
-#define SOAP_TYPE___tptz__RelativeMove (454)
+#define SOAP_TYPE___tptz__RelativeMove (787)
 /* Wrapper: */
 struct SOAP_CMAC __tptz__RelativeMove {
       public:
-        /** Optional element 'tptz:RelativeMove' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tptz__RelativeMove;
+        /** Optional element 'tptz:RelativeMove' of XML schema type 'tptz:RelativeMove' */
+        struct _tptz__RelativeMove *tptz__RelativeMove;
       public:
         /** Return unique type id SOAP_TYPE___tptz__RelativeMove */
         long soap_type() const { return SOAP_TYPE___tptz__RelativeMove; }
@@ -3940,14 +7433,14 @@ struct SOAP_CMAC __tptz__RelativeMove {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:153 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:965 */
 #ifndef SOAP_TYPE___tptz__Stop
-#define SOAP_TYPE___tptz__Stop (456)
+#define SOAP_TYPE___tptz__Stop (791)
 /* Wrapper: */
 struct SOAP_CMAC __tptz__Stop {
       public:
-        /** Optional element 'tptz:Stop' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tptz__Stop;
+        /** Optional element 'tptz:Stop' of XML schema type 'tptz:Stop' */
+        struct _tptz__Stop *tptz__Stop;
       public:
         /** Return unique type id SOAP_TYPE___tptz__Stop */
         long soap_type() const { return SOAP_TYPE___tptz__Stop; }
@@ -3958,14 +7451,14 @@ struct SOAP_CMAC __tptz__Stop {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:160 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:972 */
 #ifndef SOAP_TYPE___timg__GetServiceCapabilities
-#define SOAP_TYPE___timg__GetServiceCapabilities (458)
+#define SOAP_TYPE___timg__GetServiceCapabilities (795)
 /* Wrapper: */
 struct SOAP_CMAC __timg__GetServiceCapabilities {
       public:
-        /** Optional element 'timg:GetServiceCapabilities' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *timg__GetServiceCapabilities;
+        /** Optional element 'timg:GetServiceCapabilities' of XML schema type 'timg:GetServiceCapabilities' */
+        struct _timg__GetServiceCapabilities *timg__GetServiceCapabilities;
       public:
         /** Return unique type id SOAP_TYPE___timg__GetServiceCapabilities */
         long soap_type() const { return SOAP_TYPE___timg__GetServiceCapabilities; }
@@ -3976,14 +7469,14 @@ struct SOAP_CMAC __timg__GetServiceCapabilities {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:162 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:974 */
 #ifndef SOAP_TYPE___timg__GetImagingSettings
-#define SOAP_TYPE___timg__GetImagingSettings (460)
+#define SOAP_TYPE___timg__GetImagingSettings (799)
 /* Wrapper: */
 struct SOAP_CMAC __timg__GetImagingSettings {
       public:
-        /** Optional element 'timg:GetImagingSettings' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *timg__GetImagingSettings;
+        /** Optional element 'timg:GetImagingSettings' of XML schema type 'timg:GetImagingSettings' */
+        struct _timg__GetImagingSettings *timg__GetImagingSettings;
       public:
         /** Return unique type id SOAP_TYPE___timg__GetImagingSettings */
         long soap_type() const { return SOAP_TYPE___timg__GetImagingSettings; }
@@ -3994,14 +7487,14 @@ struct SOAP_CMAC __timg__GetImagingSettings {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:164 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:976 */
 #ifndef SOAP_TYPE___timg__SetImagingSettings
-#define SOAP_TYPE___timg__SetImagingSettings (462)
+#define SOAP_TYPE___timg__SetImagingSettings (803)
 /* Wrapper: */
 struct SOAP_CMAC __timg__SetImagingSettings {
       public:
-        /** Optional element 'timg:SetImagingSettings' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *timg__SetImagingSettings;
+        /** Optional element 'timg:SetImagingSettings' of XML schema type 'timg:SetImagingSettings' */
+        struct _timg__SetImagingSettings *timg__SetImagingSettings;
       public:
         /** Return unique type id SOAP_TYPE___timg__SetImagingSettings */
         long soap_type() const { return SOAP_TYPE___timg__SetImagingSettings; }
@@ -4012,14 +7505,14 @@ struct SOAP_CMAC __timg__SetImagingSettings {
 };
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:166 */
+/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:978 */
 #ifndef SOAP_TYPE___timg__GetOptions
-#define SOAP_TYPE___timg__GetOptions (464)
+#define SOAP_TYPE___timg__GetOptions (807)
 /* Wrapper: */
 struct SOAP_CMAC __timg__GetOptions {
       public:
-        /** Optional element 'timg:GetOptions' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *timg__GetOptions;
+        /** Optional element 'timg:GetOptions' of XML schema type 'timg:GetOptions' */
+        struct _timg__GetOptions *timg__GetOptions;
       public:
         /** Return unique type id SOAP_TYPE___timg__GetOptions */
         long soap_type() const { return SOAP_TYPE___timg__GetOptions; }
@@ -4027,168 +7520,6 @@ struct SOAP_CMAC __timg__GetOptions {
         __timg__GetOptions() : timg__GetOptions() { }
         /** Friend allocator */
         friend SOAP_FMAC1 __timg__GetOptions * SOAP_FMAC2 soap_instantiate___timg__GetOptions(struct soap*, int, const char*, const char*, size_t*);
-};
-#endif
-
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:173 */
-#ifndef SOAP_TYPE___tev__GetEventProperties
-#define SOAP_TYPE___tev__GetEventProperties (466)
-/* Wrapper: */
-struct SOAP_CMAC __tev__GetEventProperties {
-      public:
-        /** Optional element 'tev:GetEventProperties' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tev__GetEventProperties;
-      public:
-        /** Return unique type id SOAP_TYPE___tev__GetEventProperties */
-        long soap_type() const { return SOAP_TYPE___tev__GetEventProperties; }
-        /** Constructor with member initializations */
-        __tev__GetEventProperties() : tev__GetEventProperties() { }
-        /** Friend allocator */
-        friend SOAP_FMAC1 __tev__GetEventProperties * SOAP_FMAC2 soap_instantiate___tev__GetEventProperties(struct soap*, int, const char*, const char*, size_t*);
-};
-#endif
-
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:175 */
-#ifndef SOAP_TYPE___tev__CreatePullPointSubscription
-#define SOAP_TYPE___tev__CreatePullPointSubscription (468)
-/* Wrapper: */
-struct SOAP_CMAC __tev__CreatePullPointSubscription {
-      public:
-        /** Optional element 'tev:CreatePullPointSubscription' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tev__CreatePullPointSubscription;
-      public:
-        /** Return unique type id SOAP_TYPE___tev__CreatePullPointSubscription */
-        long soap_type() const { return SOAP_TYPE___tev__CreatePullPointSubscription; }
-        /** Constructor with member initializations */
-        __tev__CreatePullPointSubscription() : tev__CreatePullPointSubscription() { }
-        /** Friend allocator */
-        friend SOAP_FMAC1 __tev__CreatePullPointSubscription * SOAP_FMAC2 soap_instantiate___tev__CreatePullPointSubscription(struct soap*, int, const char*, const char*, size_t*);
-};
-#endif
-
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:177 */
-#ifndef SOAP_TYPE___tev__PullMessages
-#define SOAP_TYPE___tev__PullMessages (470)
-/* Wrapper: */
-struct SOAP_CMAC __tev__PullMessages {
-      public:
-        /** Optional element 'tev:PullMessages' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tev__PullMessages;
-      public:
-        /** Return unique type id SOAP_TYPE___tev__PullMessages */
-        long soap_type() const { return SOAP_TYPE___tev__PullMessages; }
-        /** Constructor with member initializations */
-        __tev__PullMessages() : tev__PullMessages() { }
-        /** Friend allocator */
-        friend SOAP_FMAC1 __tev__PullMessages * SOAP_FMAC2 soap_instantiate___tev__PullMessages(struct soap*, int, const char*, const char*, size_t*);
-};
-#endif
-
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:184 */
-#ifndef SOAP_TYPE___wsnt__Renew
-#define SOAP_TYPE___wsnt__Renew (472)
-/* Wrapper: */
-struct SOAP_CMAC __wsnt__Renew {
-      public:
-        /** Optional element 'wsnt:Renew' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *wsnt__Renew;
-      public:
-        /** Return unique type id SOAP_TYPE___wsnt__Renew */
-        long soap_type() const { return SOAP_TYPE___wsnt__Renew; }
-        /** Constructor with member initializations */
-        __wsnt__Renew() : wsnt__Renew() { }
-        /** Friend allocator */
-        friend SOAP_FMAC1 __wsnt__Renew * SOAP_FMAC2 soap_instantiate___wsnt__Renew(struct soap*, int, const char*, const char*, size_t*);
-};
-#endif
-
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:186 */
-#ifndef SOAP_TYPE___wsnt__Unsubscribe
-#define SOAP_TYPE___wsnt__Unsubscribe (474)
-/* Wrapper: */
-struct SOAP_CMAC __wsnt__Unsubscribe {
-      public:
-        /** Optional element 'wsnt:Unsubscribe' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *wsnt__Unsubscribe;
-      public:
-        /** Return unique type id SOAP_TYPE___wsnt__Unsubscribe */
-        long soap_type() const { return SOAP_TYPE___wsnt__Unsubscribe; }
-        /** Constructor with member initializations */
-        __wsnt__Unsubscribe() : wsnt__Unsubscribe() { }
-        /** Friend allocator */
-        friend SOAP_FMAC1 __wsnt__Unsubscribe * SOAP_FMAC2 soap_instantiate___wsnt__Unsubscribe(struct soap*, int, const char*, const char*, size_t*);
-};
-#endif
-
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:193 */
-#ifndef SOAP_TYPE___tosd__GetServiceCapabilities
-#define SOAP_TYPE___tosd__GetServiceCapabilities (476)
-/* Wrapper: */
-struct SOAP_CMAC __tosd__GetServiceCapabilities {
-      public:
-        /** Optional element 'tosd:GetServiceCapabilities' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tosd__GetServiceCapabilities;
-      public:
-        /** Return unique type id SOAP_TYPE___tosd__GetServiceCapabilities */
-        long soap_type() const { return SOAP_TYPE___tosd__GetServiceCapabilities; }
-        /** Constructor with member initializations */
-        __tosd__GetServiceCapabilities() : tosd__GetServiceCapabilities() { }
-        /** Friend allocator */
-        friend SOAP_FMAC1 __tosd__GetServiceCapabilities * SOAP_FMAC2 soap_instantiate___tosd__GetServiceCapabilities(struct soap*, int, const char*, const char*, size_t*);
-};
-#endif
-
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:195 */
-#ifndef SOAP_TYPE___tosd__GetOSDs
-#define SOAP_TYPE___tosd__GetOSDs (478)
-/* Wrapper: */
-struct SOAP_CMAC __tosd__GetOSDs {
-      public:
-        /** Optional element 'tosd:GetOSDs' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tosd__GetOSDs;
-      public:
-        /** Return unique type id SOAP_TYPE___tosd__GetOSDs */
-        long soap_type() const { return SOAP_TYPE___tosd__GetOSDs; }
-        /** Constructor with member initializations */
-        __tosd__GetOSDs() : tosd__GetOSDs() { }
-        /** Friend allocator */
-        friend SOAP_FMAC1 __tosd__GetOSDs * SOAP_FMAC2 soap_instantiate___tosd__GetOSDs(struct soap*, int, const char*, const char*, size_t*);
-};
-#endif
-
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:197 */
-#ifndef SOAP_TYPE___tosd__GetOSD
-#define SOAP_TYPE___tosd__GetOSD (480)
-/* Wrapper: */
-struct SOAP_CMAC __tosd__GetOSD {
-      public:
-        /** Optional element 'tosd:GetOSD' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tosd__GetOSD;
-      public:
-        /** Return unique type id SOAP_TYPE___tosd__GetOSD */
-        long soap_type() const { return SOAP_TYPE___tosd__GetOSD; }
-        /** Constructor with member initializations */
-        __tosd__GetOSD() : tosd__GetOSD() { }
-        /** Friend allocator */
-        friend SOAP_FMAC1 __tosd__GetOSD * SOAP_FMAC2 soap_instantiate___tosd__GetOSD(struct soap*, int, const char*, const char*, size_t*);
-};
-#endif
-
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:199 */
-#ifndef SOAP_TYPE___tosd__SetOSD
-#define SOAP_TYPE___tosd__SetOSD (482)
-/* Wrapper: */
-struct SOAP_CMAC __tosd__SetOSD {
-      public:
-        /** Optional element 'tosd:SetOSD' of XML schema type 'afterveda:EmptyRequest' */
-        struct afterveda__EmptyRequest *tosd__SetOSD;
-      public:
-        /** Return unique type id SOAP_TYPE___tosd__SetOSD */
-        long soap_type() const { return SOAP_TYPE___tosd__SetOSD; }
-        /** Constructor with member initializations */
-        __tosd__SetOSD() : tosd__SetOSD() { }
-        /** Friend allocator */
-        friend SOAP_FMAC1 __tosd__SetOSD * SOAP_FMAC2 soap_instantiate___tosd__SetOSD(struct soap*, int, const char*, const char*, size_t*);
 };
 #endif
 
@@ -4751,12 +8082,6 @@ typedef struct wsdd__AppSequenceType _wsdd__AppSequence;
 typedef char *_wsdd__Id;
 #endif
 
-/* /home/seok/workspace/afterveda/onvif-server/gsoap/onvif.h:6 */
-#ifndef SOAP_TYPE_XML
-#define SOAP_TYPE_XML (363)
-typedef char *XML;
-#endif
-
 /******************************************************************************\
  *                                                                            *
  * Serializable Types                                                         *
@@ -4774,9 +8099,14 @@ typedef char *XML;
 #define SOAP_TYPE_int (1)
 #endif
 
+/* float has binding name 'float' for type 'xsd:float' */
+#ifndef SOAP_TYPE_float
+#define SOAP_TYPE_float (441)
+#endif
+
 /* double has binding name 'double' for type 'xsd:double' */
 #ifndef SOAP_TYPE_double
-#define SOAP_TYPE_double (370)
+#define SOAP_TYPE_double (548)
 #endif
 
 /* _wsdd__MetadataVersion has binding name '_wsdd__MetadataVersion' for type '' */
@@ -4797,6 +8127,16 @@ typedef char *XML;
 /* ULONG64 has binding name 'ULONG64' for type 'xsd:unsignedLong' */
 #ifndef SOAP_TYPE_ULONG64
 #define SOAP_TYPE_ULONG64 (95)
+#endif
+
+/* enum tds__CapabilityCategory has binding name 'tds__CapabilityCategory' for type 'tds:CapabilityCategory' */
+#ifndef SOAP_TYPE_tds__CapabilityCategory
+#define SOAP_TYPE_tds__CapabilityCategory (372)
+#endif
+
+/* bool has binding name 'bool' for type 'xsd:boolean' */
+#ifndef SOAP_TYPE_bool
+#define SOAP_TYPE_bool (364)
 #endif
 
 /* enum wsdd__FaultCodeType has binding name 'wsdd__FaultCodeType' for type 'wsdd:FaultCodeType' */
@@ -4839,44 +8179,839 @@ typedef char *XML;
 #define SOAP_TYPE_wsu__tTimestampFault (7)
 #endif
 
+/* struct _trt__DeleteOSDResponse has binding name '_trt__DeleteOSDResponse' for type '' */
+#ifndef SOAP_TYPE__trt__DeleteOSDResponse
+#define SOAP_TYPE__trt__DeleteOSDResponse (611)
+#endif
+
+/* struct _trt__DeleteOSD has binding name '_trt__DeleteOSD' for type '' */
+#ifndef SOAP_TYPE__trt__DeleteOSD
+#define SOAP_TYPE__trt__DeleteOSD (610)
+#endif
+
+/* struct _trt__CreateOSDResponse has binding name '_trt__CreateOSDResponse' for type '' */
+#ifndef SOAP_TYPE__trt__CreateOSDResponse
+#define SOAP_TYPE__trt__CreateOSDResponse (609)
+#endif
+
+/* struct _trt__CreateOSD has binding name '_trt__CreateOSD' for type '' */
+#ifndef SOAP_TYPE__trt__CreateOSD
+#define SOAP_TYPE__trt__CreateOSD (608)
+#endif
+
+/* struct _trt__SetOSDResponse has binding name '_trt__SetOSDResponse' for type '' */
+#ifndef SOAP_TYPE__trt__SetOSDResponse
+#define SOAP_TYPE__trt__SetOSDResponse (607)
+#endif
+
+/* struct _trt__SetOSD has binding name '_trt__SetOSD' for type '' */
+#ifndef SOAP_TYPE__trt__SetOSD
+#define SOAP_TYPE__trt__SetOSD (606)
+#endif
+
+/* struct _trt__GetOSDOptionsResponse has binding name '_trt__GetOSDOptionsResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetOSDOptionsResponse
+#define SOAP_TYPE__trt__GetOSDOptionsResponse (604)
+#endif
+
+/* struct _trt__GetOSDOptions has binding name '_trt__GetOSDOptions' for type '' */
+#ifndef SOAP_TYPE__trt__GetOSDOptions
+#define SOAP_TYPE__trt__GetOSDOptions (603)
+#endif
+
+/* struct _trt__GetOSDResponse has binding name '_trt__GetOSDResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetOSDResponse
+#define SOAP_TYPE__trt__GetOSDResponse (602)
+#endif
+
+/* struct _trt__GetOSD has binding name '_trt__GetOSD' for type '' */
+#ifndef SOAP_TYPE__trt__GetOSD
+#define SOAP_TYPE__trt__GetOSD (601)
+#endif
+
+/* struct _trt__GetOSDsResponse has binding name '_trt__GetOSDsResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetOSDsResponse
+#define SOAP_TYPE__trt__GetOSDsResponse (599)
+#endif
+
+/* struct _trt__GetOSDs has binding name '_trt__GetOSDs' for type '' */
+#ifndef SOAP_TYPE__trt__GetOSDs
+#define SOAP_TYPE__trt__GetOSDs (598)
+#endif
+
+/* struct tt__OSDConfigurationOptions has binding name 'tt__OSDConfigurationOptions' for type 'tt:OSDConfigurationOptions' */
+#ifndef SOAP_TYPE_tt__OSDConfigurationOptions
+#define SOAP_TYPE_tt__OSDConfigurationOptions (595)
+#endif
+
+/* struct tt__OSDTextOptions has binding name 'tt__OSDTextOptions' for type 'tt:OSDTextOptions' */
+#ifndef SOAP_TYPE_tt__OSDTextOptions
+#define SOAP_TYPE_tt__OSDTextOptions (594)
+#endif
+
+/* struct tt__MaximumNumberOfOSDs has binding name 'tt__MaximumNumberOfOSDs' for type 'tt:MaximumNumberOfOSDs' */
+#ifndef SOAP_TYPE_tt__MaximumNumberOfOSDs
+#define SOAP_TYPE_tt__MaximumNumberOfOSDs (593)
+#endif
+
+/* struct tt__OSDConfiguration has binding name 'tt__OSDConfiguration' for type 'tt:OSDConfiguration' */
+#ifndef SOAP_TYPE_tt__OSDConfiguration
+#define SOAP_TYPE_tt__OSDConfiguration (590)
+#endif
+
+/* struct tt__OSDTextConfiguration has binding name 'tt__OSDTextConfiguration' for type 'tt:OSDTextConfiguration' */
+#ifndef SOAP_TYPE_tt__OSDTextConfiguration
+#define SOAP_TYPE_tt__OSDTextConfiguration (589)
+#endif
+
+/* struct tt__OSDPosConfiguration has binding name 'tt__OSDPosConfiguration' for type 'tt:OSDPosConfiguration' */
+#ifndef SOAP_TYPE_tt__OSDPosConfiguration
+#define SOAP_TYPE_tt__OSDPosConfiguration (588)
+#endif
+
+/* struct _timg__GetOptionsResponse has binding name '_timg__GetOptionsResponse' for type '' */
+#ifndef SOAP_TYPE__timg__GetOptionsResponse
+#define SOAP_TYPE__timg__GetOptionsResponse (586)
+#endif
+
+/* struct _timg__GetOptions has binding name '_timg__GetOptions' for type '' */
+#ifndef SOAP_TYPE__timg__GetOptions
+#define SOAP_TYPE__timg__GetOptions (585)
+#endif
+
+/* struct _timg__SetImagingSettingsResponse has binding name '_timg__SetImagingSettingsResponse' for type '' */
+#ifndef SOAP_TYPE__timg__SetImagingSettingsResponse
+#define SOAP_TYPE__timg__SetImagingSettingsResponse (584)
+#endif
+
+/* struct _timg__SetImagingSettings has binding name '_timg__SetImagingSettings' for type '' */
+#ifndef SOAP_TYPE__timg__SetImagingSettings
+#define SOAP_TYPE__timg__SetImagingSettings (583)
+#endif
+
+/* struct _timg__GetImagingSettingsResponse has binding name '_timg__GetImagingSettingsResponse' for type '' */
+#ifndef SOAP_TYPE__timg__GetImagingSettingsResponse
+#define SOAP_TYPE__timg__GetImagingSettingsResponse (581)
+#endif
+
+/* struct _timg__GetImagingSettings has binding name '_timg__GetImagingSettings' for type '' */
+#ifndef SOAP_TYPE__timg__GetImagingSettings
+#define SOAP_TYPE__timg__GetImagingSettings (580)
+#endif
+
+/* struct _timg__GetServiceCapabilitiesResponse has binding name '_timg__GetServiceCapabilitiesResponse' for type '' */
+#ifndef SOAP_TYPE__timg__GetServiceCapabilitiesResponse
+#define SOAP_TYPE__timg__GetServiceCapabilitiesResponse (578)
+#endif
+
+/* struct _timg__GetServiceCapabilities has binding name '_timg__GetServiceCapabilities' for type '' */
+#ifndef SOAP_TYPE__timg__GetServiceCapabilities
+#define SOAP_TYPE__timg__GetServiceCapabilities (577)
+#endif
+
+/* struct timg__Capabilities has binding name 'timg__Capabilities' for type 'timg:Capabilities' */
+#ifndef SOAP_TYPE_timg__Capabilities
+#define SOAP_TYPE_timg__Capabilities (576)
+#endif
+
+/* struct tt__ImagingOptions20 has binding name 'tt__ImagingOptions20' for type 'tt:ImagingOptions20' */
+#ifndef SOAP_TYPE_tt__ImagingOptions20
+#define SOAP_TYPE_tt__ImagingOptions20 (575)
+#endif
+
+/* struct tt__ImagingSettings20 has binding name 'tt__ImagingSettings20' for type 'tt:ImagingSettings20' */
+#ifndef SOAP_TYPE_tt__ImagingSettings20
+#define SOAP_TYPE_tt__ImagingSettings20 (573)
+#endif
+
+/* struct _tptz__StopResponse has binding name '_tptz__StopResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__StopResponse
+#define SOAP_TYPE__tptz__StopResponse (572)
+#endif
+
+/* struct _tptz__Stop has binding name '_tptz__Stop' for type '' */
+#ifndef SOAP_TYPE__tptz__Stop
+#define SOAP_TYPE__tptz__Stop (571)
+#endif
+
+/* struct _tptz__RelativeMoveResponse has binding name '_tptz__RelativeMoveResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__RelativeMoveResponse
+#define SOAP_TYPE__tptz__RelativeMoveResponse (570)
+#endif
+
+/* struct _tptz__ContinuousMoveResponse has binding name '_tptz__ContinuousMoveResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__ContinuousMoveResponse
+#define SOAP_TYPE__tptz__ContinuousMoveResponse (569)
+#endif
+
+/* struct _tptz__GotoHomePositionResponse has binding name '_tptz__GotoHomePositionResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__GotoHomePositionResponse
+#define SOAP_TYPE__tptz__GotoHomePositionResponse (568)
+#endif
+
+/* struct _tptz__GotoHomePosition has binding name '_tptz__GotoHomePosition' for type '' */
+#ifndef SOAP_TYPE__tptz__GotoHomePosition
+#define SOAP_TYPE__tptz__GotoHomePosition (567)
+#endif
+
+/* struct _tptz__SetHomePositionResponse has binding name '_tptz__SetHomePositionResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__SetHomePositionResponse
+#define SOAP_TYPE__tptz__SetHomePositionResponse (566)
+#endif
+
+/* struct _tptz__SetHomePosition has binding name '_tptz__SetHomePosition' for type '' */
+#ifndef SOAP_TYPE__tptz__SetHomePosition
+#define SOAP_TYPE__tptz__SetHomePosition (565)
+#endif
+
+/* struct _tptz__GotoPresetResponse has binding name '_tptz__GotoPresetResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__GotoPresetResponse
+#define SOAP_TYPE__tptz__GotoPresetResponse (564)
+#endif
+
+/* struct _tptz__GotoPreset has binding name '_tptz__GotoPreset' for type '' */
+#ifndef SOAP_TYPE__tptz__GotoPreset
+#define SOAP_TYPE__tptz__GotoPreset (563)
+#endif
+
+/* struct _tptz__RelativeMove has binding name '_tptz__RelativeMove' for type '' */
+#ifndef SOAP_TYPE__tptz__RelativeMove
+#define SOAP_TYPE__tptz__RelativeMove (562)
+#endif
+
+/* struct _tptz__ContinuousMove has binding name '_tptz__ContinuousMove' for type '' */
+#ifndef SOAP_TYPE__tptz__ContinuousMove
+#define SOAP_TYPE__tptz__ContinuousMove (560)
+#endif
+
 /* struct _tptz__GetStatusResponse has binding name '_tptz__GetStatusResponse' for type '' */
 #ifndef SOAP_TYPE__tptz__GetStatusResponse
-#define SOAP_TYPE__tptz__GetStatusResponse (379)
+#define SOAP_TYPE__tptz__GetStatusResponse (558)
 #endif
 
 /* struct tt__PTZStatus has binding name 'tt__PTZStatus' for type 'tt:PTZStatus' */
 #ifndef SOAP_TYPE_tt__PTZStatus
-#define SOAP_TYPE_tt__PTZStatus (376)
+#define SOAP_TYPE_tt__PTZStatus (555)
 #endif
 
 /* struct tt__PTZMoveStatus has binding name 'tt__PTZMoveStatus' for type 'tt:PTZMoveStatus' */
 #ifndef SOAP_TYPE_tt__PTZMoveStatus
-#define SOAP_TYPE_tt__PTZMoveStatus (375)
+#define SOAP_TYPE_tt__PTZMoveStatus (554)
+#endif
+
+/* struct tt__PTZSpeed has binding name 'tt__PTZSpeed' for type 'tt:PTZSpeed' */
+#ifndef SOAP_TYPE_tt__PTZSpeed
+#define SOAP_TYPE_tt__PTZSpeed (553)
 #endif
 
 /* struct tt__PTZVector has binding name 'tt__PTZVector' for type 'tt:PTZVector' */
 #ifndef SOAP_TYPE_tt__PTZVector
-#define SOAP_TYPE_tt__PTZVector (372)
+#define SOAP_TYPE_tt__PTZVector (550)
 #endif
 
 /* struct tt__Vector1D has binding name 'tt__Vector1D' for type 'tt:Vector1D' */
 #ifndef SOAP_TYPE_tt__Vector1D
-#define SOAP_TYPE_tt__Vector1D (371)
+#define SOAP_TYPE_tt__Vector1D (549)
 #endif
 
 /* struct tt__Vector2D has binding name 'tt__Vector2D' for type 'tt:Vector2D' */
 #ifndef SOAP_TYPE_tt__Vector2D
-#define SOAP_TYPE_tt__Vector2D (369)
+#define SOAP_TYPE_tt__Vector2D (547)
 #endif
 
 /* struct _tptz__GetStatus has binding name '_tptz__GetStatus' for type '' */
 #ifndef SOAP_TYPE__tptz__GetStatus
-#define SOAP_TYPE__tptz__GetStatus (368)
+#define SOAP_TYPE__tptz__GetStatus (546)
+#endif
+
+/* struct _trt__GetVideoEncoderConfigurationsResponse has binding name '_trt__GetVideoEncoderConfigurationsResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationsResponse
+#define SOAP_TYPE__trt__GetVideoEncoderConfigurationsResponse (545)
+#endif
+
+/* struct _trt__GetVideoEncoderConfigurationResponse has binding name '_trt__GetVideoEncoderConfigurationResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationResponse
+#define SOAP_TYPE__trt__GetVideoEncoderConfigurationResponse (544)
+#endif
+
+/* struct _trt__GetVideoSourcesResponse has binding name '_trt__GetVideoSourcesResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoSourcesResponse
+#define SOAP_TYPE__trt__GetVideoSourcesResponse (542)
+#endif
+
+/* struct _trt__GetStreamUriResponse has binding name '_trt__GetStreamUriResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetStreamUriResponse
+#define SOAP_TYPE__trt__GetStreamUriResponse (540)
+#endif
+
+/* struct _trt__GetProfileResponse has binding name '_trt__GetProfileResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetProfileResponse
+#define SOAP_TYPE__trt__GetProfileResponse (539)
+#endif
+
+/* struct _trt__GetProfilesResponse has binding name '_trt__GetProfilesResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetProfilesResponse
+#define SOAP_TYPE__trt__GetProfilesResponse (537)
+#endif
+
+/* struct tt__MediaUri has binding name 'tt__MediaUri' for type 'tt:MediaUri' */
+#ifndef SOAP_TYPE_tt__MediaUri
+#define SOAP_TYPE_tt__MediaUri (536)
+#endif
+
+/* struct tt__Profile has binding name 'tt__Profile' for type 'tt:Profile' */
+#ifndef SOAP_TYPE_tt__Profile
+#define SOAP_TYPE_tt__Profile (535)
+#endif
+
+/* struct _tptz__SetPresetResponse has binding name '_tptz__SetPresetResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__SetPresetResponse
+#define SOAP_TYPE__tptz__SetPresetResponse (534)
+#endif
+
+/* struct _tptz__SetPreset has binding name '_tptz__SetPreset' for type '' */
+#ifndef SOAP_TYPE__tptz__SetPreset
+#define SOAP_TYPE__tptz__SetPreset (533)
+#endif
+
+/* struct _tptz__GetPresets has binding name '_tptz__GetPresets' for type '' */
+#ifndef SOAP_TYPE__tptz__GetPresets
+#define SOAP_TYPE__tptz__GetPresets (532)
+#endif
+
+/* struct _tptz__GetConfigurations has binding name '_tptz__GetConfigurations' for type '' */
+#ifndef SOAP_TYPE__tptz__GetConfigurations
+#define SOAP_TYPE__tptz__GetConfigurations (531)
+#endif
+
+/* struct _tptz__GetNodes has binding name '_tptz__GetNodes' for type '' */
+#ifndef SOAP_TYPE__tptz__GetNodes
+#define SOAP_TYPE__tptz__GetNodes (530)
+#endif
+
+/* struct _tptz__GetPresetsResponse has binding name '_tptz__GetPresetsResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__GetPresetsResponse
+#define SOAP_TYPE__tptz__GetPresetsResponse (528)
+#endif
+
+/* struct _tptz__GetConfigurationsResponse has binding name '_tptz__GetConfigurationsResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__GetConfigurationsResponse
+#define SOAP_TYPE__tptz__GetConfigurationsResponse (527)
+#endif
+
+/* struct _tptz__GetConfigurationOptionsResponse has binding name '_tptz__GetConfigurationOptionsResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__GetConfigurationOptionsResponse
+#define SOAP_TYPE__tptz__GetConfigurationOptionsResponse (525)
+#endif
+
+/* struct _tptz__GetConfigurationOptions has binding name '_tptz__GetConfigurationOptions' for type '' */
+#ifndef SOAP_TYPE__tptz__GetConfigurationOptions
+#define SOAP_TYPE__tptz__GetConfigurationOptions (524)
+#endif
+
+/* struct _tptz__GetConfigurationResponse has binding name '_tptz__GetConfigurationResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__GetConfigurationResponse
+#define SOAP_TYPE__tptz__GetConfigurationResponse (522)
+#endif
+
+/* struct _tptz__GetConfiguration has binding name '_tptz__GetConfiguration' for type '' */
+#ifndef SOAP_TYPE__tptz__GetConfiguration
+#define SOAP_TYPE__tptz__GetConfiguration (521)
+#endif
+
+/* struct _tptz__GetNodeResponse has binding name '_tptz__GetNodeResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__GetNodeResponse
+#define SOAP_TYPE__tptz__GetNodeResponse (520)
+#endif
+
+/* struct _tptz__GetNode has binding name '_tptz__GetNode' for type '' */
+#ifndef SOAP_TYPE__tptz__GetNode
+#define SOAP_TYPE__tptz__GetNode (519)
+#endif
+
+/* struct _tptz__GetServiceCapabilitiesResponse has binding name '_tptz__GetServiceCapabilitiesResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__GetServiceCapabilitiesResponse
+#define SOAP_TYPE__tptz__GetServiceCapabilitiesResponse (517)
+#endif
+
+/* struct _tptz__GetServiceCapabilities has binding name '_tptz__GetServiceCapabilities' for type '' */
+#ifndef SOAP_TYPE__tptz__GetServiceCapabilities
+#define SOAP_TYPE__tptz__GetServiceCapabilities (516)
+#endif
+
+/* struct _tptz__GetNodesResponse has binding name '_tptz__GetNodesResponse' for type '' */
+#ifndef SOAP_TYPE__tptz__GetNodesResponse
+#define SOAP_TYPE__tptz__GetNodesResponse (514)
+#endif
+
+/* struct tt__PTZPreset has binding name 'tt__PTZPreset' for type 'tt:PTZPreset' */
+#ifndef SOAP_TYPE_tt__PTZPreset
+#define SOAP_TYPE_tt__PTZPreset (513)
+#endif
+
+/* struct tt__PTZConfiguration has binding name 'tt__PTZConfiguration' for type 'tt:PTZConfiguration' */
+#ifndef SOAP_TYPE_tt__PTZConfiguration
+#define SOAP_TYPE_tt__PTZConfiguration (511)
+#endif
+
+/* struct tt__PanTiltLimits has binding name 'tt__PanTiltLimits' for type 'tt:PanTiltLimits' */
+#ifndef SOAP_TYPE_tt__PanTiltLimits
+#define SOAP_TYPE_tt__PanTiltLimits (510)
+#endif
+
+/* struct tt__PTZNode has binding name 'tt__PTZNode' for type 'tt:PTZNode' */
+#ifndef SOAP_TYPE_tt__PTZNode
+#define SOAP_TYPE_tt__PTZNode (509)
+#endif
+
+/* struct tt__PTZConfigurationOptions has binding name 'tt__PTZConfigurationOptions' for type 'tt:PTZConfigurationOptions' */
+#ifndef SOAP_TYPE_tt__PTZConfigurationOptions
+#define SOAP_TYPE_tt__PTZConfigurationOptions (506)
+#endif
+
+/* struct tt__DurationRange has binding name 'tt__DurationRange' for type 'tt:DurationRange' */
+#ifndef SOAP_TYPE_tt__DurationRange
+#define SOAP_TYPE_tt__DurationRange (505)
+#endif
+
+/* struct tptz__Capabilities has binding name 'tptz__Capabilities' for type 'tptz:Capabilities' */
+#ifndef SOAP_TYPE_tptz__Capabilities
+#define SOAP_TYPE_tptz__Capabilities (504)
+#endif
+
+/* struct tt__PTZSpaces has binding name 'tt__PTZSpaces' for type 'tt:PTZSpaces' */
+#ifndef SOAP_TYPE_tt__PTZSpaces
+#define SOAP_TYPE_tt__PTZSpaces (502)
+#endif
+
+/* struct tt__Space2DDescription has binding name 'tt__Space2DDescription' for type 'tt:Space2DDescription' */
+#ifndef SOAP_TYPE_tt__Space2DDescription
+#define SOAP_TYPE_tt__Space2DDescription (501)
+#endif
+
+/* struct _tr2__GetServiceCapabilitiesResponse has binding name '_tr2__GetServiceCapabilitiesResponse' for type '' */
+#ifndef SOAP_TYPE__tr2__GetServiceCapabilitiesResponse
+#define SOAP_TYPE__tr2__GetServiceCapabilitiesResponse (499)
+#endif
+
+/* struct _tr2__GetStreamUriResponse has binding name '_tr2__GetStreamUriResponse' for type '' */
+#ifndef SOAP_TYPE__tr2__GetStreamUriResponse
+#define SOAP_TYPE__tr2__GetStreamUriResponse (498)
+#endif
+
+/* struct _tr2__GetProfilesResponse has binding name '_tr2__GetProfilesResponse' for type '' */
+#ifndef SOAP_TYPE__tr2__GetProfilesResponse
+#define SOAP_TYPE__tr2__GetProfilesResponse (496)
+#endif
+
+/* struct _tr2__GetServiceCapabilities has binding name '_tr2__GetServiceCapabilities' for type '' */
+#ifndef SOAP_TYPE__tr2__GetServiceCapabilities
+#define SOAP_TYPE__tr2__GetServiceCapabilities (495)
+#endif
+
+/* struct _tr2__GetStreamUri has binding name '_tr2__GetStreamUri' for type '' */
+#ifndef SOAP_TYPE__tr2__GetStreamUri
+#define SOAP_TYPE__tr2__GetStreamUri (494)
+#endif
+
+/* struct _tr2__GetProfiles has binding name '_tr2__GetProfiles' for type '' */
+#ifndef SOAP_TYPE__tr2__GetProfiles
+#define SOAP_TYPE__tr2__GetProfiles (493)
+#endif
+
+/* struct tr2__MediaProfile has binding name 'tr2__MediaProfile' for type 'tr2:MediaProfile' */
+#ifndef SOAP_TYPE_tr2__MediaProfile
+#define SOAP_TYPE_tr2__MediaProfile (491)
+#endif
+
+/* struct tr2__ConfigurationSet has binding name 'tr2__ConfigurationSet' for type 'tr2:ConfigurationSet' */
+#ifndef SOAP_TYPE_tr2__ConfigurationSet
+#define SOAP_TYPE_tr2__ConfigurationSet (490)
+#endif
+
+/* struct tr2__Capabilities has binding name 'tr2__Capabilities' for type 'tr2:Capabilities' */
+#ifndef SOAP_TYPE_tr2__Capabilities
+#define SOAP_TYPE_tr2__Capabilities (489)
+#endif
+
+/* struct _trt__SetVideoEncoderConfigurationResponse has binding name '_trt__SetVideoEncoderConfigurationResponse' for type '' */
+#ifndef SOAP_TYPE__trt__SetVideoEncoderConfigurationResponse
+#define SOAP_TYPE__trt__SetVideoEncoderConfigurationResponse (488)
+#endif
+
+/* struct _trt__SetVideoEncoderConfiguration has binding name '_trt__SetVideoEncoderConfiguration' for type '' */
+#ifndef SOAP_TYPE__trt__SetVideoEncoderConfiguration
+#define SOAP_TYPE__trt__SetVideoEncoderConfiguration (486)
+#endif
+
+/* struct _trt__GetVideoEncoderConfigurationOptionsResponse has binding name '_trt__GetVideoEncoderConfigurationOptionsResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationOptionsResponse
+#define SOAP_TYPE__trt__GetVideoEncoderConfigurationOptionsResponse (484)
+#endif
+
+/* struct _trt__GetVideoSourceConfigurationOptionsResponse has binding name '_trt__GetVideoSourceConfigurationOptionsResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationOptionsResponse
+#define SOAP_TYPE__trt__GetVideoSourceConfigurationOptionsResponse (482)
+#endif
+
+/* struct _trt__GetVideoSourceConfigurationResponse has binding name '_trt__GetVideoSourceConfigurationResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationResponse
+#define SOAP_TYPE__trt__GetVideoSourceConfigurationResponse (481)
+#endif
+
+/* struct _trt__GetVideoSourceConfigurationsResponse has binding name '_trt__GetVideoSourceConfigurationsResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationsResponse
+#define SOAP_TYPE__trt__GetVideoSourceConfigurationsResponse (479)
+#endif
+
+/* struct _trt__GetServiceCapabilitiesResponse has binding name '_trt__GetServiceCapabilitiesResponse' for type '' */
+#ifndef SOAP_TYPE__trt__GetServiceCapabilitiesResponse
+#define SOAP_TYPE__trt__GetServiceCapabilitiesResponse (477)
+#endif
+
+/* struct trt__Capabilities has binding name 'trt__Capabilities' for type 'trt:Capabilities' */
+#ifndef SOAP_TYPE_trt__Capabilities
+#define SOAP_TYPE_trt__Capabilities (476)
+#endif
+
+/* struct _trt__GetVideoEncoderConfigurationOptions has binding name '_trt__GetVideoEncoderConfigurationOptions' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurationOptions
+#define SOAP_TYPE__trt__GetVideoEncoderConfigurationOptions (475)
+#endif
+
+/* struct _trt__GetVideoSourceConfigurationOptions has binding name '_trt__GetVideoSourceConfigurationOptions' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfigurationOptions
+#define SOAP_TYPE__trt__GetVideoSourceConfigurationOptions (474)
+#endif
+
+/* struct _trt__GetVideoEncoderConfiguration has binding name '_trt__GetVideoEncoderConfiguration' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfiguration
+#define SOAP_TYPE__trt__GetVideoEncoderConfiguration (473)
+#endif
+
+/* struct _trt__GetStreamUri has binding name '_trt__GetStreamUri' for type '' */
+#ifndef SOAP_TYPE__trt__GetStreamUri
+#define SOAP_TYPE__trt__GetStreamUri (471)
+#endif
+
+/* struct _trt__GetVideoEncoderConfigurations has binding name '_trt__GetVideoEncoderConfigurations' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoEncoderConfigurations
+#define SOAP_TYPE__trt__GetVideoEncoderConfigurations (470)
+#endif
+
+/* struct _trt__GetVideoSourceConfiguration has binding name '_trt__GetVideoSourceConfiguration' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfiguration
+#define SOAP_TYPE__trt__GetVideoSourceConfiguration (469)
+#endif
+
+/* struct _trt__GetVideoSourceConfigurations has binding name '_trt__GetVideoSourceConfigurations' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoSourceConfigurations
+#define SOAP_TYPE__trt__GetVideoSourceConfigurations (468)
+#endif
+
+/* struct _trt__GetVideoSources has binding name '_trt__GetVideoSources' for type '' */
+#ifndef SOAP_TYPE__trt__GetVideoSources
+#define SOAP_TYPE__trt__GetVideoSources (467)
+#endif
+
+/* struct _trt__GetServiceCapabilities has binding name '_trt__GetServiceCapabilities' for type '' */
+#ifndef SOAP_TYPE__trt__GetServiceCapabilities
+#define SOAP_TYPE__trt__GetServiceCapabilities (466)
+#endif
+
+/* struct _trt__GetProfile has binding name '_trt__GetProfile' for type '' */
+#ifndef SOAP_TYPE__trt__GetProfile
+#define SOAP_TYPE__trt__GetProfile (465)
+#endif
+
+/* struct _trt__GetProfiles has binding name '_trt__GetProfiles' for type '' */
+#ifndef SOAP_TYPE__trt__GetProfiles
+#define SOAP_TYPE__trt__GetProfiles (464)
+#endif
+
+/* struct tt__StreamSetup has binding name 'tt__StreamSetup' for type 'tt:StreamSetup' */
+#ifndef SOAP_TYPE_tt__StreamSetup
+#define SOAP_TYPE_tt__StreamSetup (462)
+#endif
+
+/* struct tt__Transport has binding name 'tt__Transport' for type 'tt:Transport' */
+#ifndef SOAP_TYPE_tt__Transport
+#define SOAP_TYPE_tt__Transport (461)
+#endif
+
+/* struct tt__VideoEncoderConfigurationOptions has binding name 'tt__VideoEncoderConfigurationOptions' for type 'tt:VideoEncoderConfigurationOptions' */
+#ifndef SOAP_TYPE_tt__VideoEncoderConfigurationOptions
+#define SOAP_TYPE_tt__VideoEncoderConfigurationOptions (458)
+#endif
+
+/* struct tt__VideoEncoderConfigurationOptionsExtension has binding name 'tt__VideoEncoderConfigurationOptionsExtension' for type 'tt:VideoEncoderConfigurationOptionsExtension' */
+#ifndef SOAP_TYPE_tt__VideoEncoderConfigurationOptionsExtension
+#define SOAP_TYPE_tt__VideoEncoderConfigurationOptionsExtension (456)
+#endif
+
+/* struct tt__H264Options has binding name 'tt__H264Options' for type 'tt:H264Options' */
+#ifndef SOAP_TYPE_tt__H264Options
+#define SOAP_TYPE_tt__H264Options (455)
+#endif
+
+/* struct tt__VideoSourceConfigurationOptions has binding name 'tt__VideoSourceConfigurationOptions' for type 'tt:VideoSourceConfigurationOptions' */
+#ifndef SOAP_TYPE_tt__VideoSourceConfigurationOptions
+#define SOAP_TYPE_tt__VideoSourceConfigurationOptions (453)
+#endif
+
+/* struct tt__IntRectangleRange has binding name 'tt__IntRectangleRange' for type 'tt:IntRectangleRange' */
+#ifndef SOAP_TYPE_tt__IntRectangleRange
+#define SOAP_TYPE_tt__IntRectangleRange (451)
+#endif
+
+/* struct tt__IntRange has binding name 'tt__IntRange' for type 'tt:IntRange' */
+#ifndef SOAP_TYPE_tt__IntRange
+#define SOAP_TYPE_tt__IntRange (450)
+#endif
+
+/* struct tt__FloatRange has binding name 'tt__FloatRange' for type 'tt:FloatRange' */
+#ifndef SOAP_TYPE_tt__FloatRange
+#define SOAP_TYPE_tt__FloatRange (449)
+#endif
+
+/* struct tt__VideoEncoderConfiguration has binding name 'tt__VideoEncoderConfiguration' for type 'tt:VideoEncoderConfiguration' */
+#ifndef SOAP_TYPE_tt__VideoEncoderConfiguration
+#define SOAP_TYPE_tt__VideoEncoderConfiguration (445)
+#endif
+
+/* struct tt__VideoSourceConfiguration has binding name 'tt__VideoSourceConfiguration' for type 'tt:VideoSourceConfiguration' */
+#ifndef SOAP_TYPE_tt__VideoSourceConfiguration
+#define SOAP_TYPE_tt__VideoSourceConfiguration (443)
+#endif
+
+/* struct tt__VideoSource has binding name 'tt__VideoSource' for type 'tt:VideoSource' */
+#ifndef SOAP_TYPE_tt__VideoSource
+#define SOAP_TYPE_tt__VideoSource (440)
+#endif
+
+/* struct tt__MulticastConfiguration has binding name 'tt__MulticastConfiguration' for type 'tt:MulticastConfiguration' */
+#ifndef SOAP_TYPE_tt__MulticastConfiguration
+#define SOAP_TYPE_tt__MulticastConfiguration (438)
+#endif
+
+/* struct tt__IPAddress has binding name 'tt__IPAddress' for type 'tt:IPAddress' */
+#ifndef SOAP_TYPE_tt__IPAddress
+#define SOAP_TYPE_tt__IPAddress (437)
+#endif
+
+/* struct tt__H264Configuration has binding name 'tt__H264Configuration' for type 'tt:H264Configuration' */
+#ifndef SOAP_TYPE_tt__H264Configuration
+#define SOAP_TYPE_tt__H264Configuration (436)
+#endif
+
+/* struct tt__VideoRateControl has binding name 'tt__VideoRateControl' for type 'tt:VideoRateControl' */
+#ifndef SOAP_TYPE_tt__VideoRateControl
+#define SOAP_TYPE_tt__VideoRateControl (435)
+#endif
+
+/* struct tt__VideoResolution has binding name 'tt__VideoResolution' for type 'tt:VideoResolution' */
+#ifndef SOAP_TYPE_tt__VideoResolution
+#define SOAP_TYPE_tt__VideoResolution (434)
+#endif
+
+/* struct tt__IntRectangle has binding name 'tt__IntRectangle' for type 'tt:IntRectangle' */
+#ifndef SOAP_TYPE_tt__IntRectangle
+#define SOAP_TYPE_tt__IntRectangle (433)
+#endif
+
+/* struct _tds__GetUsersResponse has binding name '_tds__GetUsersResponse' for type '' */
+#ifndef SOAP_TYPE__tds__GetUsersResponse
+#define SOAP_TYPE__tds__GetUsersResponse (431)
+#endif
+
+/* struct tt__User has binding name 'tt__User' for type 'tt:User' */
+#ifndef SOAP_TYPE_tt__User
+#define SOAP_TYPE_tt__User (430)
+#endif
+
+/* struct _tds__GetNetworkInterfacesResponse has binding name '_tds__GetNetworkInterfacesResponse' for type '' */
+#ifndef SOAP_TYPE__tds__GetNetworkInterfacesResponse
+#define SOAP_TYPE__tds__GetNetworkInterfacesResponse (428)
+#endif
+
+/* struct tt__NetworkInterface has binding name 'tt__NetworkInterface' for type 'tt:NetworkInterface' */
+#ifndef SOAP_TYPE_tt__NetworkInterface
+#define SOAP_TYPE_tt__NetworkInterface (425)
+#endif
+
+/* struct tt__IPv4NetworkInterface has binding name 'tt__IPv4NetworkInterface' for type 'tt:IPv4NetworkInterface' */
+#ifndef SOAP_TYPE_tt__IPv4NetworkInterface
+#define SOAP_TYPE_tt__IPv4NetworkInterface (423)
+#endif
+
+/* struct tt__IPv4Configuration has binding name 'tt__IPv4Configuration' for type 'tt:IPv4Configuration' */
+#ifndef SOAP_TYPE_tt__IPv4Configuration
+#define SOAP_TYPE_tt__IPv4Configuration (421)
+#endif
+
+/* struct tt__PrefixedIPv4Address has binding name 'tt__PrefixedIPv4Address' for type 'tt:PrefixedIPv4Address' */
+#ifndef SOAP_TYPE_tt__PrefixedIPv4Address
+#define SOAP_TYPE_tt__PrefixedIPv4Address (420)
+#endif
+
+/* struct tt__NetworkInterfaceInfo has binding name 'tt__NetworkInterfaceInfo' for type 'tt:NetworkInterfaceInfo' */
+#ifndef SOAP_TYPE_tt__NetworkInterfaceInfo
+#define SOAP_TYPE_tt__NetworkInterfaceInfo (419)
+#endif
+
+/* struct _tds__GetHostnameResponse has binding name '_tds__GetHostnameResponse' for type '' */
+#ifndef SOAP_TYPE__tds__GetHostnameResponse
+#define SOAP_TYPE__tds__GetHostnameResponse (417)
+#endif
+
+/* struct tt__HostnameInformation has binding name 'tt__HostnameInformation' for type 'tt:HostnameInformation' */
+#ifndef SOAP_TYPE_tt__HostnameInformation
+#define SOAP_TYPE_tt__HostnameInformation (416)
+#endif
+
+/* struct _tds__GetScopesResponse has binding name '_tds__GetScopesResponse' for type '' */
+#ifndef SOAP_TYPE__tds__GetScopesResponse
+#define SOAP_TYPE__tds__GetScopesResponse (414)
+#endif
+
+/* struct tt__Scope has binding name 'tt__Scope' for type 'tt:Scope' */
+#ifndef SOAP_TYPE_tt__Scope
+#define SOAP_TYPE_tt__Scope (413)
+#endif
+
+/* struct _tds__GetSystemDateAndTimeResponse has binding name '_tds__GetSystemDateAndTimeResponse' for type '' */
+#ifndef SOAP_TYPE__tds__GetSystemDateAndTimeResponse
+#define SOAP_TYPE__tds__GetSystemDateAndTimeResponse (411)
+#endif
+
+/* struct tt__SystemDateTime has binding name 'tt__SystemDateTime' for type 'tt:SystemDateTime' */
+#ifndef SOAP_TYPE_tt__SystemDateTime
+#define SOAP_TYPE_tt__SystemDateTime (409)
+#endif
+
+/* struct tt__DateTime has binding name 'tt__DateTime' for type 'tt:DateTime' */
+#ifndef SOAP_TYPE_tt__DateTime
+#define SOAP_TYPE_tt__DateTime (406)
+#endif
+
+/* struct tt__Date has binding name 'tt__Date' for type 'tt:Date' */
+#ifndef SOAP_TYPE_tt__Date
+#define SOAP_TYPE_tt__Date (405)
+#endif
+
+/* struct tt__Time has binding name 'tt__Time' for type 'tt:Time' */
+#ifndef SOAP_TYPE_tt__Time
+#define SOAP_TYPE_tt__Time (404)
+#endif
+
+/* struct _tds__GetServiceCapabilitiesResponse has binding name '_tds__GetServiceCapabilitiesResponse' for type '' */
+#ifndef SOAP_TYPE__tds__GetServiceCapabilitiesResponse
+#define SOAP_TYPE__tds__GetServiceCapabilitiesResponse (402)
+#endif
+
+/* struct tds__DeviceServiceCapabilities has binding name 'tds__DeviceServiceCapabilities' for type 'tds:DeviceServiceCapabilities' */
+#ifndef SOAP_TYPE_tds__DeviceServiceCapabilities
+#define SOAP_TYPE_tds__DeviceServiceCapabilities (398)
+#endif
+
+/* struct tds__SystemCapabilities has binding name 'tds__SystemCapabilities' for type 'tds:SystemCapabilities' */
+#ifndef SOAP_TYPE_tds__SystemCapabilities
+#define SOAP_TYPE_tds__SystemCapabilities (397)
+#endif
+
+/* struct tds__SecurityCapabilities has binding name 'tds__SecurityCapabilities' for type 'tds:SecurityCapabilities' */
+#ifndef SOAP_TYPE_tds__SecurityCapabilities
+#define SOAP_TYPE_tds__SecurityCapabilities (396)
+#endif
+
+/* struct tds__NetworkCapabilities has binding name 'tds__NetworkCapabilities' for type 'tds:NetworkCapabilities' */
+#ifndef SOAP_TYPE_tds__NetworkCapabilities
+#define SOAP_TYPE_tds__NetworkCapabilities (395)
+#endif
+
+/* struct _tds__GetCapabilitiesResponse has binding name '_tds__GetCapabilitiesResponse' for type '' */
+#ifndef SOAP_TYPE__tds__GetCapabilitiesResponse
+#define SOAP_TYPE__tds__GetCapabilitiesResponse (393)
+#endif
+
+/* struct _tds__GetServicesResponse has binding name '_tds__GetServicesResponse' for type '' */
+#ifndef SOAP_TYPE__tds__GetServicesResponse
+#define SOAP_TYPE__tds__GetServicesResponse (391)
+#endif
+
+/* struct tt__Capabilities has binding name 'tt__Capabilities' for type 'tt:Capabilities' */
+#ifndef SOAP_TYPE_tt__Capabilities
+#define SOAP_TYPE_tt__Capabilities (386)
+#endif
+
+/* struct tt__ImagingCapabilities has binding name 'tt__ImagingCapabilities' for type 'tt:ImagingCapabilities' */
+#ifndef SOAP_TYPE_tt__ImagingCapabilities
+#define SOAP_TYPE_tt__ImagingCapabilities (385)
+#endif
+
+/* struct tt__PTZCapabilities has binding name 'tt__PTZCapabilities' for type 'tt:PTZCapabilities' */
+#ifndef SOAP_TYPE_tt__PTZCapabilities
+#define SOAP_TYPE_tt__PTZCapabilities (384)
+#endif
+
+/* struct tt__MediaCapabilities has binding name 'tt__MediaCapabilities' for type 'tt:MediaCapabilities' */
+#ifndef SOAP_TYPE_tt__MediaCapabilities
+#define SOAP_TYPE_tt__MediaCapabilities (382)
+#endif
+
+/* struct tt__DeviceCapabilities has binding name 'tt__DeviceCapabilities' for type 'tt:DeviceCapabilities' */
+#ifndef SOAP_TYPE_tt__DeviceCapabilities
+#define SOAP_TYPE_tt__DeviceCapabilities (381)
+#endif
+
+/* struct tt__StreamingCapabilities has binding name 'tt__StreamingCapabilities' for type 'tt:StreamingCapabilities' */
+#ifndef SOAP_TYPE_tt__StreamingCapabilities
+#define SOAP_TYPE_tt__StreamingCapabilities (379)
+#endif
+
+/* struct tds__Service has binding name 'tds__Service' for type 'tds:Service' */
+#ifndef SOAP_TYPE_tds__Service
+#define SOAP_TYPE_tds__Service (377)
+#endif
+
+/* struct tt__OnvifVersion has binding name 'tt__OnvifVersion' for type 'tt:OnvifVersion' */
+#ifndef SOAP_TYPE_tt__OnvifVersion
+#define SOAP_TYPE_tt__OnvifVersion (376)
 #endif
 
 /* struct _tds__GetDeviceInformationResponse has binding name '_tds__GetDeviceInformationResponse' for type '' */
 #ifndef SOAP_TYPE__tds__GetDeviceInformationResponse
-#define SOAP_TYPE__tds__GetDeviceInformationResponse (367)
+#define SOAP_TYPE__tds__GetDeviceInformationResponse (375)
+#endif
+
+/* struct _tds__GetCapabilities has binding name '_tds__GetCapabilities' for type '' */
+#ifndef SOAP_TYPE__tds__GetCapabilities
+#define SOAP_TYPE__tds__GetCapabilities (373)
+#endif
+
+/* struct _tds__GetUsers has binding name '_tds__GetUsers' for type '' */
+#ifndef SOAP_TYPE__tds__GetUsers
+#define SOAP_TYPE__tds__GetUsers (371)
+#endif
+
+/* struct _tds__GetNetworkInterfaces has binding name '_tds__GetNetworkInterfaces' for type '' */
+#ifndef SOAP_TYPE__tds__GetNetworkInterfaces
+#define SOAP_TYPE__tds__GetNetworkInterfaces (370)
+#endif
+
+/* struct _tds__GetHostname has binding name '_tds__GetHostname' for type '' */
+#ifndef SOAP_TYPE__tds__GetHostname
+#define SOAP_TYPE__tds__GetHostname (369)
+#endif
+
+/* struct _tds__GetScopes has binding name '_tds__GetScopes' for type '' */
+#ifndef SOAP_TYPE__tds__GetScopes
+#define SOAP_TYPE__tds__GetScopes (368)
+#endif
+
+/* struct _tds__GetSystemDateAndTime has binding name '_tds__GetSystemDateAndTime' for type '' */
+#ifndef SOAP_TYPE__tds__GetSystemDateAndTime
+#define SOAP_TYPE__tds__GetSystemDateAndTime (367)
 #endif
 
 /* struct _tds__GetDeviceInformation has binding name '_tds__GetDeviceInformation' for type '' */
@@ -4884,14 +9019,14 @@ typedef char *XML;
 #define SOAP_TYPE__tds__GetDeviceInformation (366)
 #endif
 
-/* struct afterveda__AnyResponse has binding name 'afterveda__AnyResponse' for type 'afterveda:AnyResponse' */
-#ifndef SOAP_TYPE_afterveda__AnyResponse
-#define SOAP_TYPE_afterveda__AnyResponse (365)
+/* struct _tds__GetServiceCapabilities has binding name '_tds__GetServiceCapabilities' for type '' */
+#ifndef SOAP_TYPE__tds__GetServiceCapabilities
+#define SOAP_TYPE__tds__GetServiceCapabilities (365)
 #endif
 
-/* struct afterveda__EmptyRequest has binding name 'afterveda__EmptyRequest' for type 'afterveda:EmptyRequest' */
-#ifndef SOAP_TYPE_afterveda__EmptyRequest
-#define SOAP_TYPE_afterveda__EmptyRequest (364)
+/* struct _tds__GetServices has binding name '_tds__GetServices' for type '' */
+#ifndef SOAP_TYPE__tds__GetServices
+#define SOAP_TYPE__tds__GetServices (363)
 #endif
 
 /* _wsdd__AppSequence has binding name '_wsdd__AppSequence' for type '' */
@@ -5744,49 +9879,624 @@ typedef char *XML;
 #define SOAP_TYPE__wsu__Timestamp (8)
 #endif
 
+/* struct _timg__GetOptions * has binding name 'PointerTo_timg__GetOptions' for type '' */
+#ifndef SOAP_TYPE_PointerTo_timg__GetOptions
+#define SOAP_TYPE_PointerTo_timg__GetOptions (804)
+#endif
+
+/* struct _timg__SetImagingSettings * has binding name 'PointerTo_timg__SetImagingSettings' for type '' */
+#ifndef SOAP_TYPE_PointerTo_timg__SetImagingSettings
+#define SOAP_TYPE_PointerTo_timg__SetImagingSettings (800)
+#endif
+
+/* struct _timg__GetImagingSettings * has binding name 'PointerTo_timg__GetImagingSettings' for type '' */
+#ifndef SOAP_TYPE_PointerTo_timg__GetImagingSettings
+#define SOAP_TYPE_PointerTo_timg__GetImagingSettings (796)
+#endif
+
+/* struct _timg__GetServiceCapabilities * has binding name 'PointerTo_timg__GetServiceCapabilities' for type '' */
+#ifndef SOAP_TYPE_PointerTo_timg__GetServiceCapabilities
+#define SOAP_TYPE_PointerTo_timg__GetServiceCapabilities (792)
+#endif
+
+/* struct _tptz__Stop * has binding name 'PointerTo_tptz__Stop' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__Stop
+#define SOAP_TYPE_PointerTo_tptz__Stop (788)
+#endif
+
+/* struct _tptz__RelativeMove * has binding name 'PointerTo_tptz__RelativeMove' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__RelativeMove
+#define SOAP_TYPE_PointerTo_tptz__RelativeMove (784)
+#endif
+
+/* struct _tptz__ContinuousMove * has binding name 'PointerTo_tptz__ContinuousMove' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__ContinuousMove
+#define SOAP_TYPE_PointerTo_tptz__ContinuousMove (780)
+#endif
+
+/* struct _tptz__SetHomePosition * has binding name 'PointerTo_tptz__SetHomePosition' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__SetHomePosition
+#define SOAP_TYPE_PointerTo_tptz__SetHomePosition (776)
+#endif
+
+/* struct _tptz__GotoHomePosition * has binding name 'PointerTo_tptz__GotoHomePosition' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__GotoHomePosition
+#define SOAP_TYPE_PointerTo_tptz__GotoHomePosition (772)
+#endif
+
 /* struct _tptz__GetStatus * has binding name 'PointerTo_tptz__GetStatus' for type '' */
 #ifndef SOAP_TYPE_PointerTo_tptz__GetStatus
-#define SOAP_TYPE_PointerTo_tptz__GetStatus (443)
+#define SOAP_TYPE_PointerTo_tptz__GetStatus (768)
+#endif
+
+/* struct _tptz__GotoPreset * has binding name 'PointerTo_tptz__GotoPreset' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__GotoPreset
+#define SOAP_TYPE_PointerTo_tptz__GotoPreset (764)
+#endif
+
+/* struct _tptz__SetPreset * has binding name 'PointerTo_tptz__SetPreset' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__SetPreset
+#define SOAP_TYPE_PointerTo_tptz__SetPreset (760)
+#endif
+
+/* struct _tptz__GetPresets * has binding name 'PointerTo_tptz__GetPresets' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__GetPresets
+#define SOAP_TYPE_PointerTo_tptz__GetPresets (756)
+#endif
+
+/* struct _tptz__GetConfigurationOptions * has binding name 'PointerTo_tptz__GetConfigurationOptions' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__GetConfigurationOptions
+#define SOAP_TYPE_PointerTo_tptz__GetConfigurationOptions (752)
+#endif
+
+/* struct _tptz__GetConfiguration * has binding name 'PointerTo_tptz__GetConfiguration' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__GetConfiguration
+#define SOAP_TYPE_PointerTo_tptz__GetConfiguration (748)
+#endif
+
+/* struct _tptz__GetConfigurations * has binding name 'PointerTo_tptz__GetConfigurations' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__GetConfigurations
+#define SOAP_TYPE_PointerTo_tptz__GetConfigurations (744)
+#endif
+
+/* struct _tptz__GetNode * has binding name 'PointerTo_tptz__GetNode' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__GetNode
+#define SOAP_TYPE_PointerTo_tptz__GetNode (740)
+#endif
+
+/* struct _tptz__GetNodes * has binding name 'PointerTo_tptz__GetNodes' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__GetNodes
+#define SOAP_TYPE_PointerTo_tptz__GetNodes (736)
+#endif
+
+/* struct _tptz__GetServiceCapabilities * has binding name 'PointerTo_tptz__GetServiceCapabilities' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tptz__GetServiceCapabilities
+#define SOAP_TYPE_PointerTo_tptz__GetServiceCapabilities (732)
+#endif
+
+/* struct _tr2__GetServiceCapabilities * has binding name 'PointerTo_tr2__GetServiceCapabilities' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tr2__GetServiceCapabilities
+#define SOAP_TYPE_PointerTo_tr2__GetServiceCapabilities (728)
+#endif
+
+/* struct _tr2__GetStreamUri * has binding name 'PointerTo_tr2__GetStreamUri' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tr2__GetStreamUri
+#define SOAP_TYPE_PointerTo_tr2__GetStreamUri (724)
+#endif
+
+/* struct _tr2__GetProfiles * has binding name 'PointerTo_tr2__GetProfiles' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tr2__GetProfiles
+#define SOAP_TYPE_PointerTo_tr2__GetProfiles (720)
+#endif
+
+/* struct _trt__SetVideoEncoderConfiguration * has binding name 'PointerTo_trt__SetVideoEncoderConfiguration' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__SetVideoEncoderConfiguration
+#define SOAP_TYPE_PointerTo_trt__SetVideoEncoderConfiguration (716)
+#endif
+
+/* struct _trt__GetVideoEncoderConfigurationOptions * has binding name 'PointerTo_trt__GetVideoEncoderConfigurationOptions' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetVideoEncoderConfigurationOptions
+#define SOAP_TYPE_PointerTo_trt__GetVideoEncoderConfigurationOptions (712)
+#endif
+
+/* struct _trt__GetVideoSourceConfigurationOptions * has binding name 'PointerTo_trt__GetVideoSourceConfigurationOptions' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetVideoSourceConfigurationOptions
+#define SOAP_TYPE_PointerTo_trt__GetVideoSourceConfigurationOptions (708)
+#endif
+
+/* struct _trt__GetVideoEncoderConfiguration * has binding name 'PointerTo_trt__GetVideoEncoderConfiguration' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetVideoEncoderConfiguration
+#define SOAP_TYPE_PointerTo_trt__GetVideoEncoderConfiguration (704)
+#endif
+
+/* struct _trt__GetStreamUri * has binding name 'PointerTo_trt__GetStreamUri' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetStreamUri
+#define SOAP_TYPE_PointerTo_trt__GetStreamUri (700)
+#endif
+
+/* struct _trt__GetVideoEncoderConfigurations * has binding name 'PointerTo_trt__GetVideoEncoderConfigurations' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetVideoEncoderConfigurations
+#define SOAP_TYPE_PointerTo_trt__GetVideoEncoderConfigurations (696)
+#endif
+
+/* struct _trt__GetVideoSourceConfiguration * has binding name 'PointerTo_trt__GetVideoSourceConfiguration' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetVideoSourceConfiguration
+#define SOAP_TYPE_PointerTo_trt__GetVideoSourceConfiguration (692)
+#endif
+
+/* struct _trt__GetVideoSourceConfigurations * has binding name 'PointerTo_trt__GetVideoSourceConfigurations' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetVideoSourceConfigurations
+#define SOAP_TYPE_PointerTo_trt__GetVideoSourceConfigurations (688)
+#endif
+
+/* struct _trt__DeleteOSD * has binding name 'PointerTo_trt__DeleteOSD' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__DeleteOSD
+#define SOAP_TYPE_PointerTo_trt__DeleteOSD (684)
+#endif
+
+/* struct _trt__CreateOSD * has binding name 'PointerTo_trt__CreateOSD' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__CreateOSD
+#define SOAP_TYPE_PointerTo_trt__CreateOSD (680)
+#endif
+
+/* struct _trt__SetOSD * has binding name 'PointerTo_trt__SetOSD' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__SetOSD
+#define SOAP_TYPE_PointerTo_trt__SetOSD (676)
+#endif
+
+/* struct _trt__GetOSDOptions * has binding name 'PointerTo_trt__GetOSDOptions' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetOSDOptions
+#define SOAP_TYPE_PointerTo_trt__GetOSDOptions (672)
+#endif
+
+/* struct _trt__GetOSD * has binding name 'PointerTo_trt__GetOSD' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetOSD
+#define SOAP_TYPE_PointerTo_trt__GetOSD (668)
+#endif
+
+/* struct _trt__GetOSDs * has binding name 'PointerTo_trt__GetOSDs' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetOSDs
+#define SOAP_TYPE_PointerTo_trt__GetOSDs (664)
+#endif
+
+/* struct _trt__GetVideoSources * has binding name 'PointerTo_trt__GetVideoSources' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetVideoSources
+#define SOAP_TYPE_PointerTo_trt__GetVideoSources (660)
+#endif
+
+/* struct _trt__GetServiceCapabilities * has binding name 'PointerTo_trt__GetServiceCapabilities' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetServiceCapabilities
+#define SOAP_TYPE_PointerTo_trt__GetServiceCapabilities (656)
+#endif
+
+/* struct _trt__GetProfile * has binding name 'PointerTo_trt__GetProfile' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetProfile
+#define SOAP_TYPE_PointerTo_trt__GetProfile (652)
+#endif
+
+/* struct _trt__GetProfiles * has binding name 'PointerTo_trt__GetProfiles' for type '' */
+#ifndef SOAP_TYPE_PointerTo_trt__GetProfiles
+#define SOAP_TYPE_PointerTo_trt__GetProfiles (648)
+#endif
+
+/* struct _tds__GetCapabilities * has binding name 'PointerTo_tds__GetCapabilities' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tds__GetCapabilities
+#define SOAP_TYPE_PointerTo_tds__GetCapabilities (644)
+#endif
+
+/* struct _tds__GetUsers * has binding name 'PointerTo_tds__GetUsers' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tds__GetUsers
+#define SOAP_TYPE_PointerTo_tds__GetUsers (640)
+#endif
+
+/* struct _tds__GetNetworkInterfaces * has binding name 'PointerTo_tds__GetNetworkInterfaces' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tds__GetNetworkInterfaces
+#define SOAP_TYPE_PointerTo_tds__GetNetworkInterfaces (636)
+#endif
+
+/* struct _tds__GetHostname * has binding name 'PointerTo_tds__GetHostname' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tds__GetHostname
+#define SOAP_TYPE_PointerTo_tds__GetHostname (632)
+#endif
+
+/* struct _tds__GetScopes * has binding name 'PointerTo_tds__GetScopes' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tds__GetScopes
+#define SOAP_TYPE_PointerTo_tds__GetScopes (628)
+#endif
+
+/* struct _tds__GetSystemDateAndTime * has binding name 'PointerTo_tds__GetSystemDateAndTime' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tds__GetSystemDateAndTime
+#define SOAP_TYPE_PointerTo_tds__GetSystemDateAndTime (624)
 #endif
 
 /* struct _tds__GetDeviceInformation * has binding name 'PointerTo_tds__GetDeviceInformation' for type '' */
 #ifndef SOAP_TYPE_PointerTo_tds__GetDeviceInformation
-#define SOAP_TYPE_PointerTo_tds__GetDeviceInformation (387)
+#define SOAP_TYPE_PointerTo_tds__GetDeviceInformation (620)
 #endif
 
-/* struct afterveda__EmptyRequest * has binding name 'PointerToafterveda__EmptyRequest' for type 'afterveda:EmptyRequest' */
-#ifndef SOAP_TYPE_PointerToafterveda__EmptyRequest
-#define SOAP_TYPE_PointerToafterveda__EmptyRequest (381)
+/* struct _tds__GetServiceCapabilities * has binding name 'PointerTo_tds__GetServiceCapabilities' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tds__GetServiceCapabilities
+#define SOAP_TYPE_PointerTo_tds__GetServiceCapabilities (616)
+#endif
+
+/* struct _tds__GetServices * has binding name 'PointerTo_tds__GetServices' for type '' */
+#ifndef SOAP_TYPE_PointerTo_tds__GetServices
+#define SOAP_TYPE_PointerTo_tds__GetServices (612)
+#endif
+
+/* struct tt__OSDConfigurationOptions * has binding name 'PointerTott__OSDConfigurationOptions' for type 'tt:OSDConfigurationOptions' */
+#ifndef SOAP_TYPE_PointerTott__OSDConfigurationOptions
+#define SOAP_TYPE_PointerTott__OSDConfigurationOptions (605)
+#endif
+
+/* struct tt__OSDConfiguration * has binding name 'PointerTott__OSDConfiguration' for type 'tt:OSDConfiguration' */
+#ifndef SOAP_TYPE_PointerTott__OSDConfiguration
+#define SOAP_TYPE_PointerTott__OSDConfiguration (600)
+#endif
+
+/* struct tt__OSDTextOptions * has binding name 'PointerTott__OSDTextOptions' for type 'tt:OSDTextOptions' */
+#ifndef SOAP_TYPE_PointerTott__OSDTextOptions
+#define SOAP_TYPE_PointerTott__OSDTextOptions (597)
+#endif
+
+/* struct tt__MaximumNumberOfOSDs * has binding name 'PointerTott__MaximumNumberOfOSDs' for type 'tt:MaximumNumberOfOSDs' */
+#ifndef SOAP_TYPE_PointerTott__MaximumNumberOfOSDs
+#define SOAP_TYPE_PointerTott__MaximumNumberOfOSDs (596)
+#endif
+
+/* struct tt__OSDTextConfiguration * has binding name 'PointerTott__OSDTextConfiguration' for type 'tt:OSDTextConfiguration' */
+#ifndef SOAP_TYPE_PointerTott__OSDTextConfiguration
+#define SOAP_TYPE_PointerTott__OSDTextConfiguration (592)
+#endif
+
+/* struct tt__OSDPosConfiguration * has binding name 'PointerTott__OSDPosConfiguration' for type 'tt:OSDPosConfiguration' */
+#ifndef SOAP_TYPE_PointerTott__OSDPosConfiguration
+#define SOAP_TYPE_PointerTott__OSDPosConfiguration (591)
+#endif
+
+/* struct tt__ImagingOptions20 * has binding name 'PointerTott__ImagingOptions20' for type 'tt:ImagingOptions20' */
+#ifndef SOAP_TYPE_PointerTott__ImagingOptions20
+#define SOAP_TYPE_PointerTott__ImagingOptions20 (587)
+#endif
+
+/* struct tt__ImagingSettings20 * has binding name 'PointerTott__ImagingSettings20' for type 'tt:ImagingSettings20' */
+#ifndef SOAP_TYPE_PointerTott__ImagingSettings20
+#define SOAP_TYPE_PointerTott__ImagingSettings20 (582)
+#endif
+
+/* struct timg__Capabilities * has binding name 'PointerTotimg__Capabilities' for type 'timg:Capabilities' */
+#ifndef SOAP_TYPE_PointerTotimg__Capabilities
+#define SOAP_TYPE_PointerTotimg__Capabilities (579)
+#endif
+
+/* float * has binding name 'PointerTofloat' for type 'xsd:float' */
+#ifndef SOAP_TYPE_PointerTofloat
+#define SOAP_TYPE_PointerTofloat (574)
+#endif
+
+/* struct tt__PTZSpeed * has binding name 'PointerTott__PTZSpeed' for type 'tt:PTZSpeed' */
+#ifndef SOAP_TYPE_PointerTott__PTZSpeed
+#define SOAP_TYPE_PointerTott__PTZSpeed (561)
 #endif
 
 /* struct tt__PTZStatus * has binding name 'PointerTott__PTZStatus' for type 'tt:PTZStatus' */
 #ifndef SOAP_TYPE_PointerTott__PTZStatus
-#define SOAP_TYPE_PointerTott__PTZStatus (380)
+#define SOAP_TYPE_PointerTott__PTZStatus (559)
 #endif
 
 /* struct tt__PTZMoveStatus * has binding name 'PointerTott__PTZMoveStatus' for type 'tt:PTZMoveStatus' */
 #ifndef SOAP_TYPE_PointerTott__PTZMoveStatus
-#define SOAP_TYPE_PointerTott__PTZMoveStatus (378)
+#define SOAP_TYPE_PointerTott__PTZMoveStatus (557)
 #endif
 
 /* struct tt__PTZVector * has binding name 'PointerTott__PTZVector' for type 'tt:PTZVector' */
 #ifndef SOAP_TYPE_PointerTott__PTZVector
-#define SOAP_TYPE_PointerTott__PTZVector (377)
+#define SOAP_TYPE_PointerTott__PTZVector (556)
 #endif
 
 /* struct tt__Vector1D * has binding name 'PointerTott__Vector1D' for type 'tt:Vector1D' */
 #ifndef SOAP_TYPE_PointerTott__Vector1D
-#define SOAP_TYPE_PointerTott__Vector1D (374)
+#define SOAP_TYPE_PointerTott__Vector1D (552)
 #endif
 
 /* struct tt__Vector2D * has binding name 'PointerTott__Vector2D' for type 'tt:Vector2D' */
 #ifndef SOAP_TYPE_PointerTott__Vector2D
-#define SOAP_TYPE_PointerTott__Vector2D (373)
+#define SOAP_TYPE_PointerTott__Vector2D (551)
 #endif
 
-/* XML has binding name 'XML' for type 'xsd:anyType' */
-#ifndef SOAP_TYPE_XML
-#define SOAP_TYPE_XML (363)
+/* struct tt__VideoSource * has binding name 'PointerTott__VideoSource' for type 'tt:VideoSource' */
+#ifndef SOAP_TYPE_PointerTott__VideoSource
+#define SOAP_TYPE_PointerTott__VideoSource (543)
+#endif
+
+/* struct tt__MediaUri * has binding name 'PointerTott__MediaUri' for type 'tt:MediaUri' */
+#ifndef SOAP_TYPE_PointerTott__MediaUri
+#define SOAP_TYPE_PointerTott__MediaUri (541)
+#endif
+
+/* struct tt__Profile * has binding name 'PointerTott__Profile' for type 'tt:Profile' */
+#ifndef SOAP_TYPE_PointerTott__Profile
+#define SOAP_TYPE_PointerTott__Profile (538)
+#endif
+
+/* struct tt__PTZPreset * has binding name 'PointerTott__PTZPreset' for type 'tt:PTZPreset' */
+#ifndef SOAP_TYPE_PointerTott__PTZPreset
+#define SOAP_TYPE_PointerTott__PTZPreset (529)
+#endif
+
+/* struct tt__PTZConfigurationOptions * has binding name 'PointerTott__PTZConfigurationOptions' for type 'tt:PTZConfigurationOptions' */
+#ifndef SOAP_TYPE_PointerTott__PTZConfigurationOptions
+#define SOAP_TYPE_PointerTott__PTZConfigurationOptions (526)
+#endif
+
+/* struct tt__PTZConfiguration * has binding name 'PointerTott__PTZConfiguration' for type 'tt:PTZConfiguration' */
+#ifndef SOAP_TYPE_PointerTott__PTZConfiguration
+#define SOAP_TYPE_PointerTott__PTZConfiguration (523)
+#endif
+
+/* struct tptz__Capabilities * has binding name 'PointerTotptz__Capabilities' for type 'tptz:Capabilities' */
+#ifndef SOAP_TYPE_PointerTotptz__Capabilities
+#define SOAP_TYPE_PointerTotptz__Capabilities (518)
+#endif
+
+/* struct tt__PTZNode * has binding name 'PointerTott__PTZNode' for type 'tt:PTZNode' */
+#ifndef SOAP_TYPE_PointerTott__PTZNode
+#define SOAP_TYPE_PointerTott__PTZNode (515)
+#endif
+
+/* struct tt__PanTiltLimits * has binding name 'PointerTott__PanTiltLimits' for type 'tt:PanTiltLimits' */
+#ifndef SOAP_TYPE_PointerTott__PanTiltLimits
+#define SOAP_TYPE_PointerTott__PanTiltLimits (512)
+#endif
+
+/* struct tt__DurationRange * has binding name 'PointerTott__DurationRange' for type 'tt:DurationRange' */
+#ifndef SOAP_TYPE_PointerTott__DurationRange
+#define SOAP_TYPE_PointerTott__DurationRange (508)
+#endif
+
+/* struct tt__PTZSpaces * has binding name 'PointerTott__PTZSpaces' for type 'tt:PTZSpaces' */
+#ifndef SOAP_TYPE_PointerTott__PTZSpaces
+#define SOAP_TYPE_PointerTott__PTZSpaces (507)
+#endif
+
+/* struct tt__Space2DDescription * has binding name 'PointerTott__Space2DDescription' for type 'tt:Space2DDescription' */
+#ifndef SOAP_TYPE_PointerTott__Space2DDescription
+#define SOAP_TYPE_PointerTott__Space2DDescription (503)
+#endif
+
+/* struct tr2__Capabilities * has binding name 'PointerTotr2__Capabilities' for type 'tr2:Capabilities' */
+#ifndef SOAP_TYPE_PointerTotr2__Capabilities
+#define SOAP_TYPE_PointerTotr2__Capabilities (500)
+#endif
+
+/* struct tr2__MediaProfile * has binding name 'PointerTotr2__MediaProfile' for type 'tr2:MediaProfile' */
+#ifndef SOAP_TYPE_PointerTotr2__MediaProfile
+#define SOAP_TYPE_PointerTotr2__MediaProfile (497)
+#endif
+
+/* struct tr2__ConfigurationSet * has binding name 'PointerTotr2__ConfigurationSet' for type 'tr2:ConfigurationSet' */
+#ifndef SOAP_TYPE_PointerTotr2__ConfigurationSet
+#define SOAP_TYPE_PointerTotr2__ConfigurationSet (492)
+#endif
+
+/* struct tt__VideoEncoderConfiguration * has binding name 'PointerTott__VideoEncoderConfiguration' for type 'tt:VideoEncoderConfiguration' */
+#ifndef SOAP_TYPE_PointerTott__VideoEncoderConfiguration
+#define SOAP_TYPE_PointerTott__VideoEncoderConfiguration (487)
+#endif
+
+/* struct tt__VideoEncoderConfigurationOptions * has binding name 'PointerTott__VideoEncoderConfigurationOptions' for type 'tt:VideoEncoderConfigurationOptions' */
+#ifndef SOAP_TYPE_PointerTott__VideoEncoderConfigurationOptions
+#define SOAP_TYPE_PointerTott__VideoEncoderConfigurationOptions (485)
+#endif
+
+/* struct tt__VideoSourceConfigurationOptions * has binding name 'PointerTott__VideoSourceConfigurationOptions' for type 'tt:VideoSourceConfigurationOptions' */
+#ifndef SOAP_TYPE_PointerTott__VideoSourceConfigurationOptions
+#define SOAP_TYPE_PointerTott__VideoSourceConfigurationOptions (483)
+#endif
+
+/* struct tt__VideoSourceConfiguration * has binding name 'PointerTott__VideoSourceConfiguration' for type 'tt:VideoSourceConfiguration' */
+#ifndef SOAP_TYPE_PointerTott__VideoSourceConfiguration
+#define SOAP_TYPE_PointerTott__VideoSourceConfiguration (480)
+#endif
+
+/* struct trt__Capabilities * has binding name 'PointerTotrt__Capabilities' for type 'trt:Capabilities' */
+#ifndef SOAP_TYPE_PointerTotrt__Capabilities
+#define SOAP_TYPE_PointerTotrt__Capabilities (478)
+#endif
+
+/* struct tt__StreamSetup * has binding name 'PointerTott__StreamSetup' for type 'tt:StreamSetup' */
+#ifndef SOAP_TYPE_PointerTott__StreamSetup
+#define SOAP_TYPE_PointerTott__StreamSetup (472)
+#endif
+
+/* struct tt__Transport * has binding name 'PointerTott__Transport' for type 'tt:Transport' */
+#ifndef SOAP_TYPE_PointerTott__Transport
+#define SOAP_TYPE_PointerTott__Transport (463)
+#endif
+
+/* struct tt__VideoEncoderConfigurationOptionsExtension * has binding name 'PointerTott__VideoEncoderConfigurationOptionsExtension' for type 'tt:VideoEncoderConfigurationOptionsExtension' */
+#ifndef SOAP_TYPE_PointerTott__VideoEncoderConfigurationOptionsExtension
+#define SOAP_TYPE_PointerTott__VideoEncoderConfigurationOptionsExtension (460)
+#endif
+
+/* struct tt__FloatRange * has binding name 'PointerTott__FloatRange' for type 'tt:FloatRange' */
+#ifndef SOAP_TYPE_PointerTott__FloatRange
+#define SOAP_TYPE_PointerTott__FloatRange (459)
+#endif
+
+/* struct tt__H264Options * has binding name 'PointerTott__H264Options' for type 'tt:H264Options' */
+#ifndef SOAP_TYPE_PointerTott__H264Options
+#define SOAP_TYPE_PointerTott__H264Options (457)
+#endif
+
+/* struct tt__IntRectangleRange * has binding name 'PointerTott__IntRectangleRange' for type 'tt:IntRectangleRange' */
+#ifndef SOAP_TYPE_PointerTott__IntRectangleRange
+#define SOAP_TYPE_PointerTott__IntRectangleRange (454)
+#endif
+
+/* struct tt__IntRange * has binding name 'PointerTott__IntRange' for type 'tt:IntRange' */
+#ifndef SOAP_TYPE_PointerTott__IntRange
+#define SOAP_TYPE_PointerTott__IntRange (452)
+#endif
+
+/* struct tt__MulticastConfiguration * has binding name 'PointerTott__MulticastConfiguration' for type 'tt:MulticastConfiguration' */
+#ifndef SOAP_TYPE_PointerTott__MulticastConfiguration
+#define SOAP_TYPE_PointerTott__MulticastConfiguration (448)
+#endif
+
+/* struct tt__H264Configuration * has binding name 'PointerTott__H264Configuration' for type 'tt:H264Configuration' */
+#ifndef SOAP_TYPE_PointerTott__H264Configuration
+#define SOAP_TYPE_PointerTott__H264Configuration (447)
+#endif
+
+/* struct tt__VideoRateControl * has binding name 'PointerTott__VideoRateControl' for type 'tt:VideoRateControl' */
+#ifndef SOAP_TYPE_PointerTott__VideoRateControl
+#define SOAP_TYPE_PointerTott__VideoRateControl (446)
+#endif
+
+/* struct tt__IntRectangle * has binding name 'PointerTott__IntRectangle' for type 'tt:IntRectangle' */
+#ifndef SOAP_TYPE_PointerTott__IntRectangle
+#define SOAP_TYPE_PointerTott__IntRectangle (444)
+#endif
+
+/* struct tt__VideoResolution * has binding name 'PointerTott__VideoResolution' for type 'tt:VideoResolution' */
+#ifndef SOAP_TYPE_PointerTott__VideoResolution
+#define SOAP_TYPE_PointerTott__VideoResolution (442)
+#endif
+
+/* struct tt__IPAddress * has binding name 'PointerTott__IPAddress' for type 'tt:IPAddress' */
+#ifndef SOAP_TYPE_PointerTott__IPAddress
+#define SOAP_TYPE_PointerTott__IPAddress (439)
+#endif
+
+/* struct tt__User * has binding name 'PointerTott__User' for type 'tt:User' */
+#ifndef SOAP_TYPE_PointerTott__User
+#define SOAP_TYPE_PointerTott__User (432)
+#endif
+
+/* struct tt__NetworkInterface * has binding name 'PointerTott__NetworkInterface' for type 'tt:NetworkInterface' */
+#ifndef SOAP_TYPE_PointerTott__NetworkInterface
+#define SOAP_TYPE_PointerTott__NetworkInterface (429)
+#endif
+
+/* struct tt__IPv4NetworkInterface * has binding name 'PointerTott__IPv4NetworkInterface' for type 'tt:IPv4NetworkInterface' */
+#ifndef SOAP_TYPE_PointerTott__IPv4NetworkInterface
+#define SOAP_TYPE_PointerTott__IPv4NetworkInterface (427)
+#endif
+
+/* struct tt__NetworkInterfaceInfo * has binding name 'PointerTott__NetworkInterfaceInfo' for type 'tt:NetworkInterfaceInfo' */
+#ifndef SOAP_TYPE_PointerTott__NetworkInterfaceInfo
+#define SOAP_TYPE_PointerTott__NetworkInterfaceInfo (426)
+#endif
+
+/* struct tt__IPv4Configuration * has binding name 'PointerTott__IPv4Configuration' for type 'tt:IPv4Configuration' */
+#ifndef SOAP_TYPE_PointerTott__IPv4Configuration
+#define SOAP_TYPE_PointerTott__IPv4Configuration (424)
+#endif
+
+/* struct tt__PrefixedIPv4Address * has binding name 'PointerTott__PrefixedIPv4Address' for type 'tt:PrefixedIPv4Address' */
+#ifndef SOAP_TYPE_PointerTott__PrefixedIPv4Address
+#define SOAP_TYPE_PointerTott__PrefixedIPv4Address (422)
+#endif
+
+/* struct tt__HostnameInformation * has binding name 'PointerTott__HostnameInformation' for type 'tt:HostnameInformation' */
+#ifndef SOAP_TYPE_PointerTott__HostnameInformation
+#define SOAP_TYPE_PointerTott__HostnameInformation (418)
+#endif
+
+/* struct tt__Scope * has binding name 'PointerTott__Scope' for type 'tt:Scope' */
+#ifndef SOAP_TYPE_PointerTott__Scope
+#define SOAP_TYPE_PointerTott__Scope (415)
+#endif
+
+/* struct tt__SystemDateTime * has binding name 'PointerTott__SystemDateTime' for type 'tt:SystemDateTime' */
+#ifndef SOAP_TYPE_PointerTott__SystemDateTime
+#define SOAP_TYPE_PointerTott__SystemDateTime (412)
+#endif
+
+/* struct tt__DateTime * has binding name 'PointerTott__DateTime' for type 'tt:DateTime' */
+#ifndef SOAP_TYPE_PointerTott__DateTime
+#define SOAP_TYPE_PointerTott__DateTime (410)
+#endif
+
+/* struct tt__Date * has binding name 'PointerTott__Date' for type 'tt:Date' */
+#ifndef SOAP_TYPE_PointerTott__Date
+#define SOAP_TYPE_PointerTott__Date (408)
+#endif
+
+/* struct tt__Time * has binding name 'PointerTott__Time' for type 'tt:Time' */
+#ifndef SOAP_TYPE_PointerTott__Time
+#define SOAP_TYPE_PointerTott__Time (407)
+#endif
+
+/* struct tds__DeviceServiceCapabilities * has binding name 'PointerTotds__DeviceServiceCapabilities' for type 'tds:DeviceServiceCapabilities' */
+#ifndef SOAP_TYPE_PointerTotds__DeviceServiceCapabilities
+#define SOAP_TYPE_PointerTotds__DeviceServiceCapabilities (403)
+#endif
+
+/* struct tds__SystemCapabilities * has binding name 'PointerTotds__SystemCapabilities' for type 'tds:SystemCapabilities' */
+#ifndef SOAP_TYPE_PointerTotds__SystemCapabilities
+#define SOAP_TYPE_PointerTotds__SystemCapabilities (401)
+#endif
+
+/* struct tds__SecurityCapabilities * has binding name 'PointerTotds__SecurityCapabilities' for type 'tds:SecurityCapabilities' */
+#ifndef SOAP_TYPE_PointerTotds__SecurityCapabilities
+#define SOAP_TYPE_PointerTotds__SecurityCapabilities (400)
+#endif
+
+/* struct tds__NetworkCapabilities * has binding name 'PointerTotds__NetworkCapabilities' for type 'tds:NetworkCapabilities' */
+#ifndef SOAP_TYPE_PointerTotds__NetworkCapabilities
+#define SOAP_TYPE_PointerTotds__NetworkCapabilities (399)
+#endif
+
+/* struct tt__Capabilities * has binding name 'PointerTott__Capabilities' for type 'tt:Capabilities' */
+#ifndef SOAP_TYPE_PointerTott__Capabilities
+#define SOAP_TYPE_PointerTott__Capabilities (394)
+#endif
+
+/* struct tds__Service * has binding name 'PointerTotds__Service' for type 'tds:Service' */
+#ifndef SOAP_TYPE_PointerTotds__Service
+#define SOAP_TYPE_PointerTotds__Service (392)
+#endif
+
+/* struct tt__ImagingCapabilities * has binding name 'PointerTott__ImagingCapabilities' for type 'tt:ImagingCapabilities' */
+#ifndef SOAP_TYPE_PointerTott__ImagingCapabilities
+#define SOAP_TYPE_PointerTott__ImagingCapabilities (390)
+#endif
+
+/* struct tt__PTZCapabilities * has binding name 'PointerTott__PTZCapabilities' for type 'tt:PTZCapabilities' */
+#ifndef SOAP_TYPE_PointerTott__PTZCapabilities
+#define SOAP_TYPE_PointerTott__PTZCapabilities (389)
+#endif
+
+/* struct tt__MediaCapabilities * has binding name 'PointerTott__MediaCapabilities' for type 'tt:MediaCapabilities' */
+#ifndef SOAP_TYPE_PointerTott__MediaCapabilities
+#define SOAP_TYPE_PointerTott__MediaCapabilities (388)
+#endif
+
+/* struct tt__DeviceCapabilities * has binding name 'PointerTott__DeviceCapabilities' for type 'tt:DeviceCapabilities' */
+#ifndef SOAP_TYPE_PointerTott__DeviceCapabilities
+#define SOAP_TYPE_PointerTott__DeviceCapabilities (387)
+#endif
+
+/* struct tt__StreamingCapabilities * has binding name 'PointerTott__StreamingCapabilities' for type 'tt:StreamingCapabilities' */
+#ifndef SOAP_TYPE_PointerTott__StreamingCapabilities
+#define SOAP_TYPE_PointerTott__StreamingCapabilities (383)
+#endif
+
+/* bool * has binding name 'PointerTobool' for type 'xsd:boolean' */
+#ifndef SOAP_TYPE_PointerTobool
+#define SOAP_TYPE_PointerTobool (380)
+#endif
+
+/* struct tt__OnvifVersion * has binding name 'PointerTott__OnvifVersion' for type 'tt:OnvifVersion' */
+#ifndef SOAP_TYPE_PointerTott__OnvifVersion
+#define SOAP_TYPE_PointerTott__OnvifVersion (378)
+#endif
+
+/* enum tds__CapabilityCategory * has binding name 'PointerTotds__CapabilityCategory' for type 'tds:CapabilityCategory' */
+#ifndef SOAP_TYPE_PointerTotds__CapabilityCategory
+#define SOAP_TYPE_PointerTotds__CapabilityCategory (374)
 #endif
 
 /* struct wsdd__ResolveMatchesType * has binding name 'PointerTowsdd__ResolveMatchesType' for type 'wsdd:ResolveMatchesType' */
@@ -6580,342 +11290,349 @@ typedef char *XML;
     SOAP_FMAC5 int SOAP_FMAC6 soap_send___wsdd__ResolveMatches(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct wsdd__ResolveMatchesType *wsdd__ResolveMatches);
     /** Web service one-way asynchronous operation 'soap_recv___wsdd__ResolveMatches' */
     SOAP_FMAC5 int SOAP_FMAC6 soap_recv___wsdd__ResolveMatches(struct soap *soap, struct __wsdd__ResolveMatches *_param_1);
-    
+
     /** Web service synchronous operation 'soap_call___tds__GetServices' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetServices(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetServices, struct afterveda__AnyResponse &tds__GetServicesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetServices(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetServices *tds__GetServices, struct _tds__GetServicesResponse &tds__GetServicesResponse);
     /** Web service asynchronous operation 'soap_send___tds__GetServices' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetServices(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetServices);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetServices(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetServices *tds__GetServices);
     /** Web service asynchronous operation 'soap_recv___tds__GetServices' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetServices(struct soap *soap, struct afterveda__AnyResponse &tds__GetServicesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetServices(struct soap *soap, struct _tds__GetServicesResponse &tds__GetServicesResponse);
+
     /** Web service synchronous operation 'soap_call___tds__GetServiceCapabilities' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetServiceCapabilities, struct afterveda__AnyResponse &tds__GetServiceCapabilitiesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetServiceCapabilities *tds__GetServiceCapabilities, struct _tds__GetServiceCapabilitiesResponse &tds__GetServiceCapabilitiesResponse);
     /** Web service asynchronous operation 'soap_send___tds__GetServiceCapabilities' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetServiceCapabilities);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetServiceCapabilities *tds__GetServiceCapabilities);
     /** Web service asynchronous operation 'soap_recv___tds__GetServiceCapabilities' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetServiceCapabilities(struct soap *soap, struct afterveda__AnyResponse &tds__GetServiceCapabilitiesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetServiceCapabilities(struct soap *soap, struct _tds__GetServiceCapabilitiesResponse &tds__GetServiceCapabilitiesResponse);
+
     /** Web service synchronous operation 'soap_call___tds__GetDeviceInformation' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
     SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetDeviceInformation(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetDeviceInformation *tds__GetDeviceInformation, struct _tds__GetDeviceInformationResponse &tds__GetDeviceInformationResponse);
     /** Web service asynchronous operation 'soap_send___tds__GetDeviceInformation' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
     SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetDeviceInformation(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetDeviceInformation *tds__GetDeviceInformation);
     /** Web service asynchronous operation 'soap_recv___tds__GetDeviceInformation' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
     SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetDeviceInformation(struct soap *soap, struct _tds__GetDeviceInformationResponse &tds__GetDeviceInformationResponse);
-    
+
     /** Web service synchronous operation 'soap_call___tds__GetSystemDateAndTime' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetSystemDateAndTime(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetSystemDateAndTime, struct afterveda__AnyResponse &tds__GetSystemDateAndTimeResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetSystemDateAndTime(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetSystemDateAndTime *tds__GetSystemDateAndTime, struct _tds__GetSystemDateAndTimeResponse &tds__GetSystemDateAndTimeResponse);
     /** Web service asynchronous operation 'soap_send___tds__GetSystemDateAndTime' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetSystemDateAndTime(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetSystemDateAndTime);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetSystemDateAndTime(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetSystemDateAndTime *tds__GetSystemDateAndTime);
     /** Web service asynchronous operation 'soap_recv___tds__GetSystemDateAndTime' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetSystemDateAndTime(struct soap *soap, struct afterveda__AnyResponse &tds__GetSystemDateAndTimeResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetSystemDateAndTime(struct soap *soap, struct _tds__GetSystemDateAndTimeResponse &tds__GetSystemDateAndTimeResponse);
+
     /** Web service synchronous operation 'soap_call___tds__GetScopes' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetScopes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetScopes, struct afterveda__AnyResponse &tds__GetScopesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetScopes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetScopes *tds__GetScopes, struct _tds__GetScopesResponse &tds__GetScopesResponse);
     /** Web service asynchronous operation 'soap_send___tds__GetScopes' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetScopes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetScopes);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetScopes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetScopes *tds__GetScopes);
     /** Web service asynchronous operation 'soap_recv___tds__GetScopes' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetScopes(struct soap *soap, struct afterveda__AnyResponse &tds__GetScopesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetScopes(struct soap *soap, struct _tds__GetScopesResponse &tds__GetScopesResponse);
+
     /** Web service synchronous operation 'soap_call___tds__GetHostname' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetHostname(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetHostname, struct afterveda__AnyResponse &tds__GetHostnameResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetHostname(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetHostname *tds__GetHostname, struct _tds__GetHostnameResponse &tds__GetHostnameResponse);
     /** Web service asynchronous operation 'soap_send___tds__GetHostname' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetHostname(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetHostname);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetHostname(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetHostname *tds__GetHostname);
     /** Web service asynchronous operation 'soap_recv___tds__GetHostname' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetHostname(struct soap *soap, struct afterveda__AnyResponse &tds__GetHostnameResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetHostname(struct soap *soap, struct _tds__GetHostnameResponse &tds__GetHostnameResponse);
+
     /** Web service synchronous operation 'soap_call___tds__GetNetworkInterfaces' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetNetworkInterfaces(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetNetworkInterfaces, struct afterveda__AnyResponse &tds__GetNetworkInterfacesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetNetworkInterfaces(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetNetworkInterfaces *tds__GetNetworkInterfaces, struct _tds__GetNetworkInterfacesResponse &tds__GetNetworkInterfacesResponse);
     /** Web service asynchronous operation 'soap_send___tds__GetNetworkInterfaces' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetNetworkInterfaces(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetNetworkInterfaces);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetNetworkInterfaces(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetNetworkInterfaces *tds__GetNetworkInterfaces);
     /** Web service asynchronous operation 'soap_recv___tds__GetNetworkInterfaces' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetNetworkInterfaces(struct soap *soap, struct afterveda__AnyResponse &tds__GetNetworkInterfacesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetNetworkInterfaces(struct soap *soap, struct _tds__GetNetworkInterfacesResponse &tds__GetNetworkInterfacesResponse);
+
     /** Web service synchronous operation 'soap_call___tds__GetUsers' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetUsers(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetUsers, struct afterveda__AnyResponse &tds__GetUsersResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetUsers(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetUsers *tds__GetUsers, struct _tds__GetUsersResponse &tds__GetUsersResponse);
     /** Web service asynchronous operation 'soap_send___tds__GetUsers' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetUsers(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetUsers);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetUsers(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetUsers *tds__GetUsers);
     /** Web service asynchronous operation 'soap_recv___tds__GetUsers' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetUsers(struct soap *soap, struct afterveda__AnyResponse &tds__GetUsersResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetUsers(struct soap *soap, struct _tds__GetUsersResponse &tds__GetUsersResponse);
+
     /** Web service synchronous operation 'soap_call___tds__GetCapabilities' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetCapabilities, struct afterveda__AnyResponse &tds__GetCapabilitiesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tds__GetCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetCapabilities *tds__GetCapabilities, struct _tds__GetCapabilitiesResponse &tds__GetCapabilitiesResponse);
     /** Web service asynchronous operation 'soap_send___tds__GetCapabilities' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tds__GetCapabilities);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tds__GetCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tds__GetCapabilities *tds__GetCapabilities);
     /** Web service asynchronous operation 'soap_recv___tds__GetCapabilities' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetCapabilities(struct soap *soap, struct afterveda__AnyResponse &tds__GetCapabilitiesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tds__GetCapabilities(struct soap *soap, struct _tds__GetCapabilitiesResponse &tds__GetCapabilitiesResponse);
+
     /** Web service synchronous operation 'soap_call___trt__GetProfiles' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetProfiles, struct afterveda__AnyResponse &trt__GetProfilesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetProfiles *trt__GetProfiles, struct _trt__GetProfilesResponse &trt__GetProfilesResponse);
     /** Web service asynchronous operation 'soap_send___trt__GetProfiles' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetProfiles);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetProfiles *trt__GetProfiles);
     /** Web service asynchronous operation 'soap_recv___trt__GetProfiles' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetProfiles(struct soap *soap, struct afterveda__AnyResponse &trt__GetProfilesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetProfiles(struct soap *soap, struct _trt__GetProfilesResponse &trt__GetProfilesResponse);
+
     /** Web service synchronous operation 'soap_call___trt__GetProfile' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetProfile(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetProfile, struct afterveda__AnyResponse &trt__GetProfileResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetProfile(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetProfile *trt__GetProfile, struct _trt__GetProfileResponse &trt__GetProfileResponse);
     /** Web service asynchronous operation 'soap_send___trt__GetProfile' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetProfile(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetProfile);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetProfile(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetProfile *trt__GetProfile);
     /** Web service asynchronous operation 'soap_recv___trt__GetProfile' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetProfile(struct soap *soap, struct afterveda__AnyResponse &trt__GetProfileResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetProfile(struct soap *soap, struct _trt__GetProfileResponse &trt__GetProfileResponse);
+
     /** Web service synchronous operation 'soap_call___trt__GetServiceCapabilities' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetServiceCapabilities, struct afterveda__AnyResponse &trt__GetServiceCapabilitiesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetServiceCapabilities *trt__GetServiceCapabilities, struct _trt__GetServiceCapabilitiesResponse &trt__GetServiceCapabilitiesResponse);
     /** Web service asynchronous operation 'soap_send___trt__GetServiceCapabilities' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetServiceCapabilities);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetServiceCapabilities *trt__GetServiceCapabilities);
     /** Web service asynchronous operation 'soap_recv___trt__GetServiceCapabilities' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetServiceCapabilities(struct soap *soap, struct afterveda__AnyResponse &trt__GetServiceCapabilitiesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetServiceCapabilities(struct soap *soap, struct _trt__GetServiceCapabilitiesResponse &trt__GetServiceCapabilitiesResponse);
+
     /** Web service synchronous operation 'soap_call___trt__GetVideoSources' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSources(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSources, struct afterveda__AnyResponse &trt__GetVideoSourcesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSources(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSources *trt__GetVideoSources, struct _trt__GetVideoSourcesResponse &trt__GetVideoSourcesResponse);
     /** Web service asynchronous operation 'soap_send___trt__GetVideoSources' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSources(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSources);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSources(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSources *trt__GetVideoSources);
     /** Web service asynchronous operation 'soap_recv___trt__GetVideoSources' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSources(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoSourcesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSources(struct soap *soap, struct _trt__GetVideoSourcesResponse &trt__GetVideoSourcesResponse);
+
+    /** Web service synchronous operation 'soap_call___trt__GetOSDs' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetOSDs(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSDs *trt__GetOSDs, struct _trt__GetOSDsResponse &trt__GetOSDsResponse);
+    /** Web service asynchronous operation 'soap_send___trt__GetOSDs' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetOSDs(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSDs *trt__GetOSDs);
+    /** Web service asynchronous operation 'soap_recv___trt__GetOSDs' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetOSDs(struct soap *soap, struct _trt__GetOSDsResponse &trt__GetOSDsResponse);
+
+    /** Web service synchronous operation 'soap_call___trt__GetOSD' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSD *trt__GetOSD, struct _trt__GetOSDResponse &trt__GetOSDResponse);
+    /** Web service asynchronous operation 'soap_send___trt__GetOSD' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSD *trt__GetOSD);
+    /** Web service asynchronous operation 'soap_recv___trt__GetOSD' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetOSD(struct soap *soap, struct _trt__GetOSDResponse &trt__GetOSDResponse);
+
+    /** Web service synchronous operation 'soap_call___trt__GetOSDOptions' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetOSDOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSDOptions *trt__GetOSDOptions, struct _trt__GetOSDOptionsResponse &trt__GetOSDOptionsResponse);
+    /** Web service asynchronous operation 'soap_send___trt__GetOSDOptions' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetOSDOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetOSDOptions *trt__GetOSDOptions);
+    /** Web service asynchronous operation 'soap_recv___trt__GetOSDOptions' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetOSDOptions(struct soap *soap, struct _trt__GetOSDOptionsResponse &trt__GetOSDOptionsResponse);
+
+    /** Web service synchronous operation 'soap_call___trt__SetOSD' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__SetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__SetOSD *trt__SetOSD, struct _trt__SetOSDResponse &trt__SetOSDResponse);
+    /** Web service asynchronous operation 'soap_send___trt__SetOSD' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__SetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__SetOSD *trt__SetOSD);
+    /** Web service asynchronous operation 'soap_recv___trt__SetOSD' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__SetOSD(struct soap *soap, struct _trt__SetOSDResponse &trt__SetOSDResponse);
+
+    /** Web service synchronous operation 'soap_call___trt__CreateOSD' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__CreateOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__CreateOSD *trt__CreateOSD, struct _trt__CreateOSDResponse &trt__CreateOSDResponse);
+    /** Web service asynchronous operation 'soap_send___trt__CreateOSD' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__CreateOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__CreateOSD *trt__CreateOSD);
+    /** Web service asynchronous operation 'soap_recv___trt__CreateOSD' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__CreateOSD(struct soap *soap, struct _trt__CreateOSDResponse &trt__CreateOSDResponse);
+
+    /** Web service synchronous operation 'soap_call___trt__DeleteOSD' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__DeleteOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__DeleteOSD *trt__DeleteOSD, struct _trt__DeleteOSDResponse &trt__DeleteOSDResponse);
+    /** Web service asynchronous operation 'soap_send___trt__DeleteOSD' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__DeleteOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__DeleteOSD *trt__DeleteOSD);
+    /** Web service asynchronous operation 'soap_recv___trt__DeleteOSD' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__DeleteOSD(struct soap *soap, struct _trt__DeleteOSDResponse &trt__DeleteOSDResponse);
+
     /** Web service synchronous operation 'soap_call___trt__GetVideoSourceConfigurations' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurations, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfigurations *trt__GetVideoSourceConfigurations, struct _trt__GetVideoSourceConfigurationsResponse &trt__GetVideoSourceConfigurationsResponse);
     /** Web service asynchronous operation 'soap_send___trt__GetVideoSourceConfigurations' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurations);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfigurations *trt__GetVideoSourceConfigurations);
     /** Web service asynchronous operation 'soap_recv___trt__GetVideoSourceConfigurations' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfigurations(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationsResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfigurations(struct soap *soap, struct _trt__GetVideoSourceConfigurationsResponse &trt__GetVideoSourceConfigurationsResponse);
+
     /** Web service synchronous operation 'soap_call___trt__GetVideoSourceConfiguration' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfiguration, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfiguration *trt__GetVideoSourceConfiguration, struct _trt__GetVideoSourceConfigurationResponse &trt__GetVideoSourceConfigurationResponse);
     /** Web service asynchronous operation 'soap_send___trt__GetVideoSourceConfiguration' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfiguration);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfiguration *trt__GetVideoSourceConfiguration);
     /** Web service asynchronous operation 'soap_recv___trt__GetVideoSourceConfiguration' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfiguration(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfiguration(struct soap *soap, struct _trt__GetVideoSourceConfigurationResponse &trt__GetVideoSourceConfigurationResponse);
+
     /** Web service synchronous operation 'soap_call___trt__GetVideoEncoderConfigurations' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurations, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfigurations *trt__GetVideoEncoderConfigurations, struct _trt__GetVideoEncoderConfigurationsResponse &trt__GetVideoEncoderConfigurationsResponse);
     /** Web service asynchronous operation 'soap_send___trt__GetVideoEncoderConfigurations' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurations);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfigurations *trt__GetVideoEncoderConfigurations);
     /** Web service asynchronous operation 'soap_recv___trt__GetVideoEncoderConfigurations' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfigurations(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationsResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfigurations(struct soap *soap, struct _trt__GetVideoEncoderConfigurationsResponse &trt__GetVideoEncoderConfigurationsResponse);
+
     /** Web service synchronous operation 'soap_call___trt__GetStreamUri' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetStreamUri, struct afterveda__AnyResponse &trt__GetStreamUriResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetStreamUri *trt__GetStreamUri, struct _trt__GetStreamUriResponse &trt__GetStreamUriResponse);
     /** Web service asynchronous operation 'soap_send___trt__GetStreamUri' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetStreamUri);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetStreamUri *trt__GetStreamUri);
     /** Web service asynchronous operation 'soap_recv___trt__GetStreamUri' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetStreamUri(struct soap *soap, struct afterveda__AnyResponse &trt__GetStreamUriResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetStreamUri(struct soap *soap, struct _trt__GetStreamUriResponse &trt__GetStreamUriResponse);
+
     /** Web service synchronous operation 'soap_call___trt__GetVideoEncoderConfiguration' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfiguration, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfiguration *trt__GetVideoEncoderConfiguration, struct _trt__GetVideoEncoderConfigurationResponse &trt__GetVideoEncoderConfigurationResponse);
     /** Web service asynchronous operation 'soap_send___trt__GetVideoEncoderConfiguration' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfiguration);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfiguration *trt__GetVideoEncoderConfiguration);
     /** Web service asynchronous operation 'soap_recv___trt__GetVideoEncoderConfiguration' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfiguration(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfiguration(struct soap *soap, struct _trt__GetVideoEncoderConfigurationResponse &trt__GetVideoEncoderConfigurationResponse);
+
     /** Web service synchronous operation 'soap_call___trt__GetVideoSourceConfigurationOptions' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurationOptions, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationOptionsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoSourceConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfigurationOptions *trt__GetVideoSourceConfigurationOptions, struct _trt__GetVideoSourceConfigurationOptionsResponse &trt__GetVideoSourceConfigurationOptionsResponse);
     /** Web service asynchronous operation 'soap_send___trt__GetVideoSourceConfigurationOptions' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurationOptions);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoSourceConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoSourceConfigurationOptions *trt__GetVideoSourceConfigurationOptions);
     /** Web service asynchronous operation 'soap_recv___trt__GetVideoSourceConfigurationOptions' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfigurationOptions(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationOptionsResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoSourceConfigurationOptions(struct soap *soap, struct _trt__GetVideoSourceConfigurationOptionsResponse &trt__GetVideoSourceConfigurationOptionsResponse);
+
     /** Web service synchronous operation 'soap_call___trt__GetVideoEncoderConfigurationOptions' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurationOptions, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationOptionsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfigurationOptions *trt__GetVideoEncoderConfigurationOptions, struct _trt__GetVideoEncoderConfigurationOptionsResponse &trt__GetVideoEncoderConfigurationOptionsResponse);
     /** Web service asynchronous operation 'soap_send___trt__GetVideoEncoderConfigurationOptions' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurationOptions);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__GetVideoEncoderConfigurationOptions *trt__GetVideoEncoderConfigurationOptions);
     /** Web service asynchronous operation 'soap_recv___trt__GetVideoEncoderConfigurationOptions' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationOptionsResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__GetVideoEncoderConfigurationOptions(struct soap *soap, struct _trt__GetVideoEncoderConfigurationOptionsResponse &trt__GetVideoEncoderConfigurationOptionsResponse);
+
     /** Web service synchronous operation 'soap_call___trt__SetVideoEncoderConfiguration' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__SetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__SetVideoEncoderConfiguration, struct afterveda__AnyResponse &trt__SetVideoEncoderConfigurationResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___trt__SetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__SetVideoEncoderConfiguration *trt__SetVideoEncoderConfiguration, struct _trt__SetVideoEncoderConfigurationResponse &trt__SetVideoEncoderConfigurationResponse);
     /** Web service asynchronous operation 'soap_send___trt__SetVideoEncoderConfiguration' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__SetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *trt__SetVideoEncoderConfiguration);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___trt__SetVideoEncoderConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _trt__SetVideoEncoderConfiguration *trt__SetVideoEncoderConfiguration);
     /** Web service asynchronous operation 'soap_recv___trt__SetVideoEncoderConfiguration' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__SetVideoEncoderConfiguration(struct soap *soap, struct afterveda__AnyResponse &trt__SetVideoEncoderConfigurationResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___trt__SetVideoEncoderConfiguration(struct soap *soap, struct _trt__SetVideoEncoderConfigurationResponse &trt__SetVideoEncoderConfigurationResponse);
+
     /** Web service synchronous operation 'soap_call___tr2__GetProfiles' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetProfiles, struct afterveda__AnyResponse &tr2__GetProfilesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetProfiles *tr2__GetProfiles, struct _tr2__GetProfilesResponse &tr2__GetProfilesResponse);
     /** Web service asynchronous operation 'soap_send___tr2__GetProfiles' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetProfiles);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetProfiles(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetProfiles *tr2__GetProfiles);
     /** Web service asynchronous operation 'soap_recv___tr2__GetProfiles' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetProfiles(struct soap *soap, struct afterveda__AnyResponse &tr2__GetProfilesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetProfiles(struct soap *soap, struct _tr2__GetProfilesResponse &tr2__GetProfilesResponse);
+
     /** Web service synchronous operation 'soap_call___tr2__GetStreamUri' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetStreamUri, struct afterveda__AnyResponse &tr2__GetStreamUriResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetStreamUri *tr2__GetStreamUri, struct _tr2__GetStreamUriResponse &tr2__GetStreamUriResponse);
     /** Web service asynchronous operation 'soap_send___tr2__GetStreamUri' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetStreamUri);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetStreamUri(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetStreamUri *tr2__GetStreamUri);
     /** Web service asynchronous operation 'soap_recv___tr2__GetStreamUri' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetStreamUri(struct soap *soap, struct afterveda__AnyResponse &tr2__GetStreamUriResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetStreamUri(struct soap *soap, struct _tr2__GetStreamUriResponse &tr2__GetStreamUriResponse);
+
     /** Web service synchronous operation 'soap_call___tr2__GetServiceCapabilities' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetServiceCapabilities, struct afterveda__AnyResponse &tr2__GetServiceCapabilitiesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tr2__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetServiceCapabilities *tr2__GetServiceCapabilities, struct _tr2__GetServiceCapabilitiesResponse &tr2__GetServiceCapabilitiesResponse);
     /** Web service asynchronous operation 'soap_send___tr2__GetServiceCapabilities' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tr2__GetServiceCapabilities);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tr2__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tr2__GetServiceCapabilities *tr2__GetServiceCapabilities);
     /** Web service asynchronous operation 'soap_recv___tr2__GetServiceCapabilities' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetServiceCapabilities(struct soap *soap, struct afterveda__AnyResponse &tr2__GetServiceCapabilitiesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tr2__GetServiceCapabilities(struct soap *soap, struct _tr2__GetServiceCapabilitiesResponse &tr2__GetServiceCapabilitiesResponse);
+
+    /** Web service synchronous operation 'soap_call___tptz__GetServiceCapabilities' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetServiceCapabilities *tptz__GetServiceCapabilities, struct _tptz__GetServiceCapabilitiesResponse &tptz__GetServiceCapabilitiesResponse);
+    /** Web service asynchronous operation 'soap_send___tptz__GetServiceCapabilities' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetServiceCapabilities *tptz__GetServiceCapabilities);
+    /** Web service asynchronous operation 'soap_recv___tptz__GetServiceCapabilities' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetServiceCapabilities(struct soap *soap, struct _tptz__GetServiceCapabilitiesResponse &tptz__GetServiceCapabilitiesResponse);
+
     /** Web service synchronous operation 'soap_call___tptz__GetNodes' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetNodes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetNodes, struct afterveda__AnyResponse &tptz__GetNodesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetNodes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetNodes *tptz__GetNodes, struct _tptz__GetNodesResponse &tptz__GetNodesResponse);
     /** Web service asynchronous operation 'soap_send___tptz__GetNodes' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetNodes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetNodes);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetNodes(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetNodes *tptz__GetNodes);
     /** Web service asynchronous operation 'soap_recv___tptz__GetNodes' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetNodes(struct soap *soap, struct afterveda__AnyResponse &tptz__GetNodesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetNodes(struct soap *soap, struct _tptz__GetNodesResponse &tptz__GetNodesResponse);
+
+    /** Web service synchronous operation 'soap_call___tptz__GetNode' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetNode(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetNode *tptz__GetNode, struct _tptz__GetNodeResponse &tptz__GetNodeResponse);
+    /** Web service asynchronous operation 'soap_send___tptz__GetNode' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetNode(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetNode *tptz__GetNode);
+    /** Web service asynchronous operation 'soap_recv___tptz__GetNode' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetNode(struct soap *soap, struct _tptz__GetNodeResponse &tptz__GetNodeResponse);
+
     /** Web service synchronous operation 'soap_call___tptz__GetConfigurations' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetConfigurations, struct afterveda__AnyResponse &tptz__GetConfigurationsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfigurations *tptz__GetConfigurations, struct _tptz__GetConfigurationsResponse &tptz__GetConfigurationsResponse);
     /** Web service asynchronous operation 'soap_send___tptz__GetConfigurations' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetConfigurations);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetConfigurations(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfigurations *tptz__GetConfigurations);
     /** Web service asynchronous operation 'soap_recv___tptz__GetConfigurations' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetConfigurations(struct soap *soap, struct afterveda__AnyResponse &tptz__GetConfigurationsResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetConfigurations(struct soap *soap, struct _tptz__GetConfigurationsResponse &tptz__GetConfigurationsResponse);
+
+    /** Web service synchronous operation 'soap_call___tptz__GetConfiguration' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfiguration *tptz__GetConfiguration, struct _tptz__GetConfigurationResponse &tptz__GetConfigurationResponse);
+    /** Web service asynchronous operation 'soap_send___tptz__GetConfiguration' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetConfiguration(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfiguration *tptz__GetConfiguration);
+    /** Web service asynchronous operation 'soap_recv___tptz__GetConfiguration' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetConfiguration(struct soap *soap, struct _tptz__GetConfigurationResponse &tptz__GetConfigurationResponse);
+
+    /** Web service synchronous operation 'soap_call___tptz__GetConfigurationOptions' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfigurationOptions *tptz__GetConfigurationOptions, struct _tptz__GetConfigurationOptionsResponse &tptz__GetConfigurationOptionsResponse);
+    /** Web service asynchronous operation 'soap_send___tptz__GetConfigurationOptions' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetConfigurationOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetConfigurationOptions *tptz__GetConfigurationOptions);
+    /** Web service asynchronous operation 'soap_recv___tptz__GetConfigurationOptions' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetConfigurationOptions(struct soap *soap, struct _tptz__GetConfigurationOptionsResponse &tptz__GetConfigurationOptionsResponse);
+
     /** Web service synchronous operation 'soap_call___tptz__GetPresets' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetPresets(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetPresets, struct afterveda__AnyResponse &tptz__GetPresetsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetPresets(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetPresets *tptz__GetPresets, struct _tptz__GetPresetsResponse &tptz__GetPresetsResponse);
     /** Web service asynchronous operation 'soap_send___tptz__GetPresets' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetPresets(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GetPresets);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetPresets(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetPresets *tptz__GetPresets);
     /** Web service asynchronous operation 'soap_recv___tptz__GetPresets' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetPresets(struct soap *soap, struct afterveda__AnyResponse &tptz__GetPresetsResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetPresets(struct soap *soap, struct _tptz__GetPresetsResponse &tptz__GetPresetsResponse);
+
     /** Web service synchronous operation 'soap_call___tptz__SetPreset' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__SetPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__SetPreset, struct afterveda__AnyResponse &tptz__SetPresetResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__SetPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__SetPreset *tptz__SetPreset, struct _tptz__SetPresetResponse &tptz__SetPresetResponse);
     /** Web service asynchronous operation 'soap_send___tptz__SetPreset' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__SetPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__SetPreset);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__SetPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__SetPreset *tptz__SetPreset);
     /** Web service asynchronous operation 'soap_recv___tptz__SetPreset' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__SetPreset(struct soap *soap, struct afterveda__AnyResponse &tptz__SetPresetResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__SetPreset(struct soap *soap, struct _tptz__SetPresetResponse &tptz__SetPresetResponse);
+
     /** Web service synchronous operation 'soap_call___tptz__GotoPreset' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GotoPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GotoPreset, struct afterveda__AnyResponse &tptz__GotoPresetResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GotoPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GotoPreset *tptz__GotoPreset, struct _tptz__GotoPresetResponse &tptz__GotoPresetResponse);
     /** Web service asynchronous operation 'soap_send___tptz__GotoPreset' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GotoPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GotoPreset);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GotoPreset(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GotoPreset *tptz__GotoPreset);
     /** Web service asynchronous operation 'soap_recv___tptz__GotoPreset' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GotoPreset(struct soap *soap, struct afterveda__AnyResponse &tptz__GotoPresetResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GotoPreset(struct soap *soap, struct _tptz__GotoPresetResponse &tptz__GotoPresetResponse);
+
     /** Web service synchronous operation 'soap_call___tptz__GetStatus' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
     SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GetStatus(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetStatus *tptz__GetStatus, struct _tptz__GetStatusResponse &tptz__GetStatusResponse);
     /** Web service asynchronous operation 'soap_send___tptz__GetStatus' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
     SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GetStatus(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GetStatus *tptz__GetStatus);
     /** Web service asynchronous operation 'soap_recv___tptz__GetStatus' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
     SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GetStatus(struct soap *soap, struct _tptz__GetStatusResponse &tptz__GetStatusResponse);
-    
+
     /** Web service synchronous operation 'soap_call___tptz__GotoHomePosition' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GotoHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GotoHomePosition, struct afterveda__AnyResponse &tptz__GotoHomePositionResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__GotoHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GotoHomePosition *tptz__GotoHomePosition, struct _tptz__GotoHomePositionResponse &tptz__GotoHomePositionResponse);
     /** Web service asynchronous operation 'soap_send___tptz__GotoHomePosition' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GotoHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__GotoHomePosition);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__GotoHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__GotoHomePosition *tptz__GotoHomePosition);
     /** Web service asynchronous operation 'soap_recv___tptz__GotoHomePosition' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GotoHomePosition(struct soap *soap, struct afterveda__AnyResponse &tptz__GotoHomePositionResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__GotoHomePosition(struct soap *soap, struct _tptz__GotoHomePositionResponse &tptz__GotoHomePositionResponse);
+
     /** Web service synchronous operation 'soap_call___tptz__SetHomePosition' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__SetHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__SetHomePosition, struct afterveda__AnyResponse &tptz__SetHomePositionResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__SetHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__SetHomePosition *tptz__SetHomePosition, struct _tptz__SetHomePositionResponse &tptz__SetHomePositionResponse);
     /** Web service asynchronous operation 'soap_send___tptz__SetHomePosition' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__SetHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__SetHomePosition);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__SetHomePosition(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__SetHomePosition *tptz__SetHomePosition);
     /** Web service asynchronous operation 'soap_recv___tptz__SetHomePosition' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__SetHomePosition(struct soap *soap, struct afterveda__AnyResponse &tptz__SetHomePositionResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__SetHomePosition(struct soap *soap, struct _tptz__SetHomePositionResponse &tptz__SetHomePositionResponse);
+
     /** Web service synchronous operation 'soap_call___tptz__ContinuousMove' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__ContinuousMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__ContinuousMove, struct afterveda__AnyResponse &tptz__ContinuousMoveResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__ContinuousMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__ContinuousMove *tptz__ContinuousMove, struct _tptz__ContinuousMoveResponse &tptz__ContinuousMoveResponse);
     /** Web service asynchronous operation 'soap_send___tptz__ContinuousMove' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__ContinuousMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__ContinuousMove);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__ContinuousMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__ContinuousMove *tptz__ContinuousMove);
     /** Web service asynchronous operation 'soap_recv___tptz__ContinuousMove' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__ContinuousMove(struct soap *soap, struct afterveda__AnyResponse &tptz__ContinuousMoveResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__ContinuousMove(struct soap *soap, struct _tptz__ContinuousMoveResponse &tptz__ContinuousMoveResponse);
+
     /** Web service synchronous operation 'soap_call___tptz__RelativeMove' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__RelativeMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__RelativeMove, struct afterveda__AnyResponse &tptz__RelativeMoveResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__RelativeMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__RelativeMove *tptz__RelativeMove, struct _tptz__RelativeMoveResponse &tptz__RelativeMoveResponse);
     /** Web service asynchronous operation 'soap_send___tptz__RelativeMove' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__RelativeMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__RelativeMove);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__RelativeMove(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__RelativeMove *tptz__RelativeMove);
     /** Web service asynchronous operation 'soap_recv___tptz__RelativeMove' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__RelativeMove(struct soap *soap, struct afterveda__AnyResponse &tptz__RelativeMoveResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__RelativeMove(struct soap *soap, struct _tptz__RelativeMoveResponse &tptz__RelativeMoveResponse);
+
     /** Web service synchronous operation 'soap_call___tptz__Stop' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__Stop(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__Stop, struct afterveda__AnyResponse &tptz__StopResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tptz__Stop(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__Stop *tptz__Stop, struct _tptz__StopResponse &tptz__StopResponse);
     /** Web service asynchronous operation 'soap_send___tptz__Stop' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__Stop(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tptz__Stop);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tptz__Stop(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _tptz__Stop *tptz__Stop);
     /** Web service asynchronous operation 'soap_recv___tptz__Stop' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__Stop(struct soap *soap, struct afterveda__AnyResponse &tptz__StopResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tptz__Stop(struct soap *soap, struct _tptz__StopResponse &tptz__StopResponse);
+
     /** Web service synchronous operation 'soap_call___timg__GetServiceCapabilities' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetServiceCapabilities, struct afterveda__AnyResponse &timg__GetServiceCapabilitiesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetServiceCapabilities *timg__GetServiceCapabilities, struct _timg__GetServiceCapabilitiesResponse &timg__GetServiceCapabilitiesResponse);
     /** Web service asynchronous operation 'soap_send___timg__GetServiceCapabilities' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetServiceCapabilities);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetServiceCapabilities *timg__GetServiceCapabilities);
     /** Web service asynchronous operation 'soap_recv___timg__GetServiceCapabilities' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetServiceCapabilities(struct soap *soap, struct afterveda__AnyResponse &timg__GetServiceCapabilitiesResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetServiceCapabilities(struct soap *soap, struct _timg__GetServiceCapabilitiesResponse &timg__GetServiceCapabilitiesResponse);
+
     /** Web service synchronous operation 'soap_call___timg__GetImagingSettings' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetImagingSettings, struct afterveda__AnyResponse &timg__GetImagingSettingsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetImagingSettings *timg__GetImagingSettings, struct _timg__GetImagingSettingsResponse &timg__GetImagingSettingsResponse);
     /** Web service asynchronous operation 'soap_send___timg__GetImagingSettings' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetImagingSettings);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetImagingSettings *timg__GetImagingSettings);
     /** Web service asynchronous operation 'soap_recv___timg__GetImagingSettings' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetImagingSettings(struct soap *soap, struct afterveda__AnyResponse &timg__GetImagingSettingsResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetImagingSettings(struct soap *soap, struct _timg__GetImagingSettingsResponse &timg__GetImagingSettingsResponse);
+
     /** Web service synchronous operation 'soap_call___timg__SetImagingSettings' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__SetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__SetImagingSettings, struct afterveda__AnyResponse &timg__SetImagingSettingsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__SetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__SetImagingSettings *timg__SetImagingSettings, struct _timg__SetImagingSettingsResponse &timg__SetImagingSettingsResponse);
     /** Web service asynchronous operation 'soap_send___timg__SetImagingSettings' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__SetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__SetImagingSettings);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__SetImagingSettings(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__SetImagingSettings *timg__SetImagingSettings);
     /** Web service asynchronous operation 'soap_recv___timg__SetImagingSettings' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__SetImagingSettings(struct soap *soap, struct afterveda__AnyResponse &timg__SetImagingSettingsResponse);
-    
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__SetImagingSettings(struct soap *soap, struct _timg__SetImagingSettingsResponse &timg__SetImagingSettingsResponse);
+
     /** Web service synchronous operation 'soap_call___timg__GetOptions' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetOptions, struct afterveda__AnyResponse &timg__GetOptionsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_call___timg__GetOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetOptions *timg__GetOptions, struct _timg__GetOptionsResponse &timg__GetOptionsResponse);
     /** Web service asynchronous operation 'soap_send___timg__GetOptions' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *timg__GetOptions);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_send___timg__GetOptions(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct _timg__GetOptions *timg__GetOptions);
     /** Web service asynchronous operation 'soap_recv___timg__GetOptions' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetOptions(struct soap *soap, struct afterveda__AnyResponse &timg__GetOptionsResponse);
-    
-    /** Web service synchronous operation 'soap_call___tev__GetEventProperties' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tev__GetEventProperties(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__GetEventProperties, struct afterveda__AnyResponse &tev__GetEventPropertiesResponse);
-    /** Web service asynchronous operation 'soap_send___tev__GetEventProperties' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tev__GetEventProperties(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__GetEventProperties);
-    /** Web service asynchronous operation 'soap_recv___tev__GetEventProperties' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tev__GetEventProperties(struct soap *soap, struct afterveda__AnyResponse &tev__GetEventPropertiesResponse);
-    
-    /** Web service synchronous operation 'soap_call___tev__CreatePullPointSubscription' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tev__CreatePullPointSubscription(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__CreatePullPointSubscription, struct afterveda__AnyResponse &tev__CreatePullPointSubscriptionResponse);
-    /** Web service asynchronous operation 'soap_send___tev__CreatePullPointSubscription' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tev__CreatePullPointSubscription(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__CreatePullPointSubscription);
-    /** Web service asynchronous operation 'soap_recv___tev__CreatePullPointSubscription' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tev__CreatePullPointSubscription(struct soap *soap, struct afterveda__AnyResponse &tev__CreatePullPointSubscriptionResponse);
-    
-    /** Web service synchronous operation 'soap_call___tev__PullMessages' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tev__PullMessages(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__PullMessages, struct afterveda__AnyResponse &tev__PullMessagesResponse);
-    /** Web service asynchronous operation 'soap_send___tev__PullMessages' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tev__PullMessages(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tev__PullMessages);
-    /** Web service asynchronous operation 'soap_recv___tev__PullMessages' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tev__PullMessages(struct soap *soap, struct afterveda__AnyResponse &tev__PullMessagesResponse);
-    
-    /** Web service synchronous operation 'soap_call___wsnt__Renew' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___wsnt__Renew(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *wsnt__Renew, struct afterveda__AnyResponse &wsnt__RenewResponse);
-    /** Web service asynchronous operation 'soap_send___wsnt__Renew' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___wsnt__Renew(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *wsnt__Renew);
-    /** Web service asynchronous operation 'soap_recv___wsnt__Renew' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___wsnt__Renew(struct soap *soap, struct afterveda__AnyResponse &wsnt__RenewResponse);
-    
-    /** Web service synchronous operation 'soap_call___wsnt__Unsubscribe' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___wsnt__Unsubscribe(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *wsnt__Unsubscribe, struct afterveda__AnyResponse &wsnt__UnsubscribeResponse);
-    /** Web service asynchronous operation 'soap_send___wsnt__Unsubscribe' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___wsnt__Unsubscribe(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *wsnt__Unsubscribe);
-    /** Web service asynchronous operation 'soap_recv___wsnt__Unsubscribe' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___wsnt__Unsubscribe(struct soap *soap, struct afterveda__AnyResponse &wsnt__UnsubscribeResponse);
-    
-    /** Web service synchronous operation 'soap_call___tosd__GetServiceCapabilities' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tosd__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetServiceCapabilities, struct afterveda__AnyResponse &tosd__GetServiceCapabilitiesResponse);
-    /** Web service asynchronous operation 'soap_send___tosd__GetServiceCapabilities' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tosd__GetServiceCapabilities(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetServiceCapabilities);
-    /** Web service asynchronous operation 'soap_recv___tosd__GetServiceCapabilities' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tosd__GetServiceCapabilities(struct soap *soap, struct afterveda__AnyResponse &tosd__GetServiceCapabilitiesResponse);
-    
-    /** Web service synchronous operation 'soap_call___tosd__GetOSDs' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tosd__GetOSDs(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetOSDs, struct afterveda__AnyResponse &tosd__GetOSDsResponse);
-    /** Web service asynchronous operation 'soap_send___tosd__GetOSDs' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tosd__GetOSDs(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetOSDs);
-    /** Web service asynchronous operation 'soap_recv___tosd__GetOSDs' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tosd__GetOSDs(struct soap *soap, struct afterveda__AnyResponse &tosd__GetOSDsResponse);
-    
-    /** Web service synchronous operation 'soap_call___tosd__GetOSD' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tosd__GetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetOSD, struct afterveda__AnyResponse &tosd__GetOSDResponse);
-    /** Web service asynchronous operation 'soap_send___tosd__GetOSD' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tosd__GetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__GetOSD);
-    /** Web service asynchronous operation 'soap_recv___tosd__GetOSD' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tosd__GetOSD(struct soap *soap, struct afterveda__AnyResponse &tosd__GetOSDResponse);
-    
-    /** Web service synchronous operation 'soap_call___tosd__SetOSD' to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_call___tosd__SetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__SetOSD, struct afterveda__AnyResponse &tosd__SetOSDResponse);
-    /** Web service asynchronous operation 'soap_send___tosd__SetOSD' to send a request message to the specified endpoint and SOAP Action header, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_send___tosd__SetOSD(struct soap *soap, const char *soap_endpoint, const char *soap_action, struct afterveda__EmptyRequest *tosd__SetOSD);
-    /** Web service asynchronous operation 'soap_recv___tosd__SetOSD' to receive a response message from the connected endpoint, returns SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___tosd__SetOSD(struct soap *soap, struct afterveda__AnyResponse &tosd__SetOSDResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 soap_recv___timg__GetOptions(struct soap *soap, struct _timg__GetOptionsResponse &timg__GetOptionsResponse);
 
 /******************************************************************************\
  *                                                                            *
@@ -6938,101 +11655,103 @@ typedef char *XML;
     /** Web service one-way operation '__wsdd__ResolveMatches' implementation, should return value of soap_send_empty_response() to send HTTP Accept acknowledgment, or return an error code, or return SOAP_OK to immediately return without sending an HTTP response message */
     SOAP_FMAC5 int SOAP_FMAC6 __wsdd__ResolveMatches(struct soap*, struct wsdd__ResolveMatchesType *wsdd__ResolveMatches);
     /** Web service operation '__tds__GetServices' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetServices(struct soap*, struct afterveda__EmptyRequest *tds__GetServices, struct afterveda__AnyResponse &tds__GetServicesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetServices(struct soap*, struct _tds__GetServices *tds__GetServices, struct _tds__GetServicesResponse &tds__GetServicesResponse);
     /** Web service operation '__tds__GetServiceCapabilities' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetServiceCapabilities(struct soap*, struct afterveda__EmptyRequest *tds__GetServiceCapabilities, struct afterveda__AnyResponse &tds__GetServiceCapabilitiesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetServiceCapabilities(struct soap*, struct _tds__GetServiceCapabilities *tds__GetServiceCapabilities, struct _tds__GetServiceCapabilitiesResponse &tds__GetServiceCapabilitiesResponse);
     /** Web service operation '__tds__GetDeviceInformation' implementation, should return SOAP_OK or error code */
     SOAP_FMAC5 int SOAP_FMAC6 __tds__GetDeviceInformation(struct soap*, struct _tds__GetDeviceInformation *tds__GetDeviceInformation, struct _tds__GetDeviceInformationResponse &tds__GetDeviceInformationResponse);
     /** Web service operation '__tds__GetSystemDateAndTime' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetSystemDateAndTime(struct soap*, struct afterveda__EmptyRequest *tds__GetSystemDateAndTime, struct afterveda__AnyResponse &tds__GetSystemDateAndTimeResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetSystemDateAndTime(struct soap*, struct _tds__GetSystemDateAndTime *tds__GetSystemDateAndTime, struct _tds__GetSystemDateAndTimeResponse &tds__GetSystemDateAndTimeResponse);
     /** Web service operation '__tds__GetScopes' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetScopes(struct soap*, struct afterveda__EmptyRequest *tds__GetScopes, struct afterveda__AnyResponse &tds__GetScopesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetScopes(struct soap*, struct _tds__GetScopes *tds__GetScopes, struct _tds__GetScopesResponse &tds__GetScopesResponse);
     /** Web service operation '__tds__GetHostname' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetHostname(struct soap*, struct afterveda__EmptyRequest *tds__GetHostname, struct afterveda__AnyResponse &tds__GetHostnameResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetHostname(struct soap*, struct _tds__GetHostname *tds__GetHostname, struct _tds__GetHostnameResponse &tds__GetHostnameResponse);
     /** Web service operation '__tds__GetNetworkInterfaces' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetNetworkInterfaces(struct soap*, struct afterveda__EmptyRequest *tds__GetNetworkInterfaces, struct afterveda__AnyResponse &tds__GetNetworkInterfacesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetNetworkInterfaces(struct soap*, struct _tds__GetNetworkInterfaces *tds__GetNetworkInterfaces, struct _tds__GetNetworkInterfacesResponse &tds__GetNetworkInterfacesResponse);
     /** Web service operation '__tds__GetUsers' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetUsers(struct soap*, struct afterveda__EmptyRequest *tds__GetUsers, struct afterveda__AnyResponse &tds__GetUsersResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetUsers(struct soap*, struct _tds__GetUsers *tds__GetUsers, struct _tds__GetUsersResponse &tds__GetUsersResponse);
     /** Web service operation '__tds__GetCapabilities' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetCapabilities(struct soap*, struct afterveda__EmptyRequest *tds__GetCapabilities, struct afterveda__AnyResponse &tds__GetCapabilitiesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tds__GetCapabilities(struct soap*, struct _tds__GetCapabilities *tds__GetCapabilities, struct _tds__GetCapabilitiesResponse &tds__GetCapabilitiesResponse);
     /** Web service operation '__trt__GetProfiles' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetProfiles(struct soap*, struct afterveda__EmptyRequest *trt__GetProfiles, struct afterveda__AnyResponse &trt__GetProfilesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetProfiles(struct soap*, struct _trt__GetProfiles *trt__GetProfiles, struct _trt__GetProfilesResponse &trt__GetProfilesResponse);
     /** Web service operation '__trt__GetProfile' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetProfile(struct soap*, struct afterveda__EmptyRequest *trt__GetProfile, struct afterveda__AnyResponse &trt__GetProfileResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetProfile(struct soap*, struct _trt__GetProfile *trt__GetProfile, struct _trt__GetProfileResponse &trt__GetProfileResponse);
     /** Web service operation '__trt__GetServiceCapabilities' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetServiceCapabilities(struct soap*, struct afterveda__EmptyRequest *trt__GetServiceCapabilities, struct afterveda__AnyResponse &trt__GetServiceCapabilitiesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetServiceCapabilities(struct soap*, struct _trt__GetServiceCapabilities *trt__GetServiceCapabilities, struct _trt__GetServiceCapabilitiesResponse &trt__GetServiceCapabilitiesResponse);
     /** Web service operation '__trt__GetVideoSources' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoSources(struct soap*, struct afterveda__EmptyRequest *trt__GetVideoSources, struct afterveda__AnyResponse &trt__GetVideoSourcesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoSources(struct soap*, struct _trt__GetVideoSources *trt__GetVideoSources, struct _trt__GetVideoSourcesResponse &trt__GetVideoSourcesResponse);
+    /** Web service operation '__trt__GetOSDs' implementation, should return SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetOSDs(struct soap*, struct _trt__GetOSDs *trt__GetOSDs, struct _trt__GetOSDsResponse &trt__GetOSDsResponse);
+    /** Web service operation '__trt__GetOSD' implementation, should return SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetOSD(struct soap*, struct _trt__GetOSD *trt__GetOSD, struct _trt__GetOSDResponse &trt__GetOSDResponse);
+    /** Web service operation '__trt__GetOSDOptions' implementation, should return SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetOSDOptions(struct soap*, struct _trt__GetOSDOptions *trt__GetOSDOptions, struct _trt__GetOSDOptionsResponse &trt__GetOSDOptionsResponse);
+    /** Web service operation '__trt__SetOSD' implementation, should return SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__SetOSD(struct soap*, struct _trt__SetOSD *trt__SetOSD, struct _trt__SetOSDResponse &trt__SetOSDResponse);
+    /** Web service operation '__trt__CreateOSD' implementation, should return SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__CreateOSD(struct soap*, struct _trt__CreateOSD *trt__CreateOSD, struct _trt__CreateOSDResponse &trt__CreateOSDResponse);
+    /** Web service operation '__trt__DeleteOSD' implementation, should return SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__DeleteOSD(struct soap*, struct _trt__DeleteOSD *trt__DeleteOSD, struct _trt__DeleteOSDResponse &trt__DeleteOSDResponse);
     /** Web service operation '__trt__GetVideoSourceConfigurations' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoSourceConfigurations(struct soap*, struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurations, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoSourceConfigurations(struct soap*, struct _trt__GetVideoSourceConfigurations *trt__GetVideoSourceConfigurations, struct _trt__GetVideoSourceConfigurationsResponse &trt__GetVideoSourceConfigurationsResponse);
     /** Web service operation '__trt__GetVideoSourceConfiguration' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoSourceConfiguration(struct soap*, struct afterveda__EmptyRequest *trt__GetVideoSourceConfiguration, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoSourceConfiguration(struct soap*, struct _trt__GetVideoSourceConfiguration *trt__GetVideoSourceConfiguration, struct _trt__GetVideoSourceConfigurationResponse &trt__GetVideoSourceConfigurationResponse);
     /** Web service operation '__trt__GetVideoEncoderConfigurations' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoEncoderConfigurations(struct soap*, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurations, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoEncoderConfigurations(struct soap*, struct _trt__GetVideoEncoderConfigurations *trt__GetVideoEncoderConfigurations, struct _trt__GetVideoEncoderConfigurationsResponse &trt__GetVideoEncoderConfigurationsResponse);
     /** Web service operation '__trt__GetStreamUri' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetStreamUri(struct soap*, struct afterveda__EmptyRequest *trt__GetStreamUri, struct afterveda__AnyResponse &trt__GetStreamUriResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetStreamUri(struct soap*, struct _trt__GetStreamUri *trt__GetStreamUri, struct _trt__GetStreamUriResponse &trt__GetStreamUriResponse);
     /** Web service operation '__trt__GetVideoEncoderConfiguration' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoEncoderConfiguration(struct soap*, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfiguration, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoEncoderConfiguration(struct soap*, struct _trt__GetVideoEncoderConfiguration *trt__GetVideoEncoderConfiguration, struct _trt__GetVideoEncoderConfigurationResponse &trt__GetVideoEncoderConfigurationResponse);
     /** Web service operation '__trt__GetVideoSourceConfigurationOptions' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoSourceConfigurationOptions(struct soap*, struct afterveda__EmptyRequest *trt__GetVideoSourceConfigurationOptions, struct afterveda__AnyResponse &trt__GetVideoSourceConfigurationOptionsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoSourceConfigurationOptions(struct soap*, struct _trt__GetVideoSourceConfigurationOptions *trt__GetVideoSourceConfigurationOptions, struct _trt__GetVideoSourceConfigurationOptionsResponse &trt__GetVideoSourceConfigurationOptionsResponse);
     /** Web service operation '__trt__GetVideoEncoderConfigurationOptions' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoEncoderConfigurationOptions(struct soap*, struct afterveda__EmptyRequest *trt__GetVideoEncoderConfigurationOptions, struct afterveda__AnyResponse &trt__GetVideoEncoderConfigurationOptionsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__GetVideoEncoderConfigurationOptions(struct soap*, struct _trt__GetVideoEncoderConfigurationOptions *trt__GetVideoEncoderConfigurationOptions, struct _trt__GetVideoEncoderConfigurationOptionsResponse &trt__GetVideoEncoderConfigurationOptionsResponse);
     /** Web service operation '__trt__SetVideoEncoderConfiguration' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __trt__SetVideoEncoderConfiguration(struct soap*, struct afterveda__EmptyRequest *trt__SetVideoEncoderConfiguration, struct afterveda__AnyResponse &trt__SetVideoEncoderConfigurationResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __trt__SetVideoEncoderConfiguration(struct soap*, struct _trt__SetVideoEncoderConfiguration *trt__SetVideoEncoderConfiguration, struct _trt__SetVideoEncoderConfigurationResponse &trt__SetVideoEncoderConfigurationResponse);
     /** Web service operation '__tr2__GetProfiles' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tr2__GetProfiles(struct soap*, struct afterveda__EmptyRequest *tr2__GetProfiles, struct afterveda__AnyResponse &tr2__GetProfilesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tr2__GetProfiles(struct soap*, struct _tr2__GetProfiles *tr2__GetProfiles, struct _tr2__GetProfilesResponse &tr2__GetProfilesResponse);
     /** Web service operation '__tr2__GetStreamUri' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tr2__GetStreamUri(struct soap*, struct afterveda__EmptyRequest *tr2__GetStreamUri, struct afterveda__AnyResponse &tr2__GetStreamUriResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tr2__GetStreamUri(struct soap*, struct _tr2__GetStreamUri *tr2__GetStreamUri, struct _tr2__GetStreamUriResponse &tr2__GetStreamUriResponse);
     /** Web service operation '__tr2__GetServiceCapabilities' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tr2__GetServiceCapabilities(struct soap*, struct afterveda__EmptyRequest *tr2__GetServiceCapabilities, struct afterveda__AnyResponse &tr2__GetServiceCapabilitiesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tr2__GetServiceCapabilities(struct soap*, struct _tr2__GetServiceCapabilities *tr2__GetServiceCapabilities, struct _tr2__GetServiceCapabilitiesResponse &tr2__GetServiceCapabilitiesResponse);
+    /** Web service operation '__tptz__GetServiceCapabilities' implementation, should return SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GetServiceCapabilities(struct soap*, struct _tptz__GetServiceCapabilities *tptz__GetServiceCapabilities, struct _tptz__GetServiceCapabilitiesResponse &tptz__GetServiceCapabilitiesResponse);
     /** Web service operation '__tptz__GetNodes' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GetNodes(struct soap*, struct afterveda__EmptyRequest *tptz__GetNodes, struct afterveda__AnyResponse &tptz__GetNodesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GetNodes(struct soap*, struct _tptz__GetNodes *tptz__GetNodes, struct _tptz__GetNodesResponse &tptz__GetNodesResponse);
+    /** Web service operation '__tptz__GetNode' implementation, should return SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GetNode(struct soap*, struct _tptz__GetNode *tptz__GetNode, struct _tptz__GetNodeResponse &tptz__GetNodeResponse);
     /** Web service operation '__tptz__GetConfigurations' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GetConfigurations(struct soap*, struct afterveda__EmptyRequest *tptz__GetConfigurations, struct afterveda__AnyResponse &tptz__GetConfigurationsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GetConfigurations(struct soap*, struct _tptz__GetConfigurations *tptz__GetConfigurations, struct _tptz__GetConfigurationsResponse &tptz__GetConfigurationsResponse);
+    /** Web service operation '__tptz__GetConfiguration' implementation, should return SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GetConfiguration(struct soap*, struct _tptz__GetConfiguration *tptz__GetConfiguration, struct _tptz__GetConfigurationResponse &tptz__GetConfigurationResponse);
+    /** Web service operation '__tptz__GetConfigurationOptions' implementation, should return SOAP_OK or error code */
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GetConfigurationOptions(struct soap*, struct _tptz__GetConfigurationOptions *tptz__GetConfigurationOptions, struct _tptz__GetConfigurationOptionsResponse &tptz__GetConfigurationOptionsResponse);
     /** Web service operation '__tptz__GetPresets' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GetPresets(struct soap*, struct afterveda__EmptyRequest *tptz__GetPresets, struct afterveda__AnyResponse &tptz__GetPresetsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GetPresets(struct soap*, struct _tptz__GetPresets *tptz__GetPresets, struct _tptz__GetPresetsResponse &tptz__GetPresetsResponse);
     /** Web service operation '__tptz__SetPreset' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tptz__SetPreset(struct soap*, struct afterveda__EmptyRequest *tptz__SetPreset, struct afterveda__AnyResponse &tptz__SetPresetResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__SetPreset(struct soap*, struct _tptz__SetPreset *tptz__SetPreset, struct _tptz__SetPresetResponse &tptz__SetPresetResponse);
     /** Web service operation '__tptz__GotoPreset' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GotoPreset(struct soap*, struct afterveda__EmptyRequest *tptz__GotoPreset, struct afterveda__AnyResponse &tptz__GotoPresetResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GotoPreset(struct soap*, struct _tptz__GotoPreset *tptz__GotoPreset, struct _tptz__GotoPresetResponse &tptz__GotoPresetResponse);
     /** Web service operation '__tptz__GetStatus' implementation, should return SOAP_OK or error code */
     SOAP_FMAC5 int SOAP_FMAC6 __tptz__GetStatus(struct soap*, struct _tptz__GetStatus *tptz__GetStatus, struct _tptz__GetStatusResponse &tptz__GetStatusResponse);
     /** Web service operation '__tptz__GotoHomePosition' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GotoHomePosition(struct soap*, struct afterveda__EmptyRequest *tptz__GotoHomePosition, struct afterveda__AnyResponse &tptz__GotoHomePositionResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__GotoHomePosition(struct soap*, struct _tptz__GotoHomePosition *tptz__GotoHomePosition, struct _tptz__GotoHomePositionResponse &tptz__GotoHomePositionResponse);
     /** Web service operation '__tptz__SetHomePosition' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tptz__SetHomePosition(struct soap*, struct afterveda__EmptyRequest *tptz__SetHomePosition, struct afterveda__AnyResponse &tptz__SetHomePositionResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__SetHomePosition(struct soap*, struct _tptz__SetHomePosition *tptz__SetHomePosition, struct _tptz__SetHomePositionResponse &tptz__SetHomePositionResponse);
     /** Web service operation '__tptz__ContinuousMove' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tptz__ContinuousMove(struct soap*, struct afterveda__EmptyRequest *tptz__ContinuousMove, struct afterveda__AnyResponse &tptz__ContinuousMoveResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__ContinuousMove(struct soap*, struct _tptz__ContinuousMove *tptz__ContinuousMove, struct _tptz__ContinuousMoveResponse &tptz__ContinuousMoveResponse);
     /** Web service operation '__tptz__RelativeMove' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tptz__RelativeMove(struct soap*, struct afterveda__EmptyRequest *tptz__RelativeMove, struct afterveda__AnyResponse &tptz__RelativeMoveResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__RelativeMove(struct soap*, struct _tptz__RelativeMove *tptz__RelativeMove, struct _tptz__RelativeMoveResponse &tptz__RelativeMoveResponse);
     /** Web service operation '__tptz__Stop' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tptz__Stop(struct soap*, struct afterveda__EmptyRequest *tptz__Stop, struct afterveda__AnyResponse &tptz__StopResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __tptz__Stop(struct soap*, struct _tptz__Stop *tptz__Stop, struct _tptz__StopResponse &tptz__StopResponse);
     /** Web service operation '__timg__GetServiceCapabilities' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __timg__GetServiceCapabilities(struct soap*, struct afterveda__EmptyRequest *timg__GetServiceCapabilities, struct afterveda__AnyResponse &timg__GetServiceCapabilitiesResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __timg__GetServiceCapabilities(struct soap*, struct _timg__GetServiceCapabilities *timg__GetServiceCapabilities, struct _timg__GetServiceCapabilitiesResponse &timg__GetServiceCapabilitiesResponse);
     /** Web service operation '__timg__GetImagingSettings' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __timg__GetImagingSettings(struct soap*, struct afterveda__EmptyRequest *timg__GetImagingSettings, struct afterveda__AnyResponse &timg__GetImagingSettingsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __timg__GetImagingSettings(struct soap*, struct _timg__GetImagingSettings *timg__GetImagingSettings, struct _timg__GetImagingSettingsResponse &timg__GetImagingSettingsResponse);
     /** Web service operation '__timg__SetImagingSettings' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __timg__SetImagingSettings(struct soap*, struct afterveda__EmptyRequest *timg__SetImagingSettings, struct afterveda__AnyResponse &timg__SetImagingSettingsResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __timg__SetImagingSettings(struct soap*, struct _timg__SetImagingSettings *timg__SetImagingSettings, struct _timg__SetImagingSettingsResponse &timg__SetImagingSettingsResponse);
     /** Web service operation '__timg__GetOptions' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __timg__GetOptions(struct soap*, struct afterveda__EmptyRequest *timg__GetOptions, struct afterveda__AnyResponse &timg__GetOptionsResponse);
-    /** Web service operation '__tev__GetEventProperties' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tev__GetEventProperties(struct soap*, struct afterveda__EmptyRequest *tev__GetEventProperties, struct afterveda__AnyResponse &tev__GetEventPropertiesResponse);
-    /** Web service operation '__tev__CreatePullPointSubscription' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tev__CreatePullPointSubscription(struct soap*, struct afterveda__EmptyRequest *tev__CreatePullPointSubscription, struct afterveda__AnyResponse &tev__CreatePullPointSubscriptionResponse);
-    /** Web service operation '__tev__PullMessages' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tev__PullMessages(struct soap*, struct afterveda__EmptyRequest *tev__PullMessages, struct afterveda__AnyResponse &tev__PullMessagesResponse);
-    /** Web service operation '__wsnt__Renew' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __wsnt__Renew(struct soap*, struct afterveda__EmptyRequest *wsnt__Renew, struct afterveda__AnyResponse &wsnt__RenewResponse);
-    /** Web service operation '__wsnt__Unsubscribe' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __wsnt__Unsubscribe(struct soap*, struct afterveda__EmptyRequest *wsnt__Unsubscribe, struct afterveda__AnyResponse &wsnt__UnsubscribeResponse);
-    /** Web service operation '__tosd__GetServiceCapabilities' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tosd__GetServiceCapabilities(struct soap*, struct afterveda__EmptyRequest *tosd__GetServiceCapabilities, struct afterveda__AnyResponse &tosd__GetServiceCapabilitiesResponse);
-    /** Web service operation '__tosd__GetOSDs' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tosd__GetOSDs(struct soap*, struct afterveda__EmptyRequest *tosd__GetOSDs, struct afterveda__AnyResponse &tosd__GetOSDsResponse);
-    /** Web service operation '__tosd__GetOSD' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tosd__GetOSD(struct soap*, struct afterveda__EmptyRequest *tosd__GetOSD, struct afterveda__AnyResponse &tosd__GetOSDResponse);
-    /** Web service operation '__tosd__SetOSD' implementation, should return SOAP_OK or error code */
-    SOAP_FMAC5 int SOAP_FMAC6 __tosd__SetOSD(struct soap*, struct afterveda__EmptyRequest *tosd__SetOSD, struct afterveda__AnyResponse &tosd__SetOSDResponse);
+    SOAP_FMAC5 int SOAP_FMAC6 __timg__GetOptions(struct soap*, struct _timg__GetOptions *timg__GetOptions, struct _timg__GetOptionsResponse &timg__GetOptionsResponse);
 
 /******************************************************************************\
  *                                                                            *
@@ -7084,6 +11803,18 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetServiceCapabilities(struct soap*)
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSources(struct soap*);
 
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetOSDs(struct soap*);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetOSD(struct soap*);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetOSDOptions(struct soap*);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__SetOSD(struct soap*);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__CreateOSD(struct soap*);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__DeleteOSD(struct soap*);
+
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfigurations(struct soap*);
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___trt__GetVideoSourceConfiguration(struct soap*);
@@ -7106,9 +11837,17 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetStreamUri(struct soap*);
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tr2__GetServiceCapabilities(struct soap*);
 
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetServiceCapabilities(struct soap*);
+
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetNodes(struct soap*);
 
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetNode(struct soap*);
+
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetConfigurations(struct soap*);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetConfiguration(struct soap*);
+
+SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetConfigurationOptions(struct soap*);
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tptz__GetPresets(struct soap*);
 
@@ -7135,24 +11874,6 @@ SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetImagingSettings(struct soap*);
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__SetImagingSettings(struct soap*);
 
 SOAP_FMAC5 int SOAP_FMAC6 soap_serve___timg__GetOptions(struct soap*);
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tev__GetEventProperties(struct soap*);
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tev__CreatePullPointSubscription(struct soap*);
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tev__PullMessages(struct soap*);
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___wsnt__Renew(struct soap*);
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___wsnt__Unsubscribe(struct soap*);
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tosd__GetServiceCapabilities(struct soap*);
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tosd__GetOSDs(struct soap*);
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tosd__GetOSD(struct soap*);
-
-SOAP_FMAC5 int SOAP_FMAC6 soap_serve___tosd__SetOSD(struct soap*);
 
 #endif
 
