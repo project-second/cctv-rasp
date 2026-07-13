@@ -17,6 +17,7 @@ void print_usage(const char* program) {
         << "Options:\n"
         << "  --profile <name>     Video profile: low, main, or high. Default: main\n"
         << "  --port <port>        RTSP port. Default: 8554\n"
+        << "  --control-host <ip>  HTTP control bind address. Default: 127.0.0.1\n"
         << "  --control-port <p>   HTTP control port. Default: 8081\n"
         << "  --mount <path>       RTSP mount path. Default: /live\n"
         << "  --encoder <name>     h264 encoder: v4l2 or x264. Default: v4l2\n"
@@ -27,6 +28,8 @@ void print_usage(const char* program) {
         << "  --height <pixels>    Frame height. Default: 720\n"
         << "  --fps <fps>          Frame rate. Default: 30\n"
         << "  --bitrate-kbps <k>   Target video bitrate in kbps. Default: profile value\n"
+        << "  --osd-text <text>    Text overlay shown on video. Default: Afterveda\n"
+        << "  --no-osd             Disable text overlay\n"
         << "  --help               Show this help\n";
 }
 
@@ -68,6 +71,8 @@ Config parse_args(int argc, char* argv[]) {
             profile_name = require_value(arg);
         } else if (arg == "--port") {
             config.port = require_value(arg);
+        } else if (arg == "--control-host") {
+            config.control_host = require_value(arg);
         } else if (arg == "--control-port") {
             config.control_port = require_value(arg);
         } else if (arg == "--mount") {
@@ -88,6 +93,11 @@ Config parse_args(int argc, char* argv[]) {
             fps = parse_int(require_value(arg), arg);
         } else if (arg == "--bitrate-kbps") {
             bitrate_kbps = parse_int(require_value(arg), arg);
+        } else if (arg == "--osd-text") {
+            config.osd_text = require_value(arg);
+            config.osd_enabled = true;
+        } else if (arg == "--no-osd") {
+            config.osd_enabled = false;
         } else {
             throw std::runtime_error("unknown option: " + arg);
         }
@@ -124,6 +134,9 @@ Config parse_args(int argc, char* argv[]) {
     if (config.mount.empty() || config.mount.front() != '/') {
         throw std::runtime_error("--mount must start with /");
     }
+    if (config.control_host.empty()) {
+        throw std::runtime_error("--control-host must not be empty");
+    }
     if (config.encoder != "v4l2" && config.encoder != "x264") {
         throw std::runtime_error("--encoder must be v4l2 or x264");
     }
@@ -135,6 +148,9 @@ Config parse_args(int argc, char* argv[]) {
     }
     if (rtsp_user.has_value() && (config.rtsp_user.empty() || config.rtsp_password.empty())) {
         throw std::runtime_error("--rtsp-user and --rtsp-password must not be empty");
+    }
+    if (config.osd_text.size() > 128) {
+        throw std::runtime_error("--osd-text must be 128 characters or fewer");
     }
 
     return config;

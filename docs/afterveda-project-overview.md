@@ -10,7 +10,7 @@ Afterveda는 Raspberry Pi 기반 CCTV 장비를 만들기 위한 C++ 애플리�
 Pi 카메라
   -> rail-media
      -> GStreamer RTSP 스트림: rtsp://<pi-ip>:8554/live
-     -> HTTP 프로필 제어: http://<pi-ip>:8081
+     -> HTTP 프로필 제어: http://127.0.0.1:8081
 
 ONVIF 클라이언트 / VMS
   -> afterveda-onvif
@@ -72,16 +72,19 @@ rtsp://<pi-ip>:8554/live
 
 GStreamer pipeline은 `libcamerasrc`에서 NV12 raw frame을 받아 H.264로 인코딩하고 `rtph264pay`로 RTSP payload를 만든다. 인코더는 기본적으로 Raspberry Pi 하드웨어 인코더 계열인 `v4l2h264enc`를 사용하며, 옵션으로 `x264enc`도 선택할 수 있다.
 
-HTTP 제어 API는 기본 `8081` 포트에서 동작한다.
+HTTP 제어 API는 기본 `127.0.0.1:8081`에서 동작한다. 외부 장비에서 직접 제어해야 할 때만 `--control-host 0.0.0.0`으로 공개한다.
 
 ```txt
 GET  /health              # 상태 확인
-GET  /profiles            # 사용 가능한 프로필 목록
-GET  /profile             # 현재 프로필 조회
-POST /profile/<name>      # low/main/high 중 하나로 프로필 변경
+GET  /profiles            # ONVIF에 노출되는 안정적인 프로필 목록
+GET  /profile             # 현재 main 프로필의 encoder 설정 조회
+GET  /presets             # low/main/high 화질 프리셋 목록
+POST /preset/<name>       # 화질 프리셋 적용
+GET  /imaging             # 현재 밝기/대비/채도 조회
+POST /imaging             # 밝기/대비/채도 변경
 ```
 
-프로필 변경 시 RTSP media factory를 새 설정으로 다시 설치하고 기존 RTSP client를 닫아 새 연결에서 변경된 스트림이 적용되게 한다.
+encoder 설정 또는 화질 프리셋 변경 시 RTSP media factory를 새 설정으로 다시 설치하고 기존 RTSP client를 닫아 새 연결에서 변경된 스트림이 적용되게 한다.
 
 ### 2. onvif-server: ONVIF 호환 계층
 
@@ -89,14 +92,13 @@ POST /profile/<name>      # low/main/high 중 하나로 프로필 변경
 
 주요 파일:
 
-- `onvif-server/src/app.cpp`: 전체 실행 흐름, signal 처리, Discovery thread와 SOAP HTTP server 시작
-- `onvif-server/src/config.cpp`: 장비 정보, 포트, RTSP URI, 인증, PTZ 옵션 파싱
-- `onvif-server/src/discovery_server.cpp`: WS-Discovery UDP 3702 Probe/Resolve 응답
-- `onvif-server/src/http_server.cpp`: gSOAP 기반 HTTP/SOAP server
-- `onvif-server/src/soap_services.cpp`: ONVIF Device, Media, Media2, PTZ, Imaging, Events, OSD 응답 구현
-- `onvif-server/src/media_model.cpp`: ONVIF에 노출할 media profile/model 구성
-- `onvif-server/src/media_xml.cpp`: ONVIF Media XML 응답 생성
-- `onvif-server/src/rail_client.cpp`: `rail-media` HTTP control API 호출
+- `onvif-server/src/core/app.cpp`: 전체 실행 흐름, signal 처리, Discovery thread와 SOAP HTTP server 시작
+- `onvif-server/src/core/config.cpp`: 장비 정보, 포트, RTSP URI, 인증, PTZ 옵션 파싱
+- `onvif-server/src/network/discovery_server.cpp`: WS-Discovery UDP 3702 Probe/Resolve 응답
+- `onvif-server/src/network/http_server.cpp`: gSOAP 기반 HTTP/SOAP server
+- `onvif-server/src/soap/`: ONVIF Device, Media, Media2, PTZ, Imaging과 Media 표준 OSD 응답 구현
+- `onvif-server/src/media/media_model.cpp`: ONVIF에 노출할 media profile/model 구성
+- `onvif-server/src/network/rail_client.cpp`: `rail-media` HTTP control API 호출
 - `onvif-server/gsoap/`: ONVIF WSDL/XSD와 gSOAP 생성물
 
 ONVIF discovery는 `239.255.255.250:3702` multicast 그룹에 참여하고, Probe 또는 Resolve 요청이 오면 `NetworkVideoTransmitter` 타입과 XAddr를 응답한다. XAddr는 보통 다음 형태다.
@@ -107,19 +109,20 @@ http://<xaddr-host>:8000/device_service
 
 SOAP HTTP server는 기본 `8000` 포트에서 요청을 받는다. `/health` 요청에는 JSON 상태 응답을 제공하고, SOAP 요청은 gSOAP generated binding을 통해 각 `__tds__`, `__trt__`, `__tr2__`, `__tptz__` 계열 함수로 라우팅된다.
 
-현재 구현 범위는 Profile T 지향 구현이다. Device Test Tool을 통과한 공식 Profile T conformant 상태로 단정하면 안 된다. 구현된 주요 기능은 다음과 같다.
+현재 구현 범위는 ONVIF Device/Media/Media2/PTZ/Imaging의 실용적인 부분 구현이다. Metadata/Event 등 Profile T 필수 기능과 Device Test Tool 검증이 완료되지 않아 Profile T scope는 광고하지 않는다. 구현된 주요 기능은 다음과 같다.
 
 - WS-Discovery `Probe`, `Resolve`
 - Device: `GetCapabilities`, `GetDeviceInformation`, `GetServices`, `GetSystemDateAndTime`, `GetScopes`, `GetHostname`, `GetNetworkInterfaces`, `GetUsers`, `GetServiceCapabilities`
-- Media1: `GetProfiles`, `GetStreamUri`, `GetVideoEncoderConfiguration`, `SetVideoEncoderConfiguration`, 비디오 소스/설정 관련 조회
+- Media1: `GetProfiles`, `GetProfile`, `GetStreamUri`, `GetVideoSources`, `GetVideoSourceConfiguration*`, `GetVideoEncoderConfiguration*`, `SetVideoEncoderConfiguration`, 표준 OSD 조회·옵션·생성·수정·삭제
 - Media2: 기본 H.264 profile, stream URI, service capabilities
 - PTZ: node/configuration/preset/status 조회, preset/home 이동, continuous/relative move, stop
-- Imaging/Events/OSD: 클라이언트 호환성을 위한 기본 응답
+- Imaging: 밝기/대비/채도 조회와 설정 변경
+- OSD: Media1 `trt` 작업으로 Plain Text/UpperLeft OSD 한 개를 관리하고 `rail-media` 실제 overlay에 반영
 - 선택적 ONVIF UsernameToken 인증: `PasswordText`, `PasswordDigest`
 
 `GetStreamUri`는 자체 스트림을 만들지 않고 `--rtsp-uri`로 받은 값을 응답한다. UDP multicast 요청은 현재 지원하지 않고 RTP/RTSP/TCP unicast 중심으로 동작한다.
 
-PTZ 요청은 `/dev/afterveda_ptz` 문자 장치에 텍스트 명령을 기록한다. `ContinuousMove` 또는 `RelativeMove`의 X/Y 값을 현재 `pan=<deg> tilt=<deg>` 위치 기준 증분 각도로 변환하고, 커널 장치에는 `pan=120 tilt=80` 같은 절대 위치 명령을 쓴다. `GotoPreset`, `SetHomePosition`, `GotoHomePosition`은 기본 위치인 `pan=90 tilt=45`로 처리한다.
+PTZ 요청은 `/dev/afterveda_ptz` 문자 장치에 텍스트 명령을 기록한다. `ContinuousMove`는 ONVIF X/Y 속도 값을 `--ptz-speed` 기준 `pan_speed=<deg/s> tilt_speed=<deg/s>`로 변환하고, `Stop`은 `stop` 명령을 쓴다. `RelativeMove`는 현재 `pan=<deg> tilt=<deg>` 위치를 읽은 뒤 X/Y 값을 증분 각도로 변환해 `pan=120 tilt=80` 같은 절대 위치 명령을 기록한다. `GotoPreset`, `SetHomePosition`, `GotoHomePosition`은 기본 위치인 `pan=90 tilt=45`를 기준으로 처리한다.
 
 ### 3. afterveda-bsp/ptz-kmod: Pan/Tilt 서보 제어
 
@@ -141,9 +144,10 @@ PTZ 요청은 `/dev/afterveda_ptz` 문자 장치에 텍스트 명령을 기록�
 | Pan range | `30..150` degrees |
 | Tilt range | `45..135` degrees |
 | Default position | `pan=90 tilt=45` |
-| Step | `5` degrees |
+| Relative step | `5` degrees |
+| Continuous speed | `30` deg/s |
 
-명령은 `/dev/afterveda_ptz`에 한 줄 text로 기록한다. 커널 모듈이 현재 각도를 유지하므로 다음 명령은 이전 위치를 기준으로 움직인다. `stop`은 모터 전원 차단이 아니라 현재 위치를 다시 적용하는 동작이다.
+명령은 `/dev/afterveda_ptz`에 한 줄 text로 기록한다. `pan_speed=<deg/s> tilt_speed=<deg/s>`는 커널 worker가 100ms 주기로 연속 이동하고, `pan_speed=0 tilt_speed=0` 또는 `stop`은 정지한다. `pan=<deg> tilt=<deg>` 절대 위치 명령이 들어오면 커널의 continuous worker를 멈추고 해당 위치로 이동한다.
 
 `afterveda-onvif --ptz-dry-run`을 사용하면 실제 `/dev/afterveda_ptz`에 쓰지 않고 ONVIF PTZ 흐름을 확인할 수 있다.
 
@@ -188,30 +192,31 @@ media-server/build/rail-media \
 
 ## 빌드 방식
 
-개발 PC에서 전체 빌드:
+Raspberry Pi 4/5 64-bit 대상 전체 빌드:
 
 ```bash
-cmake -S . -B build
-cmake --build build
+cmake --preset pi-release
+cmake --build --preset pi-release
 ```
 
-하위 프로젝트만 빌드:
+프리셋 없이 실행할 때는 같은 설정을 명시한다.
 
 ```bash
-cmake -S media-server -B media-server/build
-cmake --build media-server/build
+cmake -S . -B build/pi-release \
+  -DCMAKE_TOOLCHAIN_FILE="$PWD/cmake/toolchains/raspi-aarch64.cmake" \
+  -DCMAKE_BUILD_TYPE=Release
 
-cmake -S onvif-server -B onvif-server/build
-cmake --build onvif-server/build
+cmake --build build/pi-release
 ```
 
-형제 BSP 커널 모듈 빌드:
+산출물:
 
-```bash
-make -C ../afterveda-bsp/ptz-kmod
+```txt
+build/pi-release/media-server/rail-media
+build/pi-release/onvif-server/afterveda-onvif
 ```
 
-Raspberry Pi 4/5 64-bit 대상 크로스 컴파일은 `cmake/toolchains/raspi-aarch64.cmake`를 사용한다.
+하위 프로젝트만 별도로 빌드할 수도 있지만, ONVIF 서버는 생성 코드와 gSOAP runtime/header 버전이 같아야 하므로 Pi 대상 빌드에는 반드시 `cmake/toolchains/raspi-aarch64.cmake`를 사용한다.
 
 ```bash
 cmake -S media-server -B media-server/build/pi-release \
@@ -219,6 +224,12 @@ cmake -S media-server -B media-server/build/pi-release \
   -DCMAKE_BUILD_TYPE=Release
 
 cmake --build media-server/build/pi-release
+```
+
+형제 BSP 커널 모듈 빌드:
+
+```bash
+make -C ../afterveda-bsp/ptz-kmod
 ```
 
 ## 외부 의존성
@@ -236,7 +247,7 @@ cmake --build media-server/build/pi-release
 
 - C/C++17
 - gSOAP runtime: `stdsoap2.h`, `libgsoap++` 또는 `libgsoap`
-- gSOAP plugins: `wsddapi`, `wsaapi`
+- gSOAP source/share directory: `plugin/wsddapi.c`, `plugin/wsaapi.c`, `custom/struct_timeval.c`
 - pthread / CMake Threads
 - 생성된 ONVIF binding 파일: `onvif-server/gsoap/generated/*`
 
@@ -288,9 +299,9 @@ ONVIF 클라이언트 PTZ 명령
 ### 프로필 변경 흐름
 
 ```txt
-ONVIF SetVideoEncoderConfiguration 또는 HTTP POST /profile/<name>
+ONVIF SetVideoEncoderConfiguration 또는 HTTP POST /preset/<name>
   -> rail-media control API
-  -> low/main/high 프로필 적용
+  -> 안정적인 main 프로필의 encoder 설정 또는 low/main/high 화질 프리셋 적용
   -> RTSP media factory 재생성
   -> 기존 RTSP client 연결 종료
   -> 새 클라이언트가 변경된 스트림 수신
@@ -298,13 +309,11 @@ ONVIF SetVideoEncoderConfiguration 또는 HTTP POST /profile/<name>
 
 ## 현재 구현상 주의점
 
-- ONVIF는 Profile T 지향 구현이지만 공식 인증 완료 상태는 아니다.
-- Imaging 설정은 호환 응답 중심이며 실제 센서 제어로 연결되어 있지 않다.
-- OSD 응답은 기본 호환 응답이며 실제 영상 오버레이 pipeline은 아직 구현되지 않았다.
+- ONVIF는 부분 호환 구현이며 Metadata/Event와 공식 Device Test Tool 검증 전에는 Profile T로 광고하지 않는다.
+- Imaging 밝기/대비/채도는 `videobalance` 기반 후처리로 적용된다. 노출, 게인, 화이트밸런스는 아직 지원하지 않는다.
+- OSD는 Plain Text 한 개와 UpperLeft 위치만 지원하며, 날짜·시간·이미지·사용자 지정 위치는 아직 지원하지 않는다.
 - Metadata streaming은 아직 완성되지 않았다.
-- PTZ는 continuous velocity를 실제 속도 제어로 처리하지 않고 현재 위치 기준 `pan=<deg> tilt=<deg>` 절대 각도 명령으로 변환한다.
 - PTZ 명령은 `/dev/afterveda_ptz` write 권한이 필요하다.
-- `stop`은 즉시 정지나 전원 차단이 아니라 현재 각도를 유지하도록 PWM을 다시 쓰는 동작이다.
 - `rail-media`의 HTTP control server는 단순 HTTP parser이므로 reverse proxy 수준의 복잡한 HTTP 기능을 기대하면 안 된다.
 - RTSP UDP multicast는 현재 ONVIF 응답에서 지원하지 않는 것으로 처리된다.
 
@@ -312,11 +321,11 @@ ONVIF SetVideoEncoderConfiguration 또는 HTTP POST /profile/<name>
 
 1. Raspberry Pi에서 카메라가 인식되는지 확인한다.
 2. `rail-media`를 실행하고 VLC에서 `rtsp://<pi-ip>:8554/live`를 확인한다.
-3. `curl http://<pi-ip>:8081/health`, `/profiles`, `/profile`로 control API를 확인한다.
-4. `POST /profile/low`, `main`, `high`로 프로필 전환을 확인한다.
+3. `curl http://127.0.0.1:8081/health`, `/profiles`, `/profile`로 control API를 확인한다.
+4. `POST /preset/low`, `main`, `high`로 화질 프리셋 전환을 확인한다.
 5. `../afterveda-bsp/ptz-kmod`에서 커널 모듈과 오버레이를 빌드한다.
 6. Raspberry Pi에서 `afterveda-ptz` 오버레이와 `afterveda_ptz.ko`를 로드하고 `/dev/afterveda_ptz`를 확인한다.
-7. 실제 서보 연결 전 `--pan-min`, `--pan-max`, `--tilt-min`, `--tilt-max`를 안전 범위로 잡는다.
+7. 실제 서보 연결 전 `afterveda-bsp/ptz-kmod`의 기본 각도와 제한 범위를 물리 기구에 맞게 확인한다.
 8. `afterveda-onvif --ptz-dry-run`으로 ONVIF discovery, media, PTZ 흐름을 먼저 확인한다.
 9. ONVIF 클라이언트 또는 VMS에서 장비 검색, `GetStreamUri`, RTSP 재생, PTZ 버튼 동작을 확인한다.
 10. systemd 배포 시 `rail-media`가 먼저 뜨고 `afterveda-onvif`가 그 RTSP URI를 노출하도록 의존성을 잡는다.

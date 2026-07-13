@@ -19,6 +19,7 @@ struct Config {
     std::string password;
     int onvif_port = 8000;
     int ptz_step = 5;
+    int ptz_speed = 30;
     bool ptz_dry_run = false;
 };
 

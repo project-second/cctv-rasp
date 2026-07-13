@@ -44,7 +44,6 @@ std::string discovery_xaddrs(const Config& config) {
 std::string discovery_scopes(const Config& config) {
     return "onvif://www.onvif.org/name/" + config.device_name +
         " onvif://www.onvif.org/hardware/" + config.hardware_id +
-        " onvif://www.onvif.org/Profile/T"
         " onvif://www.onvif.org/type/video_encoder"
         " onvif://www.onvif.org/type/NetworkVideoTransmitter"
         " onvif://www.onvif.org/location/country/Korea";

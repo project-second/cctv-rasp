@@ -79,5 +79,5 @@ sudo tcpdump -ni wlan0 -s0 -A 'udp src port 3702' -c 1
 ProbeMatches
 dn:NetworkVideoTransmitter
 tds:Device
-http://<device-ip>:8000/onvif/device_service
+http://<device-ip>:8000/device_service
 ```

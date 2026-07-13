@@ -19,15 +19,17 @@ Afterveda는 Raspberry Pi 기반 CCTV 장비를 위한 RTSP/ONVIF 애플리케�
 
 - 실행 파일: `rail-media`
 - 역할: PiCam 영상을 H.264로 인코딩하고 RTSP `/live`로 송출
-- 제어 API: `http://<pi-ip>:8081`
+- 제어 API: 기본 `http://127.0.0.1:8081`, 외부 공개가 필요할 때만 `--control-host 0.0.0.0`
 - 기본 RTSP 주소: `rtsp://<pi-ip>:8554/live`
+- 지원 제어: 프로필 조회/변경, 밝기/대비/채도 imaging 값 변경, 선택적 RTSP Digest 인증
 
 ### ONVIF 서버
 
 - 실행 파일: `afterveda-onvif`
-- 역할: WS-Discovery, ONVIF Device/Media/PTZ SOAP 응답
+- 역할: WS-Discovery, ONVIF Device/Media/PTZ/Imaging과 Media 표준 OSD SOAP 응답
 - 영상은 직접 만들지 않고 `rail-media`의 RTSP URI를 반환한다.
 - PTZ 요청은 `/dev/afterveda_ptz`에 텍스트 명령으로 기록한다.
+- 선택적으로 ONVIF UsernameToken 인증을 확인한다.
 
 ### PTZ BSP
 

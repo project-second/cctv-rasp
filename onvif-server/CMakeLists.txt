@@ -76,14 +76,18 @@ add_executable(afterveda-onvif
     src/core/config.cpp
     src/core/utils.cpp
     src/media/media_model.cpp
-    src/media/media_xml.cpp
     src/network/discovery_server.cpp
     src/network/http_client.cpp
     src/network/http_server.cpp
     src/network/rail_client.cpp
     src/ptz/ptz_device.cpp
-    src/ptz/ptz_service.cpp
-    src/soap/soap_services.cpp
+    src/soap/soap_common.cpp
+    src/soap/soap_device_service.cpp
+    src/soap/soap_fault_service.cpp
+    src/soap/soap_imaging_service.cpp
+    src/soap/soap_media_service.cpp
+    src/soap/soap_osd_service.cpp
+    src/soap/soap_ptz_service.cpp
     src/main.cpp
     gsoap/generated/soapC.cpp
     gsoap/generated/soapClient.cpp

@@ -1,0 +1,27 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "pi-release",
+      "displayName": "Raspberry Pi aarch64 Release",
+      "description": "Cross-compile rail-media and afterveda-onvif for Raspberry Pi 4/5 64-bit using sysroot/raspi-aarch64.",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/pi-release",
+      "toolchainFile": "${sourceDir}/cmake/toolchains/raspi-aarch64.cmake",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "pi-release",
+      "configurePreset": "pi-release"
+    }
+  ]
+}

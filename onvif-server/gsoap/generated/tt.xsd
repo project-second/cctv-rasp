@@ -14,18 +14,14 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
     xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
     xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
     xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
+    elementFormDefault="qualified"
     attributeFormDefault="unqualified">
     <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
     <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
@@ -44,25 +40,356 @@
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
+    <complexType name="OnvifVersion"><!-- tt__OnvifVersion -->
+          <sequence>
+            <element name="Major" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__OnvifVersion::Major -->
+            <element name="Minor" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__OnvifVersion::Minor -->
+          </sequence>
+    </complexType>
+    <complexType name="StreamingCapabilities"><!-- tt__StreamingCapabilities -->
+          <sequence>
+            <element name="RTPMulticast" type="xsd:boolean" minOccurs="0" maxOccurs="1"/><!-- tt__StreamingCapabilities::RTPMulticast -->
+            <element name="RTP_TCP" type="xsd:boolean" minOccurs="0" maxOccurs="1"/><!-- tt__StreamingCapabilities::RTP_USCORETCP -->
+            <element name="RTP_RTSP_TCP" type="xsd:boolean" minOccurs="0" maxOccurs="1"/><!-- tt__StreamingCapabilities::RTP_USCORERTSP_USCORETCP -->
+          </sequence>
+    </complexType>
+    <complexType name="DeviceCapabilities"><!-- tt__DeviceCapabilities -->
+          <sequence>
+            <element name="XAddr" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__DeviceCapabilities::XAddr -->
+          </sequence>
+    </complexType>
+    <complexType name="MediaCapabilities"><!-- tt__MediaCapabilities -->
+          <sequence>
+            <element name="XAddr" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__MediaCapabilities::XAddr -->
+            <element name="StreamingCapabilities" type="tt:StreamingCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__MediaCapabilities::StreamingCapabilities -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZCapabilities"><!-- tt__PTZCapabilities -->
+          <sequence>
+            <element name="XAddr" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZCapabilities::XAddr -->
+          </sequence>
+    </complexType>
+    <complexType name="ImagingCapabilities"><!-- tt__ImagingCapabilities -->
+          <sequence>
+            <element name="XAddr" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingCapabilities::XAddr -->
+          </sequence>
+    </complexType>
+    <complexType name="Capabilities"><!-- tt__Capabilities -->
+          <sequence>
+            <element name="Device" type="tt:DeviceCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__Capabilities::Device -->
+            <element name="Media" type="tt:MediaCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__Capabilities::Media -->
+            <element name="Media2" type="tt:MediaCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__Capabilities::Media2 -->
+            <element name="PTZ" type="tt:PTZCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__Capabilities::PTZ -->
+            <element name="Imaging" type="tt:ImagingCapabilities" minOccurs="0" maxOccurs="1"/><!-- tt__Capabilities::Imaging -->
+          </sequence>
+    </complexType>
+    <complexType name="Time"><!-- tt__Time -->
+          <sequence>
+            <element name="Hour" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Time::Hour -->
+            <element name="Minute" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Time::Minute -->
+            <element name="Second" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Time::Second -->
+          </sequence>
+    </complexType>
+    <complexType name="Date"><!-- tt__Date -->
+          <sequence>
+            <element name="Year" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Date::Year -->
+            <element name="Month" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Date::Month -->
+            <element name="Day" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__Date::Day -->
+          </sequence>
+    </complexType>
+    <complexType name="DateTime"><!-- tt__DateTime -->
+          <sequence>
+            <element name="Time" type="tt:Time" minOccurs="0" maxOccurs="1"/><!-- tt__DateTime::Time -->
+            <element name="Date" type="tt:Date" minOccurs="0" maxOccurs="1"/><!-- tt__DateTime::Date -->
+          </sequence>
+    </complexType>
+    <complexType name="SystemDateTime"><!-- tt__SystemDateTime -->
+          <sequence>
+            <element name="DateTimeType" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__SystemDateTime::DateTimeType -->
+            <element name="DaylightSavings" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__SystemDateTime::DaylightSavings -->
+            <element name="UTCDateTime" type="tt:DateTime" minOccurs="0" maxOccurs="1"/><!-- tt__SystemDateTime::UTCDateTime -->
+          </sequence>
+    </complexType>
+    <complexType name="Scope"><!-- tt__Scope -->
+          <sequence>
+            <element name="ScopeDef" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__Scope::ScopeDef -->
+            <element name="ScopeItem" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__Scope::ScopeItem -->
+          </sequence>
+    </complexType>
+    <complexType name="HostnameInformation"><!-- tt__HostnameInformation -->
+          <sequence>
+            <element name="FromDHCP" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__HostnameInformation::FromDHCP -->
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__HostnameInformation::Name -->
+          </sequence>
+    </complexType>
+    <complexType name="NetworkInterfaceInfo"><!-- tt__NetworkInterfaceInfo -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__NetworkInterfaceInfo::Name -->
+            <element name="HwAddress" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__NetworkInterfaceInfo::HwAddress -->
+            <element name="MTU" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__NetworkInterfaceInfo::MTU -->
+          </sequence>
+    </complexType>
+    <complexType name="PrefixedIPv4Address"><!-- tt__PrefixedIPv4Address -->
+          <sequence>
+            <element name="Address" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PrefixedIPv4Address::Address -->
+            <element name="PrefixLength" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__PrefixedIPv4Address::PrefixLength -->
+          </sequence>
+    </complexType>
+    <complexType name="IPv4Configuration"><!-- tt__IPv4Configuration -->
+          <sequence>
+            <element name="Manual" type="tt:PrefixedIPv4Address" minOccurs="0" maxOccurs="unbounded"/><!-- tt__IPv4Configuration::__sizeManual -->
+            <element name="LinkLocal" type="tt:PrefixedIPv4Address" minOccurs="0" maxOccurs="1"/><!-- tt__IPv4Configuration::LinkLocal -->
+            <element name="FromDHCP" type="tt:PrefixedIPv4Address" minOccurs="0" maxOccurs="1"/><!-- tt__IPv4Configuration::FromDHCP -->
+            <element name="DHCP" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__IPv4Configuration::DHCP -->
+          </sequence>
+    </complexType>
+    <complexType name="IPv4NetworkInterface"><!-- tt__IPv4NetworkInterface -->
+          <sequence>
+            <element name="Enabled" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__IPv4NetworkInterface::Enabled -->
+            <element name="Config" type="tt:IPv4Configuration" minOccurs="0" maxOccurs="1"/><!-- tt__IPv4NetworkInterface::Config -->
+          </sequence>
+    </complexType>
+    <complexType name="NetworkInterface"><!-- tt__NetworkInterface -->
+          <sequence>
+            <element name="Info" type="tt:NetworkInterfaceInfo" minOccurs="0" maxOccurs="1"/><!-- tt__NetworkInterface::Info -->
+            <element name="IPv4" type="tt:IPv4NetworkInterface" minOccurs="0" maxOccurs="1"/><!-- tt__NetworkInterface::IPv4 -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__NetworkInterface::token -->
+          <attribute name="enabled" type="xsd:boolean"/><!-- tt__NetworkInterface::enabled -->
+    </complexType>
+    <complexType name="User"><!-- tt__User -->
+          <sequence>
+            <element name="Username" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__User::Username -->
+            <element name="UserLevel" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__User::UserLevel -->
+          </sequence>
+    </complexType>
+    <complexType name="IntRectangle"><!-- tt__IntRectangle -->
+          <sequence>
+          </sequence>
+          <attribute name="x" type="xsd:int"/><!-- tt__IntRectangle::x -->
+          <attribute name="y" type="xsd:int"/><!-- tt__IntRectangle::y -->
+          <attribute name="width" type="xsd:int"/><!-- tt__IntRectangle::width -->
+          <attribute name="height" type="xsd:int"/><!-- tt__IntRectangle::height -->
+    </complexType>
+    <complexType name="VideoResolution"><!-- tt__VideoResolution -->
+          <sequence>
+            <element name="Width" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoResolution::Width -->
+            <element name="Height" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoResolution::Height -->
+          </sequence>
+    </complexType>
+    <complexType name="VideoRateControl"><!-- tt__VideoRateControl -->
+          <sequence>
+            <element name="FrameRateLimit" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoRateControl::FrameRateLimit -->
+            <element name="EncodingInterval" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoRateControl::EncodingInterval -->
+            <element name="BitrateLimit" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoRateControl::BitrateLimit -->
+          </sequence>
+    </complexType>
+    <complexType name="H264Configuration"><!-- tt__H264Configuration -->
+          <sequence>
+            <element name="GovLength" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__H264Configuration::GovLength -->
+            <element name="H264Profile" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__H264Configuration::H264Profile -->
+          </sequence>
+    </complexType>
+    <complexType name="IPAddress"><!-- tt__IPAddress -->
+          <sequence>
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__IPAddress::Type -->
+            <element name="IPv4Address" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__IPAddress::IPv4Address -->
+          </sequence>
+    </complexType>
+    <complexType name="MulticastConfiguration"><!-- tt__MulticastConfiguration -->
+          <sequence>
+            <element name="Address" type="tt:IPAddress" minOccurs="0" maxOccurs="1"/><!-- tt__MulticastConfiguration::Address -->
+            <element name="Port" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__MulticastConfiguration::Port -->
+            <element name="TTL" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__MulticastConfiguration::TTL -->
+            <element name="AutoStart" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__MulticastConfiguration::AutoStart -->
+          </sequence>
+    </complexType>
+    <complexType name="VideoSource"><!-- tt__VideoSource -->
+          <sequence>
+            <element name="Framerate" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- tt__VideoSource::Framerate -->
+            <element name="Resolution" type="tt:VideoResolution" minOccurs="0" maxOccurs="1"/><!-- tt__VideoSource::Resolution -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__VideoSource::token -->
+    </complexType>
+    <complexType name="VideoSourceConfiguration"><!-- tt__VideoSourceConfiguration -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__VideoSourceConfiguration::Name -->
+            <element name="UseCount" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoSourceConfiguration::UseCount -->
+            <element name="SourceToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__VideoSourceConfiguration::SourceToken -->
+            <element name="Bounds" type="tt:IntRectangle" minOccurs="0" maxOccurs="1"/><!-- tt__VideoSourceConfiguration::Bounds -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__VideoSourceConfiguration::token -->
+    </complexType>
+    <complexType name="VideoEncoderConfiguration"><!-- tt__VideoEncoderConfiguration -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::Name -->
+            <element name="UseCount" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::UseCount -->
+            <element name="Encoding" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::Encoding -->
+            <element name="Resolution" type="tt:VideoResolution" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::Resolution -->
+            <element name="Quality" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::Quality -->
+            <element name="RateControl" type="tt:VideoRateControl" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::RateControl -->
+            <element name="H264" type="tt:H264Configuration" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::H264 -->
+            <element name="Multicast" type="tt:MulticastConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::Multicast -->
+            <element name="SessionTimeout" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfiguration::SessionTimeout -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__VideoEncoderConfiguration::token -->
+    </complexType>
+    <complexType name="FloatRange"><!-- tt__FloatRange -->
+          <sequence>
+            <element name="Min" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- tt__FloatRange::Min -->
+            <element name="Max" type="xsd:float" minOccurs="1" maxOccurs="1"/><!-- tt__FloatRange::Max -->
+          </sequence>
+    </complexType>
+    <complexType name="IntRange"><!-- tt__IntRange -->
+          <sequence>
+            <element name="Min" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__IntRange::Min -->
+            <element name="Max" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__IntRange::Max -->
+          </sequence>
+    </complexType>
+    <complexType name="IntRectangleRange"><!-- tt__IntRectangleRange -->
+          <sequence>
+            <element name="XRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__IntRectangleRange::XRange -->
+            <element name="YRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__IntRectangleRange::YRange -->
+            <element name="WidthRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__IntRectangleRange::WidthRange -->
+            <element name="HeightRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__IntRectangleRange::HeightRange -->
+          </sequence>
+    </complexType>
+    <complexType name="VideoSourceConfigurationOptions"><!-- tt__VideoSourceConfigurationOptions -->
+          <sequence>
+            <element name="BoundsRange" type="tt:IntRectangleRange" minOccurs="0" maxOccurs="1"/><!-- tt__VideoSourceConfigurationOptions::BoundsRange -->
+            <element name="VideoSourceTokensAvailable" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/><!-- tt__VideoSourceConfigurationOptions::__sizeVideoSourceTokensAvailable -->
+          </sequence>
+    </complexType>
+    <complexType name="H264Options"><!-- tt__H264Options -->
+          <sequence>
+            <element name="ResolutionsAvailable" type="tt:VideoResolution" minOccurs="0" maxOccurs="unbounded"/><!-- tt__H264Options::__sizeResolutionsAvailable -->
+            <element name="GovLengthRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__H264Options::GovLengthRange -->
+            <element name="FrameRateRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__H264Options::FrameRateRange -->
+            <element name="EncodingIntervalRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__H264Options::EncodingIntervalRange -->
+            <element name="H264ProfilesSupported" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/><!-- tt__H264Options::__sizeH264ProfilesSupported -->
+          </sequence>
+    </complexType>
+    <complexType name="VideoEncoderConfigurationOptionsExtension"><!-- tt__VideoEncoderConfigurationOptionsExtension -->
+          <sequence>
+            <element name="H264" type="tt:H264Options" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfigurationOptionsExtension::H264 -->
+          </sequence>
+    </complexType>
+    <complexType name="VideoEncoderConfigurationOptions"><!-- tt__VideoEncoderConfigurationOptions -->
+          <sequence>
+            <element name="QualityRange" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfigurationOptions::QualityRange -->
+            <element name="H264" type="tt:H264Options" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfigurationOptions::H264 -->
+            <element name="Extension" type="tt:VideoEncoderConfigurationOptionsExtension" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfigurationOptions::Extension -->
+            <element name="BitrateRange" type="tt:IntRange" minOccurs="0" maxOccurs="1"/><!-- tt__VideoEncoderConfigurationOptions::BitrateRange -->
+          </sequence>
+    </complexType>
+    <complexType name="Transport"><!-- tt__Transport -->
+          <sequence>
+            <element name="Protocol" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__Transport::Protocol -->
+          </sequence>
+    </complexType>
+    <complexType name="StreamSetup"><!-- tt__StreamSetup -->
+          <sequence>
+            <element name="Stream" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__StreamSetup::Stream -->
+            <element name="Transport" type="tt:Transport" minOccurs="0" maxOccurs="1"/><!-- tt__StreamSetup::Transport -->
+          </sequence>
+    </complexType>
+    <complexType name="Space2DDescription"><!-- tt__Space2DDescription -->
+          <sequence>
+            <element name="URI" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__Space2DDescription::URI -->
+            <element name="XRange" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__Space2DDescription::XRange -->
+            <element name="YRange" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__Space2DDescription::YRange -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZSpaces"><!-- tt__PTZSpaces -->
+          <sequence>
+            <element name="RelativePanTiltTranslationSpace" type="tt:Space2DDescription" minOccurs="0" maxOccurs="unbounded"/><!-- tt__PTZSpaces::__sizeRelativePanTiltTranslationSpace -->
+            <element name="ContinuousPanTiltVelocitySpace" type="tt:Space2DDescription" minOccurs="0" maxOccurs="unbounded"/><!-- tt__PTZSpaces::__sizeContinuousPanTiltVelocitySpace -->
+          </sequence>
+    </complexType>
+    <complexType name="DurationRange"><!-- tt__DurationRange -->
+          <sequence>
+            <element name="Min" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__DurationRange::Min -->
+            <element name="Max" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__DurationRange::Max -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZConfigurationOptions"><!-- tt__PTZConfigurationOptions -->
+          <sequence>
+            <element name="Spaces" type="tt:PTZSpaces" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfigurationOptions::Spaces -->
+            <element name="PTZTimeout" type="tt:DurationRange" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfigurationOptions::PTZTimeout -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZNode"><!-- tt__PTZNode -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZNode::Name -->
+            <element name="SupportedPTZSpaces" type="tt:PTZSpaces" minOccurs="0" maxOccurs="1"/><!-- tt__PTZNode::SupportedPTZSpaces -->
+            <element name="MaximumNumberOfPresets" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__PTZNode::MaximumNumberOfPresets -->
+            <element name="HomeSupported" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__PTZNode::HomeSupported -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__PTZNode::token -->
+    </complexType>
+    <complexType name="PanTiltLimits"><!-- tt__PanTiltLimits -->
+          <sequence>
+            <element name="Range" type="tt:Space2DDescription" minOccurs="0" maxOccurs="1"/><!-- tt__PanTiltLimits::Range -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZConfiguration"><!-- tt__PTZConfiguration -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::Name -->
+            <element name="UseCount" type="xsd:int" minOccurs="1" maxOccurs="1"/><!-- tt__PTZConfiguration::UseCount -->
+            <element name="NodeToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::NodeToken -->
+            <element name="DefaultContinuousPanTiltVelocitySpace" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::DefaultContinuousPanTiltVelocitySpace -->
+            <element name="DefaultRelativePanTiltTranslationSpace" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::DefaultRelativePanTiltTranslationSpace -->
+            <element name="DefaultPTZTimeout" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::DefaultPTZTimeout -->
+            <element name="PanTiltLimits" type="tt:PanTiltLimits" minOccurs="0" maxOccurs="1"/><!-- tt__PTZConfiguration::PanTiltLimits -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__PTZConfiguration::token -->
+    </complexType>
+    <complexType name="PTZPreset"><!-- tt__PTZPreset -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZPreset::Name -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__PTZPreset::token -->
+    </complexType>
+    <complexType name="Profile"><!-- tt__Profile -->
+          <sequence>
+            <element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__Profile::Name -->
+            <element name="VideoSourceConfiguration" type="tt:VideoSourceConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__Profile::VideoSourceConfiguration -->
+            <element name="VideoEncoderConfiguration" type="tt:VideoEncoderConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__Profile::VideoEncoderConfiguration -->
+            <element name="PTZConfiguration" type="tt:PTZConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__Profile::PTZConfiguration -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__Profile::token -->
+          <attribute name="fixed" type="xsd:boolean"/><!-- tt__Profile::fixed -->
+    </complexType>
+    <complexType name="MediaUri"><!-- tt__MediaUri -->
+          <sequence>
+            <element name="Uri" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__MediaUri::Uri -->
+            <element name="InvalidAfterConnect" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__MediaUri::InvalidAfterConnect -->
+            <element name="InvalidAfterReboot" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- tt__MediaUri::InvalidAfterReboot -->
+            <element name="Timeout" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__MediaUri::Timeout -->
+          </sequence>
+    </complexType>
     <complexType name="Vector2D"><!-- tt__Vector2D -->
           <sequence>
-            <element name="x" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector2D::x -->
-            <element name="y" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector2D::y -->
           </sequence>
+          <attribute name="x" type="xsd:double"/><!-- tt__Vector2D::x -->
+          <attribute name="y" type="xsd:double"/><!-- tt__Vector2D::y -->
     </complexType>
     <complexType name="Vector1D"><!-- tt__Vector1D -->
           <sequence>
-            <element name="x" type="xsd:double" minOccurs="1" maxOccurs="1"/><!-- tt__Vector1D::x -->
           </sequence>
+          <attribute name="x" type="xsd:double"/><!-- tt__Vector1D::x -->
     </complexType>
     <complexType name="PTZVector"><!-- tt__PTZVector -->
           <sequence>
             <element name="PanTilt" type="tt:Vector2D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZVector::PanTilt -->
             <element name="Zoom" type="tt:Vector1D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZVector::Zoom -->
+          </sequence>
+    </complexType>
+    <complexType name="PTZSpeed"><!-- tt__PTZSpeed -->
+          <sequence>
+            <element name="PanTilt" type="tt:Vector2D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZSpeed::PanTilt -->
+            <element name="Zoom" type="tt:Vector1D" minOccurs="0" maxOccurs="1"/><!-- tt__PTZSpeed::Zoom -->
           </sequence>
     </complexType>
     <complexType name="PTZMoveStatus"><!-- tt__PTZMoveStatus -->
@@ -76,6 +403,63 @@
             <element name="Position" type="tt:PTZVector" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::Position -->
             <element name="MoveStatus" type="tt:PTZMoveStatus" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::MoveStatus -->
             <element name="UtcTime" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__PTZStatus::UtcTime -->
+          </sequence>
+    </complexType>
+    <complexType name="ImagingSettings20"><!-- tt__ImagingSettings20 -->
+          <sequence>
+            <element name="Brightness" type="xsd:float" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingSettings20::Brightness -->
+            <element name="ColorSaturation" type="xsd:float" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingSettings20::ColorSaturation -->
+            <element name="Contrast" type="xsd:float" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingSettings20::Contrast -->
+          </sequence>
+    </complexType>
+    <complexType name="ImagingOptions20"><!-- tt__ImagingOptions20 -->
+          <sequence>
+            <element name="Brightness" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingOptions20::Brightness -->
+            <element name="ColorSaturation" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingOptions20::ColorSaturation -->
+            <element name="Contrast" type="tt:FloatRange" minOccurs="0" maxOccurs="1"/><!-- tt__ImagingOptions20::Contrast -->
+          </sequence>
+    </complexType>
+    <complexType name="OSDPosConfiguration"><!-- tt__OSDPosConfiguration -->
+          <sequence>
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__OSDPosConfiguration::Type -->
+          </sequence>
+    </complexType>
+    <complexType name="OSDTextConfiguration"><!-- tt__OSDTextConfiguration -->
+          <sequence>
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__OSDTextConfiguration::Type -->
+            <element name="PlainText" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__OSDTextConfiguration::PlainText -->
+          </sequence>
+    </complexType>
+    <complexType name="OSDConfiguration"><!-- tt__OSDConfiguration -->
+          <sequence>
+            <element name="VideoSourceConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfiguration::VideoSourceConfigurationToken -->
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfiguration::Type -->
+            <element name="Position" type="tt:OSDPosConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfiguration::Position -->
+            <element name="TextString" type="tt:OSDTextConfiguration" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfiguration::TextString -->
+          </sequence>
+          <attribute name="token" type="xsd:string"/><!-- tt__OSDConfiguration::token -->
+    </complexType>
+    <complexType name="MaximumNumberOfOSDs"><!-- tt__MaximumNumberOfOSDs -->
+          <sequence>
+          </sequence>
+          <attribute name="Total" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::Total -->
+          <attribute name="Image" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::Image -->
+          <attribute name="PlainText" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::PlainText -->
+          <attribute name="Date" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::Date -->
+          <attribute name="Time" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::Time -->
+          <attribute name="DateAndTime" type="xsd:int"/><!-- tt__MaximumNumberOfOSDs::DateAndTime -->
+    </complexType>
+    <complexType name="OSDTextOptions"><!-- tt__OSDTextOptions -->
+          <sequence>
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/><!-- tt__OSDTextOptions::__sizeType -->
+          </sequence>
+    </complexType>
+    <complexType name="OSDConfigurationOptions"><!-- tt__OSDConfigurationOptions -->
+          <sequence>
+            <element name="MaximumNumberOfOSDs" type="tt:MaximumNumberOfOSDs" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfigurationOptions::MaximumNumberOfOSDs -->
+            <element name="Type" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/><!-- tt__OSDConfigurationOptions::__sizeType -->
+            <element name="PositionOption" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/><!-- tt__OSDConfigurationOptions::__sizePositionOption -->
+            <element name="TextOption" type="tt:OSDTextOptions" minOccurs="0" maxOccurs="1"/><!-- tt__OSDConfigurationOptions::TextOption -->
           </sequence>
     </complexType>
   </schema>

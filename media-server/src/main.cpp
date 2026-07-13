@@ -20,16 +20,21 @@ int main(int argc, char* argv[]) {
             g_main_loop_new(nullptr, FALSE),
             g_main_loop_unref);
         rail_media::MediaServer media_server(config);
-        rail_media::ControlServer control_server(media_server, config.control_port);
+        rail_media::ControlServer control_server(media_server, config.control_host, config.control_port);
 
         std::cout << "[info] rail-media started\n"
                   << "[info]   url: rtsp://<pi-ip>:" << config.port << config.mount << "\n"
-                  << "[info]   control: http://<pi-ip>:" << config.control_port << "\n"
+                  << "[info]   control: http://" << config.control_host << ":" << config.control_port << "\n"
                   << "[info]   profile: " << config.profile << "\n"
                   << "[info]   resolution: " << config.width << "x" << config.height << "\n"
                   << "[info]   fps: " << config.fps << "\n"
                   << "[info]   bitrate: " << config.bitrate_kbps << " kbps\n"
                   << "[info]   encoder: " << config.encoder << "\n"
+                  << "[info]   brightness: " << config.brightness << "\n"
+                  << "[info]   contrast: " << config.contrast << "\n"
+                  << "[info]   color_saturation: " << config.color_saturation << "\n"
+                  << "[info]   osd_enabled: " << (config.osd_enabled ? "true" : "false") << "\n"
+                  << "[info]   osd_text: " << config.osd_text << "\n"
                   << "[info]   pipeline: " << launch << "\n";
 
         g_main_loop_run(loop.get());

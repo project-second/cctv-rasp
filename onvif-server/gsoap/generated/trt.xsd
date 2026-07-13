@@ -14,18 +14,14 @@
     xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
     xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
     xmlns:wsdd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
-    xmlns:afterveda="http://tempuri.org/afterveda.xsd"
     xmlns:tt="http://www.onvif.org/ver10/schema"
     xmlns:tds="http://www.onvif.org/ver10/device/wsdl"
     xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
     xmlns:tr2="http://www.onvif.org/ver20/media/wsdl"
     xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl"
     xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl"
-    xmlns:tev="http://www.onvif.org/ver10/events/wsdl"
-    xmlns:wsnt="http://docs.oasis-open.org/wsn/b-2"
-    xmlns:tosd="http://www.onvif.org/ver10/osd/wsdl"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    elementFormDefault="unqualified"
+    elementFormDefault="qualified"
     attributeFormDefault="unqualified">
     <import namespace="http://www.w3.org/2003/05/soap-envelope"/>
     <import namespace="http://www.w3.org/2003/05/soap-encoding"/>
@@ -44,45 +40,246 @@
     <import namespace="http://www.onvif.org/ver20/media/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/ptz/wsdl"/>
     <import namespace="http://www.onvif.org/ver20/imaging/wsdl"/>
-    <import namespace="http://www.onvif.org/ver10/events/wsdl"/>
-    <import namespace="http://docs.oasis-open.org/wsn/b-2"/>
-    <import namespace="http://www.onvif.org/ver10/osd/wsdl"/>
 
+    <complexType name="GetProfiles"><!-- _trt__GetProfiles -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetProfile"><!-- _trt__GetProfile -->
+          <sequence>
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetProfile::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetServiceCapabilities"><!-- _trt__GetServiceCapabilities -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSources"><!-- _trt__GetVideoSources -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfigurations"><!-- _trt__GetVideoSourceConfigurations -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfiguration"><!-- _trt__GetVideoSourceConfiguration -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoSourceConfiguration::ConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfigurations"><!-- _trt__GetVideoEncoderConfigurations -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetStreamUri"><!-- _trt__GetStreamUri -->
+          <sequence>
+            <element name="StreamSetup" type="tt:StreamSetup" minOccurs="0" maxOccurs="1"/><!-- _trt__GetStreamUri::StreamSetup -->
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetStreamUri::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfiguration"><!-- _trt__GetVideoEncoderConfiguration -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoEncoderConfiguration::ConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfigurationOptions"><!-- _trt__GetVideoSourceConfigurationOptions -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoSourceConfigurationOptions::ConfigurationToken -->
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoSourceConfigurationOptions::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfigurationOptions"><!-- _trt__GetVideoEncoderConfigurationOptions -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoEncoderConfigurationOptions::ConfigurationToken -->
+            <element name="ProfileToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoEncoderConfigurationOptions::ProfileToken -->
+          </sequence>
+    </complexType>
+    <complexType name="Capabilities"><!-- trt__Capabilities -->
+          <sequence>
+          </sequence>
+          <attribute name="SnapshotUri" type="xsd:boolean"/><!-- trt__Capabilities::SnapshotUri -->
+          <attribute name="Rotation" type="xsd:boolean"/><!-- trt__Capabilities::Rotation -->
+          <attribute name="VideoSourceMode" type="xsd:boolean"/><!-- trt__Capabilities::VideoSourceMode -->
+          <attribute name="OSD" type="xsd:boolean"/><!-- trt__Capabilities::OSD -->
+          <attribute name="TemporaryOSDText" type="xsd:boolean"/><!-- trt__Capabilities::TemporaryOSDText -->
+          <attribute name="EXICompression" type="xsd:boolean"/><!-- trt__Capabilities::EXICompression -->
+    </complexType>
+    <complexType name="GetServiceCapabilitiesResponse"><!-- _trt__GetServiceCapabilitiesResponse -->
+          <sequence>
+            <element name="Capabilities" type="trt:Capabilities" minOccurs="0" maxOccurs="1"/><!-- _trt__GetServiceCapabilitiesResponse::Capabilities -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfigurationsResponse"><!-- _trt__GetVideoSourceConfigurationsResponse -->
+          <sequence>
+            <element name="Configurations" type="tt:VideoSourceConfiguration" minOccurs="0" maxOccurs="unbounded"/><!-- _trt__GetVideoSourceConfigurationsResponse::__sizeConfigurations -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfigurationResponse"><!-- _trt__GetVideoSourceConfigurationResponse -->
+          <sequence>
+            <element name="Configuration" type="tt:VideoSourceConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoSourceConfigurationResponse::Configuration -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourceConfigurationOptionsResponse"><!-- _trt__GetVideoSourceConfigurationOptionsResponse -->
+          <sequence>
+            <element name="Options" type="tt:VideoSourceConfigurationOptions" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoSourceConfigurationOptionsResponse::Options -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfigurationOptionsResponse"><!-- _trt__GetVideoEncoderConfigurationOptionsResponse -->
+          <sequence>
+            <element name="Options" type="tt:VideoEncoderConfigurationOptions" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoEncoderConfigurationOptionsResponse::Options -->
+          </sequence>
+    </complexType>
+    <complexType name="SetVideoEncoderConfiguration"><!-- _trt__SetVideoEncoderConfiguration -->
+          <sequence>
+            <element name="Configuration" type="tt:VideoEncoderConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__SetVideoEncoderConfiguration::Configuration -->
+            <element name="ForcePersistence" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- _trt__SetVideoEncoderConfiguration::ForcePersistence -->
+          </sequence>
+    </complexType>
+    <complexType name="SetVideoEncoderConfigurationResponse"><!-- _trt__SetVideoEncoderConfigurationResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="GetProfilesResponse"><!-- _trt__GetProfilesResponse -->
+          <sequence>
+            <element name="Profiles" type="tt:Profile" minOccurs="0" maxOccurs="unbounded"/><!-- _trt__GetProfilesResponse::__sizeProfiles -->
+          </sequence>
+    </complexType>
+    <complexType name="GetProfileResponse"><!-- _trt__GetProfileResponse -->
+          <sequence>
+            <element name="Profile" type="tt:Profile" minOccurs="0" maxOccurs="1"/><!-- _trt__GetProfileResponse::Profile -->
+          </sequence>
+    </complexType>
+    <complexType name="GetStreamUriResponse"><!-- _trt__GetStreamUriResponse -->
+          <sequence>
+            <element name="MediaUri" type="tt:MediaUri" minOccurs="0" maxOccurs="1"/><!-- _trt__GetStreamUriResponse::MediaUri -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoSourcesResponse"><!-- _trt__GetVideoSourcesResponse -->
+          <sequence>
+            <element name="VideoSources" type="tt:VideoSource" minOccurs="0" maxOccurs="unbounded"/><!-- _trt__GetVideoSourcesResponse::__sizeVideoSources -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfigurationResponse"><!-- _trt__GetVideoEncoderConfigurationResponse -->
+          <sequence>
+            <element name="Configuration" type="tt:VideoEncoderConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__GetVideoEncoderConfigurationResponse::Configuration -->
+          </sequence>
+    </complexType>
+    <complexType name="GetVideoEncoderConfigurationsResponse"><!-- _trt__GetVideoEncoderConfigurationsResponse -->
+          <sequence>
+            <element name="Configurations" type="tt:VideoEncoderConfiguration" minOccurs="0" maxOccurs="unbounded"/><!-- _trt__GetVideoEncoderConfigurationsResponse::__sizeConfigurations -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSDs"><!-- _trt__GetOSDs -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetOSDs::ConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSDsResponse"><!-- _trt__GetOSDsResponse -->
+          <sequence>
+            <element name="OSDs" type="tt:OSDConfiguration" minOccurs="0" maxOccurs="unbounded"/><!-- _trt__GetOSDsResponse::__sizeOSDs -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSD"><!-- _trt__GetOSD -->
+          <sequence>
+            <element name="OSDToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetOSD::OSDToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSDResponse"><!-- _trt__GetOSDResponse -->
+          <sequence>
+            <element name="OSD" type="tt:OSDConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__GetOSDResponse::OSD -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSDOptions"><!-- _trt__GetOSDOptions -->
+          <sequence>
+            <element name="ConfigurationToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__GetOSDOptions::ConfigurationToken -->
+          </sequence>
+    </complexType>
+    <complexType name="GetOSDOptionsResponse"><!-- _trt__GetOSDOptionsResponse -->
+          <sequence>
+            <element name="OSDOptions" type="tt:OSDConfigurationOptions" minOccurs="0" maxOccurs="1"/><!-- _trt__GetOSDOptionsResponse::OSDOptions -->
+          </sequence>
+    </complexType>
+    <complexType name="SetOSD"><!-- _trt__SetOSD -->
+          <sequence>
+            <element name="OSD" type="tt:OSDConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__SetOSD::OSD -->
+          </sequence>
+    </complexType>
+    <complexType name="SetOSDResponse"><!-- _trt__SetOSDResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
+    <complexType name="CreateOSD"><!-- _trt__CreateOSD -->
+          <sequence>
+            <element name="OSD" type="tt:OSDConfiguration" minOccurs="0" maxOccurs="1"/><!-- _trt__CreateOSD::OSD -->
+          </sequence>
+    </complexType>
+    <complexType name="CreateOSDResponse"><!-- _trt__CreateOSDResponse -->
+          <sequence>
+            <element name="OSDToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__CreateOSDResponse::OSDToken -->
+          </sequence>
+    </complexType>
+    <complexType name="DeleteOSD"><!-- _trt__DeleteOSD -->
+          <sequence>
+            <element name="OSDToken" type="xsd:string" minOccurs="0" maxOccurs="1"/><!-- _trt__DeleteOSD::OSDToken -->
+          </sequence>
+    </complexType>
+    <complexType name="DeleteOSDResponse"><!-- _trt__DeleteOSDResponse -->
+          <sequence>
+          </sequence>
+    </complexType>
     <!-- operation response element -->
-    <element name="GetProfilesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetProfilesResponse" type="trt:GetProfilesResponse"/>
     <!-- operation response element -->
-    <element name="GetProfileResponse" type="afterveda:AnyResponse"/>
+    <element name="GetProfileResponse" type="trt:GetProfileResponse"/>
     <!-- operation response element -->
-    <element name="GetServiceCapabilitiesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetServiceCapabilitiesResponse" type="trt:GetServiceCapabilitiesResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourcesResponse" type="afterveda:AnyResponse"/>
+    <element name="GetVideoSourcesResponse" type="trt:GetVideoSourcesResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourceConfigurationsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetOSDsResponse" type="trt:GetOSDsResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourceConfigurationResponse" type="afterveda:AnyResponse"/>
+    <element name="GetOSDResponse" type="trt:GetOSDResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoEncoderConfigurationsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetOSDOptionsResponse" type="trt:GetOSDOptionsResponse"/>
     <!-- operation response element -->
-    <element name="GetStreamUriResponse" type="afterveda:AnyResponse"/>
+    <element name="SetOSDResponse" type="trt:SetOSDResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoEncoderConfigurationResponse" type="afterveda:AnyResponse"/>
+    <element name="CreateOSDResponse" type="trt:CreateOSDResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoSourceConfigurationOptionsResponse" type="afterveda:AnyResponse"/>
+    <element name="DeleteOSDResponse" type="trt:DeleteOSDResponse"/>
     <!-- operation response element -->
-    <element name="GetVideoEncoderConfigurationOptionsResponse" type="afterveda:AnyResponse"/>
+    <element name="GetVideoSourceConfigurationsResponse" type="trt:GetVideoSourceConfigurationsResponse"/>
     <!-- operation response element -->
-    <element name="SetVideoEncoderConfigurationResponse" type="afterveda:AnyResponse"/>
-    <element name="GetProfiles" type="afterveda:EmptyRequest"/>
-    <element name="GetProfile" type="afterveda:EmptyRequest"/>
-    <element name="GetServiceCapabilities" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoSources" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoSourceConfigurations" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoSourceConfiguration" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoEncoderConfigurations" type="afterveda:EmptyRequest"/>
-    <element name="GetStreamUri" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoEncoderConfiguration" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoSourceConfigurationOptions" type="afterveda:EmptyRequest"/>
-    <element name="GetVideoEncoderConfigurationOptions" type="afterveda:EmptyRequest"/>
-    <element name="SetVideoEncoderConfiguration" type="afterveda:EmptyRequest"/>
+    <element name="GetVideoSourceConfigurationResponse" type="trt:GetVideoSourceConfigurationResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoEncoderConfigurationsResponse" type="trt:GetVideoEncoderConfigurationsResponse"/>
+    <!-- operation response element -->
+    <element name="GetStreamUriResponse" type="trt:GetStreamUriResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoEncoderConfigurationResponse" type="trt:GetVideoEncoderConfigurationResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoSourceConfigurationOptionsResponse" type="trt:GetVideoSourceConfigurationOptionsResponse"/>
+    <!-- operation response element -->
+    <element name="GetVideoEncoderConfigurationOptionsResponse" type="trt:GetVideoEncoderConfigurationOptionsResponse"/>
+    <!-- operation response element -->
+    <element name="SetVideoEncoderConfigurationResponse" type="trt:SetVideoEncoderConfigurationResponse"/>
+    <element name="GetProfiles" type="trt:GetProfiles"/>
+    <element name="GetProfile" type="trt:GetProfile"/>
+    <element name="GetServiceCapabilities" type="trt:GetServiceCapabilities"/>
+    <element name="GetVideoSources" type="trt:GetVideoSources"/>
+    <element name="GetVideoSourceConfigurations" type="trt:GetVideoSourceConfigurations"/>
+    <element name="GetVideoSourceConfiguration" type="trt:GetVideoSourceConfiguration"/>
+    <element name="GetVideoEncoderConfigurations" type="trt:GetVideoEncoderConfigurations"/>
+    <element name="GetStreamUri" type="trt:GetStreamUri"/>
+    <element name="GetVideoEncoderConfiguration" type="trt:GetVideoEncoderConfiguration"/>
+    <element name="GetVideoSourceConfigurationOptions" type="trt:GetVideoSourceConfigurationOptions"/>
+    <element name="GetVideoEncoderConfigurationOptions" type="trt:GetVideoEncoderConfigurationOptions"/>
+    <element name="SetVideoEncoderConfiguration" type="trt:SetVideoEncoderConfiguration"/>
+    <element name="GetOSDs" type="trt:GetOSDs"/>
+    <element name="GetOSD" type="trt:GetOSD"/>
+    <element name="GetOSDOptions" type="trt:GetOSDOptions"/>
+    <element name="SetOSD" type="trt:SetOSD"/>
+    <element name="CreateOSD" type="trt:CreateOSD"/>
+    <element name="DeleteOSD" type="trt:DeleteOSD"/>
   </schema>
 

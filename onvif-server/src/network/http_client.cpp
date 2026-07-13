@@ -25,7 +25,11 @@ std::pair<std::string, std::string> parse_http_url(const std::string& url) {
 
 }  // namespace
 
-std::optional<std::string> http_request(const std::string& base_url, const std::string& method, const std::string& path) {
+std::optional<RailHttpResponse> http_request_with_status(
+    const std::string& base_url,
+    const std::string& method,
+    const std::string& path,
+    const std::string& body) {
     try {
         const auto [authority, base_path] = parse_http_url(base_url);
         std::string host = authority;
@@ -64,7 +68,11 @@ std::optional<std::string> http_request(const std::string& base_url, const std::
         wire << method << " " << full_path << " HTTP/1.1\r\n"
              << "Host: " << authority << "\r\n"
              << "Connection: close\r\n"
-             << "Content-Length: 0\r\n\r\n";
+             << "Content-Length: " << body.size() << "\r\n";
+        if (!body.empty()) {
+            wire << "Content-Type: application/json\r\n";
+        }
+        wire << "\r\n" << body;
         const std::string request = wire.str();
         send(fd, request.data(), request.size(), 0);
 
@@ -79,14 +87,27 @@ std::optional<std::string> http_request(const std::string& base_url, const std::
         }
         close(fd);
 
-        const std::size_t body = response.find("\r\n\r\n");
-        if (body == std::string::npos) {
+        const std::size_t body_start = response.find("\r\n\r\n");
+        if (body_start == std::string::npos) {
             return std::nullopt;
         }
-        return response.substr(body + 4);
+        const std::size_t status_start = response.find(' ');
+        if (status_start == std::string::npos) {
+            return std::nullopt;
+        }
+        const int status = std::stoi(response.substr(status_start + 1, 3));
+        return RailHttpResponse{status, response.substr(body_start + 4)};
     } catch (...) {
         return std::nullopt;
     }
+}
+
+std::optional<std::string> http_request(const std::string& base_url, const std::string& method, const std::string& path) {
+    const auto response = http_request_with_status(base_url, method, path);
+    if (!response.has_value() || response->status < 200 || response->status >= 300) {
+        return std::nullopt;
+    }
+    return response->body;
 }
 
 }  // namespace afterveda_onvif

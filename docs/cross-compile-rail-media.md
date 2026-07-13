@@ -23,6 +23,8 @@ sudo apt install -y \
   libgstreamer1.0-dev \
   libgstreamer-plugins-base1.0-dev \
   libgstrtspserver-1.0-dev \
+  libsoup-3.0-dev \
+  libjson-glib-dev \
   gstreamer1.0-tools \
   gstreamer1.0-plugins-base \
   gstreamer1.0-plugins-good \
@@ -79,6 +81,8 @@ rsync -avz --delete pi@<pi-ip>:/usr/lib sysroot/raspi-aarch64/usr/
 ```bash
 test -d sysroot/raspi-aarch64/usr/include/gstreamer-1.0
 test -d sysroot/raspi-aarch64/usr/lib/aarch64-linux-gnu/pkgconfig
+test -f sysroot/raspi-aarch64/usr/lib/aarch64-linux-gnu/pkgconfig/libsoup-3.0.pc
+test -f sysroot/raspi-aarch64/usr/lib/aarch64-linux-gnu/pkgconfig/json-glib-1.0.pc
 ```
 
 ## 5. PC/WSL에서 크로스 컴파일

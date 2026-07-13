@@ -167,20 +167,20 @@ CMAKE_SYSROOT=<repo>/sysroot/raspi-aarch64
 PKG_CONFIG_SYSROOT_DIR=<repo>/sysroot/raspi-aarch64
 ```
 
-빌드 흐름은 다음과 같이 잡는다.
+`rail-media`만 빌드할 때는 저장소 루트에서 다음과 같이 실행한다.
 
 ```bash
-cmake -S . -B build/pi-release \
-  -DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/raspi-aarch64.cmake \
+cmake -S media-server -B media-server/build/pi-release \
+  -DCMAKE_TOOLCHAIN_FILE="$PWD/cmake/toolchains/raspi-aarch64.cmake" \
   -DCMAKE_BUILD_TYPE=Release
 
-cmake --build build/pi-release
+cmake --build media-server/build/pi-release
 ```
 
 빌드 결과 확인:
 
 ```bash
-file build/pi-release/<binary-name>
+file media-server/build/pi-release/rail-media
 ```
 
 확인할 것:
@@ -195,8 +195,8 @@ PC에서 빌드한 바이너리를 Raspberry Pi로 보낸다.
 
 ```bash
 ssh pi@<pi-ip> "sudo mkdir -p /opt/rail-cctv/bin /etc/rail-cctv"
-scp build/pi-release/<binary-name> pi@<pi-ip>:/tmp/
-ssh pi@<pi-ip> "sudo mv /tmp/<binary-name> /opt/rail-cctv/bin/ && sudo chmod +x /opt/rail-cctv/bin/<binary-name>"
+scp media-server/build/pi-release/rail-media pi@<pi-ip>:/tmp/rail-media
+ssh pi@<pi-ip> "sudo mv /tmp/rail-media /opt/rail-cctv/bin/rail-media && sudo chmod +x /opt/rail-cctv/bin/rail-media"
 ```
 
 설정 파일이 있으면 같이 보낸다.
@@ -208,7 +208,7 @@ ssh pi@<pi-ip> "sudo mv /tmp/<config-file> /etc/rail-cctv/"
 
 확인할 것:
 
-- [ ] `/opt/rail-cctv/bin/<binary-name>`이 존재한다
+- [ ] `/opt/rail-cctv/bin/rail-media`가 존재한다
 - [ ] 실행 권한이 있다
 - [ ] 설정 파일이 `/etc/rail-cctv/`에 있다
 
@@ -217,13 +217,13 @@ ssh pi@<pi-ip> "sudo mv /tmp/<config-file> /etc/rail-cctv/"
 Pi에서 직접 실행한다.
 
 ```bash
-/opt/rail-cctv/bin/<binary-name>
+/opt/rail-cctv/bin/rail-media
 ```
 
 실행 중 문제가 있으면 라이브러리 링크를 확인한다.
 
 ```bash
-ldd /opt/rail-cctv/bin/<binary-name>
+ldd /opt/rail-cctv/bin/rail-media
 ```
 
 확인할 것:
@@ -253,7 +253,7 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/opt/rail-cctv/bin/<binary-name>
+ExecStart=/opt/rail-cctv/bin/rail-media
 Restart=always
 RestartSec=3
 User=pi

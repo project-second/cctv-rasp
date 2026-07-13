@@ -13,6 +13,13 @@ if [[ "${actual_soapcpp2_version}" != "${required_gsoap_version}" ]]; then
   exit 1
 fi
 
+# Remove artifacts for services that are no longer declared in onvif.h. soapcpp2
+# overwrites generated files but does not delete outputs from removed bindings.
+rm -f \
+  "${script_dir}/generated/OSDConfigurationBinding.nsmap" \
+  "${script_dir}/generated/OSDConfigurationBinding.wsdl" \
+  "${script_dir}/generated/tosd.xsd"
+
 soapcpp2 \
   -2 \
   -c++11 \
@@ -21,6 +28,8 @@ soapcpp2 \
   -I"${gsoap_share_dir}" \
   -d "${script_dir}/generated" \
   "${script_dir}/onvif.h"
+
+sed -i 's/[[:space:]]\+$//' "${script_dir}/generated/soapStub.h"
 
 nsmap="${script_dir}/generated/DeviceBinding.nsmap"
 grep -q '"tt", "http://www.onvif.org/ver10/schema"' "$nsmap" ||

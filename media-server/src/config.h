@@ -7,6 +7,7 @@ namespace rail_media {
 struct Config {
     std::string profile = "main";
     std::string port = "8554";
+    std::string control_host = "127.0.0.1";
     std::string control_port = "8081";
     std::string mount = "/live";
     std::string encoder = "v4l2";
@@ -17,6 +18,11 @@ struct Config {
     int height = 720;
     int fps = 30;
     int bitrate_kbps = 2500;
+    double brightness = 50.0;
+    double contrast = 50.0;
+    double color_saturation = 50.0;
+    bool osd_enabled = true;
+    std::string osd_text = "Afterveda";
 };
 
 int parse_int(const std::string& value, const std::string& name);

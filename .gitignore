@@ -1,5 +1,6 @@
 build/
 sysroot/
+afterveda-bin/
 
 # CMake/build outputs
 CMakeFiles/
@@ -18,3 +19,13 @@ Makefile
 *.so
 *.a
 *.log
+
+
+/onvif-server/gsoap/soap.nsmap
+/onvif-server/gsoap/soapC.cpp
+/onvif-server/gsoap/soapH.h
+/onvif-server/gsoap/soapStub.h
+/soap.nsmap
+/soapC.cpp
+/soapH.h
+/soapStub.h

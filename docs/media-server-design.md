@@ -14,7 +14,8 @@ rtsp://<pi-ip>:8554/live
 - PiCam 입력은 `libcamerasrc`를 사용한다.
 - 미디어 파이프라인은 GStreamer와 `gst-rtsp-server`를 사용한다.
 - 기본 출력은 RTSP다.
-- PTZ, WebRTC, 녹화, 외부 웹 서버 통신은 이후 단계로 미룬다.
+- 프로필과 imaging 값은 `libsoup` 기반 내장 HTTP API로 제어한다.
+- PTZ는 `afterveda-onvif`와 외부 BSP 문자 장치가 담당한다. WebRTC, HLS, 녹화는 현재 범위 밖이다.
 
 ## 프로세스
 
@@ -60,6 +61,7 @@ libcamerasrc
 
 ```txt
 --port <port>       기본값: 8554
+--control-host <ip> 기본값: 127.0.0.1
 --control-port <p>  기본값: 8081
 --mount <path>      기본값: /live
 --profile <name>    low, main, high 중 하나, 기본값: main
@@ -67,9 +69,13 @@ libcamerasrc
 --width <pixels>    기본값: 1280
 --height <pixels>   기본값: 720
 --fps <fps>         기본값: 30
+--bitrate-kbps <k>  기본값: 프로필 값
+--rtsp-user <user>  RTSP Digest 인증 사용자명
+--rtsp-password <p> RTSP Digest 인증 비밀번호
+--rtsp-realm <name> RTSP Digest 인증 realm, 기본값: rail-media
 ```
 
-기본 프로필:
+화질 프리셋(ONVIF에는 별도 프로필로 광고하지 않음):
 
 | 프로필 | 품질 | 해상도 | FPS | 인코더 | 목표 bitrate |
 |---|---|---:|---:|---|---:|
@@ -77,8 +83,7 @@ libcamerasrc
 | `main` | 720p | 1280x720 | 30 | `v4l2` | 2500 kbps |
 | `high` | 1080p | 1920x1080 | 30 | `v4l2` | 5000 kbps |
 
-목표 bitrate는 현재 운영 기준값이다.
-현재 코드에는 bitrate 설정 필드가 없으므로 실제 인코더 bitrate 적용은 이후 `Config`와 `Profile`에 `bitrate_kbps`를 추가한 뒤 GStreamer encoder 옵션에 연결한다.
+목표 bitrate는 현재 `v4l2h264enc`의 `video_bitrate` 또는 `x264enc bitrate` 옵션에 적용된다.
 
 ## 미디어 서버 후보 비교
 
@@ -101,16 +106,21 @@ libcamerasrc
 ./rail-media --profile low
 ```
 
-실행 중 프로필 변경은 HTTP API로 요청한다.
+실행 중 화질 프리셋 적용은 HTTP API로 요청한다.
 
 ```bash
-curl http://<pi-ip>:8081/profile
-curl http://<pi-ip>:8081/profiles
-curl -X POST http://<pi-ip>:8081/profile/high
+curl http://127.0.0.1:8081/health
+curl http://127.0.0.1:8081/profile
+curl http://127.0.0.1:8081/profiles
+curl http://127.0.0.1:8081/presets
+curl -X POST http://127.0.0.1:8081/preset/high
+curl http://127.0.0.1:8081/imaging
+curl -X POST http://127.0.0.1:8081/imaging -d '{"brightness":70}'
 ```
 
-프로필 변경 시 `rail-media` 프로세스는 유지되고 RTSP 연결만 잠깐 끊길 수 있다.
+encoder 설정, 화질 프리셋 또는 imaging 값 변경 시 `rail-media` 프로세스는 유지되고 RTSP 연결만 잠깐 끊길 수 있다.
 변경 후 RTSP 주소는 그대로 `rtsp://<pi-ip>:8554/live`를 사용한다.
+제어 API는 기본적으로 로컬에서만 접근 가능하다. 외부에서 직접 제어해야 하는 환경에서는 `--control-host 0.0.0.0`으로 실행하고 방화벽 또는 별도 인증 경계를 둔다.
 
 ## Raspberry Pi에서 먼저 확인할 것
 
@@ -151,7 +161,9 @@ sudo apt install -y \
   pkg-config \
   libgstreamer1.0-dev \
   libgstreamer-plugins-base1.0-dev \
-  libgstrtspserver-1.0-dev
+  libgstrtspserver-1.0-dev \
+  libsoup-3.0-dev \
+  libjson-glib-dev
 ```
 
 실행:
@@ -206,7 +218,7 @@ gst-launch-1.0 libcamerasrc \
 
 ```txt
 RTSP 주소: rtsp://192.168.0.32:8554/live
-HTTP 제어 API: http://192.168.0.32:8081
+HTTP 제어 API: http://127.0.0.1:8081
 기본 프로필: main
 기본 해상도/FPS: 1280x720, 30fps
 기본 인코더: v4l2
@@ -216,12 +228,13 @@ RTSP mount path: /live
 제어 API 확인:
 
 ```bash
-curl http://192.168.0.32:8081/health
-curl http://192.168.0.32:8081/profile
-curl http://192.168.0.32:8081/profiles
-curl -X POST http://192.168.0.32:8081/profile/low
-curl -X POST http://192.168.0.32:8081/profile/main
-curl -X POST http://192.168.0.32:8081/profile/high
+curl http://127.0.0.1:8081/health
+curl http://127.0.0.1:8081/profile
+curl http://127.0.0.1:8081/profiles
+curl http://127.0.0.1:8081/presets
+curl -X POST http://127.0.0.1:8081/preset/low
+curl -X POST http://127.0.0.1:8081/preset/main
+curl -X POST http://127.0.0.1:8081/preset/high
 ```
 
 ## 로그 위치와 확인 방법

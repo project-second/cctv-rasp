@@ -17,7 +17,8 @@
 ```txt
 카메라 인식
 → RTSP 송출
-→ VLC 확인
+→ ONVIF 검색/스트림 URI 제공
+→ VLC 또는 ONVIF 클라이언트 확인
 → 하드웨어 제어 신호 테스트
 → PTZ 동작 확인
 → systemd 자동 실행
@@ -31,7 +32,7 @@ workspace/
 ├── afterveda/          # RTSP/ONVIF 애플리케이션
 │   ├── media-server/   # 카메라 입력과 RTSP 송출
 │   ├── onvif-server/   # ONVIF discovery, media, PTZ 연동
-│   ├── deploy/         # systemd, 실행 스크립트, 운영 문서
+│   ├── cmake/          # Raspberry Pi 크로스 컴파일 toolchain
 │   ├── docs/           # 설계 문서
 │   └── README.md
 └── afterveda-bsp/
@@ -77,16 +78,18 @@ workspace/
 - 재부팅 후 자동 실행을 확인한다.
 - 장애 대응 절차를 문서화한다.
 
-## 5. 1차 완료 기준
+## 5. 현재 완료 기준
 
 - 카메라가 장치에서 정상 인식된다.
 - RTSP 스트림이 송출된다.
 - VLC 또는 외부 클라이언트에서 영상을 볼 수 있다.
+- ONVIF Device/Media 응답에서 `rail-media` RTSP URI를 반환한다.
+- ONVIF PTZ 요청이 `/dev/afterveda_ptz`로 연결된다.
 - 성공한 실행 명령어가 문서화되어 있다.
 
 ## 6. 최종 완료 기준
 
-- 미디어 서버가 자동 실행된다.
+- `rail-media`와 `afterveda-onvif`가 systemd로 자동 실행된다.
 - 하드웨어 제어 대상이 실제로 동작한다.
 - 정지 명령 또는 안전 중단 방법이 확인된다.
 - 포트, 스트림 경로, 로그 확인 방법이 문서화되어 있다.
